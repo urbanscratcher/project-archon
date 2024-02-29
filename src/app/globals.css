@@ -2,32 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  h1 {
+    @apply font-serif text-6xl;
+    letter-spacing: -0.05px;
+    line-height: 1.2;
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+  h3 {
+    @apply font-serif;
+    font-size: 38px;
+    letter-spacing: 0.025px;
+    line-height: 1.25;
+  }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  h4 {
+    @apply font-serif;
+    font-size: 26px;
+    line-height: 1.27;
+  }
+
+  .whiten {
+    filter: brightness(0) invert(1);
+  }
+
+  /* Laptop */
+  @media (min-width: 1280px) {
+    h1 {
+      font-size: 66px;
+      letter-spacing: -0.05px;
+      line-height: 1.2;
+    }
+    h2 {
+      font-size: 53px;
+      letter-spacing: 0px;
+      line-height: 1.25;
+    }
+
+    h3 {
+      font-size: 38px;
+      letter-spacing: 0.025px;
+      line-height: 1.25;
+    }
+
+    h4 {
+      font-size: 26px;
+      letter-spacing: 0px;
+      line-height: 1.27;
+    }
+
+    .topTopics:hover {
+      box-shadow: inset 0 -30px 0 #ddea6c;
+    }
   }
 }
