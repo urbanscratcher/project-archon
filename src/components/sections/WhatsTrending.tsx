@@ -9,6 +9,7 @@ import SectionContainer from "../SectionContainer";
 import SectionHeading from "../SectionHeading";
 import Tag from "../Tag";
 import ViewAll from "../ViewAll";
+import TrendingInsightsList from "../modules/TrendingInsightsList";
 
 function WhatsTrending() {
   const sns = [
@@ -26,113 +27,7 @@ function WhatsTrending() {
           <ViewAll />
         </SectionHeading>
         <div className={`grid grid-cols-[2fr_1fr] `}>
-          <div className={`flex flex-col gap-4 border-r border-r-sky-700 pr-4`}>
-            <div className="relative aspect-video overflow-hidden rounded-2xl p-5">
-              <Image src="/test.webp" fill alt="" className={`object-cover`} />
-            </div>
-            <Tag tagName="narrative" />
-            <h2 className="font-serif">
-              Marvels Of Modern Architecture: Inspiring Structures Shaping Our
-              Cities
-            </h2>
-            <p className="text-xl tracking-wide">
-              In a world marked by fleeting trends and rapid transformations,
-              one element stands as a testament to enduring artistry:
-              architecture.
-            </p>
-            <div className="flex gap-1">
-              <p>{`Nov 2, 2022`}</p>
-              <p>·</p>
-              <p>{`2 min read`}</p>
-            </div>
-            <div className={`flex items-center gap-2`}>
-              <div className="relative h-10 w-10 overflow-hidden rounded-full border border-sky-700 object-cover">
-                <Image src="/test.webp" fill alt="avatar" />
-              </div>
-              <p>Sophia Miller</p>
-            </div>
-          </div>
-
-          <div className={`border-r border-r-sky-700`}>
-            <ul>
-              <li className="border-b-g-300 mx-4 flex gap-2 border-b py-4">
-                <div className="flex w-1/2 flex-col gap-2">
-                  <Tag tagName={"urban"} />
-                  <h4 className="font-serif capitalize">
-                    Architectural Innovations Shape Urban Renewal And Cityscapes
-                  </h4>
-                  <p className="text-g-700 capitalize tracking-wider">
-                    By Sophia Miller
-                  </p>
-                </div>
-                <div className="relative aspect-square w-1/2 overflow-hidden rounded-xl">
-                  <Image
-                    src="/test.webp"
-                    alt=""
-                    className="object-cover"
-                    fill
-                  />
-                </div>
-              </li>
-              <li className="border-b-g-300 mx-4 flex gap-2 border-b py-4">
-                <div className="flex w-1/2 flex-col gap-2">
-                  <Tag tagName={"urban"} />
-                  <h4 className="font-serif capitalize">
-                    Architectural Innovations Shape Urban Renewal And Cityscapes
-                  </h4>
-                  <p className="text-g-700 capitalize tracking-wider">
-                    By Sophia Miller
-                  </p>
-                </div>
-                <div className="relative aspect-square w-1/2 overflow-hidden rounded-xl">
-                  <Image
-                    src="/test.webp"
-                    alt=""
-                    className="object-cover"
-                    fill
-                  />
-                </div>
-              </li>
-              <li className="border-b-g-300 mx-4 flex gap-2 border-b py-4">
-                <div className="flex w-1/2 flex-col gap-2">
-                  <Tag tagName={"urban"} />
-                  <h4 className="font-serif capitalize">
-                    Architectural Innovations Shape Urban Renewal And Cityscapes
-                  </h4>
-                  <p className="text-g-700 capitalize tracking-wider">
-                    By Sophia Miller
-                  </p>
-                </div>
-                <div className="relative aspect-square w-1/2 overflow-hidden rounded-xl">
-                  <Image
-                    src="/test.webp"
-                    alt=""
-                    className="object-cover"
-                    fill
-                  />
-                </div>
-              </li>
-              <li className=" mx-4 flex gap-2 py-4">
-                <div className="flex w-1/2 flex-col gap-2">
-                  <Tag tagName={"urban"} />
-                  <h4 className="font-serif capitalize">
-                    Architectural Innovations Shape Urban Renewal And Cityscapes
-                  </h4>
-                  <p className="text-g-700 capitalize tracking-wider">
-                    By Sophia Miller
-                  </p>
-                </div>
-                <div className="relative aspect-square w-1/2 overflow-hidden rounded-xl">
-                  <Image
-                    src="/test.webp"
-                    alt=""
-                    className="object-cover"
-                    fill
-                  />
-                </div>
-              </li>
-            </ul>
-          </div>
+          <TrendingInsightsList />
         </div>
       </section>
       <section className="col-start-4 col-end-5 row-start-1 row-end-2 rounded-xl border border-sky-700 px-4 py-6">

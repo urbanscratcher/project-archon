@@ -1,5 +1,5 @@
 import { toCamelCase } from "@/libs/helpers";
-import { ZodTypeAny, z } from "zod";
+import { z } from "zod";
 
 export const TopicSchema = z
   .object({
