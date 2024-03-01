@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { BsTwitterX } from "react-icons/bs";
 import {
   IoLogoFacebook,
@@ -7,9 +6,9 @@ import {
 } from "react-icons/io5";
 import SectionContainer from "../SectionContainer";
 import SectionHeading from "../SectionHeading";
-import Tag from "../Tag";
 import ViewAll from "../ViewAll";
 import TrendingInsightsList from "../modules/TrendingInsightsList";
+import SubSectionContainer from "../SubSectionContainer";
 
 function WhatsTrending() {
   const sns = [
@@ -23,14 +22,17 @@ function WhatsTrending() {
     <SectionContainer className="bg-y-100 grid grid-cols-4 grid-rows-[auto_auto_auto] gap-4 text-sky-700">
       <section className="col-start-1 col-end-4 row-span-full">
         <SectionHeading className="flex justify-between">
-          whats trending
+          what&apos;s trending
           <ViewAll />
         </SectionHeading>
         <div className={`grid grid-cols-[2fr_1fr] `}>
+          {/* @ts-expect-error Async Server Component */}
           <TrendingInsightsList />
         </div>
       </section>
-      <section className="col-start-4 col-end-5 row-start-1 row-end-2 rounded-xl border border-sky-700 px-4 py-6">
+      <SubSectionContainer
+        className={`col-start-4 col-end-5 row-start-1 row-end-2`}
+      >
         <SectionHeading>Stay Connected</SectionHeading>
         <ul className="flex flex-col gap-1">
           {sns.map((el) => (
@@ -45,8 +47,8 @@ function WhatsTrending() {
             </li>
           ))}
         </ul>
-      </section>
-      <section className="col-start-4 col-end-5 row-start-2 row-end-3 rounded-xl border border-sky-700 px-4 py-6">
+      </SubSectionContainer>
+      <SubSectionContainer className="col-start-4 col-end-5 row-start-2 row-end-3">
         <SectionHeading>Newsletter</SectionHeading>
         <div className="flex flex-col gap-2">
           <p className="mb-2">
@@ -71,7 +73,7 @@ function WhatsTrending() {
             value={"subscribe"}
           />
         </div>
-      </section>
+      </SubSectionContainer>
     </SectionContainer>
   );
 }

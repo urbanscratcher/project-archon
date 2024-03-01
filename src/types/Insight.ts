@@ -37,6 +37,7 @@ export const InsightSchema = z
 
 export const InsightsSchema = getListSchema(InsightSchema);
 
+export type Creator = z.infer<typeof CreatorSchema>;
 export type Insight = z.infer<typeof InsightSchema>;
 export type Insights = z.infer<typeof InsightsSchema>;
 export type InsightsFilter = z.infer<typeof InsightsFilterSchema>;

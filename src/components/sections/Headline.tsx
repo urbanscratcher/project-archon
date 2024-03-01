@@ -1,14 +1,14 @@
-import Image from "next/image";
-import Tag from "../Tag";
 import { getHeadline } from "@/api/covers.api";
 import { Cover } from "@/types/Cover";
+import ImageWrap from "../ImageWrap";
+import Tag from "../Tag";
 
 async function Headline() {
   const headline: Cover = await getHeadline();
 
   return (
     <section className="xs:h-screen relative min-h-[400px] xl:h-[1033px]">
-      <Image
+      <ImageWrap
         src={headline.insight.thumbnail}
         fill
         alt="headline thumbnail"

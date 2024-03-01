@@ -1,13 +1,14 @@
 import SectionContainer from "../SectionContainer";
 import SectionHeading from "../SectionHeading";
+import SavedForLaterList from "../modules/SavedForLaterList";
 
 function SavedForLater() {
   return (
     <SectionContainer>
       <SectionHeading>saved for later</SectionHeading>
-      <ul>
-        <li>card1</li>
-        <li>card2</li>
+      <ul className="flex gap-4">
+        {/* @ts-expect-error Async Server Component */}
+        <SavedForLaterList />
       </ul>
     </SectionContainer>
   );
