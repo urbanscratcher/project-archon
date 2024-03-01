@@ -2,7 +2,7 @@ import ImageWrap from "../ImageWrap";
 import Tag from "../Tag";
 import AuthorRow from "./AuthorRow";
 
-function SavedForLaterList() {
+async function SavedForLaterList() {
   const insights = [
     {
       idx: 6,

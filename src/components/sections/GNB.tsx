@@ -1,6 +1,6 @@
+import logoImg from "@/assets/logo.png";
 import Image from "next/image";
 import Link from "next/link";
-import logoImg from "@/assets/logo.png";
 
 function GNB() {
   return (
