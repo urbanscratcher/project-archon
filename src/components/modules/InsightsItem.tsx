@@ -32,7 +32,7 @@ function InsightsItem({
         />
       </div>
       <div className={`flex flex-col gap-2`}>
-        <Tag tagName="narrative" />
+        <Tag tagName={insight.topic.name} />
         {isSquared ? (
           <h4 className="line-clamp-3 text-ellipsis font-serif text-sky-700">
             <InsightTitle idx={insight.idx}>{insight.title}</InsightTitle>

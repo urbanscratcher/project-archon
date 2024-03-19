@@ -1,0 +1,16 @@
+import { getTopics } from "@/api/topics.api";
+import InsightsList from "../modules/InsightsList";
+import TopicsNavbar from "../modules/TopicsNavbar";
+
+async function InsightsByTopic() {
+  const topics = await getTopics();
+
+  return (
+    <div className="w-2/3 border-r border-r-g-300 px-8">
+      {topics?.data && <TopicsNavbar topics={topics.data} />}
+      {topics?.data && <InsightsList topics={topics.data} />}
+    </div>
+  );
+}
+
+export default InsightsByTopic;

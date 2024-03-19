@@ -1,14 +1,10 @@
 import { getInsightsByTopic } from "@/api/insights.api";
 import { useQuery } from "@tanstack/react-query";
 
-function useInsights(query: string) {
+function useInsights(query: number) {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["insights", query],
-    queryFn: () => {
-      const topicIdx = query === "all" ? 0 : 7;
-      const res = getInsightsByTopic({ topicIdx, limit: 10 });
-      return res;
-    },
+    queryFn: () => getInsightsByTopic({ topicIdx: query, limit: 10 }),
   });
 
   return { data, isLoading, isError };

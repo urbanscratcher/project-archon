@@ -3,12 +3,18 @@
 import useInsights from "@/hooks/useInsights";
 import { useSearchParams } from "next/navigation";
 import InsightsItem from "./InsightsItem";
+import { Topic } from "@/types/Topic";
 
-function InsightsList() {
+function InsightsList({ topics }: { topics: Topic[] }) {
   const searchParams = useSearchParams();
   const query = searchParams.get("topics") || "all";
 
-  const { data, isLoading, isError } = useInsights(query);
+  const filteredTopics = topics
+    .filter((topic) => topic.name.toLowerCase() === query.toLowerCase())
+    .map((topic) => (topic ? topic.idx : 0));
+  const filteredTopic = filteredTopics?.length > 0 ? filteredTopics[0] : 0;
+
+  const { data: insights, isLoading, isError } = useInsights(filteredTopic);
 
   if (isLoading) {
     return <div>loading...</div>;
@@ -20,11 +26,11 @@ function InsightsList() {
 
   return (
     <>
-      {data && data.total > 0 && (
+      {insights && insights.total > 0 && (
         <ul className="flex flex-col py-4">
-          {data.data.map((insight) => (
+          {insights.data.map((insight) => (
             <InsightsItem
-              key={insight.title}
+              key={`${insight.title}_${insight.idx}`}
               insight={insight}
               className="border-b border-b-g-300 py-4 last:border-b-0"
               summary
