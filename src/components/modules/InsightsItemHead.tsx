@@ -1,8 +1,9 @@
-import { getTimeAgo } from "@/libs/helpers";
 import { Insight } from "@/types/Insight";
 import ImageWrap from "../ImageWrap";
 import Tag from "../Tag";
 import AuthorRow from "./AuthorRow";
+import DateTTRRow from "./DateTTRRow";
+import InsightTitle from "./InsightTitle";
 
 function InsightsItemHead({
   insight,
@@ -24,13 +25,11 @@ function InsightsItemHead({
         />
       </div>
       <Tag tagName="narrative" />
-      <h2 className="font-serif">{insight.title}</h2>
+      <h2 className="font-serif">
+        <InsightTitle idx={insight.idx}>{insight.title}</InsightTitle>
+      </h2>
       <p className="text-xl tracking-wide">{insight.summary}</p>
-      <div className="flex gap-1">
-        <p>{getTimeAgo(insight.createdAt, "month")}</p>
-        <p>·</p>
-        <p>{`2 min read`}</p>
-      </div>
+      <DateTTRRow createdAt={insight.createdAt} />
       <AuthorRow creator={insight.creator} />
     </div>
   );

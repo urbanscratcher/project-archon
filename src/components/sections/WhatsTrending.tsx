@@ -6,15 +6,20 @@ import {
 } from "react-icons/io5";
 import SectionContainer from "../SectionContainer";
 import SectionHeading from "../SectionHeading";
-import ViewAll from "../ViewAll";
-import TrendingInsightsList from "../modules/TrendingInsightsList";
 import SubSectionContainer from "../SubSectionContainer";
+import ViewAll from "../ViewAll";
+import NewsletterForm from "../modules/NewsletterForm";
+import TrendingInsightsList from "../modules/TrendingInsightsList";
 
 function WhatsTrending() {
   const sns = [
     { name: "facebook", icon: <IoLogoFacebook />, followers: "571k" },
     { name: "pinterest", icon: <IoLogoPinterest />, followers: "157k" },
-    { name: "twitter", icon: <BsTwitterX />, followers: "665k" },
+    {
+      name: "twitter",
+      icon: <BsTwitterX className="scale-90" />,
+      followers: "665k",
+    },
     { name: "instagram", icon: <IoLogoInstagram />, followers: "1.5m" },
   ];
 
@@ -50,29 +55,7 @@ function WhatsTrending() {
       </SubSectionContainer>
       <SubSectionContainer className="col-start-4 col-end-5 row-start-2 row-end-3">
         <SectionHeading>Newsletter</SectionHeading>
-        <div className="flex flex-col gap-2">
-          <p className="mb-2">
-            Subscribe our newsletter to get the latest updates all about
-            architecture
-          </p>
-          <input
-            placeholder="Enter your full name"
-            className="rounded-md border border-sky-700 bg-transparent px-2 py-1"
-          />
-          <input
-            placeholder="Enter your email"
-            className="rounded-md border border-sky-700 bg-transparent px-2 py-1"
-          />
-          <label className="my-3 text-sm">
-            <input type="checkbox" />
-            &nbsp; By signing up, you agree to our terms and privacy policy
-          </label>
-          <input
-            type="submit"
-            className="rounded-full bg-sky-700 py-3 text-[15px] font-medium uppercase tracking-[1.25px] text-white"
-            value={"subscribe"}
-          />
-        </div>
+        <NewsletterForm />
       </SubSectionContainer>
     </SectionContainer>
   );

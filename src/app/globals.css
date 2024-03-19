@@ -3,6 +3,29 @@
 @tailwind utilities;
 
 @layer base {
+  /* scrollbar */
+  :root {
+    overflow: overlay;
+  }
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(121, 121, 121, 0.5);
+    border-radius: 100px;
+  }
+
+  /* selection */
+  ::selection {
+    @apply bg-y-300 text-sky-700;
+  }
+  ::-moz-selection {
+    @apply bg-y-300 text-sky-700;
+  }
+  ::-webkit-selection {
+    @apply bg-y-300 text-sky-700;
+  }
+
   h1 {
     @apply font-serif text-6xl;
     letter-spacing: -0.05px;

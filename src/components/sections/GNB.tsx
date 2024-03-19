@@ -1,21 +1,14 @@
 import logoImg from "@/assets/logo.png";
 import Image from "next/image";
 import Link from "next/link";
+import Logo from "../modules/Logo";
 
 function GNB() {
   return (
     <nav
       className={`fixed z-20 grid h-[96px] w-full grid-cols-[auto_1fr_10fr] items-center gap-1 px-10 py-4`}
     >
-      <Link href="/" className={`mb-3`}>
-        <Image
-          src={logoImg}
-          className={`whiten`}
-          width={180}
-          height={37}
-          alt="ArchOn logo"
-        />
-      </Link>
+      <Logo className="mb-3" isWhite />
       <div className="mx-10 text-white">
         <Link
           className={`text-md mx-5 font-medium uppercase tracking-wide`}

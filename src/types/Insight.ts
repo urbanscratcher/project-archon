@@ -33,7 +33,10 @@ export const InsightSchema = z
     created_at: z.coerce.date(),
     edited_at: z.coerce.date().optional(),
   })
-  .transform((data) => toCamelCase(data));
+  .transform((data) => {
+    const newData = { ...data, creator: { ...data.created_by } };
+    return toCamelCase(newData);
+  });
 
 export const InsightsSchema = getListSchema(InsightSchema);
 

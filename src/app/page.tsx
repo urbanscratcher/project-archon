@@ -7,7 +7,7 @@ import WhatsTrending from "@/components/sections/WhatsTrending";
 
 export default function Home() {
   return (
-    <>
+    <main>
       <Highlights />
       <TopTopics />
       {/* <MonthlyAwards /> */}
@@ -15,6 +15,6 @@ export default function Home() {
       <SavedForLater />
       <TheLatest />
       <Videos />
-    </>
+    </main>
   );
 }

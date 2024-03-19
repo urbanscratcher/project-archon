@@ -106,7 +106,7 @@ async function TheLatest() {
                 src={"/test.webp"}
                 alt="inspiration"
                 fill
-                className={`object-fit`}
+                className={`object-cover`}
               />
             </li>
           ))}

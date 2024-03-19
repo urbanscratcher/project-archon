@@ -3,6 +3,8 @@ import ViewAll from "../ViewAll";
 import Tag from "../Tag";
 import { getCovers } from "@/api/covers.api";
 import { Cover } from "@/types/Cover";
+import Link from "next/link";
+import InsightTitle from "./InsightTitle";
 
 async function EditorsPickList() {
   const covers = await getCovers();
@@ -26,7 +28,11 @@ async function EditorsPickList() {
           tagName={covers.data && covers.total > 0 && covers.data[0].topic.name}
         />
         <h3>
-          {covers.data && covers.total > 0 && covers.data[0].insight.title}
+          {covers.data && covers.total > 0 && (
+            <InsightTitle idx={covers.data[0].insight.idx}>
+              {covers.data[0].insight.title}
+            </InsightTitle>
+          )}
         </h3>
       </div>
       <hr className="my-5 h-[1px] gap-2 border-sky-700" />
@@ -42,7 +48,11 @@ async function EditorsPickList() {
                     className="flex gap-2 font-serif text-2xl"
                   >
                     <span>✦</span>
-                    <h4>{c.insight.title}</h4>
+                    <h4>
+                      <InsightTitle idx={c.insight.idx}>
+                        {c.insight.title}
+                      </InsightTitle>
+                    </h4>
                   </li>
                 );
               }

@@ -3,10 +3,12 @@ import { TrendingInsight, TrendingInsights } from "@/types/Trending";
 import ImageWrap from "../ImageWrap";
 import Tag from "../Tag";
 import InsightsItemHead from "./InsightsItemHead";
+import InsightTitle from "./InsightTitle";
 
 async function TrendingInsightsList() {
   const trendingInsights: TrendingInsights = await getTrendingInsights();
 
+  // TODO: error handling
   if (!trendingInsights || trendingInsights.length <= 0) {
     return <></>;
   }
@@ -23,7 +25,9 @@ async function TrendingInsightsList() {
             >
               <div className="flex w-1/2 flex-col gap-2">
                 <Tag tagName={insight.topic.name} />
-                <h4 className="font-serif capitalize">{insight.title}</h4>
+                <h4 className="font-serif capitalize">
+                  <InsightTitle idx={insight.idx}>{insight.title}</InsightTitle>
+                </h4>
                 <p className="text-g-700 capitalize tracking-wide">
                   By{" "}
                   {`${insight.creator.firstName} ${insight.creator.lastName}`}
