@@ -18,19 +18,18 @@ async function TrendingInsightsList() {
       <InsightsItemHead insight={trendingInsights[0]} />
       <div className={`border-r border-r-sky-700`}>
         <ul>
-          {trendingInsights.map((insight: TrendingInsight, idx: number) => (
+          {trendingInsights.map((insight: TrendingInsight) => (
             <li
               key={insight.title}
-              className={`border-b-g-300 mx-4 flex gap-2 border-b py-4 last:border-b-0`}
+              className={`mx-4 flex gap-2 border-b border-b-g-300 py-4 last:border-b-0`}
             >
               <div className="flex w-1/2 flex-col gap-2">
                 <Tag tagName={insight.topic.name} />
                 <h4 className="font-serif capitalize">
                   <InsightTitle idx={insight.idx}>{insight.title}</InsightTitle>
                 </h4>
-                <p className="text-g-700 capitalize tracking-wide">
-                  By{" "}
-                  {`${insight.creator.firstName} ${insight.creator.lastName}`}
+                <p className="capitalize tracking-wide text-g-700">
+                  {`By ${insight.creator.firstName} ${insight.creator.lastName}`}
                 </p>
               </div>
               <div className="relative aspect-square w-1/2 overflow-hidden rounded-xl">

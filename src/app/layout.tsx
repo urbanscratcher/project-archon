@@ -1,11 +1,11 @@
 import Footer from "@/components/sections/Footer";
 import GNB from "@/components/sections/GNB";
 import ReactQueryProvider from "@/libs/ReactQueryProvider";
-import { Inter } from "next/font/google";
+import { Figtree } from "next/font/google";
 import "./globals.css";
 import { Metadata } from "next";
 
-const inter = Inter({ subsets: ["latin"] });
+const figtree = Figtree({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "ArchOn",
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={figtree.className}>
         <ReactQueryProvider>
           <GNB />
           {children}

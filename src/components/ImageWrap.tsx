@@ -10,7 +10,8 @@ function ImageWrap({ src, ...props }: ImageProps) {
     <Image
       src={source}
       {...props}
-      onError={(e) =>
+      alt={props.alt}
+      onError={() =>
         setSource(
           "https://res.cloudinary.com/dmc03nbvx/image/upload/v1709296466/thumbnails/default_qngnrr4fipb41powwn4u.jpg",
         )

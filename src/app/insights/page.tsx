@@ -1,12 +1,17 @@
-import TopicsNavbar from "@/components/modules/TopicsNavbar";
 import InsightsByTopic from "@/components/sections/InsightsByTopic";
+import Inspirations from "@/components/sections/Inspirations";
+import WhatsTrendingAside from "@/components/sections/WhatsTrendingAside";
 
 function InsightsPage() {
   return (
-    <main className="flex pt-[96px]">
+    <main className="flex py-[96px]">
       {/* @ts-expect-error Async Server Component */}
       <InsightsByTopic />
-      <div className="w-1/3 px-[3.2rem]">whats trending list</div>
+      <aside className="my-4 flex w-1/3 flex-col gap-8 px-8">
+        {/* @ts-expect-error Async Server Component */}
+        <WhatsTrendingAside />
+        <Inspirations applyContainer={false} />
+      </aside>
     </main>
   );
 }

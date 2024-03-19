@@ -1,49 +1,15 @@
+import { getTrendingInsights } from "@/api/trending.api";
+import { TrendingInsights } from "@/types/Trending";
+import Image from "next/image";
 import ImageWrap from "../ImageWrap";
 import SectionContainer from "../SectionContainer";
 import SectionHeading from "../SectionHeading";
 import SubSectionContainer from "../SubSectionContainer";
 import ViewAll from "../ViewAll";
-import { IoFlashSharp } from "react-icons/io5";
 import InsightsItem from "../modules/InsightsItem";
-import { TrendingInsights } from "@/types/Trending";
-import { getTrendingInsights } from "@/api/trending.api";
-import Image from "next/image";
-
+import Inspirations from "./Inspirations";
 async function TheLatest() {
   const trendingInsights: TrendingInsights = await getTrendingInsights();
-
-  const inspirations = [
-    {
-      idx: 1,
-      title: "test1",
-      thumbnail: "/test.webp",
-    },
-    {
-      idx: 2,
-      title: "test2",
-      thumbnail: "/test.webp",
-    },
-    {
-      idx: 3,
-      title: "test3",
-      thumbnail: "/test.webp",
-    },
-    {
-      idx: 4,
-      title: "test4",
-      thumbnail: "/test.webp",
-    },
-    {
-      idx: 5,
-      title: "test5",
-      thumbnail: "/test.webp",
-    },
-    {
-      idx: 6,
-      title: "test6",
-      thumbnail: "/test.webp",
-    },
-  ];
 
   const authors = [
     {
@@ -87,31 +53,9 @@ async function TheLatest() {
 
   return (
     <SectionContainer
-      className={`bg-mint-100 grid grid-cols-[1fr_2fr_1fr] gap-4`}
+      className={`grid grid-cols-[1fr_2fr_1fr] gap-4 bg-mint-100`}
     >
-      <SubSectionContainer className={`col-start-1 h-fit`}>
-        <SectionHeading className="flex justify-between">
-          inspirations
-          <IoFlashSharp
-            className={`scale-[120%] hover:cursor-pointer hover:text-sky-600`}
-          />
-        </SectionHeading>
-        <ul className="grid grid-cols-2 grid-rows-3 gap-3">
-          {inspirations.map((inspiration, idx) => (
-            <li
-              key={inspiration.title}
-              className={`relative aspect-[3/2] w-full overflow-hidden rounded-xl`}
-            >
-              <ImageWrap
-                src={"/test.webp"}
-                alt="inspiration"
-                fill
-                className={`object-cover`}
-              />
-            </li>
-          ))}
-        </ul>
-      </SubSectionContainer>
+      <Inspirations className={"col-start-1 h-fit"} />
       <SubSectionContainer className="col-start-2 h-fit">
         <SectionHeading className="flex justify-between">
           The latest
@@ -130,7 +74,7 @@ async function TheLatest() {
             <ul className="pb-1">
               {authors.map((author, idx) => (
                 <li
-                  className="border-b-g-300 flex items-center gap-2 border-b px-1 py-3 text-sky-700 last:border-b-0"
+                  className="flex items-center gap-2 border-b border-b-g-300 px-1 py-3 text-sky-700 last:border-b-0"
                   key={author.firstName + "_" + author.lastName}
                 >
                   <div className="relative h-16 w-16 overflow-hidden rounded-full border border-sky-700">
