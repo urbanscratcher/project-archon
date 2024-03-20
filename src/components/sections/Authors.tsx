@@ -1,18 +1,16 @@
-import { getAuthors } from "@/api/authors.api";
+import useAuthors from "@/hooks/useAuthors";
+import { type Authors } from "@/types/Author";
 import AuthorList from "../modules/AuthorList";
+import { getAuthors } from "@/api/authors.api";
 
 async function Authors() {
-  const authors = await getAuthors({ offset: 0, limit: 5 });
-
+  const initialAuthors = await getAuthors({ offset: 0, limit: 5 });
   return (
     <section className="w-2/3 border-r border-r-g-300 px-8">
       <h1 className="font-serif text-sky-700">
-        Meet Our {authors.total} Awesome Authors
+        Meet Our {initialAuthors?.total || 0} Awesome Authors
       </h1>
-      <AuthorList authors={authors} />
-      <button className="w-full rounded-full bg-sky-700 py-3 text-[15px] font-semibold uppercase tracking-[1.25px] text-white transition-colors hover:bg-sky-900">
-        see more authors
-      </button>
+      {<AuthorList initialAuthors={initialAuthors} />}
     </section>
   );
 }
