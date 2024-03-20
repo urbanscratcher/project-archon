@@ -1,9 +1,9 @@
 "use client";
 
 import useInsights from "@/hooks/useInsights";
+import { Topic } from "@/types/Topic";
 import { useSearchParams } from "next/navigation";
 import InsightsItem from "./InsightsItem";
-import { Topic } from "@/types/Topic";
 
 function InsightsList({ topics }: { topics: Topic[] }) {
   const searchParams = useSearchParams();

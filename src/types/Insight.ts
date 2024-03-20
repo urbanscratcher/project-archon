@@ -21,26 +21,37 @@ export const CreatorSchema = z
   })
   .transform((data) => toCamelCase(data));
 
-export const InsightSchema = z
-  .object({
-    idx: z.number(),
-    title: z.string(),
-    thumbnail: z.string().optional(),
-    summary: z.string().optional(),
-    content: z.string().optional(),
-    topic: TopicSchema,
-    created_by: CreatorSchema,
-    created_at: z.coerce.date(),
-    edited_at: z.coerce.date().optional(),
-  })
-  .transform((data) => {
-    const newData = { ...data, creator: { ...data.created_by } };
-    return toCamelCase(newData);
-  });
+const InsightObject = z.object({
+  idx: z.number(),
+  title: z.string(),
+  thumbnail: z.string().optional(),
+  summary: z.string().optional(),
+  content: z.string().optional(),
+  topic: TopicSchema,
+  created_by: CreatorSchema,
+  created_at: z.coerce.date(),
+  edited_at: z.coerce.date().optional(),
+});
+
+export const InsightSchema = InsightObject.transform((data) => {
+  const newData = { ...data, creator: { ...data.created_by } };
+  return toCamelCase(newData);
+});
 
 export const InsightsSchema = getListSchema(InsightSchema);
+
+export const InsightRandomSchema = InsightObject.pick({
+  idx: true,
+  title: true,
+  thumbnail: true,
+  summary: true,
+});
+
+export const InsightRandomListSchema = z.array(InsightRandomSchema);
 
 export type Creator = z.infer<typeof CreatorSchema>;
 export type Insight = z.infer<typeof InsightSchema>;
 export type Insights = z.infer<typeof InsightsSchema>;
 export type InsightsFilter = z.infer<typeof InsightsFilterSchema>;
+export type InsightRandom = z.infer<typeof InsightRandomSchema>;
+export type InsightRandomList = z.infer<typeof InsightRandomListSchema>;

@@ -1,5 +1,7 @@
 import {
   Insight,
+  InsightRandomList,
+  InsightRandomListSchema,
   InsightSchema,
   Insights,
   InsightsSchema,
@@ -47,7 +49,25 @@ export async function getInsightsByTopic({
   return insights.data;
 }
 
-export async function getInsights() {
+export async function getRandomInsights({
+  limit = 6,
+}: {
+  limit: number;
+}): Promise<InsightRandomList> {
+  const res = await getList(
+    `http://localhost:5001/archon-api/v1/random/insights?limit=${limit}`,
+  );
 
+  const insights = InsightRandomListSchema.safeParse(res);
+
+  if (!insights || !insights?.success) {
+    console.error(insights.error);
+    throw new Error("parsing error");
+  }
+
+  return insights.data;
+}
+
+export async function getInsights() {
   return;
 }
