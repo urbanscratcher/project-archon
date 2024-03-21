@@ -1,5 +1,5 @@
-import { AuthorsSchema } from "@/types/Author";
-import { getList } from "./general.api";
+import { AuthorSchema, AuthorsSchema } from "@/types/Author";
+import { getList, getOne } from "./general.api";
 
 export async function getAuthors({
   offset = 0,
@@ -21,4 +21,19 @@ export async function getAuthors({
   }
 
   return authors.data;
+}
+
+export async function getAuthor(idx: number) {
+  const res = await getOne(`http://localhost:5001/archon-api/v1/users/${idx}`);
+
+  if (!res) {
+    throw new Error("Failed to fetch author");
+  }
+
+  const author = AuthorSchema.safeParse(res);
+  if (!author?.success) {
+    throw new Error("Failed to parse author");
+  }
+
+  return author.data;
 }

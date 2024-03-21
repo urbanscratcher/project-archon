@@ -1,9 +1,8 @@
 import { getTrendingInsights } from "@/api/trending.api";
 import { TrendingInsights } from "@/types/Trending";
-import SubSectionContainer from "../SubSectionContainer";
-import SectionHeading from "../SectionHeading";
 import ImageWrap from "../ImageWrap";
-import Link from "next/link";
+import SectionHeading from "../SectionHeading";
+import SubSectionContainer from "../SubSectionContainer";
 import InsightTitle from "../modules/InsightTitle";
 
 async function WhatsTrendingAside() {
@@ -16,9 +15,7 @@ async function WhatsTrendingAside() {
 
   return (
     <SubSectionContainer applyContainer={false}>
-      <SectionHeading className="flex justify-between">
-        What&apos;s Trending
-      </SectionHeading>
+      <SectionHeading>What&apos;s Trending</SectionHeading>
       <ul className="flex flex-col">
         {trendingInsights.map((insight) => (
           <li

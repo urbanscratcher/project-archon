@@ -1,7 +1,6 @@
-import useAuthors from "@/hooks/useAuthors";
+import { getAuthors } from "@/api/authors.api";
 import { type Authors } from "@/types/Author";
 import AuthorList from "../modules/AuthorList";
-import { getAuthors } from "@/api/authors.api";
 
 async function Authors() {
   const initialAuthors = await getAuthors({ offset: 0, limit: 5 });

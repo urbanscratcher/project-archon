@@ -49,6 +49,29 @@ export async function getInsightsByTopic({
   return insights.data;
 }
 
+export async function getInsightsByAuthor({
+  authorIdx,
+  offset,
+  limit = 10,
+}: {
+  authorIdx: number;
+  offset: number;
+  limit: number;
+}) {
+  const res = await getList(
+    `http://localhost:5001/archon-api/v1/insights?offset=0&limit=10&filter={"and":[{"created_by":"30"}]}`,
+  );
+
+  const insights = InsightsSchema.safeParse(res);
+
+  if (!insights || !insights.success) {
+    console.error(insights.error);
+    throw new Error("parse error");
+  }
+
+  return insights.data;
+}
+
 export async function getRandomInsights({
   limit = 6,
 }: {

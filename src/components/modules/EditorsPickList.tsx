@@ -58,7 +58,7 @@ async function EditorsPickList() {
               }
             })}
         </ul>
-        <ViewAll />
+        <ViewAll to="/insights" />
       </div>
     </>
   );

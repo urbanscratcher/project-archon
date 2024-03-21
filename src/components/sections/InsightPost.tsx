@@ -34,8 +34,8 @@ async function InsightPost({ idx }: { idx: number }) {
         </button>
         <div className="grid grid-cols-[min-content_auto] grid-rows-[min-content_auto] items-center gap-4 border-t border-t-g-300 py-10">
           <div className="relative h-16 w-16 overflow-hidden rounded-full border border-sky-700">
-            <Image
-              src={insight.creator.avatar}
+            <ImageWrap
+              src={insight.creator?.avatar}
               alt="avatar"
               fill
               className="object-cover"

@@ -7,7 +7,7 @@ async function Related() {
     <>
       {insights.data.map((insight) => (
         <InsightsItem
-          isSquared
+          squared
           insight={insight}
           key={insight.title}
           className="basis-1/4"

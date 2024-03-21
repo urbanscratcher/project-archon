@@ -1,9 +1,9 @@
 "use client";
+import useAuthors from "@/hooks/useAuthors";
 import { type Author, type Authors } from "@/types/Author";
 import { type Topic } from "@/types/Topic";
-import { type InfiniteData } from "@tanstack/react-query";
+import Link from "next/link";
 import ImageWrap from "../ImageWrap";
-import useAuthors from "@/hooks/useAuthors";
 
 function AuthorList({ initialAuthors }: { initialAuthors: Authors }) {
   const { data, isLoading, isError, fetchNextPage, hasNextPage } = useAuthors({
@@ -44,9 +44,11 @@ function AuthorList({ initialAuthors }: { initialAuthors: Authors }) {
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <h3 className="font-serif capitalize tracking-[0.25px] text-sky-700">
-                  {author.firstName} {author.lastName}
-                </h3>
+                <Link href={`/authors/${author.idx}`}>
+                  <h3 className="cursor-pointer font-serif capitalize tracking-[0.25px] text-sky-700 hover:underline hover:decoration-2">
+                    {author.firstName} {author.lastName}
+                  </h3>
+                </Link>
                 {author?.topics && author.topics.length > 0 && (
                   <p className="text-[26px] capitalize text-sky-700">
                     {author.topics

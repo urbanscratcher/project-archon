@@ -33,10 +33,12 @@ const InsightObject = z.object({
   edited_at: z.coerce.date().optional(),
 });
 
-export const InsightSchema = InsightObject.transform((data) => {
-  const newData = { ...data, creator: { ...data.created_by } };
-  return toCamelCase(newData);
-});
+export const InsightSchema = InsightObject.transform(
+  ({ created_by, ...rest }) => {
+    const newData = { ...rest, creator: { ...created_by } };
+    return toCamelCase(newData);
+  },
+);
 
 export const InsightsSchema = getListSchema(InsightSchema);
 

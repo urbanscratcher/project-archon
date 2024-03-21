@@ -14,9 +14,9 @@ function InsightPage({ params }: { params: { idx: number } }) {
       <SectionContainer>
         <SectionHeading className="flex justify-between">
           related
-          <ViewAll />
+          <ViewAll to={"/insights"} />
         </SectionHeading>
-        <div className="">
+        <div>
           <ul className="flex gap-4">
             {/* @ts-expect-error Async Server Component */}
             <Related />

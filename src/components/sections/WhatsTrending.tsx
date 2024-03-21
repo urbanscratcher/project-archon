@@ -28,7 +28,7 @@ function WhatsTrending() {
       <section className="col-start-1 col-end-4 row-span-full">
         <SectionHeading className="flex justify-between">
           what&apos;s trending
-          <ViewAll />
+          <ViewAll to={"/insights"} />
         </SectionHeading>
         <div className={`grid grid-cols-[2fr_1fr] `}>
           {/* @ts-expect-error Async Server Component */}
