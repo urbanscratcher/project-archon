@@ -1,7 +1,8 @@
 import { getTrendingInsights } from "@/api/trending.api";
 import { TrendingInsights } from "@/types/Trending";
+import Link from "next/link";
 import ImageWrap from "../ImageWrap";
-import SectionHeading from "../SectionHeading";
+import SectionHead from "../SectionHead";
 import SubSectionContainer from "../SubSectionContainer";
 import InsightTitle from "../modules/InsightTitle";
 
@@ -15,18 +16,24 @@ async function WhatsTrendingAside() {
 
   return (
     <SubSectionContainer applyContainer={false}>
-      <SectionHeading>What&apos;s Trending</SectionHeading>
+      <SectionHead>What&apos;s Trending</SectionHead>
       <ul className="flex flex-col">
         {trendingInsights.map((insight) => (
           <li
-            key={`${insight.title}_${insight.idx}`}
+            key={`trending_aside_${insight.idx}`}
             className={`flex gap-1 border-b border-b-g-200 py-4 last:border-b-0`}
           >
             <div className="flex w-2/3 flex-col gap-1">
               <p className="line-clamp-3 text-[17px] font-semibold capitalize leading-[1.263] tracking-[0.5px] text-g-700">
                 <InsightTitle idx={insight.idx}>{insight.title}</InsightTitle>
               </p>
-              <p className="capitalize tracking-wide text-g-700">{`By ${insight.creator.firstName} ${insight.creator.lastName}`}</p>
+
+              <p className="capitalize tracking-wide text-g-700">
+                By{" "}
+                <Link href={`/authors/${insight.creator.idx}`}>
+                  {insight.creator.firstName} {insight.creator.lastName}
+                </Link>
+              </p>
             </div>
             <div className="relative aspect-[3/2] w-1/3 overflow-hidden rounded-xl">
               <ImageWrap

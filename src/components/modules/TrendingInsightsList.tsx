@@ -4,11 +4,11 @@ import ImageWrap from "../ImageWrap";
 import Tag from "../Tag";
 import InsightsItemHead from "./InsightsItemHead";
 import InsightTitle from "./InsightTitle";
+import Link from "next/link";
 
 async function TrendingInsightsList() {
   const trendingInsights: TrendingInsights = await getTrendingInsights();
 
-  // TODO: error handling
   if (!trendingInsights || trendingInsights.length <= 0) {
     return <></>;
   }
@@ -20,7 +20,7 @@ async function TrendingInsightsList() {
         <ul>
           {trendingInsights.map((insight: TrendingInsight) => (
             <li
-              key={insight.title}
+              key={`trending_${insight.idx}`}
               className={`mx-4 flex gap-2 border-b border-b-g-300 py-4 last:border-b-0`}
             >
               <div className="flex w-1/2 flex-col gap-2">
@@ -29,7 +29,11 @@ async function TrendingInsightsList() {
                   <InsightTitle idx={insight.idx}>{insight.title}</InsightTitle>
                 </h4>
                 <p className="capitalize tracking-wide text-g-700">
-                  {`By ${insight.creator.firstName} ${insight.creator.lastName}`}
+                  By{" "}
+                  <Link
+                    href={`/authors/${insight.creator.idx}`}
+                    className="capitalize hover:text-g-900"
+                  >{`${insight.creator.firstName} ${insight.creator.lastName}`}</Link>
                 </p>
               </div>
               <div className="relative aspect-square w-1/2 overflow-hidden rounded-xl">

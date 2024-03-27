@@ -27,7 +27,10 @@ function AuthorList({ initialAuthors }: { initialAuthors: Authors }) {
   return (
     <>
       {data?.pages.map((page, pageIdx) => (
-        <ul key={pageIdx} className={`flex flex-col gap-12 py-8`}>
+        <ul
+          key={`authorList_${pageIdx}`}
+          className={`flex flex-col gap-12 py-8`}
+        >
           {page.data.map((author: Author) => (
             <li
               key={`${author.firstName}_${author.lastName}_${author.idx}`}

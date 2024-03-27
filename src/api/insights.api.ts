@@ -13,8 +13,6 @@ export async function getInsight(idx: number): Promise<Insight> {
     `http://localhost:5001/archon-api/v1/insights/${idx}`,
   );
 
-  console.log(res);
-
   const insight = InsightSchema.safeParse(res);
 
   if (!insight || !insight.success) {
@@ -59,14 +57,17 @@ export async function getInsightsByAuthor({
   limit: number;
 }) {
   const res = await getList(
-    `http://localhost:5001/archon-api/v1/insights?offset=0&limit=10&filter={"and":[{"created_by":"30"}]}`,
+    `http://localhost:5001/archon-api/v1/insights?offset=${offset}&limit=${limit}&filter={"and":[{"created_by":"${authorIdx}"}]}`,
   );
+
+  if (!res) {
+    throw new Error("Failed to fetch");
+  }
 
   const insights = InsightsSchema.safeParse(res);
 
-  if (!insights || !insights.success) {
-    console.error(insights.error);
-    throw new Error("parse error");
+  if (!insights.success) {
+    throw new Error("Failed to parse");
   }
 
   return insights.data;

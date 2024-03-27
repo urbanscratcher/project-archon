@@ -1,9 +1,8 @@
-import Image from "next/image";
-import ViewAll from "../ViewAll";
-import Tag from "../Tag";
 import { getCovers } from "@/api/covers.api";
 import { Cover } from "@/types/Cover";
-import Link from "next/link";
+import Image from "next/image";
+import Tag from "../Tag";
+import ViewAll from "../ViewAll";
 import InsightTitle from "./InsightTitle";
 
 async function EditorsPickList() {
@@ -36,7 +35,7 @@ async function EditorsPickList() {
         </h3>
       </div>
       <hr className="my-5 h-[1px] gap-2 border-sky-700" />
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-4">
         <ul className="flex flex-col gap-3">
           {covers.data &&
             covers.total > 0 &&
@@ -44,7 +43,7 @@ async function EditorsPickList() {
               if (idx > 0 && idx < 4) {
                 return (
                   <li
-                    key={c.insight.title}
+                    key={`editors_${c.insight.idx}`}
                     className="flex gap-2 font-serif text-2xl"
                   >
                     <span>✦</span>

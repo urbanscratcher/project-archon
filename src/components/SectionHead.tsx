@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-function SectionHeading({
+function SectionHead({
   children,
   className,
 }: {
@@ -16,4 +16,4 @@ function SectionHeading({
   );
 }
 
-export default SectionHeading;
+export default SectionHead;

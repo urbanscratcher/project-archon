@@ -5,7 +5,7 @@ import AuthorRow from "./AuthorRow";
 async function SavedForLaterList() {
   const insights = [
     {
-      idx: 6,
+      idx: 30,
       topic: {
         idx: 4,
         name: "narrative",
@@ -40,7 +40,7 @@ async function SavedForLaterList() {
     <>
       {insights.map((insight, idx) => (
         <li
-          key={insight.title}
+          key={`savedForLater_${insight.idx}`}
           className={`relative h-[550px] w-1/4 overflow-hidden rounded-2xl`}
         >
           <ImageWrap

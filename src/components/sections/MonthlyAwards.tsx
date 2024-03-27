@@ -1,10 +1,10 @@
 import SectionContainer from "../SectionContainer";
-import SectionHeading from "../SectionHeading";
+import SectionHead from "../SectionHead";
 
 function MonthlyAwards() {
   return (
     <SectionContainer>
-      <SectionHeading>Monthly Awards</SectionHeading>
+      <SectionHead>Monthly Awards</SectionHead>
       <ul>
         <li>the winner of july</li>
         <li>the 2nd place</li>

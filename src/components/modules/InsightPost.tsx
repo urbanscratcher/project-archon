@@ -1,17 +1,14 @@
-import { getInsight } from "@/api/insights.api";
 import ImageWrap from "@/components/ImageWrap";
 import Tag from "@/components/Tag";
 import DateTTRRow from "@/components/modules/DateTTRRow";
-import Image from "next/image";
+import { Insight } from "@/types/Insight";
 import { IoLink } from "react-icons/io5";
 
-async function InsightPost({ idx }: { idx: number }) {
-  const insight = await getInsight(idx);
-
+function InsightPost({ insight }: { insight: Insight }) {
   return (
     <section>
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-2 pb-28 pt-12">
-        <Tag tagName={insight.topic.name} />
+        {insight?.topic && <Tag tagName={insight.topic.name} />}
         <h1 className="text-center text-sky-700">{insight.title}</h1>
         <p className="my-6 text-sky-700">{insight.summary}</p>
         <DateTTRRow createdAt={insight.createdAt} isPrimary={false} />
@@ -35,7 +32,7 @@ async function InsightPost({ idx }: { idx: number }) {
         <div className="grid grid-cols-[min-content_auto] grid-rows-[min-content_auto] items-center gap-4 border-t border-t-g-300 py-10">
           <div className="relative h-16 w-16 overflow-hidden rounded-full border border-sky-700">
             <ImageWrap
-              src={insight.creator?.avatar}
+              src={insight.creator?.avatar || ""}
               alt="avatar"
               fill
               className="object-cover"

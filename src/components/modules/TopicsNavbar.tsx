@@ -11,7 +11,7 @@ function TopicsNavbar({ topics }: { topics: Topic[] }) {
     <div className="flex w-full gap-8">
       <div className="flex w-full items-center justify-between  uppercase text-sky-700">
         <IoChevronBackOutline className="scale-[120%]" />
-        <ul className="flex w-full gap-4 px-5 text-[15px] font-semibold tracking-[1.25px]">
+        <ul className="flex w-full gap-4 border-b border-b-g-100 px-5 text-[15px] font-semibold tracking-[1.25px] outline-offset-2">
           <TopicsList topics={topics} />
         </ul>
         <IoChevronForwardOutline className="scale-[120%]" />

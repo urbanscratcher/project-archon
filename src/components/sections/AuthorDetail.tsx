@@ -9,9 +9,9 @@ async function AuthorDetail({ idx }: { idx: number }) {
   return (
     <section className="px-8">
       <div className={`flex flex-col gap-8`}>
-        <div className={`flex items-center gap-8`}>
+        <div className={`flex items-center justify-center gap-8`}>
           <div
-            className={`relative aspect-square w-32 overflow-hidden rounded-full outline outline-2 outline-sky-700`}
+            className={`relative aspect-square w-40 overflow-hidden rounded-full outline outline-2 outline-sky-700`}
           >
             <ImageWrap
               src={author.avatar}
@@ -48,8 +48,8 @@ async function AuthorDetail({ idx }: { idx: number }) {
           <ul
             className={`text-[17px] capitalize leading-[1.263] tracking-[0.5px] text-g-700`}
           >
-            {author.careers.map((career: string) => (
-              <li key={career}>• {career}</li>
+            {author.careers.map((career: string, idx: number) => (
+              <li key={`${career}_${idx}`}>• {career}</li>
             ))}
           </ul>
         )}

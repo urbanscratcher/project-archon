@@ -21,7 +21,7 @@ function InsightsItem({
 }) {
   return (
     <li
-      className={` grid ${squared ? "grid-rows-[auto_auto] content-start" : `${oneThirdImage ? "grid-cols-[1fr_2fr]" : "grid-cols-2"} border-b border-b-g-300 last:border-b-0`} items-center gap-4 py-5  ${className || ""}`}
+      className={` grid ${squared ? "grid-rows-[auto_auto] content-start" : `${oneThirdImage ? "grid-cols-[1fr_2fr]" : "grid-cols-2"} border-b border-b-g-300 last:border-b-0`} items-center gap-4 py-6  ${className || ""}`}
     >
       <div
         className={`relative ${squared ? "h-[250px]" : "aspect-video h-full max-w-full"} overflow-hidden rounded-2xl`}

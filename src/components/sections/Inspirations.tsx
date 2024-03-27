@@ -1,5 +1,5 @@
 import { getRandomInsights } from "@/api/insights.api";
-import SectionHeading from "../SectionHeading";
+import SectionHead from "../SectionHead";
 import SubSectionContainer from "../SubSectionContainer";
 import GetInspirationsBtn from "../modules/GetInspirationsBtn";
 import InspirationList from "../modules/InspirationList";
@@ -18,10 +18,10 @@ async function Inspirations({
       applyContainer={applyContainer}
       className={`${className || ""}`}
     >
-      <SectionHeading className="flex justify-between">
+      <SectionHead className="flex justify-between">
         inspirations
         <GetInspirationsBtn />
-      </SectionHeading>
+      </SectionHead>
       <ul className="grid grid-cols-2 grid-rows-3 gap-2">
         <InspirationList initialInspirations={inspirations} />
       </ul>

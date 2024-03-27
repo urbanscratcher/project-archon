@@ -1,4 +1,8 @@
-import { TrendingInsights, TrendingInsightsSchema } from "@/types/Trending";
+import {
+  FeaturedAuthorsSchema,
+  TrendingInsights,
+  TrendingInsightsSchema,
+} from "@/types/Trending";
 import { getList } from "./general.api";
 
 export async function getTrendingInsights(): Promise<TrendingInsights> {
@@ -14,6 +18,26 @@ export async function getTrendingInsights(): Promise<TrendingInsights> {
 
   if (trendingInsights.success && trendingInsights?.data) {
     return trendingInsights.data;
+  }
+
+  return [];
+}
+
+export async function getFeaturedAuthors(limit: number) {
+  const res = await getList(
+    `http://localhost:5001/archon-api/v1/trending/authors?limit=${limit}`,
+  );
+  if (!res) {
+    throw new Error("Failed to fetch headline");
+  }
+
+  const featuredAuthors = FeaturedAuthorsSchema.safeParse(res);
+  if (!featuredAuthors.success) {
+    throw new Error("Failed to parse");
+  }
+
+  if (featuredAuthors.success && featuredAuthors?.data) {
+    return featuredAuthors.data;
   }
 
   return [];

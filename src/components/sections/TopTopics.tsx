@@ -1,11 +1,11 @@
 import SectionContainer from "../SectionContainer";
-import SectionHeading from "../SectionHeading";
+import SectionHead from "../SectionHead";
 import TopTopicsList from "../modules/TopTopicsList";
 
 function TopTopics() {
   return (
     <SectionContainer className="bg-b-200">
-      <SectionHeading>Top topics</SectionHeading>
+      <SectionHead>Top topics</SectionHead>
       <ul className={`flex flex-wrap gap-x-36 gap-y-10`}>
         {/* @ts-expect-error Async Server Component */}
         <TopTopicsList />

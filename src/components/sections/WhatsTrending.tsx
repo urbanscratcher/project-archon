@@ -5,7 +5,7 @@ import {
   IoLogoPinterest,
 } from "react-icons/io5";
 import SectionContainer from "../SectionContainer";
-import SectionHeading from "../SectionHeading";
+import SectionHead from "../SectionHead";
 import SubSectionContainer from "../SubSectionContainer";
 import ViewAll from "../ViewAll";
 import NewsletterForm from "../modules/NewsletterForm";
@@ -24,13 +24,13 @@ function WhatsTrending() {
   ];
 
   return (
-    <SectionContainer className="bg-y-100 grid grid-cols-4 grid-rows-[auto_auto_auto] gap-4 text-sky-700">
+    <SectionContainer className="grid grid-cols-4 grid-rows-[auto_auto_auto] gap-4 bg-y-100 text-sky-700">
       <section className="col-start-1 col-end-4 row-span-full">
-        <SectionHeading className="flex justify-between">
+        <SectionHead className="flex justify-between">
           what&apos;s trending
           <ViewAll to={"/insights"} />
-        </SectionHeading>
-        <div className={`grid grid-cols-[2fr_1fr] `}>
+        </SectionHead>
+        <div className={`grid grid-cols-[3fr_2fr] `}>
           {/* @ts-expect-error Async Server Component */}
           <TrendingInsightsList />
         </div>
@@ -38,7 +38,7 @@ function WhatsTrending() {
       <SubSectionContainer
         className={`col-start-4 col-end-5 row-start-1 row-end-2`}
       >
-        <SectionHeading>Stay Connected</SectionHeading>
+        <SectionHead>Stay Connected</SectionHead>
         <ul className="flex flex-col gap-1">
           {sns.map((el) => (
             <li
@@ -54,7 +54,7 @@ function WhatsTrending() {
         </ul>
       </SubSectionContainer>
       <SubSectionContainer className="col-start-4 col-end-5 row-start-2 row-end-3">
-        <SectionHeading>Newsletter</SectionHeading>
+        <SectionHead>Newsletter</SectionHead>
         <NewsletterForm />
       </SubSectionContainer>
     </SectionContainer>

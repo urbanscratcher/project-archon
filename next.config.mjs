@@ -5,6 +5,9 @@ const nextConfig = {
     minimumCacheTTL: 60,
     remotePatterns: [{ hostname: "*" }],
   },
+  experimental: {
+    serverActions: true,
+  },
 };
 
 export default nextConfig;

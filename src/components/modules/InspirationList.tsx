@@ -34,7 +34,7 @@ function InspirationList({
     <>
       {inspirations.map((inspiration: InsightRandom) => (
         <li
-          key={`${inspiration.title}_${inspiration.idx}`}
+          key={`inspirations_${inspiration.idx}`}
           className={`relative aspect-[3/2] w-full overflow-hidden rounded-xl`}
         >
           <ImageWrap

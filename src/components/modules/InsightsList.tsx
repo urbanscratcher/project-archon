@@ -30,7 +30,7 @@ function InsightsList({ topics }: { topics: Topic[] }) {
         <ul className="flex flex-col py-4">
           {insights.data.map((insight) => (
             <InsightsItem
-              key={`${insight.title}_${insight.idx}`}
+              key={`insight_list_${insight.idx}`}
               insight={insight}
               className="border-b border-b-g-300 py-4 last:border-b-0"
               summary

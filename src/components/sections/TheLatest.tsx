@@ -2,7 +2,7 @@ import { getTrendingInsights } from "@/api/trending.api";
 import { type TrendingInsights } from "@/types/Trending";
 import ImageWrap from "../ImageWrap";
 import SectionContainer from "../SectionContainer";
-import SectionHeading from "../SectionHeading";
+import SectionHead from "../SectionHead";
 import SubSectionContainer from "../SubSectionContainer";
 import ViewAll from "../ViewAll";
 import InsightsItem from "../modules/InsightsItem";
@@ -19,13 +19,13 @@ async function TheLatest() {
       {/* @ts-expect-error Async Server Component */}
       <Inspirations className={"col-start-1 h-fit"} />
       <SubSectionContainer className="col-start-2 h-fit">
-        <SectionHeading className="flex justify-between">
+        <SectionHead className="flex justify-between">
           The latest
           <ViewAll to="/insights" />
-        </SectionHeading>
+        </SectionHead>
         <ul>
           {trendingInsights.map((insight) => (
-            <InsightsItem key={insight.title} insight={insight} />
+            <InsightsItem key={`latest_${insight.idx}`} insight={insight} />
           ))}
         </ul>
       </SubSectionContainer>
@@ -36,7 +36,7 @@ async function TheLatest() {
         </SubSectionContainer>
 
         <SubSectionContainer className={`h-fit`}>
-          <SectionHeading>ad</SectionHeading>
+          <SectionHead>ad</SectionHead>
           <div className="relative aspect-[3/2] w-full ">
             <ImageWrap
               src={"/test.webp"}

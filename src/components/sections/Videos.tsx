@@ -1,7 +1,7 @@
 import ImageWrap from "../ImageWrap";
 import PlayBtn from "../PlayBtn";
 import SectionContainer from "../SectionContainer";
-import SectionHeading from "../SectionHeading";
+import SectionHead from "../SectionHead";
 
 function Videos() {
   const coverVideo = {
@@ -74,7 +74,7 @@ function Videos() {
 
   return (
     <SectionContainer>
-      <SectionHeading>video</SectionHeading>
+      <SectionHead>video</SectionHead>
       <div className="flex flex-col gap-10">
         <div className="relative flex aspect-video w-full items-center justify-center">
           <ImageWrap
@@ -95,13 +95,13 @@ function Videos() {
           </div>
         </div>
         <ul className={`flex gap-4`}>
-          {videos.map((video) => (
+          {videos.map((video, idx) => (
             <li
-              key={video.title}
-              className={`border-r-g-300 flex w-full gap-2 border-r pr-4 last:border-r-0 last:pr-0`}
+              key={`${video.title}_${idx}`}
+              className={`flex w-full gap-2 border-r border-r-g-300 pr-4 last:border-r-0 last:pr-0`}
             >
               <div className={`w-3/5`}>
-                <p className="text-g-700 text-[15px] font-semibold uppercase tracking-[1.25px]">
+                <p className="text-[15px] font-semibold uppercase tracking-[1.25px] text-g-700">
                   {video.tag.name}
                 </p>
                 <h4 className="text-[26px] capitalize leading-[1.27] text-sky-700">

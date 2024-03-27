@@ -4,7 +4,7 @@ import {
   IoLogoInstagram,
   IoLogoPinterest,
 } from "react-icons/io5";
-import SectionHeading from "../SectionHeading";
+import SectionHead from "../SectionHead";
 import Logo from "../modules/Logo";
 import NewsletterForm from "../modules/NewsletterForm";
 
@@ -28,19 +28,19 @@ function Footer() {
   ];
 
   return (
-    <footer className="border-t-g-300 mx-6 flex flex-col items-center gap-6 border-t py-16">
+    <footer className="mx-6 flex flex-col items-center gap-6 border-t border-t-g-300 py-16">
       <div className={`h-auto w-[200px] self-start`}>
         <Logo />
       </div>
       <div className="flex gap-6">
         <div className="flex basis-[30%] flex-col gap-4">
           <p
-            className={`text-g-700 text-[17px] font-semibold leading-[1.263] tracking-[0.5px]`}
+            className={`text-[17px] font-semibold leading-[1.263] tracking-[0.5px] text-g-700`}
           >
             Welcome to ArchOn - Where Imagination Builds
           </p>
           <p
-            className={`text-g-700 text-[15px] leading-[1.333] tracking-[0.25px]`}
+            className={`text-[15px] leading-[1.333] tracking-[0.25px] text-g-700`}
           >
             We believe in the power of imagination to shape a better tomorrow.
             Our team of visionary writers, architects, and urban planners
@@ -50,33 +50,33 @@ function Footer() {
           </p>
         </div>
         <div className="flex basis-[20%] flex-col gap-3">
-          <SectionHeading>information</SectionHeading>
+          <SectionHead>information</SectionHead>
           <address className="text-g-700">
             1234 Elm Street, Cityville, Stateville 56789, Architopia Land
           </address>
           <p className="text-g-700">support@archon.com</p>
           <p className="text-g-700">(555) 123 4567</p>
-          <ul className="text-g-700 flex gap-4 text-[17px]">
-            <li className="hover:text-g-950 transition-colors hover:cursor-pointer">
+          <ul className="flex gap-4 text-[17px] text-g-700">
+            <li className="transition-colors hover:cursor-pointer hover:text-g-950">
               <IoLogoFacebook />
             </li>
-            <li className="hover:text-g-950 transition-colors hover:cursor-pointer">
+            <li className="transition-colors hover:cursor-pointer hover:text-g-950">
               <IoLogoPinterest />
             </li>
-            <li className="hover:text-g-950 scale-90 transition-colors hover:cursor-pointer">
+            <li className="scale-90 transition-colors hover:cursor-pointer hover:text-g-950">
               <BsTwitterX />
             </li>
-            <li className="hover:text-g-950 transition-colors hover:cursor-pointer">
+            <li className="transition-colors hover:cursor-pointer hover:text-g-950">
               <IoLogoInstagram />
             </li>
           </ul>
         </div>
         <div className="flex-grow">
-          <SectionHeading>menu</SectionHeading>
+          <SectionHead>menu</SectionHead>
           <ul className="flex flex-col gap-1">
             {menu.map((m, idx) => (
               <li key={m.name}>
-                <button className="text-g-700 hover:text-g-950 uppercase transition-colors">
+                <button className="uppercase text-g-700 transition-colors hover:text-g-950">
                   {m.name}
                 </button>
               </li>
@@ -84,11 +84,11 @@ function Footer() {
           </ul>
         </div>
         <div className="flex-grow">
-          <SectionHeading>topics</SectionHeading>
+          <SectionHead>topics</SectionHead>
           <ul className="flex flex-col gap-1">
             {allTopics.map((t, idx) => (
               <li key={t.name}>
-                <button className="text-g-700 hover:text-g-950 capitalize transition-colors">
+                <button className="capitalize text-g-700 transition-colors hover:text-g-950">
                   {t.name}
                 </button>
               </li>
@@ -96,11 +96,11 @@ function Footer() {
           </ul>
         </div>
         <div className="basis-1/5">
-          <SectionHeading>newsletter</SectionHeading>
+          <SectionHead>newsletter</SectionHead>
           <NewsletterForm isPrimary={false} />
         </div>
       </div>
-      <p className="text-g-700 pt-10 text-[13px] tracking-[0.4px]">
+      <p className="pt-10 text-[13px] tracking-[0.4px] text-g-700">
         © 2024 Developed and Designed by Hyunjung Joun. All Rights Reserved.
       </p>
     </footer>

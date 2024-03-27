@@ -1,19 +1,21 @@
-import { getInsightsByTopic } from "@/api/insights.api";
-import InsightsItem from "./InsightsItem";
+import SectionHead from "@/components/SectionHead";
+import ViewAll from "@/components/ViewAll";
+import RelatedList from "@/components/modules/RelatedList";
+import SectionContainer from "../SectionContainer";
+import { Topic } from "@/types/Topic";
 
-async function Related() {
-  const insights = await getInsightsByTopic({ topicIdx: 6, limit: 4 });
+function Related({ topic }: { topic: Topic }) {
   return (
-    <>
-      {insights.data.map((insight) => (
-        <InsightsItem
-          squared
-          insight={insight}
-          key={insight.title}
-          className="basis-1/4"
-        />
-      ))}
-    </>
+    <SectionContainer>
+      <SectionHead className="flex justify-between">
+        related
+        <ViewAll to={`/insights?topics=${topic.name.toLowerCase()}`} />
+      </SectionHead>
+      <ul className="flex gap-4">
+        {/* @ts-expect-error Async Server Component */}
+        <RelatedList topicIdx={topic.idx} />
+      </ul>
+    </SectionContainer>
   );
 }
 

@@ -1,10 +1,10 @@
-import SectionHeading from "../SectionHeading";
+import SectionHead from "../SectionHead";
 import EditorsPickList from "../modules/EditorsPickList";
 
 function EditorsPick() {
   return (
-    <section className={`bg-y-200 xs:h-screen px-8 pb-10 pt-20 xl:h-[1033px]`}>
-      <SectionHeading>editor&apos;s pick</SectionHeading>
+    <section className={`xs:h-screen bg-y-200 px-8 pb-10 pt-20 xl:h-[1033px]`}>
+      <SectionHead>editor&apos;s pick</SectionHead>
       <div className="text-sky-700">
         {/* @ts-expect-error Async Server Component */}
         <EditorsPickList />
