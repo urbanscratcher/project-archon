@@ -1,10 +1,10 @@
 import { getTrendingInsights } from "@/api/trending.api";
 import { TrendingInsight, TrendingInsights } from "@/types/Trending";
-import ImageWrap from "../ImageWrap";
-import Tag from "../Tag";
-import InsightsItemHead from "./InsightsItemHead";
-import InsightTitle from "./InsightTitle";
 import Link from "next/link";
+import Tag from "../Tag";
+import Thumbnail from "../Thumbnail";
+import InsightTitle from "./InsightTitle";
+import InsightsItemHead from "./InsightsItemHead";
 
 async function TrendingInsightsList() {
   const trendingInsights: TrendingInsights = await getTrendingInsights();
@@ -21,9 +21,9 @@ async function TrendingInsightsList() {
           {trendingInsights.map((insight: TrendingInsight) => (
             <li
               key={`trending_${insight.idx}`}
-              className={`mx-4 flex gap-2 border-b border-b-g-300 py-4 last:border-b-0`}
+              className={`mx-4 grid grid-cols-2 items-center gap-2 border-b border-b-g-300 py-4 last:border-b-0`}
             >
-              <div className="flex w-1/2 flex-col gap-2">
+              <div className="flex flex-col gap-2">
                 <Tag tagName={insight.topic.name} />
                 <h4 className="font-serif capitalize">
                   <InsightTitle idx={insight.idx}>{insight.title}</InsightTitle>
@@ -36,14 +36,14 @@ async function TrendingInsightsList() {
                   >{`${insight.creator.firstName} ${insight.creator.lastName}`}</Link>
                 </p>
               </div>
-              <div className="relative aspect-square w-1/2 overflow-hidden rounded-xl">
-                <ImageWrap
-                  src={insight.thumbnail}
-                  alt={insight.title}
-                  className="object-cover"
-                  fill
-                />
-              </div>
+              <Thumbnail
+                href={`/insights/${insight.idx}`}
+                src={insight?.thumbnail || ""}
+                alt={insight.title}
+                aspect={"square"}
+                rounded={"xl"}
+                className={"h-full max-h-[200px] w-full"}
+              />
             </li>
           ))}
         </ul>

@@ -1,9 +1,9 @@
 import { getTrendingInsights } from "@/api/trending.api";
 import { type TrendingInsights } from "@/types/Trending";
-import ImageWrap from "../ImageWrap";
 import SectionContainer from "../SectionContainer";
 import SectionHead from "../SectionHead";
 import SubSectionContainer from "../SubSectionContainer";
+import Thumbnail from "../Thumbnail";
 import ViewAll from "../ViewAll";
 import InsightsItem from "../modules/InsightsItem";
 import FeaturedAuthors from "./FeaturedAuthors";
@@ -37,14 +37,12 @@ async function TheLatest() {
 
         <SubSectionContainer className={`h-fit`}>
           <SectionHead>ad</SectionHead>
-          <div className="relative aspect-[3/2] w-full ">
-            <ImageWrap
-              src={"/test.webp"}
-              alt="ad"
-              fill
-              className="rounded-xl object-cover"
-            />
-          </div>
+          <Thumbnail
+            aspect={"photo"}
+            rounded={"xl"}
+            src={"/test.webp"}
+            alt="ad"
+          />
         </SubSectionContainer>
       </div>
     </SectionContainer>

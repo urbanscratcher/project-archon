@@ -4,6 +4,7 @@ import Image from "next/image";
 import Tag from "../Tag";
 import ViewAll from "../ViewAll";
 import InsightTitle from "./InsightTitle";
+import Thumbnail from "../Thumbnail";
 
 async function EditorsPickList() {
   const covers = await getCovers();
@@ -11,18 +12,19 @@ async function EditorsPickList() {
   return (
     <>
       <div className="flex flex-col gap-2">
-        <div className="relative mb-3 aspect-video w-full overflow-hidden rounded-2xl">
-          <Image
-            src={
-              covers.data &&
-              covers.total > 0 &&
-              covers.data[0].insight.thumbnail
-            }
-            className={`absolute object-cover`}
-            fill
-            alt="editors pick cover"
-          />
-        </div>
+        <Thumbnail
+          href={
+            covers.data && covers.total > 0
+              ? `/insights/${covers.data[0].insight.idx}`
+              : ""
+          }
+          src={
+            covers.data && covers.total > 0 && covers.data[0].insight.thumbnail
+          }
+          alt="editors pick cover"
+          aspect={"video"}
+          className="mb-3"
+        />
         <Tag
           tagName={covers.data && covers.total > 0 && covers.data[0].topic.name}
         />

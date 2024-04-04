@@ -1,6 +1,6 @@
 import { Insight } from "@/types/Insight";
-import ImageWrap from "../ImageWrap";
 import Tag from "../Tag";
+import Thumbnail from "../Thumbnail";
 import AuthorRow from "./AuthorRow";
 import DateTTRRow from "./DateTTRRow";
 import InsightTitle from "./InsightTitle";
@@ -23,16 +23,13 @@ function InsightsItem({
     <li
       className={` grid ${squared ? "grid-rows-[auto_auto] content-start" : `${oneThirdImage ? "grid-cols-[1fr_2fr]" : "grid-cols-2"} border-b border-b-g-300 last:border-b-0`} items-center gap-4 py-6  ${className || ""}`}
     >
-      <div
-        className={`relative ${squared ? "h-[250px]" : "aspect-video h-full max-w-full"} overflow-hidden rounded-2xl`}
-      >
-        <ImageWrap
-          src={insight?.thumbnail}
-          fill
-          alt={insight.title}
-          className={`object-cover`}
-        />
-      </div>
+      <Thumbnail
+        href={`/insights/${insight.idx}`}
+        src={insight?.thumbnail || ""}
+        alt={insight.title}
+        aspect={`${squared ? "" : "video"}`}
+        className={`${squared ? "h-[250px]" : "h-full max-w-full"}`}
+      />
       <div className={`flex flex-col gap-2`}>
         <Tag tagName={insight.topic.name} />
         {squared ? (

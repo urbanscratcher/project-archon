@@ -4,6 +4,7 @@ import useInspClickedStore from "@/stores/useInspClickedStore";
 import { InsightRandom, InsightRandomList } from "@/types/Insight";
 import { useEffect, useState } from "react";
 import ImageWrap from "../ImageWrap";
+import Thumbnail from "../Thumbnail";
 
 function InspirationList({
   initialInspirations,
@@ -33,15 +34,13 @@ function InspirationList({
   return (
     <>
       {inspirations.map((inspiration: InsightRandom) => (
-        <li
-          key={`inspirations_${inspiration.idx}`}
-          className={`relative aspect-[3/2] w-full overflow-hidden rounded-xl`}
-        >
-          <ImageWrap
+        <li key={`inspirations_${inspiration.idx}`}>
+          <Thumbnail
+            href={`/insights/${inspiration.idx}`}
             src={inspiration.thumbnail || ""}
             alt="inspiration"
-            fill
-            className={`object-cover`}
+            aspect={"photo"}
+            rounded={"xl"}
           />
         </li>
       ))}

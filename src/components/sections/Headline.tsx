@@ -9,6 +9,11 @@ async function Headline() {
 
   return (
     <section className="xs:h-screen relative min-h-[400px] xl:h-[1033px]">
+      <div
+        role="presentation"
+        className={`-z-5 absolute inset-0 w-full bg-gradient-to-tl from-y-700 to-black opacity-70`}
+      ></div>
+
       <ImageWrap
         src={headline.insight.thumbnail}
         fill

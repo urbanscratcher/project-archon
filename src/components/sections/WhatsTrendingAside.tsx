@@ -5,6 +5,7 @@ import ImageWrap from "../ImageWrap";
 import SectionHead from "../SectionHead";
 import SubSectionContainer from "../SubSectionContainer";
 import InsightTitle from "../modules/InsightTitle";
+import Thumbnail from "../Thumbnail";
 
 async function WhatsTrendingAside() {
   const trendingInsights: TrendingInsights = await getTrendingInsights();
@@ -35,14 +36,13 @@ async function WhatsTrendingAside() {
                 </Link>
               </p>
             </div>
-            <div className="relative aspect-[3/2] w-1/3 overflow-hidden rounded-xl">
-              <ImageWrap
-                className="object-cover"
-                src={insight.thumbnail}
-                alt={insight.title}
-                fill
-              />
-            </div>
+            <Thumbnail
+              src={insight.thumbnail}
+              alt={insight.title}
+              aspect={"photo"}
+              className={"w-1/3"}
+              rounded={"xl"}
+            />
           </li>
         ))}
       </ul>
