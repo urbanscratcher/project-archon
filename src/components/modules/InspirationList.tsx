@@ -3,8 +3,8 @@
 import useInspClickedStore from "@/stores/useInspClickedStore";
 import { InsightRandom, InsightRandomList } from "@/types/Insight";
 import { useEffect, useState } from "react";
-import ImageWrap from "../ImageWrap";
 import Thumbnail from "../Thumbnail";
+import Spinner from "../Spinner";
 
 function InspirationList({
   initialInspirations,
@@ -24,7 +24,11 @@ function InspirationList({
   }, [data]);
 
   if (isLoading) {
-    return <div>loading...</div>;
+    return (
+      <li className="col-span-2 row-span-3 my-5">
+        <Spinner />
+      </li>
+    );
   }
 
   if (isError) {

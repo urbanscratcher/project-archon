@@ -4,6 +4,7 @@ import useInsights from "@/hooks/useInsights";
 import { Topic } from "@/types/Topic";
 import { useSearchParams } from "next/navigation";
 import InsightsItem from "./InsightsItem";
+import Spinner from "../Spinner";
 
 function InsightsList({ topics }: { topics: Topic[] }) {
   const searchParams = useSearchParams();
@@ -17,7 +18,11 @@ function InsightsList({ topics }: { topics: Topic[] }) {
   const { data: insights, isLoading, isError } = useInsights(filteredTopic);
 
   if (isLoading) {
-    return <div>loading...</div>;
+    return (
+      <div className="h-[66vh]">
+        <Spinner />
+      </div>
+    );
   }
 
   if (isError) {

@@ -38,6 +38,7 @@ async function TheLatest() {
         <SubSectionContainer className={`h-fit`}>
           <SectionHead>ad</SectionHead>
           <Thumbnail
+            href={""}
             aspect={"photo"}
             rounded={"xl"}
             src={"/test.webp"}

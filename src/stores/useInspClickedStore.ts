@@ -8,7 +8,7 @@ const useInspClickedStore = create((set) => ({
   isError: false,
   setIsError: (isError: boolean) => set({ isError: isError }),
   data: [],
-  setData:(data: any) => set({ data: data }),
+  setData: (data: any) => set({ data: data }),
 }));
 
 export default useInspClickedStore;

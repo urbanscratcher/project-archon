@@ -4,6 +4,7 @@ import { type Author, type Authors } from "@/types/Author";
 import { type Topic } from "@/types/Topic";
 import Link from "next/link";
 import ImageWrap from "../ImageWrap";
+import Spinner from "../Spinner";
 
 function AuthorList({ initialAuthors }: { initialAuthors: Authors }) {
   const { data, isLoading, isError, fetchNextPage, hasNextPage } = useAuthors({
@@ -13,7 +14,11 @@ function AuthorList({ initialAuthors }: { initialAuthors: Authors }) {
   });
 
   if (isLoading) {
-    return <div>loading...</div>;
+    return (
+      <div className="h-[66vh]">
+        <Spinner />
+      </div>
+    );
   }
 
   if (isError) {
