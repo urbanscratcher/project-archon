@@ -18,10 +18,10 @@ function InsightsItemHead({
       className={`flex flex-col gap-4 border-r border-r-sky-700 pr-4 ${className || ""}`}
     >
       <Thumbnail
+        href={`/insights/${insight.idx}`}
         src={insight.thumbnail}
         alt={insight.title}
         aspect={"video"}
-        className="p-5"
       />
       <Tag tagName="narrative" />
       <h2 className="font-serif">
