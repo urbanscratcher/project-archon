@@ -117,7 +117,7 @@ function Videos() {
                   className={`absolute inset-0 -z-10 rounded-xl object-cover`}
                   alt={video.title}
                 />
-                <PlayBtn />
+                <PlayBtn src={video.video} />
               </div>
             </li>
           ))}

@@ -4,7 +4,7 @@ import useInsights from "@/hooks/useInsights";
 import { Topic } from "@/types/Topic";
 import { useSearchParams } from "next/navigation";
 import InsightsItem from "./InsightsItem";
-import Spinner from "../Spinner";
+import Loader from "../Loader";
 
 function InsightsList({ topics }: { topics: Topic[] }) {
   const searchParams = useSearchParams();
@@ -20,7 +20,7 @@ function InsightsList({ topics }: { topics: Topic[] }) {
   if (isLoading) {
     return (
       <div className="h-[66vh]">
-        <Spinner />
+        <Loader />
       </div>
     );
   }

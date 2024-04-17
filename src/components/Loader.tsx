@@ -1,4 +1,4 @@
-function Spinner() {
+function Loader() {
   return (
     <div className="flex h-full items-center justify-center">
       <div className="loader my-5"></div>
@@ -6,4 +6,4 @@ function Spinner() {
   );
 }
 
-export default Spinner;
+export default Loader;

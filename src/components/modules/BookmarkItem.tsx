@@ -1,6 +1,6 @@
 import { getInsight } from "@/api/insights.api";
 import { useQuery } from "@tanstack/react-query";
-import Spinner from "../Spinner";
+import Loader from "../Loader";
 import Thumbnail from "../Thumbnail";
 import Tag from "../Tag";
 import InsightTitle from "./InsightTitle";
@@ -18,7 +18,7 @@ function BookmarkItem({ idx }: { idx: number }) {
   });
 
   if (isLoading) {
-    return <Spinner />;
+    return <Loader />;
   }
 
   // TODO mark err
