@@ -31,13 +31,11 @@ function GNB() {
 
   return (
     <nav
-      className={`fixed z-20 flex w-full gap-1 px-10  ${isScrolled ? " border-b border-b-sky-700 bg-white " : "h-[96px] border-b border-b-sky-700/0 py-4"} items-baseline transition-all`}
+      className={`fixed z-50 flex w-full gap-1 px-10  ${isScrolled ? " border-b border-b-sky-700 bg-white " : "h-[96px] border-b border-b-sky-700/0 py-4"} items-baseline transition-all`}
     >
-      <div className={`${isScrolled ? "" : ""}`}>
-        <Logo isWhite={!isScrolled && pathname === "/"} />
-      </div>
+      <Logo isWhite={!isScrolled && pathname === "/"} />
       <ul
-        className={`mx-10 grid w-full grid-cols-11 items-center justify-items-end ${pathname === "/" ? (isScrolled ? "font-semibold text-sky-700" : "font-medium text-white") : isScrolled ? "font-semibold text-sky-700" : " font-semibold text-sky-700"} `}
+        className={`ml-10 grid w-full grid-cols-11 items-center justify-items-end ${pathname === "/" ? (isScrolled ? "font-semibold text-sky-700" : "font-medium text-white") : isScrolled ? "font-semibold text-sky-700" : " font-semibold text-sky-700"} `}
       >
         <li className={`text-md col-span-1 px-2 uppercase tracking-wide`}>
           <Link className={`menu__hover px-1`} href="/insights">
@@ -53,7 +51,7 @@ function GNB() {
           className={`text-md col-start-10 font-semibold  uppercase tracking-wide ${pathname === "/" ? "text-sky-700" : ""} `}
         >
           <Link className="menu__hover px-1" href="/bookmark">
-            Bookmark
+            Bookmarks
           </Link>
         </li>
         <li

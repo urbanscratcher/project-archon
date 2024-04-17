@@ -24,6 +24,7 @@ function InsightsItem({
       className={` grid ${squared ? "grid-rows-[auto_auto] content-start" : `${oneThirdImage ? "grid-cols-[1fr_2fr]" : "grid-cols-2"} border-b border-b-g-300 last:border-b-0`} items-center gap-4 py-6  ${className || ""}`}
     >
       <Thumbnail
+        insightIdx={insight.idx}
         href={`/insights/${insight.idx}`}
         src={insight?.thumbnail || ""}
         alt={insight.title}

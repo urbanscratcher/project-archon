@@ -1,11 +1,10 @@
 import { getTrendingInsights } from "@/api/trending.api";
 import { TrendingInsights } from "@/types/Trending";
 import Link from "next/link";
-import ImageWrap from "../ImageWrap";
 import SectionHead from "../SectionHead";
 import SubSectionContainer from "../SubSectionContainer";
-import InsightTitle from "../modules/InsightTitle";
 import Thumbnail from "../Thumbnail";
+import InsightTitle from "../modules/InsightTitle";
 
 async function WhatsTrendingAside() {
   const trendingInsights: TrendingInsights = await getTrendingInsights();
@@ -37,11 +36,12 @@ async function WhatsTrendingAside() {
               </p>
             </div>
             <Thumbnail
+              insightIdx={insight.idx}
               href={`/insights/${insight.idx}`}
               src={insight.thumbnail}
               alt={insight.title}
               aspect={"photo"}
-              className={"min-h-[100px] w-full"}
+              className={"h-[100px] w-full"}
               rounded={"xl"}
             />
           </li>
