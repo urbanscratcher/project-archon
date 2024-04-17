@@ -1,3 +1,8 @@
+/**
+ * CHECK
+ * [ ] font 디자인 수정
+ */
+
 import SectionContainer from "../SectionContainer";
 import SectionHead from "../SectionHead";
 import TopTopicsList from "../modules/TopTopicsList";
