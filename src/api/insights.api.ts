@@ -13,6 +13,8 @@ export async function getInsight(idx: number): Promise<Insight> {
     `http://localhost:5001/archon-api/v1/insights/${idx}`,
   );
 
+  console.log(res);
+
   const insight = InsightSchema.safeParse(res);
 
   if (!insight || !insight.success) {

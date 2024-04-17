@@ -21,7 +21,7 @@ function InsightsItem({
 }) {
   return (
     <li
-      className={` grid ${squared ? "grid-rows-[auto_auto] content-start" : `${oneThirdImage ? "grid-cols-[1fr_2fr]" : "grid-cols-2"} border-b border-b-g-300 last:border-b-0`} items-center gap-4 py-6  ${className || ""}`}
+      className={` grid ${squared ? "grid-rows-[auto_auto] content-start" : `${oneThirdImage ? "grid-cols-[1fr_2fr]" : "grid-cols-2"} border-b border-b-g-300 last:border-b-0`} items-center gap-4 ${squared ? "" : "py-6"}  ${className || ""}`}
     >
       <Thumbnail
         insightIdx={insight.idx}
@@ -29,7 +29,7 @@ function InsightsItem({
         src={insight?.thumbnail || ""}
         alt={insight.title}
         aspect={`${squared ? "" : "video"}`}
-        className={`${squared ? "h-[250px]" : "h-full max-w-full"}`}
+        className={`${squared ? "min-h-[250px]" : "h-full max-w-full"}`}
       />
       <div className={`flex flex-col gap-2`}>
         <Tag tagName={insight.topic.name} />

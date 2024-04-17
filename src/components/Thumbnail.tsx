@@ -7,7 +7,8 @@
  * [x] 썸네일 호버시 필터 레이어 올리기
  * [x] 썸네일 호버시 북마크 버튼 띄우기
  * [x] 썸네일 호버시 북마크 버튼을 누르면 localStorage에 저장
- * [ ] 썸네일 북마크 상태 전역 설정
+ * [ ] 썸네일 북마크 상태 전역 설정 (북마크 변경시 모든 썸네일에서 감지돼야 함)
+ * [ ] UI - 북마크 버튼과 이미지 컴포넌트 분리
  */
 "use client";
 
@@ -27,7 +28,7 @@ type ThumbnailProps = ImageProps & {
   rounded?: RoundedProps;
 };
 
-function getStoredBookmarksOrInitialize() {
+export function getStoredBookmarksOrInitialize() {
   const bookmarks = localStorage.getItem("bookmarks");
   const bookmarksArr: { idx: number }[] = bookmarks
     ? JSON.parse(bookmarks)
@@ -56,7 +57,6 @@ function Thumbnail({
 }: ThumbnailProps) {
   const [hover, setHover] = useState(false);
   const [hoverBookmark, setHoverBookmark] = useState(false);
-
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   useEffect(() => {
@@ -84,7 +84,7 @@ function Thumbnail({
 
   return (
     <>
-      <Link href={href}>
+      <Link href={href} className="h-full">
         <div
           onMouseEnter={(e) => {
             setHover(true);
@@ -94,7 +94,8 @@ function Thumbnail({
           }}
           className={`
             relative
-            hover:cursor-pointer
+            h-full
+            w-full hover:cursor-pointer
          `}
         >
           {/* bookmark button */}
@@ -130,10 +131,9 @@ function Thumbnail({
                   ? "aspect-square"
                   : aspect === "photo"
                     ? "aspect-[3/2]"
-                    : ""
+                    : "h-full w-full"
             }
             img__filter
-            w-full
             overflow-hidden
             `}
           >

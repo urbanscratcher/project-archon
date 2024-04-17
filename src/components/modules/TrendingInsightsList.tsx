@@ -37,6 +37,7 @@ async function TrendingInsightsList() {
                 </p>
               </div>
               <Thumbnail
+                insightIdx={insight.idx}
                 href={`/insights/${insight.idx}`}
                 src={insight?.thumbnail || ""}
                 alt={insight.title}

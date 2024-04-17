@@ -13,6 +13,9 @@ async function EditorsPickList() {
     <>
       <div className="flex flex-col gap-2">
         <Thumbnail
+          insightIdx={
+            covers.data && covers.total > 0 && covers.data[0].insight.idx
+          }
           href={
             covers.data && covers.total > 0
               ? `/insights/${covers.data[0].insight.idx}`

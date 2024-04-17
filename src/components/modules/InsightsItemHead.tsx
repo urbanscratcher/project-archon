@@ -18,6 +18,7 @@ function InsightsItemHead({
       className={`flex flex-col gap-4 border-r border-r-sky-700 pr-4 ${className || ""}`}
     >
       <Thumbnail
+        insightIdx={insight.idx}
         href={`/insights/${insight.idx}`}
         src={insight.thumbnail}
         alt={insight.title}

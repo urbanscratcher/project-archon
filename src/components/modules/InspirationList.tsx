@@ -40,6 +40,7 @@ function InspirationList({
       {inspirations.map((inspiration: InsightRandom) => (
         <li key={`inspirations_${inspiration.idx}`}>
           <Thumbnail
+            insightIdx={inspiration.idx}
             href={`/insights/${inspiration.idx}`}
             src={inspiration.thumbnail || ""}
             alt="inspiration"
