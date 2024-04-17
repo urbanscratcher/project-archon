@@ -15,6 +15,11 @@
     border-radius: 100px;
   }
 
+  /* menu selection - hover */
+  .menu__hover {
+    @apply hover:bg-sky-700 hover:text-white;
+  }
+
   /* selection */
   ::selection {
     @apply bg-y-300 text-sky-700;

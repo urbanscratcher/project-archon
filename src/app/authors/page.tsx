@@ -11,7 +11,7 @@ function AuthorsPage() {
         {/* @ts-expect-error Async Server Component */}
         <WhatsTrendingAside />
         {/* @ts-expect-error Async Server Component */}
-        <Inspirations applyContainer={false} />ㄴ
+        <Inspirations applyContainer={false} />
       </aside>
     </main>
   );

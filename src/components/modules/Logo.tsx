@@ -13,7 +13,7 @@ function Logo({
     <Link href="/" className={`${className || ""}`}>
       <Image
         src={logoImg}
-        className={`${isWhite && "whiten"}`}
+        className={`${isWhite && "whiten"} translate-y-[4px]`}
         width={180}
         height={37}
         alt="ArchOn logo"
