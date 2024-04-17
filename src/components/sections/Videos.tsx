@@ -91,7 +91,7 @@ function Videos() {
             <p className="letter-[0.5px] text-[15px] leading-[1.263]">
               {coverVideo.summary}
             </p>
-            <PlayBtn />
+            <PlayBtn src={coverVideo.video} />
           </div>
         </div>
         <ul className={`flex gap-4`}>

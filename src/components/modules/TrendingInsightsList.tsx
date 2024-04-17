@@ -43,7 +43,7 @@ async function TrendingInsightsList() {
                 alt={insight.title}
                 aspect={"square"}
                 rounded={"xl"}
-                className={"max-h-[200px]"}
+                className={"max-h-[200px] w-full"}
               />
             </li>
           ))}
