@@ -7,13 +7,14 @@ import {
 import SectionHead from "../SectionHead";
 import Logo from "../modules/Logo";
 import NewsletterForm from "../modules/NewsletterForm";
+import Link from "next/link";
 
 function Footer() {
   const menu = [
     { name: "insights", url: "/insights" },
     { name: "authors", url: "/authors" },
     { name: "bookmarks", url: "/bookmark" },
-    { name: "settings", url: "/settings" },
+    { name: "setting", url: "/settings" },
   ];
 
   const allTopics = [
@@ -74,11 +75,14 @@ function Footer() {
         <div className="flex-grow">
           <SectionHead>menu</SectionHead>
           <ul className="flex flex-col gap-1">
-            {menu.map((m, idx) => (
+            {menu.map((m) => (
               <li key={m.name}>
-                <button className="uppercase text-g-700 transition-colors hover:text-g-950">
+                <Link
+                  href={m.url}
+                  className="uppercase text-g-700 transition-colors hover:text-g-950"
+                >
                   {m.name}
-                </button>
+                </Link>
               </li>
             ))}
           </ul>
@@ -86,11 +90,14 @@ function Footer() {
         <div className="flex-grow">
           <SectionHead>topics</SectionHead>
           <ul className="flex flex-col gap-1">
-            {allTopics.map((t, idx) => (
+            {allTopics.map((t) => (
               <li key={t.name}>
-                <button className="capitalize text-g-700 transition-colors hover:text-g-950">
+                <Link
+                  href={`/insights?topics=${t.name.toLowerCase()}`}
+                  className="capitalize text-g-700 transition-colors hover:text-g-950"
+                >
                   {t.name}
-                </button>
+                </Link>
               </li>
             ))}
           </ul>

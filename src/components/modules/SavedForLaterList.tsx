@@ -1,64 +1,69 @@
+"use client";
+
+import { useQuery } from "@tanstack/react-query";
 import ImageWrap from "../ImageWrap";
 import Tag from "../Tag";
+import { getStoredBookmarksOrInitialize } from "../Thumbnail";
 import AuthorRow from "./AuthorRow";
+import { getInsight } from "@/api/insights.api";
+import Loader from "../Loader";
+import Link from "next/link";
 
-async function SavedForLaterList() {
-  const insights = [
-    {
-      idx: 30,
-      topic: {
-        idx: 4,
-        name: "narrative",
-      },
-      thumbnail: "/test.webp",
-      title:
-        "Marvels Of Modern Architecture: Inspiring Structures Shaping Our Cities",
-      creator: {
-        firstName: "Sophia",
-        lastName: "Miller",
-        avatar: "https://project-archon.netlify.app/data/authors/avatar/7.webp",
-      },
-    },
-    {
-      idx: 6,
-      topic: {
-        idx: 4,
-        name: "narrative",
-      },
-      thumbnail: "/test.webp",
-      title:
-        "The Passive Cooling Strategy Of A Brick Office In Taiwan For Climate Control",
-      creator: {
-        firstName: "Sophia",
-        lastName: "Miller",
-        avatar: "https://project-archon.netlify.app/data/authors/avatar/7.webp",
-      },
-    },
-  ];
+function SavedForLaterList() {
+  const storedInsights = getStoredBookmarksOrInitialize();
 
   return (
     <>
-      {insights.map((insight, idx) => (
-        <li
-          key={`savedForLater_${insight.idx}`}
-          className={`relative h-[550px] w-1/4 overflow-hidden rounded-2xl`}
-        >
-          <ImageWrap
-            src={insight.thumbnail}
-            alt={insight.title}
-            fill
-            className="absolute inset-0 -z-10 object-cover"
-          />
-          <div
-            className={`grid h-full grid-rows-[min-content_auto_min-content] items-end gap-3 px-10 py-10`}
-          >
-            <Tag tagName={insight.topic.name} isWhite />
-            <h3 className="text-white">{insight.title}</h3>
-            <AuthorRow creator={insight.creator} isWhite />
-          </div>
-        </li>
+      {storedInsights.map((s) => (
+        <SavedForLaterItem idx={s.idx} />
       ))}
     </>
+  );
+}
+
+function SavedForLaterItem({ idx }: { idx: number }) {
+  const {
+    data: insight,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["insight", idx],
+    queryFn: () => getInsight(idx),
+  });
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  // TODO mark err
+  if (isError) {
+    console.log(insight);
+    return <div>Error occurred while fetching insight.</div>;
+  }
+
+  return (
+    <li
+      key={`savedForLater_${idx}`}
+      className={`relative h-[550px] w-1/4 overflow-hidden rounded-2xl`}
+    >
+      <ImageWrap
+        src={insight.thumbnail}
+        alt={insight.title}
+        fill
+        className="absolute inset-0 -z-10 object-cover"
+      />
+      <div
+        className={`grid h-full grid-rows-[min-content_auto_min-content] items-end gap-3 p-6`}
+      >
+        <Tag tagName={insight.topic.name} isWhite />
+        <Link href={`/insights/${idx}`}>
+          <h3 className="line-clamp-4 text-white hover:cursor-pointer hover:underline hover:decoration-2">
+            {insight.title}
+          </h3>
+        </Link>
+        <AuthorRow creator={insight.creator} isWhite />
+      </div>
+    </li>
   );
 }
 

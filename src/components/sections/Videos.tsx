@@ -1,3 +1,8 @@
+/**
+ * CHECK
+ * [x] 비디오 재생 버튼 누르면 비디오 띄우기
+ * [x] 비디오 띄울 때 webm 파일은 클라우디나리에서 가져오기
+ */
 import ImageWrap from "../ImageWrap";
 import PlayBtn from "../PlayBtn";
 import SectionContainer from "../SectionContainer";

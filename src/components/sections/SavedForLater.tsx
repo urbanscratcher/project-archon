@@ -7,7 +7,6 @@ function SavedForLater() {
     <SectionContainer>
       <SectionHead>saved for later</SectionHead>
       <ul className="flex gap-4">
-        {/* @ts-expect-error Async Server Component */}
         <SavedForLaterList />
       </ul>
     </SectionContainer>

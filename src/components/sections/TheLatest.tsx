@@ -8,6 +8,7 @@ import ViewAll from "../ViewAll";
 import InsightsItem from "../modules/InsightsItem";
 import FeaturedAuthors from "./FeaturedAuthors";
 import Inspirations from "./Inspirations";
+import ImageWrap from "../ImageWrap";
 
 async function TheLatest() {
   const trendingInsights: TrendingInsights = await getTrendingInsights();
@@ -37,13 +38,14 @@ async function TheLatest() {
 
         <SubSectionContainer className={`h-fit`}>
           <SectionHead>ad</SectionHead>
-          <Thumbnail
-            href={""}
-            aspect={"photo"}
-            rounded={"xl"}
-            src={"/test.webp"}
-            alt="ad"
-          />
+          <div className="relative aspect-[3/2] overflow-hidden rounded-xl hover:cursor-pointer">
+            <ImageWrap
+              src={"/test.webp"}
+              alt="ad"
+              className={`absolute object-cover`}
+              fill
+            />
+          </div>
         </SubSectionContainer>
       </div>
     </SectionContainer>
