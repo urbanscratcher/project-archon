@@ -13,7 +13,7 @@ function Footer() {
   const menu = [
     { name: "insights", url: "/insights" },
     { name: "authors", url: "/authors" },
-    { name: "bookmarks", url: "/bookmark" },
+    { name: "bookmarks", url: "/bookmarks" },
     { name: "setting", url: "/settings" },
   ];
 

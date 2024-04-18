@@ -1,10 +1,9 @@
 import { getCovers } from "@/api/covers.api";
 import { Cover } from "@/types/Cover";
-import Image from "next/image";
 import Tag from "../Tag";
+import Thumbnail from "../Thumbnail";
 import ViewAll from "../ViewAll";
 import InsightTitle from "./InsightTitle";
-import Thumbnail from "../Thumbnail";
 
 async function EditorsPickList() {
   const covers = await getCovers();

@@ -50,7 +50,7 @@ function GNB() {
         <li
           className={`text-md col-start-10 font-semibold  uppercase tracking-wide ${pathname === "/" ? "text-sky-700" : ""} `}
         >
-          <Link className="menu__hover px-1" href="/bookmark">
+          <Link className="menu__hover px-1" href="/bookmarks">
             Bookmarks
           </Link>
         </li>

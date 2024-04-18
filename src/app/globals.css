@@ -21,6 +21,23 @@
   }
 
   /* image filter */
+  .img__overlay::before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: opacity 0.15s ease;
+    background: linear-gradient(
+      to bottom right,
+      rgba(18, 18, 18, 0.73) 0%,
+      rgba(96, 109, 43, 0.58) 100%
+    );
+    opacity: 0.5;
+    z: -1;
+  }
+
   .img__filter::before {
     position: absolute;
     content: "";

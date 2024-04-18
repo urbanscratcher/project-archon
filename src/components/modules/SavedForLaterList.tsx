@@ -46,14 +46,16 @@ function SavedForLaterItem({ idx }: { idx: number }) {
       key={`savedForLater_${idx}`}
       className={`relative h-[550px] w-1/4 overflow-hidden rounded-2xl`}
     >
-      <ImageWrap
-        src={insight.thumbnail}
-        alt={insight.title}
-        fill
-        className="absolute inset-0 -z-10 object-cover"
-      />
+      <div className="img__overlay">
+        <ImageWrap
+          src={insight.thumbnail}
+          alt={insight.title}
+          fill
+          className="absolute inset-0 -z-10 object-cover"
+        />
+      </div>
       <div
-        className={`grid h-full grid-rows-[min-content_auto_min-content] items-end gap-3 p-6`}
+        className={`absolute inset-0 z-10 grid h-full grid-rows-[min-content_auto_min-content] items-end gap-3 p-6`}
       >
         <Tag tagName={insight.topic.name} isWhite />
         <Link href={`/insights/${idx}`}>
