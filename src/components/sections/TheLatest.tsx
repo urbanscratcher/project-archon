@@ -1,14 +1,13 @@
 import { getTrendingInsights } from "@/api/trending.api";
 import { type TrendingInsights } from "@/types/Trending";
+import ImageWrap from "../ImageWrap";
 import SectionContainer from "../SectionContainer";
 import SectionHead from "../SectionHead";
 import SubSectionContainer from "../SubSectionContainer";
-import Thumbnail from "../Thumbnail";
 import ViewAll from "../ViewAll";
 import InsightsItem from "../modules/InsightsItem";
 import FeaturedAuthors from "./FeaturedAuthors";
 import Inspirations from "./Inspirations";
-import ImageWrap from "../ImageWrap";
 
 async function TheLatest() {
   const trendingInsights: TrendingInsights = await getTrendingInsights();

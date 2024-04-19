@@ -1,16 +1,16 @@
 "use client";
 
-import { useQuery } from "@tanstack/react-query";
-import ImageWrap from "../ImageWrap";
-import Tag from "../Tag";
-import { getStoredBookmarksOrInitialize } from "../Thumbnail";
-import AuthorRow from "./AuthorRow";
 import { getInsight } from "@/api/insights.api";
-import Loader from "../Loader";
+import useBookmarkStore from "@/stores/useBookmarkStore";
+import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
+import ImageWrap from "../ImageWrap";
+import Loader from "../Loader";
+import Tag from "../Tag";
+import AuthorRow from "./AuthorRow";
 
 function SavedForLaterList() {
-  const storedInsights = getStoredBookmarksOrInitialize();
+  const storedInsights = useBookmarkStore((state) => state.bookmarks);
 
   return (
     <>

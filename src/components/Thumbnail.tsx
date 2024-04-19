@@ -12,9 +12,10 @@
  */
 "use client";
 
+import useBookmarkStore from "@/stores/useBookmarkStore";
 import { ImageProps } from "next/image";
 import Link from "next/link";
-import { MouseEvent, useEffect, useState } from "react";
+import { MouseEvent, useState } from "react";
 import { IoBookmark, IoBookmarkOutline } from "react-icons/io5";
 import ImageWrap from "./ImageWrap";
 
@@ -36,16 +37,6 @@ export function getStoredBookmarksOrInitialize() {
   return bookmarksArr;
 }
 
-function isAlreadyBookmarked(
-  bookmarksArr: { idx: number }[],
-  insightIdx: number,
-) {
-  const isAlreadyBookmarked = bookmarksArr.some(
-    (b: { idx: number }) => b.idx === insightIdx,
-  );
-  return isAlreadyBookmarked;
-}
-
 function Thumbnail({
   insightIdx = 0,
   href = "",
@@ -57,29 +48,20 @@ function Thumbnail({
 }: ThumbnailProps) {
   const [hover, setHover] = useState(false);
   const [hoverBookmark, setHoverBookmark] = useState(false);
-  const [isBookmarked, setIsBookmarked] = useState(false);
-
-  useEffect(() => {
-    const bookmarksArr = getStoredBookmarksOrInitialize();
-    setIsBookmarked(isAlreadyBookmarked(bookmarksArr, insightIdx));
-  }, [insightIdx]);
+  const {
+    addBookmark,
+    deleteBookmark,
+    isAlreadyBookmarked: isBookmarked,
+  } = useBookmarkStore();
 
   const bookmarkClickHandler = (e: MouseEvent) => {
     e.preventDefault();
 
-    const bookmarksArr = getStoredBookmarksOrInitialize();
-    let newBookmarksArr;
-    if (isBookmarked) {
-      newBookmarksArr = bookmarksArr.filter(
-        (b: { idx: number }) => b.idx !== insightIdx,
-      );
-      setIsBookmarked(false);
+    if (isBookmarked(insightIdx)) {
+      deleteBookmark(insightIdx);
     } else {
-      newBookmarksArr = [...bookmarksArr, { idx: insightIdx }];
-      setIsBookmarked(true);
+      addBookmark(insightIdx);
     }
-
-    localStorage.setItem("bookmarks", JSON.stringify(newBookmarksArr));
   };
 
   return (
@@ -100,9 +82,9 @@ function Thumbnail({
         >
           {/* bookmark button */}
           <button
-            className={`absolute right-0 top-0 z-20 -translate-x-[4px] -translate-y-[4px] ${hover || isBookmarked ? "opacity-100" : "opacity-0"} rounded-full text-3xl text-sky-700 active:text-sky-800`}
+            className={`absolute right-0 top-0 z-20 -translate-x-[4px] -translate-y-[4px] ${hover || isBookmarked(insightIdx) ? "opacity-100" : "opacity-0"} rounded-full text-3xl text-sky-700 active:text-sky-800`}
             onClick={(e: MouseEvent) => {
-              isBookmarked && setHover(false);
+              isBookmarked(insightIdx) && setHover(false);
               bookmarkClickHandler(e);
             }}
             onMouseEnter={(e) => {
@@ -112,7 +94,7 @@ function Thumbnail({
               setHoverBookmark(false);
             }}
           >
-            {hoverBookmark || isBookmarked ? (
+            {hoverBookmark || isBookmarked(insightIdx) ? (
               <IoBookmark />
             ) : (
               <IoBookmarkOutline />

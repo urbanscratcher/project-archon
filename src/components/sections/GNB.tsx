@@ -14,7 +14,6 @@ import { IoCloseOutline, IoMenuSharp } from "react-icons/io5";
 function GNB() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
-
   const pathname = usePathname();
 
   useEffect(() => {

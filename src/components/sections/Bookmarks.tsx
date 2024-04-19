@@ -1,10 +1,10 @@
 "use client";
 
-import { getStoredBookmarksOrInitialize } from "../Thumbnail";
+import useBookmarkStore from "@/stores/useBookmarkStore";
 import BookmarkList from "../modules/BookmarkList";
 
 function Bookmarks() {
-  const initialBookmarks = getStoredBookmarksOrInitialize();
+  const initialBookmarks = useBookmarkStore((state) => state.bookmarks);
 
   return (
     <section className="w-full px-8 lg:w-2/3 lg:border-r lg:border-r-sky-700">
