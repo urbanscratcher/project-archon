@@ -14,7 +14,7 @@ function SavedForLaterList() {
 
   return (
     <>
-      {storedInsights.map((s) => (
+      {storedInsights.slice(0, 4).map((s) => (
         <SavedForLaterItem idx={s.idx} />
       ))}
     </>
@@ -44,7 +44,7 @@ function SavedForLaterItem({ idx }: { idx: number }) {
   return (
     <li
       key={`savedForLater_${idx}`}
-      className={`relative h-[550px] w-full overflow-hidden rounded-2xl sm:w-1/4`}
+      className={`relative h-[550px] w-full overflow-hidden rounded-2xl`}
     >
       <div className="img__overlay">
         <ImageWrap

@@ -31,7 +31,7 @@ function PlayBtn({ src, className }: { src?: string; className?: string }) {
           }}
         >
           <video
-            className="w-3/4 rounded-xl"
+            className="w-full rounded-xl px-2 sm:w-5/6 lg:w-3/4"
             controls
             autoPlay
             src={src}

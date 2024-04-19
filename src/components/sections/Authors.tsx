@@ -5,7 +5,7 @@ import AuthorList from "../modules/AuthorList";
 async function Authors() {
   const initialAuthors = await getAuthors({ offset: 0, limit: 5 });
   return (
-    <section className="w-full px-4 sm:w-2/3 sm:border-r sm:border-r-sky-700 sm:px-8">
+    <section className="w-full p-4 sm:px-8 lg:w-2/3 lg:border-r lg:border-r-sky-700 lg:py-0">
       <h1 className="font-serif text-sky-700">
         Meet Our {initialAuthors?.total || 0} Awesome Authors
       </h1>

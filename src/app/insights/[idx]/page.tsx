@@ -4,7 +4,7 @@ function InsightPage({ params }: { params: { idx: number } }) {
   const { idx } = params;
 
   return (
-    <main className="pt-[96px]">
+    <main className="py-[96px]">
       {/* @ts-expect-error Async Server Component */}
       <InsightDetail idx={idx} />
     </main>

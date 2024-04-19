@@ -14,7 +14,7 @@ function InsightsItemHead({
 }) {
   return (
     <div
-      className={`flex flex-col gap-4 border-r-sky-700/0 pr-4 sm:border-r sm:border-r-sky-700 ${className || ""}`}
+      className={`flex flex-col gap-4 pr-4 lg:border-r lg:border-r-sky-700 ${className || ""}`}
     >
       <Thumbnail
         insightIdx={insight.idx}

@@ -6,7 +6,7 @@ import { IoLink } from "react-icons/io5";
 
 function InsightPost({ insight }: { insight: Insight }) {
   return (
-    <section>
+    <section className="px-2 sm:px-4 lg:px-0">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-2 pb-28 pt-12">
         {insight?.topic && <Tag tagName={insight.topic.name} />}
         <h1 className="text-center text-sky-700">{insight.title}</h1>

@@ -25,18 +25,18 @@ function WhatsTrending() {
 
   return (
     <SectionContainer className="grid grid-cols-1 gap-4 bg-y-100 text-sky-700 sm:grid-cols-4 sm:grid-rows-[auto_auto_auto]">
-      <section className="sm:col-start-1 sm:col-end-4 sm:row-span-full">
+      <section className=" sm:col-span-full sm:row-span-full lg:col-start-1 lg:col-end-4">
         <SectionHead className="flex justify-between">
           what&apos;s trending
           <ViewAll to={"/insights"} />
         </SectionHead>
-        <div className={`grid grid-cols-1 sm:grid-cols-[3fr_2fr] `}>
+        <div className={`grid grid-cols-1 lg:grid-cols-[3fr_2fr] `}>
           {/* @ts-expect-error Async Server Component */}
           <TrendingInsightsList />
         </div>
       </section>
       <SubSectionContainer
-        className={`sm:col-start-4 sm:col-end-5 sm:row-start-1 sm:row-end-2`}
+        className={`sm:col-span-2 lg:col-start-4 lg:col-end-5 lg:row-start-1 lg:row-end-2`}
       >
         <SectionHead>Stay Connected</SectionHead>
         <ul className="flex flex-col gap-1">
@@ -53,7 +53,7 @@ function WhatsTrending() {
           ))}
         </ul>
       </SubSectionContainer>
-      <SubSectionContainer className="sm:col-start-4 sm:col-end-5 sm:row-start-2 sm:row-end-3">
+      <SubSectionContainer className="sm:col-span-2 lg:col-start-4 lg:col-end-5 lg:row-start-2 lg:row-end-3">
         <SectionHead>Newsletter</SectionHead>
         <NewsletterForm />
       </SubSectionContainer>

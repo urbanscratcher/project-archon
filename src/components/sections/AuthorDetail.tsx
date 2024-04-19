@@ -7,9 +7,11 @@ async function AuthorDetail({ idx }: { idx: number }) {
   const author = await getAuthor(idx);
 
   return (
-    <section className="px-8">
+    <section className="px-2 sm:px-8">
       <div className={`flex flex-col gap-8`}>
-        <div className={`flex items-center justify-center gap-8`}>
+        <div
+          className={`flex flex-col items-center justify-center gap-8 sm:flex-row`}
+        >
           <div
             className={`relative aspect-square w-40 overflow-hidden rounded-full outline outline-2 outline-sky-700`}
           >

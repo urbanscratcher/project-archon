@@ -15,11 +15,11 @@ async function TheLatest() {
 
   return (
     <SectionContainer
-      className={`grid grid-cols-1 gap-4 bg-mint-100 sm:grid-cols-[1fr_2fr_1fr]`}
+      className={`grid grid-cols-1 gap-4 bg-mint-100 lg:grid-cols-[1fr_2fr_1fr]`}
     >
       {/* @ts-expect-error Async Server Component */}
-      <Inspirations className={"h-fit sm:col-start-1"} />
-      <SubSectionContainer className="h-fit sm:col-start-2">
+      <Inspirations className={"h-fit lg:col-start-1"} />
+      <SubSectionContainer className="h-fit lg:col-start-2">
         <SectionHead className="flex justify-between">
           The latest
           <ViewAll to="/insights" />

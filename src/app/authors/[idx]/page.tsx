@@ -6,8 +6,8 @@ function AuthorPage({ params }: { params: { idx: number } }) {
   const { idx } = params;
 
   return (
-    <main className="grid grid-cols-[2fr_1fr] pt-[96px]">
-      <div className="border-r border-r-g-300">
+    <main className="grid grid-cols-1 py-[96px] lg:grid-cols-[2fr_1fr]">
+      <div className="lg:border-r lg:border-r-sky-700">
         {/* @ts-expect-error Async Server Component */}
         <AuthorDetail idx={idx} />
         {/* @ts-expect-error Async Server Component */}

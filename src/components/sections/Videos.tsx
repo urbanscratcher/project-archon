@@ -99,11 +99,11 @@ function Videos() {
             <PlayBtn src={coverVideo.video} />
           </div>
         </div>
-        <ul className={`flex flex-col gap-4 sm:flex-row`}>
+        <ul className={`grid gap-4 sm:grid-cols-2 lg:grid-cols-4`}>
           {videos.map((video, idx) => (
             <li
               key={`${video.title}_${idx}`}
-              className={`flex w-full gap-2 pr-4 sm:border-r sm:border-r-g-300 sm:last:border-r-0 sm:last:pr-0`}
+              className={`flex w-full gap-2 lg:border-r lg:border-r-g-300 lg:pr-4 lg:last:border-r-0 lg:last:pr-0`}
             >
               <div className={`w-3/5`}>
                 <p className="text-[15px] font-semibold uppercase tracking-[1.25px] text-g-700">

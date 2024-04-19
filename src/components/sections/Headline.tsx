@@ -8,7 +8,7 @@ async function Headline() {
   const headline: Cover = await getHeadline();
 
   return (
-    <section className="relative h-screen min-h-[400px] xl:h-[1033px]">
+    <section className="relative h-screen sm:min-h-[400px] xl:h-[1033px]">
       <div
         role="presentation"
         className={`-z-5 absolute inset-0 w-full bg-gradient-to-tl from-y-700 to-black opacity-70`}

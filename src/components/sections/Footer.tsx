@@ -29,12 +29,12 @@ function Footer() {
   ];
 
   return (
-    <footer className="mx-6 flex flex-col items-center gap-6 border-t border-t-g-300 py-16">
+    <footer className="mx-4 flex flex-col items-center gap-6 border-t border-t-g-300 py-16 sm:mx-6">
       <div className={`h-auto w-[200px] self-start`}>
         <Logo />
       </div>
-      <div className="flex flex-col gap-6 sm:flex-row">
-        <div className="flex basis-[30%] flex-col gap-4">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-5 lg:grid-cols-[3fr_2fr_1fr_1fr_3fr]">
+        <div className="flex flex-col gap-4 sm:col-span-full lg:col-span-1">
           <p
             className={`text-[17px] font-semibold leading-[1.263] tracking-[0.5px] text-g-700`}
           >
@@ -50,7 +50,7 @@ function Footer() {
             field.
           </p>
         </div>
-        <div className="flex basis-[20%] flex-col gap-3">
+        <div className="flex flex-col gap-3 sm:col-span-full lg:col-span-1">
           <SectionHead>information</SectionHead>
           <address className="text-g-700">
             1234 Elm Street, Cityville, Stateville 56789, Architopia Land
@@ -72,7 +72,7 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div className="flex-grow">
+        <div className="">
           <SectionHead>menu</SectionHead>
           <ul className="flex flex-col gap-1">
             {menu.map((m) => (
@@ -87,7 +87,7 @@ function Footer() {
             ))}
           </ul>
         </div>
-        <div className="flex-grow">
+        <div className="">
           <SectionHead>topics</SectionHead>
           <ul className="flex flex-col gap-1">
             {allTopics.map((t) => (
@@ -102,7 +102,7 @@ function Footer() {
             ))}
           </ul>
         </div>
-        <div className="basis-1/5">
+        <div className="sm:col-span-3 lg:col-span-1">
           <SectionHead>newsletter</SectionHead>
           <NewsletterForm isPrimary={false} />
         </div>
