@@ -44,7 +44,7 @@ function SavedForLaterItem({ idx }: { idx: number }) {
   return (
     <li
       key={`savedForLater_${idx}`}
-      className={`relative h-[550px] w-1/4 overflow-hidden rounded-2xl`}
+      className={`relative h-[550px] w-full overflow-hidden rounded-2xl sm:w-1/4`}
     >
       <div className="img__overlay">
         <ImageWrap

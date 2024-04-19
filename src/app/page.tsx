@@ -9,14 +9,13 @@ export default function Home() {
   return (
     <main>
       <Highlights />
-
-      {/* <TopTopics /> */}
+      <TopTopics />
       {/* <MonthlyAwards /> */}
-      {/* <WhatsTrending /> */}
-      {/* <SavedForLater /> */}
+      <WhatsTrending />
+      <SavedForLater />
       {/* @ts-expect-error Async Server Component */}
-      {/* <TheLatest /> */}
-      {/* <Videos /> */}
+      <TheLatest />
+      <Videos />
     </main>
   );
 }

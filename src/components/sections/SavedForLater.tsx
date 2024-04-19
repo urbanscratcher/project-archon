@@ -10,7 +10,7 @@ function SavedForLater() {
         saved for later
         <ViewAll to="/bookmarks" />
       </SectionHead>
-      <ul className="flex gap-4">
+      <ul className="flex flex-col gap-4 sm:flex-row">
         <SavedForLaterList />
       </ul>
     </SectionContainer>

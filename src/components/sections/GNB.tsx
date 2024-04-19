@@ -33,7 +33,11 @@ function GNB() {
 
   return (
     <nav
-      className={`fixed z-50 flex w-screen justify-between sm:items-baseline sm:justify-center sm:gap-1 ${isScrolled ? "border-b border-b-sky-700 bg-white sm:h-fit" : "border-b border-b-sky-700/0 sm:py-4"} transition-all  ${openMenu ? "h-[130px] bg-white sm:h-auto" : "h-[28px] sm:h-auto"} ${openMenu && isScrolled ? "" : "sm:bg-transparent"} ${!openMenu && isScrolled ? "sm:bg-white" : ""}`}
+      className={`fixed z-50 flex w-screen justify-between transition-all sm:items-baseline sm:justify-center sm:gap-1 
+      ${isScrolled ? "border-b border-b-sky-700 bg-white sm:h-fit" : "border-b border-b-sky-700/0 sm:py-4"}
+      ${openMenu ? "h-[130px] bg-white sm:h-auto" : "h-[28px] sm:h-auto"}
+      ${openMenu && isScrolled ? "" : "sm:bg-transparent"} 
+      ${!openMenu && isScrolled ? "sm:bg-white" : ""}`}
     >
       <Logo
         className={`z-50 w-[110px] ${isScrolled ? "sm:w-[145px]" : "sm:w-[160px]"} px-1 sm:ml-2`}

@@ -6,7 +6,7 @@ async function InsightsByTopic() {
   const topics = await getTopics();
 
   return (
-    <section className="w-2/3 border-r border-r-sky-700 px-8">
+    <section className="w-full px-8 sm:w-2/3 sm:border-r sm:border-r-sky-700">
       {topics?.data && <TopicsNavbar topics={topics.data} />}
       {topics?.data && <InsightsList topics={topics.data} />}
     </section>

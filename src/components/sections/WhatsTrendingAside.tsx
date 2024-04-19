@@ -21,9 +21,9 @@ async function WhatsTrendingAside() {
         {trendingInsights.map((insight) => (
           <li
             key={`trending_aside_${insight.idx}`}
-            className={`flex gap-1 border-b border-b-g-200 py-4 last:border-b-0`}
+            className={`flex flex-col-reverse gap-2 border-b border-b-g-200 py-4 sm:flex-row sm:gap-1 sm:last:border-b-0`}
           >
-            <div className="flex w-2/3 flex-col gap-1">
+            <div className="flex w-full flex-col gap-1 px-1 sm:w-2/3 sm:px-0">
               <p className="line-clamp-3 text-[17px] font-semibold capitalize leading-[1.263] tracking-[0.5px] text-g-700">
                 <InsightTitle idx={insight.idx}>{insight.title}</InsightTitle>
               </p>
@@ -41,7 +41,7 @@ async function WhatsTrendingAside() {
               src={insight.thumbnail}
               alt={insight.title}
               aspect={"photo"}
-              className={"h-[100px] w-full"}
+              className={"w-full sm:h-[100px]"}
               rounded={"xl"}
             />
           </li>

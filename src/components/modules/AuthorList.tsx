@@ -34,15 +34,15 @@ function AuthorList({ initialAuthors }: { initialAuthors: Authors }) {
       {data?.pages.map((page, pageIdx) => (
         <ul
           key={`authorList_${pageIdx}`}
-          className={`flex flex-col gap-12 py-8`}
+          className={`flex flex-col gap-8 py-4 sm:gap-12 sm:py-8`}
         >
           {page.data.map((author: Author) => (
             <li
               key={`${author.firstName}_${author.lastName}_${author.idx}`}
-              className={`flex items-center gap-8`}
+              className={`flex items-center gap-4 sm:gap-8`}
             >
               <div
-                className={`relative aspect-square w-32 overflow-hidden rounded-full outline outline-2 outline-sky-700`}
+                className={`relative aspect-square w-16 overflow-hidden rounded-full outline outline-2 outline-sky-700 sm:w-32`}
               >
                 <ImageWrap
                   src={author.avatar}

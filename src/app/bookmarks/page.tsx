@@ -17,9 +17,9 @@ import WhatsTrendingAside from "@/components/sections/WhatsTrendingAside";
 
 function BookmarkPage() {
   return (
-    <main className="flex py-[96px]">
+    <main className="flex flex-col py-[36px] sm:flex-row sm:py-[96px]">
       <Bookmarks />
-      <aside className="my-4 flex w-1/3 flex-col gap-8 px-8">
+      <aside className="my-4 flex w-full flex-col gap-8 px-4 sm:w-1/3 sm:px-8">
         {/* @ts-expect-error Async Server Component */}
         <WhatsTrendingAside />
         {/* @ts-expect-error Async Server Component */}

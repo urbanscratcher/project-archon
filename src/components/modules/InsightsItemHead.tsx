@@ -1,10 +1,9 @@
 import { Insight } from "@/types/Insight";
-import ImageWrap from "../ImageWrap";
 import Tag from "../Tag";
+import Thumbnail from "../Thumbnail";
 import AuthorRow from "./AuthorRow";
 import DateTTRRow from "./DateTTRRow";
 import InsightTitle from "./InsightTitle";
-import Thumbnail from "../Thumbnail";
 
 function InsightsItemHead({
   insight,
@@ -15,7 +14,7 @@ function InsightsItemHead({
 }) {
   return (
     <div
-      className={`flex flex-col gap-4 border-r border-r-sky-700 pr-4 ${className || ""}`}
+      className={`flex flex-col gap-4 border-r-sky-700/0 pr-4 sm:border-r sm:border-r-sky-700 ${className || ""}`}
     >
       <Thumbnail
         insightIdx={insight.idx}

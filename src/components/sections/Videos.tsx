@@ -99,11 +99,11 @@ function Videos() {
             <PlayBtn src={coverVideo.video} />
           </div>
         </div>
-        <ul className={`flex gap-4`}>
+        <ul className={`flex flex-col gap-4 sm:flex-row`}>
           {videos.map((video, idx) => (
             <li
               key={`${video.title}_${idx}`}
-              className={`flex w-full gap-2 border-r border-r-g-300 pr-4 last:border-r-0 last:pr-0`}
+              className={`flex w-full gap-2 pr-4 sm:border-r sm:border-r-g-300 sm:last:border-r-0 sm:last:pr-0`}
             >
               <div className={`w-3/5`}>
                 <p className="text-[15px] font-semibold uppercase tracking-[1.25px] text-g-700">
@@ -114,7 +114,7 @@ function Videos() {
                 </h4>
               </div>
               <div
-                className={`relative flex aspect-square w-2/5 items-center justify-center overflow-hidden`}
+                className={`relative flex w-2/5 items-center justify-center overflow-hidden sm:aspect-square`}
               >
                 <ImageWrap
                   fill

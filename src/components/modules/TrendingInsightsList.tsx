@@ -16,7 +16,7 @@ async function TrendingInsightsList() {
   return (
     <>
       <InsightsItemHead insight={trendingInsights[0]} />
-      <div className={`border-r border-r-sky-700`}>
+      <div className={`border-r border-r-sky-700/0 sm:border-r-sky-700`}>
         <ul>
           {trendingInsights.map((insight: TrendingInsight) => (
             <li

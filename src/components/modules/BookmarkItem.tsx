@@ -29,7 +29,7 @@ function BookmarkItem({ idx }: { idx: number }) {
 
   return (
     <li
-      className={` grid grid-cols-[1fr_2fr] items-center gap-4 border-b border-b-g-300 py-6 last:border-b-0`}
+      className={`grid grid-cols-1 grid-rows-[auto_1fr] items-center gap-4 border-b border-b-g-300 py-6 last:border-b-0 sm:grid-cols-[1fr_2fr] sm:grid-rows-none`}
     >
       <Thumbnail
         insightIdx={insight.idx}
@@ -37,6 +37,7 @@ function BookmarkItem({ idx }: { idx: number }) {
         src={insight?.thumbnail || ""}
         alt={insight.title}
         aspect={``}
+        className="aspect-video w-full sm:aspect-auto sm:h-full sm:w-auto"
       />
       <div className={`flex flex-col gap-2`}>
         <Tag tagName={insight.topic.name} />

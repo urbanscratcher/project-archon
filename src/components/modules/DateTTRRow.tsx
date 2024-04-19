@@ -14,12 +14,14 @@ function DateTTRRow({
 }) {
   return (
     <div
-      className={`flex items-center gap-1 ${isPrimary ? "text-sky-700" : "text-g-700"} ${className || ""}`}
+      className={`flex flex-wrap items-center gap-1 ${isPrimary ? "text-sky-700" : "text-g-700"} ${className || ""}`}
     >
-      <IoTimeOutline className="text-[19px]" />
-      <p>{getTimeAgo(createdAt, "month")}</p>
+      <span className="flex flex-nowrap items-center gap-1 whitespace-nowrap">
+        <IoTimeOutline className="text-[19px]" />
+        <p>{getTimeAgo(createdAt, "month")}</p>
+      </span>
       <p>·</p>
-      <p>{`2 min read`}</p>
+      <p className="whitespace-nowrap">{`2 min read`}</p>
     </div>
   );
 }
