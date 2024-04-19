@@ -38,7 +38,7 @@ async function WhatsTrendingAside() {
             <Thumbnail
               insightIdx={insight.idx}
               href={`/insights/${insight.idx}`}
-              src={insight.thumbnail}
+              src={insight.thumbnail || ""}
               alt={insight.title}
               aspect={"photo"}
               className={"w-full sm:h-[180px] lg:h-[100px]"}

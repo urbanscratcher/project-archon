@@ -5,7 +5,7 @@ import AuthorRow from "./AuthorRow";
 import DateTTRRow from "./DateTTRRow";
 import InsightTitle from "./InsightTitle";
 
-function InsightsItemHead({
+async function InsightsItemHead({
   insight,
   className,
 }: {

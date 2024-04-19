@@ -21,7 +21,10 @@ async function EditorsPickList() {
               : ""
           }
           src={
-            covers.data && covers.total > 0 && covers.data[0].insight.thumbnail
+            (covers.data &&
+              covers.total > 0 &&
+              covers.data[0].insight.thumbnail) ||
+            ""
           }
           alt="editors pick cover"
           aspect={"video"}

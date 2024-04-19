@@ -6,10 +6,10 @@
 "use client";
 
 import Link from "next/link";
-import Logo from "../modules/Logo";
-import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { IoCloseOutline, IoMenuSharp } from "react-icons/io5";
+import Logo from "../modules/Logo";
 
 function GNB() {
   const [isScrolled, setIsScrolled] = useState(false);
