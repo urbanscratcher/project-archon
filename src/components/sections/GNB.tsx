@@ -9,9 +9,11 @@ import Link from "next/link";
 import Logo from "../modules/Logo";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { IoCloseOutline, IoMenuSharp } from "react-icons/io5";
 
 function GNB() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
 
   const pathname = usePathname();
 
@@ -31,33 +33,45 @@ function GNB() {
 
   return (
     <nav
-      className={`fixed z-50 flex w-full gap-1 px-10  ${isScrolled ? " border-b border-b-sky-700 bg-white " : "h-[96px] border-b border-b-sky-700/0 py-4"} items-baseline transition-all`}
+      className={`fixed z-50 flex w-screen justify-between sm:items-baseline sm:justify-center sm:gap-1 ${isScrolled ? "border-b border-b-sky-700 bg-white sm:h-fit" : "border-b border-b-sky-700/0 sm:py-4"} transition-all  ${openMenu ? "h-[130px] bg-white sm:h-auto" : "h-[28px] sm:h-auto"} ${openMenu && isScrolled ? "" : "sm:bg-transparent"} ${!openMenu && isScrolled ? "sm:bg-white" : ""}`}
     >
-      <Logo isWhite={!isScrolled && pathname === "/"} />
-      <ul
-        className={`ml-10 grid w-full grid-cols-11 items-center justify-items-end ${pathname === "/" ? (isScrolled ? "font-semibold text-sky-700" : "font-medium text-white") : isScrolled ? "font-semibold text-sky-700" : " font-semibold text-sky-700"} `}
+      <Logo
+        className={`z-50 w-[110px] ${isScrolled ? "sm:w-[145px]" : "sm:w-[160px]"} px-1 sm:ml-2`}
+        isWhite={!isScrolled && pathname === "/" && !openMenu}
+      />
+      <button
+        onClick={(e) => {
+          setOpenMenu(!openMenu);
+          setIsScrolled(true);
+        }}
+        className={`z-50 flex ${isScrolled || openMenu ? "text-sky-700" : "text-white"} visible px-1 text-3xl sm:invisible`}
       >
-        <li className={`text-md col-span-1 px-2 uppercase tracking-wide`}>
-          <Link className={`menu__hover px-1`} href="/insights">
+        {openMenu ? <IoCloseOutline /> : <IoMenuSharp />}
+      </button>
+      <ul
+        className={`absolute z-10 flex h-fit w-screen px-2 pt-[28px] transition-transform sm:pt-0 ${openMenu ? "opacity-100" : "-translate-y-full opacity-0 sm:translate-y-0 sm:opacity-100 "} mr-2 h-full flex-col items-end sm:static  sm:ml-10 sm:grid sm:w-full sm:grid-cols-11 sm:items-center sm:justify-items-end   ${pathname === "/" ? (isScrolled ? "font-semibold text-sky-700" : "font-semibold text-sky-700 sm:font-medium sm:text-white") : isScrolled ? "font-semibold text-sky-700" : " font-semibold text-sky-700"} `}
+      >
+        <li className={`text-md uppercase tracking-wide sm:col-span-1 sm:px-2`}>
+          <Link className={`menu__hover sm:px-1`} href="/insights">
             Insights
           </Link>
         </li>
-        <li className={`text-md col-span-1 px-2 uppercase tracking-wide`}>
-          <Link className={`menu__hover px-1`} href="/authors">
+        <li className={`text-md uppercase tracking-wide sm:col-span-1 sm:px-2`}>
+          <Link className={`menu__hover sm:px-1`} href="/authors">
             Authors
           </Link>
         </li>
         <li
-          className={`text-md col-start-10 font-semibold  uppercase tracking-wide ${pathname === "/" ? "text-sky-700" : ""} `}
+          className={`text-md font-semibold uppercase  tracking-wide sm:col-start-10 ${pathname === "/" ? "text-sky-700" : ""} `}
         >
-          <Link className="menu__hover px-1" href="/bookmarks">
+          <Link className="menu__hover sm:px-1" href="/bookmarks">
             Bookmarks
           </Link>
         </li>
         <li
-          className={`col-start-11 ${isScrolled ? "" : ""} text-md font-semibold uppercase tracking-wide ${pathname === "/" ? "text-sky-700" : ""}`}
+          className={`sm:col-start-11 ${isScrolled ? "" : ""} text-md font-semibold uppercase tracking-wide ${pathname === "/" ? "text-sky-700" : ""}`}
         >
-          <Link className="menu__hover px-1" href="/setting">
+          <Link className="menu__hover sm:px-1" href="/setting">
             Setting
           </Link>
         </li>

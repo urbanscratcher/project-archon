@@ -33,7 +33,7 @@ function Footer() {
       <div className={`h-auto w-[200px] self-start`}>
         <Logo />
       </div>
-      <div className="flex gap-6">
+      <div className="flex flex-col gap-6 sm:flex-row">
         <div className="flex basis-[30%] flex-col gap-4">
           <p
             className={`text-[17px] font-semibold leading-[1.263] tracking-[0.5px] text-g-700`}
