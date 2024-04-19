@@ -33,7 +33,8 @@ function GNB() {
 
   return (
     <nav
-      className={`fixed z-50 flex w-screen justify-between transition-all sm:items-baseline sm:justify-center sm:gap-1 
+      className={`fixed z-50 flex w-screen justify-between transition-all sm:items-baseline sm:justify-center sm:gap-1
+      sm:px-2 
       ${isScrolled && "border-b border-b-sky-700 bg-white sm:h-fit"}
       ${!isScrolled && "sm:py-4"}
       ${pathname === "/" && !isScrolled && "border-b border-b-sky-700/0"}
@@ -43,7 +44,7 @@ function GNB() {
       ${!openMenu && isScrolled ? "sm:bg-white" : ""}`}
     >
       <Logo
-        className={`z-50 w-[110px] ${isScrolled ? "sm:w-[145px]" : "sm:w-[160px]"} px-1 sm:ml-2`}
+        className={`z-50 h-fit w-[110px] px-1 sm:h-auto ${isScrolled ? "sm:w-[145px]" : "sm:w-[160px]"} `}
         isWhite={!isScrolled && pathname === "/" && !openMenu}
       />
       <button
@@ -61,11 +62,16 @@ function GNB() {
         {openMenu ? <IoCloseOutline /> : <IoMenuSharp />}
       </button>
       <ul
-        className={`absolute z-10 mr-2 flex h-fit w-screen flex-col items-end px-2 pt-[28px] transition-transform
-        sm:static sm:ml-10 sm:grid sm:w-full
-        sm:grid-cols-4 sm:items-center sm:justify-items-center sm:pt-0
-        lg:grid-cols-11
+        className={`lg:grid-cols-24 absolute z-10 flex h-fit w-screen flex-col items-end pr-2 pt-[28px] transition-transform sm:static
+        sm:grid
+        sm:w-full
+        sm:grid-cols-4
+        sm:items-center
+        sm:justify-items-center
+        sm:pr-0 sm:pt-0
+        lg:grid-cols-8
         lg:justify-items-end
+        xl:grid-cols-11 
         ${openMenu ? "opacity-100" : "-translate-y-full opacity-0 sm:translate-y-0 sm:opacity-100 "}
         ${
           pathname === "/" && isScrolled
@@ -75,7 +81,7 @@ function GNB() {
          `}
       >
         <li
-          className={`text-md uppercase tracking-wide sm:col-span-1 sm:px-2 ${pathname !== "/" && "font-semibold text-sky-700"}`}
+          className={`text-md uppercase tracking-wide ${pathname !== "/" && "font-semibold text-sky-700"}`}
         >
           <Link
             className={`menu__hover sm:px-1`}
@@ -86,7 +92,7 @@ function GNB() {
           </Link>
         </li>
         <li
-          className={`text-md uppercase tracking-wide sm:col-span-1 sm:px-2 ${pathname !== "/" && "font-semibold text-sky-700"}`}
+          className={`text-md uppercase tracking-wide ${pathname !== "/" && "font-semibold text-sky-700"}`}
         >
           <Link
             className={`menu__hover sm:px-1`}
@@ -97,7 +103,8 @@ function GNB() {
           </Link>
         </li>
         <li
-          className={`text-md font-semibold uppercase  tracking-wide lg:col-start-10
+          className={`text-md font-semibold uppercase tracking-wide
+          lg:col-start-[-3]
           ${pathname === "/" && isScrolled && "text-sky-700"}
           ${pathname === "/" && !isScrolled ? "text-white lg:text-sky-700" : ""}
           ${pathname !== "/" && "font-semibold text-sky-700"}`}
@@ -111,7 +118,8 @@ function GNB() {
           </Link>
         </li>
         <li
-          className={`text-md font-semibold uppercase tracking-wide lg:col-start-11
+          className={`text-md font-semibold uppercase tracking-wide
+          lg:col-start-[-2]
           ${pathname === "/" && isScrolled ? "text-sky-700" : ""}
           ${pathname === "/" && !isScrolled ? "text-white lg:text-sky-700" : ""}
           ${pathname !== "/" && "font-semibold text-sky-700"}`}
