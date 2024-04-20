@@ -1,9 +1,9 @@
 import Footer from "@/components/sections/Footer";
 import GNB from "@/components/sections/GNB";
 import ReactQueryProvider from "@/libs/ReactQueryProvider";
+import { type Metadata } from "next";
 import { Figtree } from "next/font/google";
 import "./globals.css";
-import { Metadata } from "next";
 
 const figtree = Figtree({ subsets: ["latin"] });
 

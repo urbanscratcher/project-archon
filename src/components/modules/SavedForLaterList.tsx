@@ -15,7 +15,7 @@ function SavedForLaterList() {
   return (
     <>
       {storedInsights.slice(0, 4).map((s) => (
-        <SavedForLaterItem idx={s.idx} />
+        <SavedForLaterItem key={s.idx} idx={s.idx} />
       ))}
     </>
   );
@@ -37,15 +37,11 @@ function SavedForLaterItem({ idx }: { idx: number }) {
 
   // TODO mark err
   if (isError) {
-    console.log(insight);
     return <div>Error occurred while fetching insight.</div>;
   }
 
   return (
-    <li
-      key={`savedForLater_${idx}`}
-      className={`relative h-[550px] w-full overflow-hidden rounded-2xl`}
-    >
+    <li className={`relative h-[550px] w-full overflow-hidden rounded-2xl`}>
       <div className="img__overlay">
         <ImageWrap
           src={insight.thumbnail}

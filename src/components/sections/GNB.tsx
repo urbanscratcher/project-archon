@@ -1,8 +1,3 @@
-/**
- * CHECK
- * [x] UI기능 - 네비게이션바 스크롤 내리면 흰색 바탕
- * [x] 페이지 마다 text 색깔 다르게 설정
- */
 "use client";
 
 import Link from "next/link";

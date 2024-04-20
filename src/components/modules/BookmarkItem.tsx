@@ -23,7 +23,6 @@ function BookmarkItem({ idx }: { idx: number }) {
 
   // TODO mark err
   if (isError) {
-    console.log(insight);
     return <div>Error occurred while fetching insight.</div>;
   }
 
