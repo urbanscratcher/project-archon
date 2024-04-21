@@ -6,9 +6,9 @@
  * [ ] UI - 리스트 뿌릴 떄 좌우 여백?
  */
 
-import Bookmarks from "@/components/sections/Bookmarks";
-import Inspirations from "@/components/sections/Inspirations";
-import WhatsTrendingAside from "@/components/sections/WhatsTrendingAside";
+import Bookmarks from "@/components/templates/Bookmarks";
+import Inspirations from "@/components/templates/Inspirations";
+import WhatsTrendingAside from "@/components/templates/WhatsTrendingAside";
 
 function BookmarkPage() {
   return (

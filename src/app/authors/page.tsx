@@ -1,6 +1,6 @@
-import Authors from "@/components/sections/Authors";
-import Inspirations from "@/components/sections/Inspirations";
-import WhatsTrendingAside from "@/components/sections/WhatsTrendingAside";
+import Authors from "@/components/templates/Authors";
+import Inspirations from "@/components/templates/Inspirations";
+import WhatsTrendingAside from "@/components/templates/WhatsTrendingAside";
 
 function AuthorsPage() {
   return (

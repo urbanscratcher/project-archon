@@ -1,14 +1,14 @@
-import Highlights from "@/components/sections/Highlights";
-import SavedForLater from "@/components/sections/SavedForLater";
-import TheLatest from "@/components/sections/TheLatest";
-import TopTopics from "@/components/sections/TopTopics";
-import Videos from "@/components/sections/Videos";
-import WhatsTrending from "@/components/sections/WhatsTrending";
+import HighlightSection from "@/components/templates/HighlightSection";
+import SavedForLater from "@/components/templates/SavedForLater";
+import TheLatest from "@/components/templates/TheLatest";
+import TopTopics from "@/components/templates/TopTopics";
+import Videos from "@/components/templates/Videos";
+import WhatsTrending from "@/components/templates/WhatsTrending";
 
 export default function Home() {
   return (
     <main>
-      <Highlights />
+      <HighlightSection />
       <TopTopics />
       {/* <MonthlyAwards /> */}
       <WhatsTrending />

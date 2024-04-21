@@ -1,6 +1,6 @@
-import InsightsByTopic from "@/components/sections/InsightsByTopic";
-import Inspirations from "@/components/sections/Inspirations";
-import WhatsTrendingAside from "@/components/sections/WhatsTrendingAside";
+import InsightsByTopic from "@/components/templates/InsightsByTopic";
+import Inspirations from "@/components/templates/Inspirations";
+import WhatsTrendingAside from "@/components/templates/WhatsTrendingAside";
 
 function InsightsPage() {
   return (

@@ -1,5 +1,5 @@
-import Footer from "@/components/sections/Footer";
-import GNB from "@/components/sections/GNB";
+import Footer from "@/components/templates/Footer";
+import GNB from "@/components/templates/GNB";
 import ReactQueryProvider from "@/libs/ReactQueryProvider";
 import { type Metadata } from "next";
 import { Figtree } from "next/font/google";

@@ -1,4 +1,4 @@
-import InsightDetail from "@/components/sections/InsightDetail";
+import InsightDetail from "@/components/templates/InsightDetail";
 
 function InsightPage({ params }: { params: { idx: number } }) {
   const { idx } = params;

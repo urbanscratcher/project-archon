@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Magazine Website Project
 
-## Getting Started
+- This is a personal project on a magazine website to practice Next.js
 
-First, run the development server:
+## Structure of Components
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Piece of UI that has its own data, logic, appearance (how it works and looks)
+- Components can be reused, nested inside each other, and pass data between them
+- 4 Principles of making a component: checklist
+  1. Logical Separation of Content/layout
+  - Does the component contain pieces of content or layout that don’t belong together?
+  2. Reusability
+  - Is it possible to reuse part of the component?
+  - Do you want or need to reuse it?
+  3. Responsibilities/Complexity
+  - Is the component doing too many different things?
+  - Does the component rely on too many props?
+  - Does the component have too many pieces of state and/or effects?
+  - Is the code, including JSX, too complex/confusing?
+  4. Coding Style
+  - Do you prefer smaller functions/components?
+- Atomic Design
+  1. Subatomic particles - design system
+  2. Atoms - unit
+  3. Molecules - row, item, 1 function(SRP)
+  4. Organisms - list, card, more feature-oriented, multiple functions
+  5. Templates - standardized layouts for organizing
+  6. Pages
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+/\*
+:root {
+Font Sizes
+--h0-xs: 2.8rem;
+--h1-xs: 2.1rem;
+--h2-xs: 1.6rem;
+--h3-xs: 1.4rem;
+--body-m-xs: 1.3rem;
+--body-s-xs: 1.2rem;
+--body-xs-xs: 1.1rem;
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+--h1-xl: 6.6rem;
+--h1-m: 4.4rem;
+--h1-s: 3rem;
+--h1-spacing-xl: -0.05rem;
+--h2-xl: 5.3rem;
+--h2-m: 3.533rem;
+--h2-s: 2.35rem;
+--h2-spacing-xl: 0px;
+--h3-xl: 3.8rem;
+--h3-m: 2.8rem;
+--h3-s: 1.8666rem;
+--h3-spacing-xl: 0.025rem;
+--h4-xl: 2.6rem;
+--h4-m: 2.1rem;
+--h4-s: 1.5rem;
+--h4-spacing-xl: 0px;
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+--body1-xl: 1.7rem;
+--body1-m: 1.5rem;
+--body1-s: 1.3rem;
+--body1-spacing-xl: 0.05rem;
+--body2-xl: 1.5rem;
+--body2-m: 1.3rem;
+--body2-s: 1.2rem;
+--body2-spacing-xl: 0.025rem;
+--body2-spacing-m: 0.01rem;
 
-## Learn More
+--button-xl: 1.5rem;
+--button-m: 1.3rem;
+--button-s: 1.1rem;
+--button-spacing-xl: 0.125rem;
+--button-spacing-s: 0.08rem;
 
-To learn more about Next.js, take a look at the following resources:
+--caption-xl: 1.3rem;
+--caption-m: 1.2rem;
+--caption-s: 1.1rem;
+--caption-spacing-xl: 0.04rem;
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Sizes
+--size-xs: 0.4rem;
+--size-s: 0.8rem;
+--size-m: 1.6rem;
+--size-l: 3.2rem;
+--size-xl: 4.8rem;
+--size-2xl: 6.4rem;
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Radius
+--rad-img: 1.6rem;
+}
+\*/

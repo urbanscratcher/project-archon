@@ -1,6 +1,6 @@
-import AuthorDetail from "@/components/sections/AuthorDetail";
-import InsightsByAuthor from "../../../components/sections/InsightsByAuthor";
-import FeaturedAuthors from "@/components/sections/FeaturedAuthors";
+import AuthorDetail from "@/components/templates/AuthorDetail";
+import InsightsByAuthor from "../../../components/templates/InsightsByAuthor";
+import FeaturedAuthors from "@/components/templates/FeaturedAuthors";
 
 function AuthorPage({ params }: { params: { idx: number } }) {
   const { idx } = params;

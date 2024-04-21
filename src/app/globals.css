@@ -3,6 +3,20 @@
 @tailwind utilities;
 
 @layer base {
+  /* typography */
+  .text-head {
+    @apply line-clamp-4 font-serif text-[66px] font-light leading-[1.2] -tracking-[0.5px];
+  }
+
+  /* hover style */
+  .hover {
+    @apply hover:cursor-pointer;
+  }
+
+  .hover-underline {
+    @apply hover:underline hover:decoration-2;
+  }
+
   /* scrollbar */
   :root {
     overflow: overlay;
