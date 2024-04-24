@@ -16,6 +16,10 @@
     @apply hover:opacity-80;
   }
 
+  .hover-darker {
+    @apply hover:brightness-75;
+  }
+
   /* scrollbar */
   :root {
     overflow: overlay;

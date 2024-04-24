@@ -4,7 +4,7 @@ import Loader from "../molecules/Loader";
 import Thumbnail from "../Thumbnail";
 import Tag from "../atoms/Tag";
 import InsightTitle from "./InsightTitle";
-import DateTTRRow from "./DateTTRRow";
+import DateTTRRow from "../molecules/DateTTRRow";
 import AuthorRow from "./AuthorRow";
 
 function BookmarkItem({ idx }: { idx: number }) {

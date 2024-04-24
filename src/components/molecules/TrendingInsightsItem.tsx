@@ -13,7 +13,7 @@ function TrendingInsightsItem({ insight }: { insight: TrendingInsight }) {
         <Link className="hover-underline" href={`/insights/${insight.idx}`}>
           <h4 className="font-serif capitalize">{insight.title}</h4>
         </Link>
-        <p className="capitalize tracking-wide text-g-700">
+        <p className="capitalize text-g-700">
           By{" "}
           <Link
             href={`/authors/${insight.creator.idx}`}

@@ -22,7 +22,8 @@ export default function RootLayout({
     <html
       lang="en"
       className="
-      text-xs/[1.357] text-sky-700
+      text-xs/[1.357] tracking-[0.03125rem]
+      text-sky-700
       sm:text-sm/[1.4]
       lg:text-[0.9375rem]/[1.5]
       xl:text-[1.0625rem]/[1.75]"

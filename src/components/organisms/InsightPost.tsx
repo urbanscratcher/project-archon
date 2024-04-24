@@ -1,6 +1,6 @@
 import ImageWrap from "@/components/ImageWrap";
 import Tag from "@/components/atoms/Tag";
-import DateTTRRow from "@/components/organisms/DateTTRRow";
+import DateTTRRow from "@/components/molecules/DateTTRRow";
 import { Insight } from "@/types/Insight";
 import { IoLink } from "react-icons/io5";
 
@@ -11,7 +11,7 @@ function InsightPost({ insight }: { insight: Insight }) {
         {insight?.topic && <Tag tagName={insight.topic.name} />}
         <h1 className="text-center text-sky-700">{insight.title}</h1>
         <p className="my-6 text-sky-700">{insight.summary}</p>
-        <DateTTRRow createdAt={insight.createdAt} isPrimary={false} />
+        <DateTTRRow createdAt={insight.createdAt} primary={false} />
       </div>
       <div className="relative aspect-video max-w-full overflow-hidden">
         <ImageWrap

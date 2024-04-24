@@ -3,7 +3,7 @@ import Link from "next/link";
 import Thumbnail from "../Thumbnail";
 import Tag from "../atoms/Tag";
 import AuthorRow from "../organisms/AuthorRow";
-import DateTTRRow from "../organisms/DateTTRRow";
+import DateTTRRow from "./DateTTRRow";
 
 function TrendingInsightsHead({
   insight,
@@ -33,7 +33,7 @@ function TrendingInsightsHead({
         aspect={"video"}
       />
       <Tag tagName={data.tagName} />
-      <Link href={data.href}>
+      <Link href={data.href} className="hover-underline">
         <p className="h3 lg:h2 line-clamp-4">{data.title}</p>
       </Link>
       <p className="line-clamp-5">{data.summary}</p>
