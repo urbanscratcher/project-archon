@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="text-xs sm:text-sm lg:text-[0.9375rem]/[1.5] xl:text-[1.0625rem]/[1.75]"
+      className="text-xs text-sky-700 sm:text-sm lg:text-[0.9375rem]/[1.5] xl:text-[1.0625rem]/[1.75]"
     >
       <body className={`${figtree.className}`}>
         <ReactQueryProvider>

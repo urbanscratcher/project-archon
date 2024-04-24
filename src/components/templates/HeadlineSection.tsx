@@ -1,7 +1,6 @@
 import { getHeadline } from "@/api/covers.api";
 import { Cover } from "@/types/Cover";
 import Link from "next/link";
-import SectionContainer from "../SectionContainer";
 import ImageOverlayed from "../atoms/ImageOverlayed";
 import Tag from "../atoms/Tag";
 
@@ -27,7 +26,7 @@ async function HeadlineSection({ className }: { className: string }) {
         className={`absolute bottom-0 mx-4 my-8 flex flex-col gap-3 text-white sm:mx-6 sm:my-16`}
       >
         <Tag tagName={data.tagName} white />
-        <Link href={data.href} className={`hover hover-underline`}>
+        <Link href={data.href} className={`hover-underline`}>
           <h1 className="line-clamp-4">{data.title}</h1>
         </Link>
       </div>

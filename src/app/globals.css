@@ -12,6 +12,10 @@
     @apply hover:underline hover:decoration-2;
   }
 
+  .hover-lighter {
+    @apply hover:opacity-80;
+  }
+
   /* scrollbar */
   :root {
     overflow: overlay;
@@ -106,10 +110,6 @@
 
   .whiten {
     filter: brightness(0) invert(1);
-  }
-
-  .topTopics:hover {
-    box-shadow: inset 0 -30px 0 #ddea6c;
   }
 
   /* loader */

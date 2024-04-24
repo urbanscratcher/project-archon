@@ -4,18 +4,16 @@
 
 import SectionContainer from "../SectionContainer";
 import SectionHead from "../SectionHead";
-import TopTopicsList from "../organisms/TopTopicsList";
+import TopTopics from "../organisms/TopTopics";
 
-function TopTopics() {
+function TopTopicSection() {
   return (
     <SectionContainer className="bg-b-200">
       <SectionHead>Top topics</SectionHead>
-      <ul className={`flex flex-wrap gap-x-36 gap-y-10`}>
-        {/* @ts-expect-error Async Server Component */}
-        <TopTopicsList />
-      </ul>
+      {/* @ts-expect-error Async Server Component */}
+      <TopTopics />
     </SectionContainer>
   );
 }
 
-export default TopTopics;
+export default TopTopicSection;
