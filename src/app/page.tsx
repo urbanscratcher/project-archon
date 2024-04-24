@@ -3,7 +3,7 @@ import SavedForLater from "@/components/templates/SavedForLater";
 import TheLatest from "@/components/templates/TheLatest";
 import TopTopicSection from "@/components/templates/TopTopicSection";
 import Videos from "@/components/templates/Videos";
-import WhatsTrending from "@/components/templates/WhatsTrending";
+import WhatsTrendingSection from "@/components/templates/WhatsTrendingSection";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
       <HighlightSection />
       <TopTopicSection />
       {/* <MonthlyAwards /> */}
-      <WhatsTrending />
+      <WhatsTrendingSection />
       <SavedForLater />
       {/* @ts-expect-error Async Server Component */}
       <TheLatest />

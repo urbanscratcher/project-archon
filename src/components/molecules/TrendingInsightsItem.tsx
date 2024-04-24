@@ -1,19 +1,18 @@
 import { TrendingInsight } from "@/types/Trending";
 import Link from "next/link";
-import Tag from "../atoms/Tag";
 import Thumbnail from "../Thumbnail";
-import InsightTitle from "./InsightTitle";
+import Tag from "../atoms/Tag";
 
 function TrendingInsightsItem({ insight }: { insight: TrendingInsight }) {
   return (
     <li
-      className={`grid grid-rows-[1fr_auto] items-center gap-2 border-b border-b-g-300 py-4 last:border-b-0 sm:mx-4 sm:grid-cols-2`}
+      className={`grid grid-rows-[1fr_auto] items-center gap-2 border-b border-b-g-300 py-4 last:border-b-0 sm:grid-cols-2`}
     >
       <div className="row-start-2 flex flex-col gap-2 sm:row-start-auto">
         <Tag tagName={insight.topic.name} />
-        <h4 className="font-serif capitalize">
-          <InsightTitle idx={insight.idx}>{insight.title}</InsightTitle>
-        </h4>
+        <Link className="hover-underline" href={`/insights/${insight.idx}`}>
+          <h4 className="font-serif capitalize">{insight.title}</h4>
+        </Link>
         <p className="capitalize tracking-wide text-g-700">
           By{" "}
           <Link

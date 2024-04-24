@@ -57,43 +57,40 @@ function Thumbnail({
 
   return (
     <>
-      <Link href={href} className="h-full">
-        <div
+      <Link
+        onMouseEnter={(e) => {
+          setHover(true);
+        }}
+        onMouseLeave={(e) => {
+          setHover(false);
+        }}
+        href={href}
+        className=" relative
+          h-fit hover:cursor-pointer"
+      >
+        {/* bookmark button */}
+        <button
+          className={`absolute right-0 top-0 z-20 -translate-x-[4px] -translate-y-[4px] ${hover || isBookmarked(insightIdx) ? "opacity-100" : "opacity-0"} rounded-full text-3xl text-sky-700 active:text-sky-800`}
+          onClick={(e: MouseEvent) => {
+            isBookmarked(insightIdx) && setHover(false);
+            bookmarkClickHandler(e);
+          }}
           onMouseEnter={(e) => {
-            setHover(true);
+            setHoverBookmark(true);
           }}
           onMouseLeave={(e) => {
-            setHover(false);
+            setHoverBookmark(false);
           }}
-          className={`
-            relative
-            h-full
-            w-full hover:cursor-pointer
-         `}
         >
-          {/* bookmark button */}
-          <button
-            className={`absolute right-0 top-0 z-20 -translate-x-[4px] -translate-y-[4px] ${hover || isBookmarked(insightIdx) ? "opacity-100" : "opacity-0"} rounded-full text-3xl text-sky-700 active:text-sky-800`}
-            onClick={(e: MouseEvent) => {
-              isBookmarked(insightIdx) && setHover(false);
-              bookmarkClickHandler(e);
-            }}
-            onMouseEnter={(e) => {
-              setHoverBookmark(true);
-            }}
-            onMouseLeave={(e) => {
-              setHoverBookmark(false);
-            }}
-          >
-            {hoverBookmark || isBookmarked(insightIdx) ? (
-              <IoBookmark />
-            ) : (
-              <IoBookmarkOutline />
-            )}
-          </button>
-          {/* image */}
-          <div
-            className={`
+          {hoverBookmark || isBookmarked(insightIdx) ? (
+            <IoBookmark />
+          ) : (
+            <IoBookmarkOutline />
+          )}
+        </button>
+        {/* image */}
+        <div
+          className={`
             relative
             ${className || ""}
             ${rounded === "xl" ? "rounded-xl" : "rounded-2xl"} 
@@ -109,14 +106,13 @@ function Thumbnail({
             img__filter
             overflow-hidden
             `}
-          >
-            <ImageWrap
-              src={src}
-              className={`absolute object-cover`}
-              fill
-              {...props}
-            />
-          </div>
+        >
+          <ImageWrap
+            src={src}
+            className={`absolute object-cover`}
+            fill
+            {...props}
+          />
         </div>
       </Link>
     </>

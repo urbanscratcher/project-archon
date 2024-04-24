@@ -7,7 +7,7 @@ async function EditorsPick() {
 
   const data = {
     head: covers?.data && covers.total > 0 && covers.data[0] && covers.data[0],
-    restList: covers?.data && covers.total > 1 && covers.data.slice(1, -1),
+    restList: covers?.data && covers.total > 1 && covers.data.slice(1),
   };
 
   return (

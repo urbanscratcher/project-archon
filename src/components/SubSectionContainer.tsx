@@ -11,7 +11,7 @@ function SubSectionContainer({
 }) {
   return (
     <section
-      className={`rounded-xl  ${applyContainer ? "border border-sky-700 px-4 py-8" : ""} ${className || ""}`}
+      className={`${applyContainer ? "rounded-xl border border-sky-700 px-4 py-8" : ""} ${className || ""}`}
     >
       {children}
     </section>

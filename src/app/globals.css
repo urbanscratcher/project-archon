@@ -88,6 +88,12 @@
     @apply text-[0.9375rem]/[1.263] font-semibold uppercase tracking-[0.078rem];
   }
 
+  .h2 {
+    @apply font-serif text-[3.052rem]/[1.25];
+  }
+  .h3 {
+    @apply font-serif text-[2.441rem]/[1.25] tracking-[0.0156rem];
+  }
   .h4 {
     @apply font-serif text-[1.953rem]/[1.27];
   }
@@ -97,11 +103,11 @@
   }
 
   h2 {
-    @apply font-serif text-[3.052rem]/[1.25];
+    @apply h2;
   }
 
   h3 {
-    @apply font-serif text-[2.441rem]/[1.25] tracking-[0.0156rem];
+    @apply h3;
   }
 
   h4 {
