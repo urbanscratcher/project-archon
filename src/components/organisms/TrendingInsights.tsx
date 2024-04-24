@@ -18,7 +18,7 @@ async function TrendingInsights() {
   return (
     <>
       {data?.head && <TrendingInsightsHead insight={data.head} />}
-      <hr className="h-[1px] w-full bg-sky-700 sm:h-full sm:w-[1px]" />
+      <hr className="h-[1px] w-full border-0 bg-sky-700 sm:h-full sm:w-[1px]" />
       {data?.restList && <TrendingInsightsList insights={data.restList} />}
       <hr className="hidden h-full bg-sky-700 xl:block xl:w-[1px]" />
     </>
