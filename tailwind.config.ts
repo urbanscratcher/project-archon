@@ -10,16 +10,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      fontSize: {
-        "10xl": [
-          "1.5rem",
-          {
-            lineHeight: "2rem",
-            letterSpacing: "-0.01em",
-            fontWeight: "800",
-          },
-        ],
-      },
       colors: {
         y: {
           "50": "#fbfde8",

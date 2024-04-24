@@ -1,6 +1,6 @@
 import { TrendingInsight } from "@/types/Trending";
 import Link from "next/link";
-import TagLink from "../atoms/TagLink";
+import Tag from "../atoms/Tag";
 import Thumbnail from "../Thumbnail";
 import InsightTitle from "./InsightTitle";
 
@@ -10,7 +10,7 @@ function TrendingInsightsItem({ insight }: { insight: TrendingInsight }) {
       className={`grid grid-rows-[1fr_auto] items-center gap-2 border-b border-b-g-300 py-4 last:border-b-0 sm:mx-4 sm:grid-cols-2`}
     >
       <div className="row-start-2 flex flex-col gap-2 sm:row-start-auto">
-        <TagLink tagName={insight.topic.name} />
+        <Tag tagName={insight.topic.name} />
         <h4 className="font-serif capitalize">
           <InsightTitle idx={insight.idx}>{insight.title}</InsightTitle>
         </h4>

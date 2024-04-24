@@ -19,8 +19,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={figtree.className}>
+    <html
+      lang="en"
+      className="text-xs sm:text-sm lg:text-[0.9375rem]/[1.5] xl:text-[1.0625rem]/[1.75]"
+    >
+      <body className={`${figtree.className}`}>
         <ReactQueryProvider>
           <GNB />
           {children}

@@ -3,12 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  /* typography */
-  .text-head {
-    @apply line-clamp-4 font-serif text-[66px] font-light leading-[1.2] -tracking-[0.5px];
-  }
-
-  /* hover style */
+  /* hover styles */
   .hover {
     @apply hover:cursor-pointer;
   }
@@ -84,63 +79,38 @@
     @apply bg-y-300 text-sky-700;
   }
 
+  /* typography */
+  .text-btn {
+    @apply text-[0.9375rem]/[1.263] font-semibold uppercase tracking-[0.078rem];
+  }
+
+  .h4 {
+    @apply font-serif text-[1.953rem]/[1.27];
+  }
+
   h1 {
-    @apply font-serif text-6xl;
-    letter-spacing: -0.05px;
-    line-height: 1.2;
+    @apply font-serif text-[3.052rem]/[1.2] sm:text-[3.815rem]/[1.2] sm:-tracking-[0.5px];
   }
 
   h2 {
-    @apply font-serif;
-    font-size: 53px;
+    @apply font-serif text-[3.052rem]/[1.25];
   }
 
   h3 {
-    @apply font-serif;
-    font-size: 38px;
-    letter-spacing: 0.025px;
-    line-height: 1.25;
+    @apply font-serif text-[2.441rem]/[1.25] tracking-[0.0156rem];
   }
 
   h4 {
-    @apply font-serif;
-    font-size: 26px;
-    line-height: 1.27;
+    @apply h4;
   }
 
   .whiten {
     filter: brightness(0) invert(1);
   }
 
-  /* Laptop */
-  /* @media (min-width: 1280px) {
-    h1 {
-      font-size: 66px;
-      letter-spacing: -0.05px;
-      line-height: 1.2;
-    }
-    h2 {
-      font-size: 53px;
-      letter-spacing: 0px;
-      line-height: 1.25;
-    }
-
-    h3 {
-      font-size: 38px;
-      letter-spacing: 0.025px;
-      line-height: 1.25;
-    }
-
-    h4 {
-      font-size: 26px;
-      letter-spacing: 0px;
-      line-height: 1.27;
-    }
-
-    .topTopics:hover {
-      box-shadow: inset 0 -30px 0 #ddea6c;
-    }
-  } */
+  .topTopics:hover {
+    box-shadow: inset 0 -30px 0 #ddea6c;
+  }
 
   /* loader */
   .loader {

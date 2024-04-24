@@ -1,6 +1,6 @@
 import SectionContainer from "../SectionContainer";
 import SectionHead from "../SectionHead";
-import ViewAll from "../ViewAll";
+import ViewAll from "../molecules/ViewAll";
 import SavedForLaterList from "../organisms/SavedForLaterList";
 
 function SavedForLater() {

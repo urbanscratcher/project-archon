@@ -9,7 +9,7 @@ function SectionHead({
 }) {
   return (
     <p
-      className={`mb-3 text-[17px] text-lg font-semibold uppercase leading-[1.263] tracking-[0.5px] text-sky-950 ${className || ""}`}
+      className={`mb-3 font-semibold uppercase tracking-[0.5px] text-sky-950 ${className || ""}`}
     >
       {children}
     </p>

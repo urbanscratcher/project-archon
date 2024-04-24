@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import ImageWrap from "../ImageWrap";
 import Loader from "../molecules/Loader";
-import TagLink from "../atoms/TagLink";
+import Tag from "../atoms/Tag";
 import AuthorRow from "./AuthorRow";
 
 function SavedForLaterList() {
@@ -53,7 +53,7 @@ function SavedForLaterItem({ idx }: { idx: number }) {
       <div
         className={`absolute inset-0 z-10 grid h-full grid-rows-[min-content_auto_min-content] items-end gap-3 p-6`}
       >
-        <TagLink tagName={insight.topic.name} isWhite />
+        <Tag tagName={insight.topic.name} isWhite />
         <Link href={`/insights/${idx}`}>
           <h3 className="line-clamp-4 text-white hover:cursor-pointer hover:underline hover:decoration-2">
             {insight.title}

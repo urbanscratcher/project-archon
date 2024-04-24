@@ -1,5 +1,5 @@
 import ImageWrap from "@/components/ImageWrap";
-import TagLink from "@/components/atoms/TagLink";
+import Tag from "@/components/atoms/Tag";
 import DateTTRRow from "@/components/organisms/DateTTRRow";
 import { Insight } from "@/types/Insight";
 import { IoLink } from "react-icons/io5";
@@ -8,7 +8,7 @@ function InsightPost({ insight }: { insight: Insight }) {
   return (
     <section className="px-2 sm:px-4 lg:px-0">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-2 pb-28 pt-12">
-        {insight?.topic && <TagLink tagName={insight.topic.name} />}
+        {insight?.topic && <Tag tagName={insight.topic.name} />}
         <h1 className="text-center text-sky-700">{insight.title}</h1>
         <p className="my-6 text-sky-700">{insight.summary}</p>
         <DateTTRRow createdAt={insight.createdAt} isPrimary={false} />

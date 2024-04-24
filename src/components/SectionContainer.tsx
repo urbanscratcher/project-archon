@@ -8,7 +8,9 @@ function SectionContainer({
   className?: string;
 }) {
   return (
-    <section className={`px-6 py-16 ${className || ""}`}>{children}</section>
+    <section className={`px-4 py-8 sm:px-6 sm:py-16 ${className || ""}`}>
+      {children}
+    </section>
   );
 }
 

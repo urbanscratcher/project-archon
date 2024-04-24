@@ -4,7 +4,7 @@ import ImageWrap from "../ImageWrap";
 import SectionContainer from "../SectionContainer";
 import SectionHead from "../SectionHead";
 import SubSectionContainer from "../SubSectionContainer";
-import ViewAll from "../ViewAll";
+import ViewAll from "../molecules/ViewAll";
 import InsightsItem from "../organisms/InsightsItem";
 import FeaturedAuthors from "./FeaturedAuthors";
 import Inspirations from "./Inspirations";

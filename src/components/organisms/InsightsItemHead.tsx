@@ -1,5 +1,5 @@
 import { Insight } from "@/types/Insight";
-import TagLink from "../atoms/TagLink";
+import Tag from "../atoms/Tag";
 import Thumbnail from "../Thumbnail";
 import AuthorRow from "./AuthorRow";
 import DateTTRRow from "./DateTTRRow";
@@ -23,7 +23,7 @@ async function InsightsItemHead({
         alt={insight.title}
         aspect={"video"}
       />
-      <TagLink tagName="narrative" />
+      <Tag tagName="narrative" />
       <h2 className="font-serif">
         <InsightTitle idx={insight.idx}>{insight.title}</InsightTitle>
       </h2>

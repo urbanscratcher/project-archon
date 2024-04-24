@@ -1,37 +1,35 @@
 import { getHeadline } from "@/api/covers.api";
 import { Cover } from "@/types/Cover";
-import ImageWrap from "../ImageWrap";
-import HeadTxtLink from "../atoms/HeadTxtLink";
-import TagLink from "../atoms/TagLink";
+import Link from "next/link";
+import SectionContainer from "../SectionContainer";
+import ImageOverlayed from "../atoms/ImageOverlayed";
+import Tag from "../atoms/Tag";
 
-async function HeadlineSection() {
+async function HeadlineSection({ className }: { className: string }) {
   const headline: Cover = await getHeadline();
 
+  const data = {
+    idx: headline.insight.idx,
+    thumbnail: headline.insight.thumbnail,
+    tagName: headline.topic.name,
+    title: headline.insight.title,
+    href: `/insights/${headline.insight.idx}`,
+  };
+
   return (
-    <section className="relative h-screen sm:min-h-[400px] xl:h-[1033px]">
-      {/* gradient(black-yellow) filter */}
-      <div
-        role="presentation"
-        className={`-z-5 absolute inset-0 w-full bg-gradient-to-tl from-y-700 to-black opacity-70`}
-      ></div>
-      {/* image bg */}
-      <ImageWrap
-        src={headline.insight.thumbnail}
-        fill
-        alt="headline thumbnail"
-        className="absolute inset-0 -z-10 object-cover"
+    <section className={`relative ${className || ""}`}>
+      <ImageOverlayed
+        src={data.thumbnail}
+        alt="background thumbnail of headline"
         priority
       />
-      {/* headline */}
       <div
-        className={`absolute bottom-0 inline-flex flex-col gap-3 px-10 py-16`}
+        className={`absolute bottom-0 mx-4 my-8 flex flex-col gap-3 text-white sm:mx-6 sm:my-16`}
       >
-        <TagLink tagName={headline.topic.name} isWhite />
-        <HeadTxtLink
-          href={`/insights/${headline.insight.idx}`}
-          className="text-white"
-          txt={headline.insight.title}
-        />
+        <Tag tagName={data.tagName} white />
+        <Link href={data.href} className={`hover hover-underline`}>
+          <h1 className="line-clamp-4">{data.title}</h1>
+        </Link>
       </div>
     </section>
   );

@@ -7,7 +7,7 @@ import {
 import SectionContainer from "../SectionContainer";
 import SectionHead from "../SectionHead";
 import SubSectionContainer from "../SubSectionContainer";
-import ViewAll from "../ViewAll";
+import ViewAll from "../molecules/ViewAll";
 import NewsletterForm from "../organisms/NewsletterForm";
 import TrendingInsightsList from "../organisms/TrendingInsightsList";
 

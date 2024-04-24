@@ -2,7 +2,7 @@ import { getInsight } from "@/api/insights.api";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../molecules/Loader";
 import Thumbnail from "../Thumbnail";
-import TagLink from "../atoms/TagLink";
+import Tag from "../atoms/Tag";
 import InsightTitle from "./InsightTitle";
 import DateTTRRow from "./DateTTRRow";
 import AuthorRow from "./AuthorRow";
@@ -39,7 +39,7 @@ function BookmarkItem({ idx }: { idx: number }) {
         className="aspect-video w-full sm:aspect-auto sm:h-full sm:w-auto"
       />
       <div className={`flex flex-col gap-2`}>
-        <TagLink tagName={insight.topic.name} />
+        <Tag tagName={insight.topic.name} />
         <h3 className="line-clamp-3 text-ellipsis font-serif text-sky-700">
           <InsightTitle idx={insight.idx}>{insight.title}</InsightTitle>
         </h3>

@@ -1,5 +1,5 @@
 import { Insight } from "@/types/Insight";
-import TagLink from "../atoms/TagLink";
+import Tag from "../atoms/Tag";
 import Thumbnail from "../Thumbnail";
 import AuthorRow from "./AuthorRow";
 import DateTTRRow from "./DateTTRRow";
@@ -36,7 +36,7 @@ function InsightsItem({
         className={`${squared ? "min-h-[250px]" : "h-full max-w-full"}`}
       />
       <div className={`flex flex-col gap-2`}>
-        <TagLink tagName={insight.topic.name} />
+        <Tag tagName={insight.topic.name} />
         {squared ? (
           <h4 className="line-clamp-3 text-ellipsis font-serif text-sky-700">
             <InsightTitle idx={insight.idx}>{insight.title}</InsightTitle>
