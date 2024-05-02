@@ -5,7 +5,7 @@ import useBookmarkStore from "@/stores/useBookmarkStore";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import ImageWrap from "../ImageWrap";
-import Loader from "../molecules/Loader";
+import Loader from "../atoms/Loader";
 import Tag from "../atoms/Tag";
 import AuthorRow from "./AuthorRow";
 

@@ -1,5 +1,5 @@
 import SectionHead from "@/components/SectionHead";
-import ViewAll from "@/components/molecules/ViewAll";
+import ViewAll from "@/components/atoms/ViewAll";
 import RelatedList from "@/components/organisms/RelatedList";
 import { Topic } from "@/types/Topic";
 import SectionContainer from "../SectionContainer";

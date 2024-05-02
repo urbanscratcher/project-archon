@@ -1,7 +1,7 @@
 import { getFeaturedAuthors } from "@/api/trending.api";
 import ImageWrap from "../ImageWrap";
 import SectionHead from "../SectionHead";
-import ViewAll from "../molecules/ViewAll";
+import ViewAll from "../atoms/ViewAll";
 import Link from "next/link";
 
 async function FeaturedAuthors() {

@@ -9,10 +9,11 @@ import {
   type NewsletterForm,
 } from "@/types/NewsletterForm";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect } from "react";
 import { FieldPath, useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
 // @ts-expect-error
-import { useFormState, useFormStatus } from "react-dom";
+import { useFormState } from "react-dom";
+import SubmitBtn from "../atoms/SubmitBtn";
 
 type NewsletterFormProp = {
   primary?: boolean;
@@ -22,7 +23,6 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
   const {
     register,
     formState: { errors },
-    watch,
     setError,
   } = useForm<NewsletterForm>({
     mode: "all",
@@ -47,6 +47,7 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
     }
 
     if (state.status === "success") {
+      // TODO modal window pop up
       alert(state.message);
     }
   }, [state, setError]);
@@ -105,31 +106,11 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
         &nbsp; By signing up, you agree to our terms and privacy policy
         {errors.agreed && "(*)"}
       </label>
-      <SubmitButton
+      <SubmitBtn
         isValid={!errors.fullName && !errors.to && !errors.agreed}
         className="cursor-pointer rounded-full bg-sky-700 py-3 text-[15px] font-medium uppercase tracking-[1.25px] text-white hover:bg-sky-800 active:bg-sky-900 disabled:cursor-not-allowed disabled:bg-g-700"
       />
     </form>
-  );
-}
-
-function SubmitButton({
-  isValid,
-  className,
-}: {
-  isValid: boolean;
-  className?: string;
-}) {
-  const { pending } = useFormStatus();
-
-  return (
-    <button
-      type="submit"
-      className={className || ""}
-      disabled={pending || !isValid}
-    >
-      {pending ? "sending..." : "subscribe"}
-    </button>
   );
 }
 

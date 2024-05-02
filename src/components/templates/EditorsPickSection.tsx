@@ -1,6 +1,6 @@
 import SectionContainer from "../SectionContainer";
 import SectionHead from "../SectionHead";
-import ViewAll from "../molecules/ViewAll";
+import ViewAll from "../atoms/ViewAll";
 import EditorsPick from "../organisms/EditorsPick";
 
 function EditorsPickSection({ className }: { className?: string }) {

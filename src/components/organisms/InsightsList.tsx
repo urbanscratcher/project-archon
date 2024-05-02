@@ -4,7 +4,7 @@ import useInsights from "@/hooks/useInsights";
 import { Topic } from "@/types/Topic";
 import { useSearchParams } from "next/navigation";
 import InsightsItem from "./InsightsItem";
-import Loader from "../molecules/Loader";
+import Loader from "../atoms/Loader";
 
 function InsightsList({ topics }: { topics: Topic[] }) {
   const searchParams = useSearchParams();

@@ -4,7 +4,7 @@ import useInspClickedStore from "@/stores/useInspClickedStore";
 import { InsightRandom, InsightRandomList } from "@/types/Insight";
 import { useEffect, useState } from "react";
 import Thumbnail from "../Thumbnail";
-import Loader from "../molecules/Loader";
+import Loader from "../atoms/Loader";
 
 function InspirationList({
   initialInspirations,

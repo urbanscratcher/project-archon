@@ -1,6 +1,6 @@
 import { getInsight } from "@/api/insights.api";
 import { useQuery } from "@tanstack/react-query";
-import Loader from "../molecules/Loader";
+import Loader from "../atoms/Loader";
 import Thumbnail from "../Thumbnail";
 import Tag from "../atoms/Tag";
 import InsightTitle from "./InsightTitle";

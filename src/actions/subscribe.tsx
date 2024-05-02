@@ -37,7 +37,6 @@ async function subscribe(
     });
 
     if (response.ok) {
-      // TODO modal window pop up
       return {
         status: "success",
         message: "Email sent successfully",
