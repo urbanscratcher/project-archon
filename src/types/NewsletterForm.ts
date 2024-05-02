@@ -9,10 +9,7 @@ export const NewsletterFormSchema = zfd.formData({
       .max(20, "Type at most 20 characters"),
   ),
   to: zfd.text(z.string().email()),
-  agreed: z.union([
-    z.boolean().refine((val) => val),
-    z.string().refine((val) => val === "on"),
-  ]),
+  agreed: z.any(),
 });
 
 export type NewsletterForm = z.infer<typeof NewsletterFormSchema>;

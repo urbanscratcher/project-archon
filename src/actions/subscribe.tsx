@@ -27,13 +27,11 @@ async function subscribe(
   formData: FormData,
 ): Promise<NewsletterFormState> {
   try {
-    const { fullName, to, agreed } = NewsletterFormSchema.parse(formData);
+    const { fullName, to } = NewsletterFormSchema.parse(formData);
 
-    await wait(1000);
     const response = await sendEmail({
       fullName: fullName,
       to: to,
-      agreed: agreed,
     });
 
     if (response.ok) {
@@ -67,7 +65,9 @@ async function subscribe(
 
 export default subscribe;
 
-export async function sendEmail(data: NewsletterForm): Promise<NextResponse> {
+export async function sendEmail(
+  data: Pick<NewsletterForm, "fullName" | "to">,
+): Promise<NextResponse> {
   const { to, fullName } = data;
 
   const emailOption = {

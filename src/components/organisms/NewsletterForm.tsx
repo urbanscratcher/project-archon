@@ -24,6 +24,7 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
     register,
     formState: { errors },
     setError,
+    watch,
   } = useForm<NewsletterForm>({
     mode: "all",
     resolver: zodResolver(NewsletterFormSchema),
@@ -65,7 +66,7 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
         className={`rounded-md border ${primary ? "border-sky-700" : " border-g-700"} relative bg-transparent`}
       >
         <label
-          className={`pointer-events-none absolute left-1 -translate-y-1/2 px-1 text-sm transition-all  ${errors.fullName ? `z-10 text-sky-700 ${primary ? "bg-y-100" : "bg-white"}` : ""}`}
+          className={`pointer-events-none absolute left-1 -translate-y-1/2 px-1 text-sm transition-all  ${errors.fullName ? `z-10  ${primary ? "bg-y-100 text-sky-700" : "bg-white text-g-500"}` : ""}`}
         >
           {errors.fullName && errors.fullName.message}
         </label>
@@ -87,7 +88,7 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
         className={`rounded-md border ${primary ? "border-sky-700" : " border-g-700"} relative bg-transparent`}
       >
         <label
-          className={`pointer-events-none absolute left-1 -translate-y-1/2 px-1 transition-all  ${errors.to ? `z-10 ${primary ? "bg-y-100" : "bg-white"} text-sm text-sky-700` : ""}`}
+          className={`pointer-events-none absolute left-1 -translate-y-1/2 px-1 transition-all  ${errors.to ? `z-10 ${primary ? "bg-y-100 text-sky-700" : "bg-white text-g-500"} text-sm` : ""}`}
         >
           {errors.to && errors.to.message}
         </label>
@@ -104,10 +105,10 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
       <label className={`my-2 text-sm`}>
         <input {...register("agreed")} type="checkbox" name={"agreed"} />
         &nbsp; By signing up, you agree to our terms and privacy policy
-        {errors.agreed && "(*)"}
+        {watch("agreed") === false && "(*)"}
       </label>
       <SubmitBtn
-        isValid={!errors.fullName && !errors.to && !errors.agreed}
+        isValid={!errors.fullName && !errors.to && watch("agreed")}
         className="cursor-pointer rounded-full bg-sky-700 py-3 text-[15px] font-medium uppercase tracking-[1.25px] text-white hover:bg-sky-800 active:bg-sky-900 disabled:cursor-not-allowed disabled:bg-g-700"
       />
     </form>
