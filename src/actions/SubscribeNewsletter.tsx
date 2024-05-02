@@ -1,24 +1,72 @@
+"use server";
+import {
+  NewsletterFormData,
+  NewsletterFormState,
+} from "@/components/organisms/NewsletterForm";
 import { formatDate } from "@/libs/helpers";
-import { type NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.AUTH_USER,
-    pass: process.env.AUTH_PASS,
-  },
-});
+async function subscribe(
+  prev: any,
+  formData: FormData,
+): Promise<NewsletterFormState> {
+  // validate data
+  const fullName = (formData?.get("fullName") as string) || "";
+  if (fullName === "" || fullName.length < 3) {
+    return {
+      status: "invalid",
+      invalid: {
+        field: "fullName",
+        errorMessage: "Type at least 3 characters",
+      },
+      message: "invalid input",
+    };
+  }
 
-function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+  const to = (formData?.get("to") as string) || "";
+  if (to === "" || to.length < 3) {
+    return {
+      status: "invalid",
+      invalid: {
+        field: "to",
+        errorMessage: "Type at least 3 characters",
+      },
+      message: "invalid input",
+    };
+  }
+
+  const agreed = (formData.get("agreed") as unknown) === true ? true : false;
+
+  const data = {
+    to: to,
+    fullName: fullName,
+    agreed: agreed,
+  };
+
+  await wait(1000);
+  const response = await sendEmail(data);
+
+  if (response.ok) {
+    // TODO modal window pop up
+    return {
+      status: "success",
+      message: "Email sent successfully",
+    };
+  } else {
+    return {
+      status: "fail",
+      message: "Failed to send email",
+    };
+  }
 }
 
-export async function POST(req: NextRequest) {
-  const formData = await req.formData();
+export default subscribe;
 
-  const to = formData.get("to") as string;
-  const fullName = formData.get("fullName") as string;
+export async function sendEmail(
+  data: NewsletterFormData,
+): Promise<NextResponse> {
+  const { to, fullName } = data;
 
   const emailOption = {
     to: to,
@@ -56,11 +104,8 @@ export async function POST(req: NextRequest) {
     `,
   };
 
-  await delay(3000);
-
   try {
     // await transporter.sendMail(emailOption);
-
     return NextResponse.json({ message: "Email sent successfully" });
   } catch (error) {
     console.error("Error sending email:", error);
@@ -70,3 +115,14 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.AUTH_USER,
+    pass: process.env.AUTH_PASS,
+  },
+});
+
+const wait = (ms: number) => {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+};

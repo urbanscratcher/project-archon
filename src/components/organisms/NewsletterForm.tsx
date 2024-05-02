@@ -1,62 +1,100 @@
 "use client";
 
-import { useFormStatus } from "react-dom";
+import subscribe from "@/actions/SubscribeNewsletter";
+import { useForm } from "react-hook-form";
+// @ts-expect-error
+import { useFormState, useFormStatus } from "react-dom";
 
-function NewsletterForm({ isPrimary = true }: { isPrimary?: boolean }) {
-  const { pending } = useFormStatus();
+type NewsletterFormType = {
+  primary?: boolean;
+};
 
-  const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+export type NewsletterFormData = {
+  fullName: string;
+  to: string;
+  agreed: boolean;
+};
 
-    const form = e.currentTarget;
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: new FormData(form),
-    });
-
-    if (response.ok) {
-      form.reset();
-      alert("Email sent successfully");
-    } else {
-      alert("Failed to send email");
-    }
+export type NewsletterFormState = {
+  status: "success" | "fail" | "invalid";
+  invalid?: {
+    field: "fullName" | "to" | "agreed";
+    errorMessage: string;
   };
+  message: string;
+};
+
+function NewsletterForm({ primary = true }: NewsletterFormType) {
+  const { register } = useForm<NewsletterFormData>();
+  const [state, formAction] = useFormState<NewsletterFormState, FormData>(
+    subscribe,
+    null,
+  );
 
   return (
     <form
-      className={`flex flex-col gap-2  ${isPrimary ? "text-sky-700" : "text-g-700"}`}
-      action={"/api/contact"}
+      className={`flex flex-col gap-3  ${primary ? "text-sky-700" : "text-g-700"}`}
+      action={formAction}
       method="POST"
-      onSubmit={submitHandler}
     >
-      <p className="mb-2 ">
+      <p className="mb-1">
         Subscribe our newsletter to get the latest updates all about
         architecture
       </p>
-      <input
-        placeholder="Enter your full name"
-        type="text"
-        name="fullName"
-        className={`rounded-md border ${isPrimary ? "border-sky-700" : "border-g-700"} bg-transparent px-2 py-1`}
-      />
-      <input
-        placeholder="Enter your email"
-        type="email"
-        name="to"
-        className={`rounded-md border ${isPrimary ? "border-sky-700" : "border-g-700"} bg-transparent px-2 py-1`}
-      />
-      <label className={`my-3 text-sm`}>
-        <input type="checkbox" />
+      <div
+        className={`rounded-md border ${primary ? "border-sky-700" : " border-g-700"} relative bg-transparent`}
+      >
+        <p
+          className={`pointer-events-none absolute left-1 -translate-y-1/2 px-1 transition-all  ${state?.invalid?.field === "fullName" ? `z-10 ${primary ? "bg-y-100" : "bg-white"} text-sm text-sky-700` : "top-1/2 z-0 text-g-500"}`}
+        >
+          {state?.invalid?.field === "fullName"
+            ? state.invalid.errorMessage
+            : "Enter your full name"}
+        </p>
+        <input
+          {...register("fullName")}
+          type="text"
+          name="fullName"
+          className={
+            "h-full w-full rounded-md border-0 bg-transparent px-2 py-2"
+          }
+        />
+      </div>
+      <div
+        className={`rounded-md border ${primary ? "border-sky-700" : " border-g-700"} relative bg-transparent`}
+      >
+        <p
+          className={`pointer-events-none absolute left-1 -translate-y-1/2 px-1 transition-all  ${state?.invalid?.field === "to" ? `z-10 ${primary ? "bg-y-100" : "bg-white"} text-sm text-sky-700` : "top-1/2 z-0 text-g-500"}`}
+        >
+          {state?.status === "invalid"
+            ? state.invalid.errorMessage
+            : "Enter your email"}
+        </p>
+        <input
+          {...register("to")}
+          type="email"
+          name="to"
+          className={
+            "h-full w-full rounded-md border-0 bg-transparent px-2 py-2"
+          }
+        />
+      </div>
+      <label className={`my-2 text-sm`}>
+        <input {...register("agreed")} type="checkbox" name={"agreed"} />
         &nbsp; By signing up, you agree to our terms and privacy policy
       </label>
-      <button
-        type="submit"
-        className={`cursor-pointer rounded-full bg-sky-700 py-3 text-[15px] font-medium uppercase tracking-[1.25px] text-white hover:bg-sky-800 active:bg-sky-900`}
-        disabled={pending}
-      >
-        {pending ? "loading..." : "subscribe"}
-      </button>
+      <SubmitButton className="cursor-pointer rounded-full bg-sky-700 py-3 text-[15px] font-medium uppercase tracking-[1.25px] text-white hover:bg-sky-800 active:bg-sky-900 disabled:cursor-not-allowed disabled:bg-g-700" />
     </form>
+  );
+}
+
+function SubmitButton({ className }: { className?: string }) {
+  const { pending } = useFormStatus();
+
+  return (
+    <button type="submit" className={className || ""} disabled={pending}>
+      {pending ? "sending..." : "subscribe"}
+    </button>
   );
 }
 

@@ -104,7 +104,7 @@ function Footer() {
         </div>
         <div className="sm:col-span-3 lg:col-span-1">
           <SectionHead>newsletter</SectionHead>
-          <NewsletterForm isPrimary={false} />
+          <NewsletterForm primary={false} />
         </div>
       </div>
       <p className="pt-10 text-[13px] tracking-[0.4px] text-g-700">

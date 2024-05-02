@@ -6,8 +6,15 @@ import {
 } from "react-icons/io5";
 import SectionContainer from "../SectionContainer";
 import SectionHead from "../SectionHead";
+import { type ReactElement } from "react";
 
-const sns = [
+type SnsType = {
+  name: string;
+  icon: ReactElement;
+  followers: string;
+};
+
+const sns: SnsType[] = [
   { name: "facebook", icon: <IoLogoFacebook />, followers: "571k" },
   { name: "pinterest", icon: <IoLogoPinterest />, followers: "157k" },
   {
@@ -23,14 +30,14 @@ function StayConnectedSection({ className }: { className?: string }) {
     <SectionContainer border whitespace="sub" className={`${className || ""}`}>
       <SectionHead>Stay Connected</SectionHead>
       <ul className="flex flex-col gap-1">
-        {sns.map((el) => (
+        {sns.map((sns: SnsType) => (
           <li
-            key={el.name}
+            key={sns.name}
             className="grid grid-cols-[min-content_min-content_auto_min-content] items-center gap-2"
           >
-            {el.icon}
-            <p className="capitalize">{el.name}</p>
-            <p className="text-end uppercase">{el.followers}</p>
+            {sns.icon}
+            <p className="capitalize">{sns.name}</p>
+            <p className="text-end uppercase">{sns.followers}</p>
             <p>Followers</p>
           </li>
         ))}
