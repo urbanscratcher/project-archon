@@ -1,41 +1,60 @@
 "use client";
 
-import subscribe from "@/actions/SubscribeNewsletter";
-import { useForm } from "react-hook-form";
+import subscribe, {
+  type FormError,
+  type NewsletterFormState,
+} from "@/actions/subscribe";
+import {
+  NewsletterFormSchema,
+  type NewsletterForm,
+} from "@/types/NewsletterForm";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FieldPath, useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
 // @ts-expect-error
 import { useFormState, useFormStatus } from "react-dom";
 
-type NewsletterFormType = {
+type NewsletterFormProp = {
   primary?: boolean;
 };
 
-export type NewsletterFormData = {
-  fullName: string;
-  to: string;
-  agreed: boolean;
-};
-
-export type NewsletterFormState = {
-  status: "success" | "fail" | "invalid";
-  invalid?: {
-    field: "fullName" | "to" | "agreed";
-    errorMessage: string;
-  };
-  message: string;
-};
-
-function NewsletterForm({ primary = true }: NewsletterFormType) {
-  const { register } = useForm<NewsletterFormData>();
+function NewsletterForm({ primary = true }: NewsletterFormProp) {
+  const {
+    register,
+    formState: { errors },
+    watch,
+    setError,
+  } = useForm<NewsletterForm>({
+    mode: "all",
+    resolver: zodResolver(NewsletterFormSchema),
+  });
   const [state, formAction] = useFormState<NewsletterFormState, FormData>(
     subscribe,
     null,
   );
 
+  useEffect(() => {
+    if (!state) {
+      return;
+    }
+
+    if (state.status === "error") {
+      state.errors?.forEach((error: FormError) => {
+        setError(error.path as FieldPath<NewsletterForm>, {
+          message: error.message,
+        });
+      });
+    }
+
+    if (state.status === "success") {
+      alert(state.message);
+    }
+  }, [state, setError]);
+
   return (
     <form
       className={`flex flex-col gap-3  ${primary ? "text-sky-700" : "text-g-700"}`}
       action={formAction}
-      method="POST"
     >
       <p className="mb-1">
         Subscribe our newsletter to get the latest updates all about
@@ -44,15 +63,18 @@ function NewsletterForm({ primary = true }: NewsletterFormType) {
       <div
         className={`rounded-md border ${primary ? "border-sky-700" : " border-g-700"} relative bg-transparent`}
       >
-        <p
-          className={`pointer-events-none absolute left-1 -translate-y-1/2 px-1 transition-all  ${state?.invalid?.field === "fullName" ? `z-10 ${primary ? "bg-y-100" : "bg-white"} text-sm text-sky-700` : "top-1/2 z-0 text-g-500"}`}
+        <label
+          className={`pointer-events-none absolute left-1 -translate-y-1/2 px-1 text-sm transition-all  ${errors.fullName ? `z-10 text-sky-700 ${primary ? "bg-y-100" : "bg-white"}` : ""}`}
         >
-          {state?.invalid?.field === "fullName"
-            ? state.invalid.errorMessage
-            : "Enter your full name"}
-        </p>
+          {errors.fullName && errors.fullName.message}
+        </label>
         <input
-          {...register("fullName")}
+          {...register("fullName", {
+            required: true,
+            minLength: 3,
+            maxLength: 20,
+          })}
+          placeholder="Enter your full name"
           type="text"
           name="fullName"
           className={
@@ -63,15 +85,14 @@ function NewsletterForm({ primary = true }: NewsletterFormType) {
       <div
         className={`rounded-md border ${primary ? "border-sky-700" : " border-g-700"} relative bg-transparent`}
       >
-        <p
-          className={`pointer-events-none absolute left-1 -translate-y-1/2 px-1 transition-all  ${state?.invalid?.field === "to" ? `z-10 ${primary ? "bg-y-100" : "bg-white"} text-sm text-sky-700` : "top-1/2 z-0 text-g-500"}`}
+        <label
+          className={`pointer-events-none absolute left-1 -translate-y-1/2 px-1 transition-all  ${errors.to ? `z-10 ${primary ? "bg-y-100" : "bg-white"} text-sm text-sky-700` : ""}`}
         >
-          {state?.status === "invalid"
-            ? state.invalid.errorMessage
-            : "Enter your email"}
-        </p>
+          {errors.to && errors.to.message}
+        </label>
         <input
           {...register("to")}
+          placeholder="Enter your email"
           type="email"
           name="to"
           className={
@@ -82,17 +103,31 @@ function NewsletterForm({ primary = true }: NewsletterFormType) {
       <label className={`my-2 text-sm`}>
         <input {...register("agreed")} type="checkbox" name={"agreed"} />
         &nbsp; By signing up, you agree to our terms and privacy policy
+        {errors.agreed && "(*)"}
       </label>
-      <SubmitButton className="cursor-pointer rounded-full bg-sky-700 py-3 text-[15px] font-medium uppercase tracking-[1.25px] text-white hover:bg-sky-800 active:bg-sky-900 disabled:cursor-not-allowed disabled:bg-g-700" />
+      <SubmitButton
+        isValid={!errors.fullName && !errors.to && !errors.agreed}
+        className="cursor-pointer rounded-full bg-sky-700 py-3 text-[15px] font-medium uppercase tracking-[1.25px] text-white hover:bg-sky-800 active:bg-sky-900 disabled:cursor-not-allowed disabled:bg-g-700"
+      />
     </form>
   );
 }
 
-function SubmitButton({ className }: { className?: string }) {
+function SubmitButton({
+  isValid,
+  className,
+}: {
+  isValid: boolean;
+  className?: string;
+}) {
   const { pending } = useFormStatus();
 
   return (
-    <button type="submit" className={className || ""} disabled={pending}>
+    <button
+      type="submit"
+      className={className || ""}
+      disabled={pending || !isValid}
+    >
       {pending ? "sending..." : "subscribe"}
     </button>
   );

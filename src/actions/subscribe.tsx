@@ -1,71 +1,74 @@
 "use server";
-import {
-  NewsletterFormData,
-  NewsletterFormState,
-} from "@/components/organisms/NewsletterForm";
 import { formatDate } from "@/libs/helpers";
+import {
+  NewsletterFormSchema,
+  type NewsletterForm,
+} from "@/types/NewsletterForm";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { ZodError } from "zod";
+
+export type FormError = { path: string; message: string };
+
+export type NewsletterFormState =
+  | {
+      status: "success" | "fail";
+      message: string;
+    }
+  | {
+      status: "error";
+      message: string;
+      errors?: Array<FormError>;
+    }
+  | null;
 
 async function subscribe(
-  prev: any,
+  prevState: NewsletterFormState | null,
   formData: FormData,
 ): Promise<NewsletterFormState> {
-  // validate data
-  const fullName = (formData?.get("fullName") as string) || "";
-  if (fullName === "" || fullName.length < 3) {
+  try {
+    const { fullName, to, agreed } = NewsletterFormSchema.parse(formData);
+
+    await wait(1000);
+    const response = await sendEmail({
+      fullName: fullName,
+      to: to,
+      agreed: agreed,
+    });
+
+    if (response.ok) {
+      // TODO modal window pop up
+      return {
+        status: "success",
+        message: "Email sent successfully",
+      };
+    } else {
+      return {
+        status: "fail",
+        message: "Failed to send email",
+      };
+    }
+  } catch (e) {
+    if (e instanceof ZodError) {
+      return {
+        status: "error",
+        message: "Invalid form data",
+        errors: e.issues.map((issue) => ({
+          path: issue.path.join("."),
+          message: issue.message,
+        })),
+      };
+    }
     return {
-      status: "invalid",
-      invalid: {
-        field: "fullName",
-        errorMessage: "Type at least 3 characters",
-      },
-      message: "invalid input",
-    };
-  }
-
-  const to = (formData?.get("to") as string) || "";
-  if (to === "" || to.length < 3) {
-    return {
-      status: "invalid",
-      invalid: {
-        field: "to",
-        errorMessage: "Type at least 3 characters",
-      },
-      message: "invalid input",
-    };
-  }
-
-  const agreed = (formData.get("agreed") as unknown) === true ? true : false;
-
-  const data = {
-    to: to,
-    fullName: fullName,
-    agreed: agreed,
-  };
-
-  await wait(1000);
-  const response = await sendEmail(data);
-
-  if (response.ok) {
-    // TODO modal window pop up
-    return {
-      status: "success",
-      message: "Email sent successfully",
-    };
-  } else {
-    return {
-      status: "fail",
-      message: "Failed to send email",
+      status: "error",
+      message: "Something went wrong. Please try again",
     };
   }
 }
 
 export default subscribe;
 
-export async function sendEmail(
-  data: NewsletterFormData,
-): Promise<NextResponse> {
+export async function sendEmail(data: NewsletterForm): Promise<NextResponse> {
   const { to, fullName } = data;
 
   const emailOption = {
