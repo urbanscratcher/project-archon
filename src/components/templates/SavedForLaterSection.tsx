@@ -1,9 +1,9 @@
-import SectionContainer from "../SectionContainer";
-import SectionHead from "../SectionHead";
+import SectionContainer from "../atoms/SectionContainer";
+import SectionHead from "../atoms/SectionHead";
 import ViewAll from "../atoms/ViewAll";
 import SavedForLaterList from "../organisms/SavedForLaterList";
 
-function SavedForLater() {
+function SavedForLaterSection() {
   return (
     <SectionContainer>
       <SectionHead className="flex justify-between">
@@ -17,4 +17,4 @@ function SavedForLater() {
   );
 }
 
-export default SavedForLater;
+export default SavedForLaterSection;

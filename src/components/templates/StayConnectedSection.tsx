@@ -4,8 +4,8 @@ import {
   IoLogoInstagram,
   IoLogoPinterest,
 } from "react-icons/io5";
-import SectionContainer from "../SectionContainer";
-import SectionHead from "../SectionHead";
+import SectionContainer from "../atoms/SectionContainer";
+import SectionHead from "../atoms/SectionHead";
 import { type ReactElement } from "react";
 
 type SnsType = {

@@ -1,4 +1,4 @@
-import { getTopics } from "@/api/topics.api";
+import { getTopics } from "@/services/topics.api";
 import InsightsList from "../organisms/InsightsList";
 import TopicsNavbar from "../organisms/TopicsNavbar";
 

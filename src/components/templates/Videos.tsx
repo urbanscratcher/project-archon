@@ -1,7 +1,7 @@
 import ImageWrap from "../ImageWrap";
 import PlayBtn from "../PlayBtn";
-import SectionContainer from "../SectionContainer";
-import SectionHead from "../SectionHead";
+import SectionContainer from "../atoms/SectionContainer";
+import SectionHead from "../atoms/SectionHead";
 
 function Videos() {
   const coverVideo = {

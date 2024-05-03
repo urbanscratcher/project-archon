@@ -1,8 +1,8 @@
-import { getTrendingInsights } from "@/api/trending.api";
+import { getTrendingInsights } from "@/services/trending.api";
 import { TrendingInsights } from "@/types/Trending";
 import Link from "next/link";
-import SectionHead from "../SectionHead";
-import SubSectionContainer from "../SubSectionContainer";
+import SectionHead from "../atoms/SectionHead";
+import SubSectionContainer from "../atoms/SubSectionContainer";
 import Thumbnail from "../Thumbnail";
 import InsightTitle from "../organisms/InsightTitle";
 

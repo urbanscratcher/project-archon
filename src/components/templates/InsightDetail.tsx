@@ -1,4 +1,4 @@
-import { getInsight } from "@/api/insights.api";
+import { getInsight } from "@/services/insights.api";
 import InsightPost from "@/components/organisms/InsightPost";
 import Related from "@/components/organisms/Related";
 

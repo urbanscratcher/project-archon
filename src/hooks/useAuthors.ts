@@ -1,4 +1,4 @@
-import { getAuthors } from "@/api/authors.api";
+import { getAuthors } from "@/services/authors.api";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
 function useAuthors({

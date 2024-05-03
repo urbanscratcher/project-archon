@@ -1,17 +1,17 @@
-import SectionContainer from "../SectionContainer";
-import SectionHead from "../SectionHead";
+import EditorsPickContainer from "../atoms/EditorsPickContainer";
+import SectionContainer from "../atoms/SectionContainer";
+import SectionHead from "../atoms/SectionHead";
 import ViewAll from "../atoms/ViewAll";
-import EditorsPick from "../organisms/EditorsPick";
+import EditorsPickContent from "../organisms/EditorsPickContent";
 
-function EditorsPickSection({ className }: { className?: string }) {
+function EditorsPickSection() {
   return (
-    <SectionContainer className={`${className || ""}  bg-y-200`}>
+    <SectionContainer className={`min-h-fit bg-y-200 2xl:h-[1033px]`}>
       <SectionHead>editor&apos;s pick</SectionHead>
-      <div className="flex flex-col gap-6 text-sky-700">
-        {/* @ts-expect-error Async Server Component */}
-        <EditorsPick />
+      <EditorsPickContainer>
+        <EditorsPickContent />
         <ViewAll to="/insights" />
-      </div>
+      </EditorsPickContainer>
     </SectionContainer>
   );
 }

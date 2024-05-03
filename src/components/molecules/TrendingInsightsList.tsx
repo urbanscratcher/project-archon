@@ -4,17 +4,15 @@ import TrendingInsightsItem from "./TrendingInsightsItem";
 
 function TrendingInsightsList({ insights }: { insights: Insight[] }) {
   return (
-    <>
-      <ul className="flex flex-col lg:block">
-        {insights.map((insight: TrendingInsight) => {
-          return (
-            <>
-              <TrendingInsightsItem key={insight.idx} insight={insight} />
-            </>
-          );
-        })}
-      </ul>
-    </>
+    <ul className="flex flex-col lg:block">
+      {insights.map((insight: TrendingInsight) => {
+        return (
+          <>
+            <TrendingInsightsItem key={insight.idx} insight={insight} />
+          </>
+        );
+      })}
+    </ul>
   );
 }
 

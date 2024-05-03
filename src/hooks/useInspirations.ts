@@ -1,4 +1,4 @@
-import { getRandomInsights } from "@/api/insights.api";
+import { getRandomInsights } from "@/services/insights.api";
 import { useQuery } from "@tanstack/react-query";
 
 function useInspirations(query: number) {

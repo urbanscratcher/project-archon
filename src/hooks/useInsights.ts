@@ -1,4 +1,4 @@
-import { getInsightsByTopic } from "@/api/insights.api";
+import { getInsightsByTopic } from "@/services/insights.api";
 import { useQuery } from "@tanstack/react-query";
 
 function useInsights(query: number) {

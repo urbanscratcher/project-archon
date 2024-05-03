@@ -1,6 +1,6 @@
 "use client";
 
-import { getRandomInsights } from "@/api/insights.api";
+import { getRandomInsights } from "@/services/insights.api";
 import useInspClickedStore from "@/stores/useInspClickedStore";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";

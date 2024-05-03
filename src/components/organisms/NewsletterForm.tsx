@@ -6,14 +6,15 @@ import {
   type NewsletterForm,
 } from "@/types/NewsletterForm";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
-import { useFieldArray, useForm } from "react-hook-form";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
 
 type NewsletterFormProp = {
   primary?: boolean;
 };
 
 const initialData = { fullName: "", to: "", agreed: true };
+
 function NewsletterForm({ primary = true }: NewsletterFormProp) {
   const {
     register,
@@ -21,7 +22,6 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
     handleSubmit,
     reset,
     watch,
-    control,
     trigger,
   } = useForm<NewsletterForm>({
     mode: "all",
@@ -32,7 +32,7 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
   const { mutateAsync, isPending, isError } = useSubscribe();
   async function submitHandler(data: Pick<NewsletterForm, "fullName" | "to">) {
     const result = await mutateAsync(data);
-    // TODO modal window
+    // [ ] modal window
     alert(result?.message);
     reset();
   }
@@ -71,13 +71,14 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
           className={
             "h-full w-full rounded-md border-0 bg-transparent px-2 py-2"
           }
+          disabled={isPending}
         />
       </div>
       <div
         className={`rounded-md border ${primary ? "border-sky-700" : " border-g-700"} relative bg-transparent`}
       >
         <label
-          className={`pointer-events-none absolute left-1 -translate-y-1/2 px-1 transition-all  ${errors.to ? `z-10 ${primary ? "bg-y-100 text-sky-700" : "bg-white text-g-500"} text-sm` : ""}`}
+          className={`pointer-events-none absolute left-1 -translate-y-1/2 px-1 text-sm transition-all  ${errors.to ? `z-10  ${primary ? "bg-y-100 text-sky-700" : "bg-white text-g-500"}` : ""}`}
         >
           {errors.to && errors.to.message}
         </label>
@@ -89,6 +90,7 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
           className={
             "h-full w-full rounded-md border-0 bg-transparent px-2 py-2"
           }
+          disabled={isPending}
         />
       </div>
       <label className={`my-2 text-sm`}>
@@ -97,6 +99,7 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
           type="checkbox"
           name={"agreed"}
           defaultChecked
+          disabled={isPending}
         />
         &nbsp; By signing up, you agree to our terms and privacy policy
         {errors?.agreed?.message || ""}

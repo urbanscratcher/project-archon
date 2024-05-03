@@ -1,4 +1,4 @@
-import { getInsight } from "@/api/insights.api";
+import { getInsight } from "@/services/insights.api";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../atoms/Loader";
 import Thumbnail from "../Thumbnail";

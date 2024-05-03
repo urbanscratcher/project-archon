@@ -1,10 +1,12 @@
-import { getHeadline } from "@/api/covers.api";
-import { Cover } from "@/types/Cover";
-import Link from "next/link";
+import { getHeadline } from "@/services/covers.api";
+import { type Cover } from "@/types/Cover";
+import HeadlineSectionContainer from "../atoms/HeadlineSectionContainer";
+import HeadlineTextContainer from "../atoms/HeadlineTextContainer";
 import ImageOverlayed from "../atoms/ImageOverlayed";
 import Tag from "../atoms/Tag";
+import LinkedText from "../molecules/LinkedText";
 
-async function HeadlineSection({ className }: { className: string }) {
+async function HeadlineSection() {
   const headline: Cover = await getHeadline();
 
   const data = {
@@ -16,21 +18,22 @@ async function HeadlineSection({ className }: { className: string }) {
   };
 
   return (
-    <section className={`relative ${className || ""}`}>
+    <HeadlineSectionContainer>
       <ImageOverlayed
         src={data.thumbnail}
         alt="background thumbnail of headline"
         priority
       />
-      <div
-        className={`absolute bottom-0 mx-4 my-8 flex flex-col gap-3 text-white sm:mx-6 sm:my-16`}
-      >
+      <HeadlineTextContainer>
         <Tag tagName={data.tagName} white />
-        <Link href={data.href} className={`hover-underline`}>
-          <h1 className="line-clamp-4">{data.title}</h1>
-        </Link>
-      </div>
-    </section>
+        <LinkedText
+          href={data.href}
+          title={data.title}
+          level={1}
+          lineClamp={3}
+        />
+      </HeadlineTextContainer>
+    </HeadlineSectionContainer>
   );
 }
 

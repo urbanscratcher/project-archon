@@ -1,18 +1,23 @@
-import HighlightSection from "@/components/templates/HighlightSection";
-import SavedForLater from "@/components/templates/SavedForLater";
+import HighlightSectionGrid from "@/components/atoms/HighlightSectionGrid";
+import EditorsPickSection from "@/components/templates/EditorsPickSection";
+import HeadlineSection from "@/components/templates/HeadlineSection";
+import SavedForLaterSection from "@/components/templates/SavedForLaterSection";
 import TheLatest from "@/components/templates/TheLatest";
 import TopTopicSection from "@/components/templates/TopTopicSection";
 import Videos from "@/components/templates/Videos";
-import WhatsTrendingSection from "@/components/templates/WhatsTrendingSection";
+import WhatsTrendingGridSection from "@/components/templates/WhatsTrendingGridSection";
 
 export default function Home() {
   return (
     <main>
-      <HighlightSection />
+      <HighlightSectionGrid>
+        <HeadlineSection />
+        <EditorsPickSection />
+      </HighlightSectionGrid>
       <TopTopicSection />
       {/* <MonthlyAwards /> */}
-      <WhatsTrendingSection />
-      <SavedForLater />
+      <WhatsTrendingGridSection />
+      <SavedForLaterSection />
       <TheLatest />
       <Videos />
     </main>

@@ -1,4 +1,4 @@
-import { getInsightsByTopic } from "@/api/insights.api";
+import { getInsightsByTopic } from "@/services/insights.api";
 import InsightsItem from "./InsightsItem";
 
 async function RelatedList({ topicIdx }: { topicIdx: number }) {

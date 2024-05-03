@@ -1,4 +1,4 @@
-import { getTopics } from "@/api/topics.api";
+import { getTopics } from "@/services/topics.api";
 import TopTopicsList from "../molecules/TopTopicsList";
 
 async function TopTopics() {

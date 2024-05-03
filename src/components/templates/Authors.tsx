@@ -1,4 +1,4 @@
-import { getAuthors } from "@/api/authors.api";
+import { getAuthors } from "@/services/authors.api";
 import { type Authors } from "@/types/Author";
 import AuthorList from "../organisms/AuthorList";
 

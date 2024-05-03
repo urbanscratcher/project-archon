@@ -1,10 +1,10 @@
-import { getTrendingInsights } from "@/api/trending.api";
-import { type TrendingInsights } from "@/types/Trending";
-import TrendingInsightsList from "../molecules/TrendingInsightsList";
+import { getTrendingInsights } from "@/services/trending.api";
+import { type TrendingInsights as WhatsTrendingWithCover } from "@/types/Trending";
 import TrendingInsightsHead from "../molecules/TrendingInsightsHead";
+import TrendingInsightsList from "../molecules/TrendingInsightsList";
 
-async function TrendingInsights() {
-  const trendingInsights: TrendingInsights = await getTrendingInsights();
+async function WhatsTrendingWithCover() {
+  const trendingInsights: WhatsTrendingWithCover = await getTrendingInsights();
 
   const data = {
     head:
@@ -25,4 +25,4 @@ async function TrendingInsights() {
   );
 }
 
-export default TrendingInsights;
+export default WhatsTrendingWithCover;

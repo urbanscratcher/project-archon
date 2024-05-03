@@ -1,4 +1,5 @@
-import Link from "next/link";
+import ListItemBox from "../atoms/ListItemBox";
+import LinkedText from "./LinkedText";
 
 function EditorsPickItem({ cover }: { cover: any }) {
   const data = {
@@ -8,12 +9,9 @@ function EditorsPickItem({ cover }: { cover: any }) {
   };
 
   return (
-    <li className="flex gap-2">
-      <span className={"h4"}>✦</span>
-      <Link href={data.href} className={`hover-underline`}>
-        <h4>{data.title}</h4>
-      </Link>
-    </li>
+    <ListItemBox>
+      <LinkedText href={data.href} level={3} title={data.title} lineClamp={4} />
+    </ListItemBox>
   );
 }
 

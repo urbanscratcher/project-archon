@@ -1,12 +1,12 @@
 import Link from "next/link";
 
-type TagType = {
+type TagProps = {
   tagName: string;
   white?: boolean;
   className?: string;
 };
 
-function Tag({ tagName, white, className }: TagType) {
+function Tag({ tagName, white, className }: TagProps) {
   return (
     <Link
       href={{

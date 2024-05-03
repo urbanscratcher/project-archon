@@ -1,6 +1,6 @@
-import { getRandomInsights } from "@/api/insights.api";
-import SectionHead from "../SectionHead";
-import SubSectionContainer from "../SubSectionContainer";
+import { getRandomInsights } from "@/services/insights.api";
+import SectionHead from "../atoms/SectionHead";
+import SubSectionContainer from "../atoms/SubSectionContainer";
 import GetInspirationsBtn from "../organisms/GetInspirationsBtn";
 import InspirationList from "../organisms/InspirationList";
 

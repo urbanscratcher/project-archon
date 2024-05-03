@@ -1,6 +1,6 @@
 "use client";
 
-import { getInsight } from "@/api/insights.api";
+import { getInsight } from "@/services/insights.api";
 import useBookmarkStore from "@/stores/useBookmarkStore";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";

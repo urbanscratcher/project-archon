@@ -1,9 +1,9 @@
-import { getTrendingInsights } from "@/api/trending.api";
+import { getTrendingInsights } from "@/services/trending.api";
 import { type TrendingInsights } from "@/types/Trending";
 import ImageWrap from "../ImageWrap";
-import SectionContainer from "../SectionContainer";
-import SectionHead from "../SectionHead";
-import SubSectionContainer from "../SubSectionContainer";
+import SectionContainer from "../atoms/SectionContainer";
+import SectionHead from "../atoms/SectionHead";
+import SubSectionContainer from "../atoms/SubSectionContainer";
 import ViewAll from "../atoms/ViewAll";
 import InsightsItem from "../organisms/InsightsItem";
 import FeaturedAuthors from "./FeaturedAuthors";

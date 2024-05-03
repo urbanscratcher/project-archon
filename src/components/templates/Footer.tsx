@@ -4,7 +4,7 @@ import {
   IoLogoInstagram,
   IoLogoPinterest,
 } from "react-icons/io5";
-import SectionHead from "../SectionHead";
+import SectionHead from "../atoms/SectionHead";
 import Logo from "../organisms/Logo";
 import NewsletterForm from "../organisms/NewsletterForm";
 import Link from "next/link";
