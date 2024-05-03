@@ -22,6 +22,7 @@ export default function RootLayout({
     <html
       lang="en"
       className="
+      scroll-smooth
       text-xs/[1.357] tracking-[0.03125rem]
       text-sky-700
       sm:text-sm/[1.4]

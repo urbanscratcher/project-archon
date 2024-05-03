@@ -59,7 +59,7 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
         className={`rounded-md border ${primary ? "border-sky-700" : " border-g-700"} relative bg-transparent`}
       >
         <label
-          className={`pointer-events-none absolute left-1 -translate-y-1/2 px-1 text-sm transition-all  ${errors.fullName ? `z-10  ${primary ? "bg-y-100 text-sky-700" : "bg-white text-g-500"}` : ""}`}
+          className={`pointer-events-none absolute left-1 -translate-y-1/2 px-1 text-sm transition-all ${errors.fullName ? `z-10  ${primary ? "bg-y-100 text-sky-700" : "bg-white text-g-500"}` : ""}`}
         >
           {errors.fullName && errors.fullName.message}
         </label>
@@ -69,7 +69,7 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
           placeholder="Enter your full name"
           type="text"
           className={
-            "h-full w-full rounded-md border-0 bg-transparent px-2 py-2"
+            "placeholder-shown:p h-full w-full rounded-md border-0 bg-transparent px-2 py-2"
           }
           disabled={isPending}
         />
@@ -88,7 +88,7 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
           type="email"
           name="to"
           className={
-            "h-full w-full rounded-md border-0 bg-transparent px-2 py-2"
+            "placeholder-shown:p h-full w-full rounded-md border-0 bg-transparent px-2 py-2"
           }
           disabled={isPending}
         />

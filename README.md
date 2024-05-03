@@ -9,6 +9,7 @@
   - \_Box: have simple styles related to position. no whitespacing
   - \_Container: have complex/complete styles like whitespace, border, position, etc
   - \_Head: head of something
+  - \_Grid: grid layout
   - Section\_: section el.
   - List\_: ul el.
   - Item\_: li el.
