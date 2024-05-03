@@ -14,7 +14,7 @@
   - Item\_: li el.
 - Components composing elements
   - \_Section: section el. complex/complete composition happens
-  - \_Content: async component including **data**. complex/complete composition happens
+  - \_Content: async component including **data**. complex/complete composition. reduce the level of abstraction. avoid deepening component layers
   - \_List: ul el.
   - \_Item: li el.
 - Solo components
