@@ -8,7 +8,7 @@ function BookmarkList({
   return (
     <ul>
       {initialBookmarks.map((b) => (
-        <BookmarkItem key={`bookmarks_${b.idx}`} idx={b.idx} />
+        <BookmarkItem key={b.idx} idx={b.idx} />
       ))}
     </ul>
   );

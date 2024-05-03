@@ -70,7 +70,8 @@ function TopicsNavbar({ topics }: { topics: Topic[] }) {
           className="flex w-full flex-nowrap gap-6 overflow-hidden whitespace-nowrap text-[15px] font-semibold tracking-[1.25px] outline-offset-2"
           ref={ulRef}
         >
-          <TopicsList topics={topics} />
+          {/* TODO fix the key */}
+          <TopicsList key={new Date().toISOString()} topics={topics} />
         </ul>
         <button
           className="h-full w-fit px-4 text-xl transition-opacity hover:opacity-80"

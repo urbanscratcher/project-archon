@@ -51,7 +51,8 @@ async function AuthorDetail({ idx }: { idx: number }) {
             className={`text-[17px] capitalize leading-[1.263] tracking-[0.5px] text-g-700`}
           >
             {author.careers.map((career: string, idx: number) => (
-              <li key={`${career}_${idx}`}>• {career}</li>
+              // TODO fix the key
+              <li key={idx}>• {career}</li>
             ))}
           </ul>
         )}

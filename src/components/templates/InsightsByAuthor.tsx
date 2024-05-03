@@ -24,7 +24,7 @@ async function InsightsByAuthor({ idx }: { idx: number }) {
       <ul>
         {insights.data.map((insight: Insight) => (
           <InsightsItem
-            key={`author_${insight.idx}`}
+            key={insight.idx}
             insight={insight}
             summary
             oneThirdImage

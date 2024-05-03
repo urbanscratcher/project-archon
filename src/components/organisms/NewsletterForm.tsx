@@ -1,52 +1,55 @@
 "use client";
 
-import subscribe, { sendEmail } from "@/hooks/useSubscribe";
+import useSubscribe from "@/hooks/useSubscribe";
 import {
   NewsletterFormSchema,
   type NewsletterForm,
 } from "@/types/NewsletterForm";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import SubmitBtn from "../atoms/SubmitBtn";
+import { useEffect, useState } from "react";
+import { useFieldArray, useForm } from "react-hook-form";
 
 type NewsletterFormProp = {
   primary?: boolean;
 };
 
+const initialData = { fullName: "", to: "", agreed: false };
 function NewsletterForm({ primary = true }: NewsletterFormProp) {
   const {
     register,
     formState: { isValid, errors },
-    setError,
     handleSubmit,
+    reset,
     watch,
+    control,
+    trigger,
   } = useForm<NewsletterForm>({
+    mode: "all",
     resolver: zodResolver(NewsletterFormSchema),
+    defaultValues: initialData,
   });
 
-  // useEffect(() => {
-  //   if (!state) {
-  //     return;
-  //   }
+  // const { mutateAsync, isPending, isError } = useSubscribe();
+  // async function submitHandler(data: Pick<NewsletterForm, "fullName" | "to">) {
+  //   const result = await mutateAsync(data);
+  //   // TODO modal window
+  //   alert(result?.message);
+  //   reset();
+  // }
 
-  //   if (state.status === "error") {
-  //     state.errors?.forEach((error: FormError) => {
-  //       setError(error.path as FieldPath<NewsletterForm>, {
-  //         message: error.message,
-  //       });
-  //     });
-  //   }
-
-  //   if (state.status === "success") {
-  //     // TODO modal window pop up
-  //     alert(state.message);
-  //   }
-  // }, [state, setError]);
+  // ISSUE As noted in NewsletterForm.ts, it is temporarily written
+  // Though the subscription forces to trigger the validation but I'm afraid that it would be not a fully controllable solution
+  useEffect(() => {
+    const subcription = watch(() => {
+      trigger(["agreed"]);
+    });
+    return () => subcription.unsubscribe();
+  }, [watch, trigger]);
 
   return (
     <form
       className={`flex flex-col gap-3  ${primary ? "text-sky-700" : "text-g-700"}`}
-      onSubmit={handleSubmit(sendEmail)}
+      onSubmit={handleSubmit(console.log)}
     >
       <p className="mb-1">
         Subscribe our newsletter to get the latest updates all about
@@ -62,9 +65,9 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
         </label>
         <input
           {...register("fullName")}
+          name="fullName"
           placeholder="Enter your full name"
           type="text"
-          name="fullName"
           className={
             "h-full w-full rounded-md border-0 bg-transparent px-2 py-2"
           }
@@ -89,14 +92,24 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
         />
       </div>
       <label className={`my-2 text-sm`}>
-        <input {...register("agreed")} type="checkbox" name={"agreed"} />
+        <input
+          {...register("agreed")}
+          type="checkbox"
+          name={"agreed"}
+          defaultChecked={false}
+        />
         &nbsp; By signing up, you agree to our terms and privacy policy
-        {watch("agreed") === false && "(*)"}
+        {errors?.agreed?.message || ""}
       </label>
-      <SubmitBtn
-        isValid={true}
-        className="cursor-pointer rounded-full bg-sky-700 py-3 text-[15px] font-medium uppercase tracking-[1.25px] text-white hover:bg-sky-800 active:bg-sky-900 disabled:cursor-not-allowed disabled:bg-g-700"
-      />
+      <button
+        type="submit"
+        className={
+          "cursor-pointer rounded-full bg-sky-700 py-3 text-[15px] font-medium uppercase tracking-[1.25px] text-white hover:bg-sky-800 active:bg-sky-900 disabled:cursor-not-allowed disabled:bg-g-700"
+        }
+        // disabled={isPending}
+      >
+        {false ? "sending..." : "subscribe"}
+      </button>
     </form>
   );
 }

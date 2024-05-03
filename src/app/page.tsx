@@ -13,7 +13,6 @@ export default function Home() {
       {/* <MonthlyAwards /> */}
       <WhatsTrendingSection />
       <SavedForLater />
-      {/* @ts-expect-error Async Server Component */}
       <TheLatest />
       <Videos />
     </main>

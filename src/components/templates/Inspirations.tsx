@@ -23,7 +23,11 @@ async function Inspirations({
         <GetInspirationsBtn />
       </SectionHead>
       <ul className="grid grid-cols-2 grid-rows-3 gap-2">
-        <InspirationList initialInspirations={inspirations} />
+        {/* TODO fix the key */}
+        <InspirationList
+          key={new Date().toISOString()}
+          initialInspirations={inspirations}
+        />
       </ul>
     </SubSectionContainer>
   );
