@@ -4,7 +4,7 @@ import HeadlineSectionContainer from "../atoms/HeadlineSectionContainer";
 import HeadlineTextContainer from "../atoms/HeadlineTextContainer";
 import ImageOverlayed from "../atoms/ImageOverlayed";
 import Tag from "../atoms/Tag";
-import LinkedText from "../molecules/LinkedText";
+import LinkText from "../molecules/LinkText";
 
 async function HeadlineSection() {
   const headline: Cover = await getHeadline();
@@ -26,12 +26,7 @@ async function HeadlineSection() {
       />
       <HeadlineTextContainer>
         <Tag tagName={data.tagName} white />
-        <LinkedText
-          href={data.href}
-          title={data.title}
-          level={1}
-          lineClamp={3}
-        />
+        <LinkText href={data.href} text={data.title} level={1} lineClamp={3} />
       </HeadlineTextContainer>
     </HeadlineSectionContainer>
   );

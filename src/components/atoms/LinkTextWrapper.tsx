@@ -2,16 +2,16 @@ import { WrapperProps } from "@/types/CommonTypes";
 import Link, { LinkProps } from "next/link";
 import { HTMLProps } from "react";
 
-type TextLinkWrapperProps = LinkProps &
+type LinkTextWrapperProps = LinkProps &
   HTMLProps<HTMLAnchorElement> &
   WrapperProps;
 
-function TextLinkWrapper({
+function LinkTextWrapper({
   href,
   children,
   className,
   ...restProps
-}: TextLinkWrapperProps) {
+}: LinkTextWrapperProps) {
   return (
     <Link
       href={href}
@@ -23,4 +23,4 @@ function TextLinkWrapper({
   );
 }
 
-export default TextLinkWrapper;
+export default LinkTextWrapper;

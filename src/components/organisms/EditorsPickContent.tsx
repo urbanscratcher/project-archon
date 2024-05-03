@@ -2,11 +2,11 @@ import { getCovers } from "@/services/covers.api";
 import { type Cover } from "@/types/Cover";
 import Thumbnail from "../Thumbnail";
 import Divider from "../atoms/EditorsPickDivider";
-import ListItemBox from "../atoms/ListItemBox";
+import ItemBox from "../atoms/ItemBox";
 import ListVerticalBox from "../atoms/ListVerticalBox";
 import Tag from "../atoms/Tag";
 import VerticalBox from "../atoms/VerticalBox";
-import LinkedText from "../molecules/LinkedText";
+import LinkText from "../molecules/LinkText";
 
 async function EditorsPickContent() {
   const covers = await getCovers();
@@ -45,9 +45,9 @@ async function EditorsPickContent() {
             className="mb-3"
           />
           <Tag tagName={data.head.topic} />
-          <LinkedText
+          <LinkText
             href={data.head.href}
-            title={data.head.title}
+            text={data.head.title}
             level={3}
             lineClamp={3}
           />
@@ -57,14 +57,14 @@ async function EditorsPickContent() {
       {data?.restList && (
         <ListVerticalBox className="marker:h4 gap-2 pl-5 marker:content-['✦'] [&>*]:pl-1">
           {data.restList.map((item: any) => (
-            <ListItemBox key={item.idx}>
-              <LinkedText
+            <ItemBox key={item.idx}>
+              <LinkText
                 href={item.href}
-                title={item.title}
+                text={item.title}
                 level={3}
                 lineClamp={4}
               />
-            </ListItemBox>
+            </ItemBox>
           ))}
         </ListVerticalBox>
       )}

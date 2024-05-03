@@ -1,12 +1,12 @@
 import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
-import TopTopics from "../organisms/TopTopics";
+import TopTopicContent from "../organisms/TopTopicContent";
 
 function TopTopicSection() {
   return (
     <SectionContainer className="bg-b-200">
-      <SectionHead>Top topics</SectionHead>
-      <TopTopics />
+      <SectionHead>TOP TOPICS</SectionHead>
+      <TopTopicContent />
     </SectionContainer>
   );
 }

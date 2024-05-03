@@ -1,5 +1,8 @@
 import { type Topic } from "@/types/Topic";
 import Link from "next/link";
+import ListHorizontalBox from "../atoms/ListHorizontalBox";
+import TopTopicText from "../atoms/TopTopicText";
+import TopTopicTotalLabel from "../atoms/TopTopicTotalLabel";
 
 function TopTopicsItem({ topic }: { topic: Topic }) {
   const data = {
@@ -9,18 +12,12 @@ function TopTopicsItem({ topic }: { topic: Topic }) {
   };
 
   return (
-    <li className={"flex"}>
+    <ListHorizontalBox>
       <Link href={data.href} className="hover:shadow-[inset_0_-30px_0_#ddea6c]">
-        <h1 className="font-sans font-normal capitalize tracking-[.04rem]">
-          {data.name}
-        </h1>
+        <TopTopicText text={data.name} />
       </Link>
-      <div
-        className={`flex h-7 w-7 items-center justify-center rounded-full bg-sky-700 text-white sm:h-8 sm:w-8`}
-      >
-        <p>{data.totalInsights}</p>
-      </div>
-    </li>
+      <TopTopicTotalLabel label={data.totalInsights} />
+    </ListHorizontalBox>
   );
 }
 

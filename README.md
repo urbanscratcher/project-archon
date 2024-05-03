@@ -2,6 +2,28 @@
 
 - This is a personal project on a magazine website to practice Next.js
 
+## Naming convention
+
+- Components rendering children
+  - \_Wrapper: have 1-2 unique styles
+  - \_Box: have simple styles related to position. no whitespacing
+  - \_Container: have complex/complete styles like whitespace, border, position, etc
+  - \_Head: head of something
+  - Section\_: section el.
+  - List\_: ul el.
+  - Item\_: li el.
+- Components composing elements
+  - \_Section: section el. complex/complete composition happens
+  - \_Content: async component including **data**. complex/complete composition happens
+  - \_List: ul el.
+  - \_Item: li el.
+- Solo components
+  - Divider: hr el.
+  - \_Text: styled text component. required 'text' prop
+  - \_Label: styled label component. required 'label' prop
+- Note
+  - I divided components following atomic design as small as possible as practice, even not reusable one
+
 ## Structure of Components
 
 - Piece of UI that has its own data, logic, appearance (how it works and looks)
