@@ -1,18 +1,12 @@
 "use client";
 
-import subscribe, {
-  type FormError,
-  type NewsletterFormState,
-} from "@/actions/subscribe";
+import subscribe, { sendEmail } from "@/hooks/useSubscribe";
 import {
   NewsletterFormSchema,
   type NewsletterForm,
 } from "@/types/NewsletterForm";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect } from "react";
-import { FieldPath, useForm } from "react-hook-form";
-// @ts-expect-error
-import { useFormState } from "react-dom";
+import { useForm } from "react-hook-form";
 import SubmitBtn from "../atoms/SubmitBtn";
 
 type NewsletterFormProp = {
@@ -22,41 +16,37 @@ type NewsletterFormProp = {
 function NewsletterForm({ primary = true }: NewsletterFormProp) {
   const {
     register,
-    formState: { errors },
+    formState: { isValid, errors },
     setError,
+    handleSubmit,
     watch,
   } = useForm<NewsletterForm>({
-    mode: "all",
     resolver: zodResolver(NewsletterFormSchema),
   });
-  const [state, formAction] = useFormState<NewsletterFormState, FormData>(
-    subscribe,
-    null,
-  );
 
-  useEffect(() => {
-    if (!state) {
-      return;
-    }
+  // useEffect(() => {
+  //   if (!state) {
+  //     return;
+  //   }
 
-    if (state.status === "error") {
-      state.errors?.forEach((error: FormError) => {
-        setError(error.path as FieldPath<NewsletterForm>, {
-          message: error.message,
-        });
-      });
-    }
+  //   if (state.status === "error") {
+  //     state.errors?.forEach((error: FormError) => {
+  //       setError(error.path as FieldPath<NewsletterForm>, {
+  //         message: error.message,
+  //       });
+  //     });
+  //   }
 
-    if (state.status === "success") {
-      // TODO modal window pop up
-      alert(state.message);
-    }
-  }, [state, setError]);
+  //   if (state.status === "success") {
+  //     // TODO modal window pop up
+  //     alert(state.message);
+  //   }
+  // }, [state, setError]);
 
   return (
     <form
       className={`flex flex-col gap-3  ${primary ? "text-sky-700" : "text-g-700"}`}
-      action={formAction}
+      onSubmit={handleSubmit(sendEmail)}
     >
       <p className="mb-1">
         Subscribe our newsletter to get the latest updates all about
@@ -71,11 +61,7 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
           {errors.fullName && errors.fullName.message}
         </label>
         <input
-          {...register("fullName", {
-            required: true,
-            minLength: 3,
-            maxLength: 20,
-          })}
+          {...register("fullName")}
           placeholder="Enter your full name"
           type="text"
           name="fullName"
@@ -108,7 +94,7 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
         {watch("agreed") === false && "(*)"}
       </label>
       <SubmitBtn
-        isValid={!errors.fullName && !errors.to && watch("agreed")}
+        isValid={true}
         className="cursor-pointer rounded-full bg-sky-700 py-3 text-[15px] font-medium uppercase tracking-[1.25px] text-white hover:bg-sky-800 active:bg-sky-900 disabled:cursor-not-allowed disabled:bg-g-700"
       />
     </form>

@@ -1,73 +1,42 @@
-"use server";
 import { formatDate } from "@/libs/helpers";
-import {
-  NewsletterFormSchema,
-  type NewsletterForm,
-} from "@/types/NewsletterForm";
-import { NextResponse } from "next/server";
+import { type NewsletterForm } from "@/types/NewsletterForm";
+import { useMutation } from "@tanstack/react-query";
+import { isString } from "lodash";
 import nodemailer from "nodemailer";
-import { ZodError } from "zod";
 
-export type FormError = { path: string; message: string };
-
-export type NewsletterFormState =
+export type SubmitState =
   | {
-      status: "success" | "fail";
+      status: "success";
       message: string;
     }
   | {
-      status: "error";
+      status: "fail";
       message: string;
-      errors?: Array<FormError>;
+      error?: string;
     }
   | null;
 
-async function subscribe(
-  prevState: NewsletterFormState | null,
-  formData: FormData,
-): Promise<NewsletterFormState> {
-  try {
-    const { fullName, to } = NewsletterFormSchema.parse(formData);
+export default async function useSubscribe() {
+  const { mutate, isPending, isError } = useMutation({
+    mutationFn: (data: Pick<NewsletterForm, "fullName" | "to">) =>
+      sendEmail(data),
+    onSuccess: () => {
+      console.log("success");
+    },
+    onError: () => {
+      console.log("error");
+    },
+    onSettled: () => {
+      console.log("execute without regard for the result");
+    },
+  });
 
-    const response = await sendEmail({
-      fullName: fullName,
-      to: to,
-    });
-
-    if (response.ok) {
-      return {
-        status: "success",
-        message: "Email sent successfully",
-      };
-    } else {
-      return {
-        status: "fail",
-        message: "Failed to send email",
-      };
-    }
-  } catch (e) {
-    if (e instanceof ZodError) {
-      return {
-        status: "error",
-        message: "Invalid form data",
-        errors: e.issues.map((issue) => ({
-          path: issue.path.join("."),
-          message: issue.message,
-        })),
-      };
-    }
-    return {
-      status: "error",
-      message: "Something went wrong. Please try again",
-    };
-  }
+  return { mutate, isPending, isError };
 }
-
-export default subscribe;
 
 export async function sendEmail(
   data: Pick<NewsletterForm, "fullName" | "to">,
-): Promise<NextResponse> {
+): Promise<SubmitState> {
   const { to, fullName } = data;
 
   const emailOption = {
@@ -108,15 +77,20 @@ export async function sendEmail(
 
   try {
     // await transporter.sendMail(emailOption);
-    return NextResponse.json({ message: "Email sent successfully" });
+    return {
+      status: "success",
+      message: "Email sent successfully",
+    };
   } catch (error) {
-    console.error("Error sending email:", error);
-    return NextResponse.json(
-      { error: "Failed to send email" },
-      { status: 500 },
-    );
+    console.error("Failed to send the email:", error);
+    return {
+      status: "fail",
+      message: "Failed to send the email",
+      error: isString(error) ? error : undefined,
+    };
   }
 }
+
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
