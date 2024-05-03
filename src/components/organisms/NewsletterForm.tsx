@@ -13,7 +13,7 @@ type NewsletterFormProp = {
   primary?: boolean;
 };
 
-const initialData = { fullName: "", to: "", agreed: false };
+const initialData = { fullName: "", to: "", agreed: true };
 function NewsletterForm({ primary = true }: NewsletterFormProp) {
   const {
     register,
@@ -29,13 +29,13 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
     defaultValues: initialData,
   });
 
-  // const { mutateAsync, isPending, isError } = useSubscribe();
-  // async function submitHandler(data: Pick<NewsletterForm, "fullName" | "to">) {
-  //   const result = await mutateAsync(data);
-  //   // TODO modal window
-  //   alert(result?.message);
-  //   reset();
-  // }
+  const { mutateAsync, isPending, isError } = useSubscribe();
+  async function submitHandler(data: Pick<NewsletterForm, "fullName" | "to">) {
+    const result = await mutateAsync(data);
+    // TODO modal window
+    alert(result?.message);
+    reset();
+  }
 
   // ISSUE As noted in NewsletterForm.ts, it is temporarily written
   // Though the subscription forces to trigger the validation but I'm afraid that it would be not a fully controllable solution
@@ -49,7 +49,7 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
   return (
     <form
       className={`flex flex-col gap-3  ${primary ? "text-sky-700" : "text-g-700"}`}
-      onSubmit={handleSubmit(console.log)}
+      onSubmit={handleSubmit(submitHandler)}
     >
       <p className="mb-1">
         Subscribe our newsletter to get the latest updates all about
@@ -96,7 +96,7 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
           {...register("agreed")}
           type="checkbox"
           name={"agreed"}
-          defaultChecked={false}
+          defaultChecked
         />
         &nbsp; By signing up, you agree to our terms and privacy policy
         {errors?.agreed?.message || ""}
@@ -106,9 +106,9 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
         className={
           "cursor-pointer rounded-full bg-sky-700 py-3 text-[15px] font-medium uppercase tracking-[1.25px] text-white hover:bg-sky-800 active:bg-sky-900 disabled:cursor-not-allowed disabled:bg-g-700"
         }
-        // disabled={isPending}
+        disabled={isPending || !isValid}
       >
-        {false ? "sending..." : "subscribe"}
+        {isPending ? "sending..." : "subscribe"}
       </button>
     </form>
   );
