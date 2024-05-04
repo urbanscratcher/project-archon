@@ -62,7 +62,7 @@ async function EditorsPickContent() {
                 href={item.href}
                 text={item.title}
                 level={4}
-                lineClamp={4}
+                lineClamp={3}
               />
             </ItemBox>
           ))}
