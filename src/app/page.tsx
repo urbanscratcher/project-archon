@@ -20,21 +20,9 @@ export default function Home() {
       <TopTopicSection />
       {/* <MonthlyAwards /> */}
       <WhatsTrendingSectionGrid>
-        <WhatsTrendingSection
-          className="
-      col-span-full lg:col-start-1 lg:row-span-full
-      xl:col-end-4"
-        />
-        <StayConnectedSection
-          className="
-      lg:col-start-1 lg:col-end-3
-      xl:col-start-4 xl:col-end-5 xl:row-start-1 xl:row-end-2"
-        />
-        <NewsletterSection
-          className="
-        lg:col-start-3 lg:col-end-5
-      xl:col-start-4 xl:col-end-5 xl:row-start-2 xl:row-end-3"
-        />
+        <WhatsTrendingSection />
+        <StayConnectedSection />
+        <NewsletterSection />
       </WhatsTrendingSectionGrid>
       <SavedForLaterSection />
       <TheLatest />

@@ -10,6 +10,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        "3xl": "2560px",
+      },
       colors: {
         y: {
           "50": "#fbfde8",

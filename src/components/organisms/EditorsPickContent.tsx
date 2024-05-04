@@ -61,7 +61,7 @@ async function EditorsPickContent() {
               <LinkText
                 href={item.href}
                 text={item.title}
-                level={3}
+                level={4}
                 lineClamp={4}
               />
             </ItemBox>
