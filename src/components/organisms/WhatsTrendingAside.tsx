@@ -4,7 +4,7 @@ import Link from "next/link";
 import SectionHead from "../atoms/SectionHead";
 import Thumbnail from "../atoms/Thumbnail";
 import InsightTitle from "../molecules/InsightTitle";
-import SectionContainer from "../templates/SectionContainer";
+import SectionContainer from "../atoms/SectionContainer";
 
 async function WhatsTrendingAside() {
   const trendingInsights: TrendingInsights = await getTrendingInsights();

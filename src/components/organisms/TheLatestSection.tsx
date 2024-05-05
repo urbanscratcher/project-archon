@@ -6,7 +6,7 @@ import ViewAll from "../atoms/ViewAll";
 import InsightsItem from "../molecules/InsightsItem";
 import FeaturedAuthors from "../templates/FeaturedAuthors";
 import InspirationSection from "./InspirationSection";
-import SectionContainer from "../templates/SectionContainer";
+import SectionContainer from "../atoms/SectionContainer";
 
 async function TheLatestSection() {
   const trendingInsights: TrendingInsights = await getTrendingInsights();

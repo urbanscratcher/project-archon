@@ -26,9 +26,9 @@ function InspirationItems({
 
   if (isLoading) {
     return (
-      <li className="col-span-2 row-span-3 my-5">
+      <ListItem className="col-span-2 row-span-3 my-5">
         <Loader />
-      </li>
+      </ListItem>
     );
   }
 
@@ -39,8 +39,8 @@ function InspirationItems({
 
   return (
     <>
-      {inspirations.map((inspiration: InsightRandom) => (
-        <ListItem key={`inspiration.idx`}>
+      {inspirations.map((inspiration: InsightRandom, idx: number) => (
+        <ListItem key={`inspiration_` + idx}>
           <Thumbnail
             insightIdx={inspiration.idx}
             href={`/insights/${inspiration.idx}`}

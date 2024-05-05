@@ -1,10 +1,10 @@
 import { getHeadline } from "@/services/covers.api";
 import { type Cover } from "@/types/Cover";
-import HeadlineSectionContainer from "../templates/HeadlineSectionContainer";
 import ImageOverlayed from "../atoms/ImageOverlayed";
 import Tag from "../atoms/Tag";
 import LinkText from "../molecules/LinkText";
 import Box from "../atoms/Box";
+import SectionContainer from "../atoms/SectionContainer";
 
 async function HeadlineSection() {
   const headline: Cover = await getHeadline();
@@ -18,7 +18,10 @@ async function HeadlineSection() {
   };
 
   return (
-    <HeadlineSectionContainer>
+    <SectionContainer
+      whitespace="no"
+      className="relative h-screen max-h-[700px] min-h-[496px] sm:max-h-[682px] lg:min-h-[1080px] 3xl:max-h-[1440px]"
+    >
       <ImageOverlayed
         src={data.thumbnail}
         alt="background thumbnail of headline"
@@ -31,7 +34,7 @@ async function HeadlineSection() {
         <Tag tagName={data.tagName} white />
         <LinkText href={data.href} text={data.title} level={1} lineClamp={3} />
       </Box>
-    </HeadlineSectionContainer>
+    </SectionContainer>
   );
 }
 

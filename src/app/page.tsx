@@ -15,7 +15,7 @@ import InspirationSection from "@/components/organisms/InspirationSection";
 export default function Home() {
   return (
     <main>
-      <HighlightSectionGrid>
+      {/* <HighlightSectionGrid>
         <HeadlineSection />
         <EditorsPickSection />
       </HighlightSectionGrid>
@@ -25,12 +25,12 @@ export default function Home() {
         <StayConnectedSection />
         <NewsletterSection />
       </WhatsTrendingSectionGrid>
-      {/* <SavedForLaterSection />
+      <SavedForLaterSection /> */}
       <TheLatestSectionGrid>
         <InspirationSection />
         <TheLatestSection />
       </TheLatestSectionGrid>
-      <Videos /> */}
+      <Videos />
     </main>
   );
 }

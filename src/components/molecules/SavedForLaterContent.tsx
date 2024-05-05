@@ -7,18 +7,21 @@ import SavedForLaterItem from "./SavedForLaterItem";
 function SavedForLaterContent() {
   const storedInsights = useBookmarkStore((state) => state.bookmarks);
 
-  // TODO design
+  // [ ] design
   if (storedInsights.length <= 0) {
     return <div>Explore some insights :)</div>;
   }
 
-  const limitStoredInsights =
+  const StoredInsightsSlice =
     storedInsights.length >= 4 ? storedInsights.slice(0, 4) : storedInsights;
 
   return (
     <List className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {limitStoredInsights.map((bookmark) => (
-        <SavedForLaterItem key={bookmark.idx} idx={bookmark.idx} />
+      {StoredInsightsSlice.map((bookmark) => (
+        <SavedForLaterItem
+          key={`savedForLater_${bookmark.idx}`}
+          idx={bookmark.idx}
+        />
       ))}
     </List>
   );

@@ -1,5 +1,5 @@
 import Box from "../atoms/Box";
-import SectionContainer from "../templates/SectionContainer";
+import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
 import ViewAll from "../atoms/ViewAll";
 import EditorsPickContent from "../molecules/EditorsPickContent";

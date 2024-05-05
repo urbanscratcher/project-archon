@@ -1,8 +1,12 @@
 import { getTrendingInsights } from "@/services/trending.api";
-import { type TrendingInsights as WhatsTrendingContent } from "@/types/Trending";
+import {
+  TrendingInsight,
+  type TrendingInsights as WhatsTrendingContent,
+} from "@/types/Trending";
 import WhatsTrendingContentGrid from "../templates/WhatsTrendingContentGrid";
 import TrendingInsightsHead from "../molecules/TrendingInsightsHead";
-import TrendingInsightsList from "../molecules/TrendingInsightsList";
+import TrendingInsightsListItem from "../molecules/TrendingInsightsListItem";
+import List from "../atoms/List";
 
 async function WhatsTrendingContent() {
   const trendingInsights: WhatsTrendingContent = await getTrendingInsights();
@@ -20,7 +24,16 @@ async function WhatsTrendingContent() {
     <WhatsTrendingContentGrid>
       {data?.head && <TrendingInsightsHead insight={data.head} />}
       <hr className="h-[1px] w-full border-0 bg-sky-700 sm:h-full sm:w-[1px]" />
-      {data?.restList && <TrendingInsightsList insights={data.restList} />}
+      {data?.restList && (
+        <List vertical className="lg:block">
+          {data.restList.map((insight: TrendingInsight) => (
+            <TrendingInsightsListItem
+              key={`trendingInsights_${insight.idx}`}
+              insight={insight}
+            />
+          ))}
+        </List>
+      )}
       <hr className="hidden h-full bg-sky-700 xl:block xl:w-[1px]" />
     </WhatsTrendingContentGrid>
   );

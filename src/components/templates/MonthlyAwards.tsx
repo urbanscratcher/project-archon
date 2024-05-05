@@ -1,4 +1,4 @@
-import SectionContainer from "./SectionContainer";
+import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
 
 function MonthlyAwards() {

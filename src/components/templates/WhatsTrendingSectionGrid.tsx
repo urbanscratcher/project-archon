@@ -1,5 +1,5 @@
 import { WrapperProps } from "@/types/CommonTypes";
-import SectionContainer from "./SectionContainer";
+import SectionContainer from "../atoms/SectionContainer";
 
 function WhatsTrendingSectionGrid({ children }: WrapperProps) {
   return (

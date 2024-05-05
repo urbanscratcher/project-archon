@@ -52,7 +52,6 @@ function SavedForLaterItem({
           href={`/insights/${idx}`}
           text={insight.title}
           level={3}
-          lineClamp={4}
           className="text-white"
         />
         <AuthorRow creator={insight.creator} white />

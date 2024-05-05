@@ -7,7 +7,7 @@ import {
 } from "react-icons/io5";
 import List from "../atoms/List";
 import ListItem from "../atoms/ListItem";
-import SectionContainer from "../templates/SectionContainer";
+import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
 
 type SnsType = {

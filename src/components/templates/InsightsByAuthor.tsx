@@ -1,6 +1,6 @@
 import { getInsightsByAuthor } from "@/services/insights.api";
 import { type Insight } from "@/types/Insight";
-import SectionContainer from "./SectionContainer";
+import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
 import InsightsItem from "../molecules/InsightsItem";
 

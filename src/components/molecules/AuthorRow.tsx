@@ -1,6 +1,7 @@
 import { Creator } from "@/types/Insight";
 import Link from "next/link";
 import ImageWrap from "../atoms/ImageWrap";
+import Box from "../atoms/Box";
 
 function AuthorRow({ creator, white }: Creator & { white: boolean }) {
   const data = {
@@ -10,7 +11,7 @@ function AuthorRow({ creator, white }: Creator & { white: boolean }) {
   };
 
   return (
-    <div className={`flex items-center gap-2 text-sky-700`}>
+    <Box horizontal className={`items-center gap-2 text-sky-700`}>
       <Link
         href={data.href}
         className="relative h-8 w-8 overflow-hidden rounded-full border border-sky-700 object-cover"
@@ -19,13 +20,13 @@ function AuthorRow({ creator, white }: Creator & { white: boolean }) {
       </Link>
       <Link href={data.href} className="hover-darker">
         <p
-          className={`text-[1.0625rem]/[1.263] capitalize tracking-[0.03125rem]
+          className={`p-lg capitalize
           ${white ? "text-white" : ""}`}
         >
           {data.fullName}
         </p>
       </Link>
-    </div>
+    </Box>
   );
 }
 
