@@ -3,7 +3,7 @@ import useAuthors from "@/hooks/useAuthors";
 import { type Author, type Authors } from "@/types/Author";
 import { type Topic } from "@/types/Topic";
 import Link from "next/link";
-import ImageWrap from "../ImageWrap";
+import ImageWrap from "../atoms/ImageWrap";
 import Loader from "../atoms/Loader";
 
 function AuthorList({ initialAuthors }: { initialAuthors: Authors }) {

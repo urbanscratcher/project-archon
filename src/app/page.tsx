@@ -1,15 +1,15 @@
-import HighlightSectionGrid from "@/components/atoms/HighlightSectionGrid";
-import EditorsPickSection from "@/components/templates/EditorsPickSection";
-import HeadlineSection from "@/components/templates/HeadlineSection";
-import NewsletterSection from "@/components/templates/NewsletterSection";
-import SavedForLaterSection from "@/components/templates/SavedForLaterSection";
-import StayConnectedSection from "@/components/templates/StayConnectedSection";
-import TheLatestSection from "@/components/templates/TheLatestSection";
-import TopTopicSection from "@/components/templates/TopTopicSection";
+import HighlightSectionGrid from "@/components/templates/HighlightSectionGrid";
+import EditorsPickSection from "@/components/organisms/EditorsPickSection";
+import HeadlineSection from "@/components/organisms/HeadlineSection";
+import NewsletterSection from "@/components/organisms/NewsletterSection";
+import SavedForLaterSection from "@/components/organisms/SavedForLaterSection";
+import StayConnectedSection from "@/components/organisms/StayConnectedSection";
+import TheLatestSection from "@/components/organisms/TheLatestSection";
+import TopTopicSection from "@/components/organisms/TopTopicSection";
 import Videos from "@/components/templates/Videos";
-import WhatsTrendingSection from "@/components/templates/WhatsTrendingSection";
-import WhatsTrendingSectionGrid from "@/components/atoms/WhatsTrendingSectionGrid";
-import TheLatestSectionGrid from "@/components/atoms/TheLatestSectionGrid";
+import WhatsTrendingSection from "@/components/organisms/WhatsTrendingSection";
+import WhatsTrendingSectionGrid from "@/components/templates/WhatsTrendingSectionGrid";
+import TheLatestSectionGrid from "@/components/templates/TheLatestSectionGrid";
 
 export default function Home() {
   return (

@@ -19,23 +19,6 @@ select:-webkit-autofill:focus {
 }
 
 @layer base {
-  /* hover */
-  .hover {
-    @apply hover:cursor-pointer;
-  }
-
-  .hover-underline {
-    @apply hover:underline hover:decoration-2;
-  }
-
-  .hover-lighter {
-    @apply hover:opacity-80;
-  }
-
-  .hover-darker {
-    @apply hover:brightness-75;
-  }
-
   /* scrollbar */
   :root {
     overflow: overlay;
@@ -48,50 +31,6 @@ select:-webkit-autofill:focus {
     border-radius: 100px;
   }
 
-  /* menu selection - hover */
-  .menu__hover {
-    @apply hover:bg-sky-700 hover:text-white;
-  }
-
-  /* image filter */
-  .img__overlay::before {
-    position: absolute;
-    content: "";
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    transition: opacity 0.15s ease;
-    background: linear-gradient(
-      to bottom right,
-      rgba(18, 18, 18, 0.73) 0%,
-      rgba(96, 109, 43, 0.58) 100%
-    );
-    opacity: 0.5;
-    z: -1;
-  }
-
-  .img__filter::before {
-    position: absolute;
-    content: "";
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    transition: opacity 0.15s ease;
-    background: linear-gradient(
-      to bottom right,
-      rgba(18, 18, 18, 0.73) 0%,
-      rgba(96, 109, 43, 0.58) 100%
-    );
-    opacity: 0;
-    z-index: 1;
-  }
-
-  .img__filter:active::before {
-    opacity: 0.3;
-  }
-
   /* selection */
   ::selection {
     @apply bg-y-300 text-sky-700;
@@ -101,27 +40,6 @@ select:-webkit-autofill:focus {
   }
   ::-webkit-selection {
     @apply bg-y-300 text-sky-700;
-  }
-
-  /* typography */
-  .text-btn {
-    @apply text-[0.9375rem]/[1.263] font-semibold uppercase tracking-[0.078rem];
-  }
-
-  .h2 {
-    @apply font-serif text-[3.052rem]/[1.25];
-  }
-  .h3 {
-    @apply font-serif text-[2.441rem]/[1.25] tracking-[0.0156rem];
-  }
-  .h4 {
-    @apply font-serif text-[1.953rem]/[1.27];
-  }
-  .p {
-    @apply font-sans text-[1rem]/[1.333] tracking-[0.015625rem];
-  }
-  .p-sm {
-    @apply font-sans text-[0.9375rem]/[1.333] tracking-[0.015625rem];
   }
 
   h1 {
@@ -143,11 +61,9 @@ select:-webkit-autofill:focus {
   p {
     @apply p;
   }
+}
 
-  .whiten {
-    filter: brightness(0) invert(1);
-  }
-
+@layer components {
   /* loader */
   .loader {
     height: 20px;
@@ -195,5 +111,76 @@ select:-webkit-autofill:focus {
         calc(2 * 100% / 3) 100%,
         calc(3 * 100% / 3) 0;
     }
+  }
+}
+
+@layer utilities {
+  /* typography */
+  .text-btn {
+    @apply text-[0.9375rem]/[1.263] font-semibold uppercase tracking-[0.078rem];
+  }
+
+  .h2 {
+    @apply font-serif text-[3.052rem]/[1.25];
+  }
+  .h3 {
+    @apply font-serif text-[2.441rem]/[1.25] tracking-[0.0156rem];
+  }
+  .h4 {
+    @apply font-serif text-[1.953rem]/[1.27];
+  }
+  .p {
+    @apply font-sans text-[1rem]/[1.333] tracking-[0.015625rem];
+  }
+  .p-sm {
+    @apply font-sans text-[0.9375rem]/[1.333] tracking-[0.015625rem];
+  }
+
+  /* hover */
+  .hover {
+    @apply hover:cursor-pointer;
+  }
+
+  .hover-underline {
+    @apply hover:underline hover:decoration-2;
+  }
+
+  .hover-lighter {
+    @apply hover:opacity-80;
+  }
+
+  .hover-darker {
+    @apply hover:brightness-75;
+  }
+
+  /* menu selection - hover */
+  .menu__hover {
+    @apply hover:bg-sky-700 hover:text-white;
+  }
+
+  /* image filter */
+  .img__filter::before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: opacity 0.15s ease;
+    background: linear-gradient(
+      to bottom right,
+      rgba(18, 18, 18, 0.73) 0%,
+      rgba(96, 109, 43, 0.58) 100%
+    );
+    opacity: 0;
+    z-index: 1;
+  }
+
+  .img__filter:active::before {
+    opacity: 0.3;
+  }
+
+  .whiten {
+    filter: brightness(0) invert(1);
   }
 }

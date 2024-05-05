@@ -1,5 +1,5 @@
 import { ImageProps } from "next/image";
-import ImageWrap from "../ImageWrap";
+import ImageWrap from "./ImageWrap";
 
 // parent style should be relative
 function ImageOverlayed({

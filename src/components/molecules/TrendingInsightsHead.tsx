@@ -1,5 +1,5 @@
 import { type Insight } from "@/types/Insight";
-import Thumbnail from "../Thumbnail";
+import Thumbnail from "../atoms/Thumbnail";
 import Box from "../atoms/Box";
 import Tag from "../atoms/Tag";
 import AuthorRow from "../organisms/AuthorRow";

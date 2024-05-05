@@ -2,9 +2,9 @@ import { getTrendingInsights } from "@/services/trending.api";
 import { TrendingInsights } from "@/types/Trending";
 import Link from "next/link";
 import SectionHead from "../atoms/SectionHead";
-import SubSectionContainer from "../atoms/SubSectionContainer";
-import Thumbnail from "../Thumbnail";
-import InsightTitle from "../organisms/InsightTitle";
+import Thumbnail from "../atoms/Thumbnail";
+import InsightTitle from "./InsightTitle";
+import SectionContainer from "../templates/SectionContainer";
 
 async function WhatsTrendingAside() {
   const trendingInsights: TrendingInsights = await getTrendingInsights();
@@ -15,7 +15,7 @@ async function WhatsTrendingAside() {
   }
 
   return (
-    <SubSectionContainer applyContainer={false}>
+    <SectionContainer border whitespace="sub">
       <SectionHead>What&apos;s Trending</SectionHead>
       <ul className="flex flex-col">
         {trendingInsights.map((insight) => (
@@ -47,7 +47,7 @@ async function WhatsTrendingAside() {
           </li>
         ))}
       </ul>
-    </SubSectionContainer>
+    </SectionContainer>
   );
 }
 

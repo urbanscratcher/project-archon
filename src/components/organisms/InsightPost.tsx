@@ -1,4 +1,4 @@
-import ImageWrap from "@/components/ImageWrap";
+import ImageWrap from "@/components/atoms/ImageWrap";
 import Tag from "@/components/atoms/Tag";
 import DateTTRRow from "@/components/molecules/DateTTRRow";
 import { Insight } from "@/types/Insight";

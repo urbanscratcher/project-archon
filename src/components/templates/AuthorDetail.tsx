@@ -1,7 +1,7 @@
 import { getAuthor } from "@/services/authors.api";
 import { Topic } from "@/types/Topic";
 import { IoMailOutline } from "react-icons/io5";
-import ImageWrap from "../ImageWrap";
+import ImageWrap from "../atoms/ImageWrap";
 
 async function AuthorDetail({ idx }: { idx: number }) {
   const author = await getAuthor(idx);

@@ -1,7 +1,7 @@
 import { type Insight } from "@/types/Insight";
 import { type TrendingInsight } from "@/types/Trending";
 import Link from "next/link";
-import Thumbnail from "../Thumbnail";
+import Thumbnail from "../atoms/Thumbnail";
 import List from "../atoms/List";
 import Tag from "../atoms/Tag";
 

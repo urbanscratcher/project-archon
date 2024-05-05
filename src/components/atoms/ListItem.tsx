@@ -10,14 +10,10 @@ function ListItem({
   children,
   vertical,
   horizontal,
-  key,
-  id,
   ...restProps
 }: ListItemProps) {
   return (
     <li
-      key={key}
-      id={id}
       className={`
     ${vertical ? "flex flex-col" : ""}
     ${horizontal ? "flex" : ""}

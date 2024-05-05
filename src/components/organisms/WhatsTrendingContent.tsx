@@ -1,6 +1,6 @@
 import { getTrendingInsights } from "@/services/trending.api";
 import { type TrendingInsights as WhatsTrendingContent } from "@/types/Trending";
-import WhatsTrendingContentGrid from "../atoms/WhatsTrendingContentGrid";
+import WhatsTrendingContentGrid from "../templates/WhatsTrendingContentGrid";
 import TrendingInsightsHead from "../molecules/TrendingInsightsHead";
 import TrendingInsightsList from "../molecules/TrendingInsightsList";
 

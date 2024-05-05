@@ -1,8 +1,8 @@
+"use client";
+
 /**
  * [ ] UI - 북마크 버튼과 이미지 컴포넌트 분리
  */
-"use client";
-
 import useBookmarkStore from "@/stores/useBookmarkStore";
 import { ImageProps } from "next/image";
 import Link from "next/link";

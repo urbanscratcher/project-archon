@@ -1,6 +1,6 @@
-import SectionContainer from "../atoms/SectionContainer";
+import SectionContainer from "../templates/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
-import TopTopicContent from "../organisms/TopTopicContent";
+import TopTopicContent from "./TopTopicContent";
 
 function TopTopicSection() {
   return (

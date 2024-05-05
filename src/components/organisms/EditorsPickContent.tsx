@@ -1,6 +1,6 @@
 import { getCovers } from "@/services/covers.api";
 import { type Cover } from "@/types/Cover";
-import Thumbnail from "../Thumbnail";
+import Thumbnail from "../atoms/Thumbnail";
 import Box from "../atoms/Box";
 import List from "../atoms/List";
 import ListItem from "../atoms/ListItem";
@@ -19,16 +19,7 @@ async function EditorsPickContent() {
         href: `/insights/${covers.data[0].insight.idx}`,
         topic: covers.data[0].topic.name,
       },
-    restList:
-      covers?.data &&
-      covers.total > 1 &&
-      covers.data.slice(1, 4).map((cover: Cover) => {
-        return {
-          idx: cover.insight.idx,
-          title: cover.insight.title,
-          href: `/insights/${cover.insight.idx}`,
-        };
-      }),
+    restList: covers?.data && covers.total > 1 && covers.data.slice(1, 4),
   };
 
   return (
@@ -58,16 +49,23 @@ async function EditorsPickContent() {
           vertical
           className="marker:h4 gap-2 pl-5 marker:content-['✦'] [&>*]:pl-1"
         >
-          {data.restList.map((item: any) => (
-            <ListItem horizontal key={item.idx} id={item.idx}>
-              <LinkText
-                href={item.href}
-                text={item.title}
-                level={4}
-                lineClamp={3}
-              />
-            </ListItem>
-          ))}
+          {data.restList.map((item: Cover) => {
+            const data = {
+              idx: item.insight.idx,
+              title: item.insight.title,
+              href: `/insights/${item.insight.idx}`,
+            };
+            return (
+              <ListItem horizontal key={data.idx}>
+                <LinkText
+                  href={data.href}
+                  text={data.title}
+                  level={4}
+                  lineClamp={3}
+                />
+              </ListItem>
+            );
+          })}
         </List>
       )}
     </>

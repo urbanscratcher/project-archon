@@ -1,9 +1,9 @@
 import { getRandomInsights } from "@/services/insights.api";
 import List from "../atoms/List";
-import SectionContainer from "../atoms/SectionContainer";
+import SectionContainer from "../templates/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
-import GetInspirationsBtn from "../organisms/GetInspirationsBtn";
-import InspirationItems from "../organisms/InspirationItems";
+import GetInspirationsBtn from "./GetInspirationsBtn";
+import InspirationItems from "./InspirationItems";
 
 async function InspirationSection({ className }: { className?: string }) {
   const inspirations = await getRandomInsights({ limit: 6 });

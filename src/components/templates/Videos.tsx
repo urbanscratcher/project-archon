@@ -1,6 +1,6 @@
-import ImageWrap from "../ImageWrap";
-import PlayBtn from "../PlayBtn";
-import SectionContainer from "../atoms/SectionContainer";
+import ImageWrap from "../atoms/ImageWrap";
+import PlayBtn from "../atoms/PlayBtn";
+import SectionContainer from "./SectionContainer";
 import SectionHead from "../atoms/SectionHead";
 
 function Videos() {

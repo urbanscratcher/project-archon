@@ -1,6 +1,6 @@
 import { Creator } from "@/types/Insight";
 import Link from "next/link";
-import ImageWrap from "../ImageWrap";
+import ImageWrap from "../atoms/ImageWrap";
 
 function AuthorRow({ creator, white }: Creator & { white: boolean }) {
   const data = {

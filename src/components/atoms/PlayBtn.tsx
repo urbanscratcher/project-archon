@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { IoPlay } from "react-icons/io5";
-import Modal from "./atoms/Modal";
+import Modal from "./Modal";
 
 function PlayBtn({ src, className }: { src?: string; className?: string }) {
   const [showModal, setShowModal] = useState(false);

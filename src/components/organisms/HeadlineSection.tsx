@@ -1,10 +1,10 @@
 import { getHeadline } from "@/services/covers.api";
 import { type Cover } from "@/types/Cover";
-import HeadlineSectionContainer from "../atoms/HeadlineSectionContainer";
-import HeadlineTextContainer from "../atoms/HeadlineTextContainer";
+import HeadlineSectionContainer from "../templates/HeadlineSectionContainer";
 import ImageOverlayed from "../atoms/ImageOverlayed";
 import Tag from "../atoms/Tag";
 import LinkText from "../molecules/LinkText";
+import Box from "../atoms/Box";
 
 async function HeadlineSection() {
   const headline: Cover = await getHeadline();
@@ -24,10 +24,13 @@ async function HeadlineSection() {
         alt="background thumbnail of headline"
         priority
       />
-      <HeadlineTextContainer>
+      <Box
+        vertical
+        className={`absolute bottom-0 mx-4 my-8 gap-3 text-white sm:mx-6 sm:my-16`}
+      >
         <Tag tagName={data.tagName} white />
         <LinkText href={data.href} text={data.title} level={1} lineClamp={3} />
-      </HeadlineTextContainer>
+      </Box>
     </HeadlineSectionContainer>
   );
 }

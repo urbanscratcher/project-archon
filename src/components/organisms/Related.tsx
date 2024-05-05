@@ -2,7 +2,7 @@ import SectionHead from "@/components/atoms/SectionHead";
 import ViewAll from "@/components/atoms/ViewAll";
 import RelatedList from "@/components/organisms/RelatedList";
 import { Topic } from "@/types/Topic";
-import SectionContainer from "../atoms/SectionContainer";
+import SectionContainer from "../templates/SectionContainer";
 
 function Related({ topic }: { topic: Topic }) {
   return (

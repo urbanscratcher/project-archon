@@ -7,8 +7,8 @@
  */
 
 import Bookmarks from "@/components/templates/Bookmarks";
-import InspirationSection from "@/components/templates/InspirationSection";
-import WhatsTrendingAside from "@/components/templates/WhatsTrendingAside";
+import InspirationSection from "@/components/organisms/InspirationSection";
+import WhatsTrendingAside from "@/components/organisms/WhatsTrendingAside";
 
 function BookmarkPage() {
   return (

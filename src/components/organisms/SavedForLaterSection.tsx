@@ -1,7 +1,7 @@
-import SectionContainer from "../atoms/SectionContainer";
+import SectionContainer from "../templates/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
 import ViewAll from "../atoms/ViewAll";
-import SavedForLaterContent from "../organisms/SavedForLaterContent";
+import SavedForLaterContent from "./SavedForLaterContent";
 
 function SavedForLaterSection() {
   return (

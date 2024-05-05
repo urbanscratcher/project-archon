@@ -3,7 +3,7 @@
 import useInspClickedStore from "@/stores/useInspClickedStore";
 import { InsightRandom, InsightRandomList } from "@/types/Insight";
 import { useEffect, useState } from "react";
-import Thumbnail from "../Thumbnail";
+import Thumbnail from "../atoms/Thumbnail";
 import ListItem from "../atoms/ListItem";
 import Loader from "../atoms/Loader";
 

@@ -1,5 +1,5 @@
 import { getFeaturedAuthors } from "@/services/trending.api";
-import ImageWrap from "../ImageWrap";
+import ImageWrap from "../atoms/ImageWrap";
 import SectionHead from "../atoms/SectionHead";
 import ViewAll from "../atoms/ViewAll";
 import Link from "next/link";

@@ -1,7 +1,7 @@
 import { getInsight } from "@/services/insights.api";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../atoms/Loader";
-import Thumbnail from "../Thumbnail";
+import Thumbnail from "../atoms/Thumbnail";
 import Tag from "../atoms/Tag";
 import InsightTitle from "./InsightTitle";
 import DateTTRRow from "../molecules/DateTTRRow";
@@ -28,7 +28,7 @@ function BookmarkItem({ idx }: { idx: number }) {
 
   return (
     <li
-      className={`grid grid-cols-1 grid-rows-[auto_1fr] items-center gap-4 border-b border-b-g-300 py-6 last:border-b-0 sm:grid-cols-[1fr_2fr] sm:grid-rows-none`}
+      className={`grid h-fit grid-cols-1 grid-rows-[auto_1fr] items-center gap-4 border-b border-b-g-300 py-6 last:border-b-0 sm:grid-cols-[1fr_2fr] sm:grid-rows-none`}
     >
       <Thumbnail
         insightIdx={insight.idx}

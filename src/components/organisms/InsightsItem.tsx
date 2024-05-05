@@ -1,6 +1,6 @@
 import { Insight } from "@/types/Insight";
 import Tag from "../atoms/Tag";
-import Thumbnail from "../Thumbnail";
+import Thumbnail from "../atoms/Thumbnail";
 import AuthorRow from "./AuthorRow";
 import DateTTRRow from "../molecules/DateTTRRow";
 import InsightTitle from "./InsightTitle";

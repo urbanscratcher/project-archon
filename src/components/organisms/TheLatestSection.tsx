@@ -1,12 +1,12 @@
 import { getTrendingInsights } from "@/services/trending.api";
 import { type TrendingInsights } from "@/types/Trending";
-import ImageWrap from "../ImageWrap";
+import ImageWrap from "../atoms/ImageWrap";
 import SectionHead from "../atoms/SectionHead";
-import SubSectionContainer from "../atoms/SubSectionContainer";
 import ViewAll from "../atoms/ViewAll";
-import InsightsItem from "../organisms/InsightsItem";
-import FeaturedAuthors from "./FeaturedAuthors";
+import InsightsItem from "./InsightsItem";
+import FeaturedAuthors from "../templates/FeaturedAuthors";
 import InspirationSection from "./InspirationSection";
+import SectionContainer from "../templates/SectionContainer";
 
 async function TheLatestSection() {
   const trendingInsights: TrendingInsights = await getTrendingInsights();
@@ -14,7 +14,11 @@ async function TheLatestSection() {
   return (
     <>
       <InspirationSection className={"h-fit lg:col-start-1"} />
-      <SubSectionContainer className="h-fit lg:col-start-2">
+      <SectionContainer
+        border
+        whitespace="sub"
+        className="h-fit lg:col-start-2"
+      >
         <SectionHead className="flex justify-between">
           The latest
           <ViewAll to="/insights" />
@@ -24,13 +28,13 @@ async function TheLatestSection() {
             <InsightsItem key={`latest_${insight.idx}`} insight={insight} />
           ))}
         </ul>
-      </SubSectionContainer>
+      </SectionContainer>
       <div className="flex h-fit flex-col gap-4">
-        <SubSectionContainer>
+        <SectionContainer border whitespace="sub">
           <FeaturedAuthors />
-        </SubSectionContainer>
+        </SectionContainer>
 
-        <SubSectionContainer className={`h-fit`}>
+        <SectionContainer border whitespace="sub" className={`h-fit`}>
           <SectionHead>ad</SectionHead>
           <div className="relative aspect-[3/2] overflow-hidden rounded-xl hover:cursor-pointer">
             <ImageWrap
@@ -40,7 +44,7 @@ async function TheLatestSection() {
               fill
             />
           </div>
-        </SubSectionContainer>
+        </SectionContainer>
       </div>
     </>
   );

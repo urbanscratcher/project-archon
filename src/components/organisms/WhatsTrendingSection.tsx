@@ -1,7 +1,7 @@
-import SectionContainer from "../atoms/SectionContainer";
+import SectionContainer from "../templates/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
 import ViewAll from "../atoms/ViewAll";
-import WhatsTrendingContent from "../organisms/WhatsTrendingContent";
+import WhatsTrendingContent from "./WhatsTrendingContent";
 
 function WhatsTrendingSection() {
   return (
