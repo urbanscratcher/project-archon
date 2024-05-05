@@ -58,6 +58,10 @@ select:-webkit-autofill:focus {
     @apply h4;
   }
 
+  h5 {
+    @apply h5;
+  }
+
   p {
     @apply p;
   }
@@ -120,6 +124,10 @@ select:-webkit-autofill:focus {
     @apply text-[0.9375rem]/[1.263] font-semibold uppercase tracking-[0.078rem];
   }
 
+  .text-tag {
+    @apply font-sans text-[0.9375rem]/[1.333] tracking-[0.078125rem];
+  }
+
   .h2 {
     @apply font-serif text-[3.052rem]/[1.25];
   }
@@ -128,6 +136,9 @@ select:-webkit-autofill:focus {
   }
   .h4 {
     @apply font-serif text-[1.953rem]/[1.27];
+  }
+  .h5 {
+    @apply font-serif text-[1.53rem]/[1.29];
   }
   .p {
     @apply font-sans text-[1rem]/[1.333] tracking-[0.015625rem];
@@ -163,7 +174,6 @@ select:-webkit-autofill:focus {
     @apply hover:bg-sky-700 hover:text-white;
   }
 
-  /* image filter */
   .img__filter::before {
     position: absolute;
     content: "";
@@ -172,17 +182,23 @@ select:-webkit-autofill:focus {
     top: 0;
     left: 0;
     transition: opacity 0.15s ease;
+    opacity: 0;
+    z-index: 1;
+    @apply bg-gradient;
+  }
+
+  .img__filter:active::before {
+    opacity: 0.3;
+  }
+
+  /* image filter */
+  .bg-gradient {
+    
     background: linear-gradient(
       to bottom right,
       rgba(18, 18, 18, 0.73) 0%,
       rgba(96, 109, 43, 0.58) 100%
     );
-    opacity: 0;
-    z-index: 1;
-  }
-
-  .img__filter:active::before {
-    opacity: 0.3;
   }
 
   .whiten {

@@ -1,6 +1,6 @@
 import AuthorDetail from "@/components/templates/AuthorDetail";
 import InsightsByAuthor from "../../../components/templates/InsightsByAuthor";
-import FeaturedAuthors from "@/components/templates/FeaturedAuthors";
+import FeaturedAuthorsItems from "@/components/templates/FeaturedAuthorsItems";
 
 function AuthorPage({ params }: { params: { idx: number } }) {
   const { idx } = params;
@@ -15,7 +15,7 @@ function AuthorPage({ params }: { params: { idx: number } }) {
       </div>
       <aside className="my-4 px-8">
         {/* @ts-expect-error Async Server Component */}
-        <FeaturedAuthors />
+        <FeaturedAuthorsItems />
       </aside>
     </main>
   );

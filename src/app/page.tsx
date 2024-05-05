@@ -6,7 +6,7 @@ import SavedForLaterSection from "@/components/organisms/SavedForLaterSection";
 import StayConnectedSection from "@/components/organisms/StayConnectedSection";
 import TheLatestSection from "@/components/organisms/TheLatestSection";
 import TopTopicSection from "@/components/organisms/TopTopicSection";
-import Videos from "@/components/templates/Videos";
+import VideoSection from "@/components/templates/VideoSection";
 import WhatsTrendingSection from "@/components/organisms/WhatsTrendingSection";
 import WhatsTrendingSectionGrid from "@/components/templates/WhatsTrendingSectionGrid";
 import TheLatestSectionGrid from "@/components/templates/TheLatestSectionGrid";
@@ -18,7 +18,7 @@ import AdSection from "@/components/organisms/AdSection";
 export default function Home() {
   return (
     <main>
-      {/* <HighlightSectionGrid>
+      <HighlightSectionGrid>
         <HeadlineSection />
         <EditorsPickSection />
       </HighlightSectionGrid>
@@ -28,7 +28,7 @@ export default function Home() {
         <StayConnectedSection />
         <NewsletterSection />
       </WhatsTrendingSectionGrid>
-      <SavedForLaterSection /> */}
+      <SavedForLaterSection />
       <TheLatestSectionGrid>
         <InspirationSection />
         <TheLatestSection />
@@ -37,7 +37,7 @@ export default function Home() {
           <AdSection />
         </Box>
       </TheLatestSectionGrid>
-      <Videos />
+      <VideoSection />
     </main>
   );
 }
