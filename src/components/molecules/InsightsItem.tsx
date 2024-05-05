@@ -1,13 +1,15 @@
-import { Insight } from "@/types/Insight";
+import { type Insight } from "@/types/Insight";
 import Tag from "../atoms/Tag";
 import Thumbnail from "../atoms/Thumbnail";
 import AuthorRow from "./AuthorRow";
 import DateTTRRow from "./DateTTRRow";
-import InsightTitle from "./InsightTitle";
+import ListItem from "../atoms/ListItem";
+import Box from "../atoms/Box";
+import LinkText from "./LinkText";
 
 function InsightsItem({
   insight,
-  squared,
+  squared = false,
   oneThirdImage = false,
   summary = false,
   className,
@@ -20,7 +22,7 @@ function InsightsItem({
   className?: string;
 }) {
   return (
-    <li
+    <ListItem
       className={`grid
       ${squared ? "grid-rows-[auto_auto] content-start" : `${oneThirdImage ? "grid-cols-1 sm:grid-cols-[1fr_2fr]" : "grid-cols-2"} border-b border-b-g-300 last:border-b-0`}
       items-center gap-4
@@ -32,29 +34,26 @@ function InsightsItem({
         href={`/insights/${insight.idx}`}
         src={insight?.thumbnail || ""}
         alt={insight.title}
-        aspect={`${squared ? "" : "video"}`}
-        className={`${squared ? "min-h-[250px]" : "h-full max-w-full"}`}
+        aspect={`${squared ? "" : "photo"}`}
+        className={`${squared ? "min-h-[250px]" : ""}`}
       />
-      <div className={`flex flex-col gap-2`}>
+      <Box vertical className={`gap-2`}>
         <Tag tagName={insight.topic.name} />
-        {squared ? (
-          <h4 className="line-clamp-3 text-ellipsis font-serif text-sky-700">
-            <InsightTitle idx={insight.idx}>{insight.title}</InsightTitle>
-          </h4>
-        ) : (
-          <h3 className="line-clamp-3 text-ellipsis font-serif text-sky-700">
-            <InsightTitle idx={insight.idx}>{insight.title}</InsightTitle>
-          </h3>
-        )}
+        <LinkText
+          href={`/insights/${insight.idx}`}
+          text={insight.title}
+          lineClamp={3}
+          level={squared ? 3 : 4}
+        />
         {summary && (
           <p className="line-clamp-3 text-ellipsis text-sky-700">
             {insight.summary}
           </p>
         )}
-        <DateTTRRow createdAt={insight.createdAt} />
+        <DateTTRRow createdAt={insight.createdAt} className="p-sm" />
         <AuthorRow creator={insight.creator} />
-      </div>
-    </li>
+      </Box>
+    </ListItem>
   );
 }
 

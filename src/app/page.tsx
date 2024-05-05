@@ -11,6 +11,9 @@ import WhatsTrendingSection from "@/components/organisms/WhatsTrendingSection";
 import WhatsTrendingSectionGrid from "@/components/templates/WhatsTrendingSectionGrid";
 import TheLatestSectionGrid from "@/components/templates/TheLatestSectionGrid";
 import InspirationSection from "@/components/organisms/InspirationSection";
+import FeaturedAuthorSection from "@/components/organisms/FeaturedAuthorSection";
+import Box from "@/components/atoms/Box";
+import AdSection from "@/components/organisms/AdSection";
 
 export default function Home() {
   return (
@@ -29,6 +32,10 @@ export default function Home() {
       <TheLatestSectionGrid>
         <InspirationSection />
         <TheLatestSection />
+        <Box vertical className="h-fit gap-4">
+          <FeaturedAuthorSection />
+          <AdSection />
+        </Box>
       </TheLatestSectionGrid>
       <Videos />
     </main>

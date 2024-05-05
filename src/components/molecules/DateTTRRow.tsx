@@ -1,5 +1,6 @@
 import { getTimeAgo } from "@/libs/helpers";
 import { IoTimeOutline } from "react-icons/io5";
+import Box from "../atoms/Box";
 
 type DateTTRRow = {
   createdAt: Date;
@@ -7,19 +8,23 @@ type DateTTRRow = {
   className?: string;
 };
 
-function DateTTRRow({ createdAt, ttr, className }: DateTTRRow) {
+function DateTTRRow({ createdAt, ttr = 2, className }: DateTTRRow) {
   return (
-    <div
-      className={`flex flex-wrap items-center gap-1
+    <Box
+      horizontal
+      className={`flex-wrap items-center gap-1
       ${className || ""}`}
     >
-      <span className="flex flex-nowrap items-center gap-1 whitespace-nowrap">
+      <Box
+        horizontal
+        className="flex-nowrap items-center gap-1 whitespace-nowrap"
+      >
         <IoTimeOutline className="text-[1.1875rem]" />
         <p>{getTimeAgo(createdAt, "month")}</p>
-      </span>
+      </Box>
       <p>·</p>
-      <p className="whitespace-nowrap">{`2 min read`}</p>
-    </div>
+      <p className="whitespace-nowrap">{`${ttr} min read`}</p>
+    </Box>
   );
 }
 
