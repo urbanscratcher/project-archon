@@ -3,7 +3,7 @@ import { type Cover } from "@/types/Cover";
 import Thumbnail from "../Thumbnail";
 import Divider from "../atoms/EditorsPickDivider";
 import ItemBox from "../atoms/ItemBox";
-import ListVerticalBox from "../atoms/ListVerticalBox";
+import ListVerticalBox from "../atoms/VListBox";
 import Tag from "../atoms/Tag";
 import VerticalBox from "../atoms/VerticalBox";
 import LinkText from "../molecules/LinkText";

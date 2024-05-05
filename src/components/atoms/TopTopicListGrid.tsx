@@ -1,6 +1,6 @@
-import { WrapperProps } from "@/types/CommonTypes";
+import { type WrapperProps } from "@/types/CommonTypes";
 
-function TopTopicListBox({ children }: WrapperProps) {
+function TopTopicListGrid({ children }: WrapperProps) {
   return (
     <ul
       className={`grid grid-cols-1 gap-y-4 sm:gap-y-8 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4`}
@@ -10,4 +10,4 @@ function TopTopicListBox({ children }: WrapperProps) {
   );
 }
 
-export default TopTopicListBox;
+export default TopTopicListGrid;

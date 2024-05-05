@@ -1,6 +1,6 @@
 import { WrapperProps } from "@/types/CommonTypes";
 
-function ListHorizontalBox({ children, className }: WrapperProps) {
+function HListBox({ children, className }: WrapperProps) {
   return (
     <ul role="list" className={`flex flex-row ${className || ""}`}>
       {children}
@@ -8,4 +8,4 @@ function ListHorizontalBox({ children, className }: WrapperProps) {
   );
 }
 
-export default ListHorizontalBox;
+export default HListBox;

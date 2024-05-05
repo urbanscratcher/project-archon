@@ -1,8 +1,8 @@
 import { getTopics } from "@/services/topics.api";
 import { type Topic } from "@/types/Topic";
 import Link from "next/link";
-import ListHorizontalBox from "../atoms/ListHorizontalBox";
-import TopTopicListBox from "../atoms/TopTopicListBox";
+import HorizontalItem from "../atoms/HorizontalItem";
+import TopTopicListGrid from "../atoms/TopTopicListGrid";
 import TopTopicText from "../atoms/TopTopicText";
 import TopTopicTotalLabel from "../atoms/TopTopicTotalLabel";
 
@@ -23,10 +23,10 @@ async function TopTopicContent() {
   };
 
   return (
-    <TopTopicListBox>
+    <TopTopicListGrid>
       {data?.list &&
         data.list.map((topic: Topic) => (
-          <ListHorizontalBox key={topic.idx}>
+          <HorizontalItem key={topic.idx}>
             <Link
               href={topic.href}
               className="hover:shadow-[inset_0_-30px_0_#ddea6c]"
@@ -34,9 +34,9 @@ async function TopTopicContent() {
               <TopTopicText text={topic.name} />
             </Link>
             <TopTopicTotalLabel label={topic.totalInsights} />
-          </ListHorizontalBox>
+          </HorizontalItem>
         ))}
-    </TopTopicListBox>
+    </TopTopicListGrid>
   );
 }
 
