@@ -13,7 +13,6 @@ async function TheLatestSection() {
 
   return (
     <>
-      <InspirationSection className={"h-fit lg:col-start-1"} />
       <SectionContainer
         border
         whitespace="sub"

@@ -14,11 +14,11 @@ function ListItem({
 }: ListItemProps) {
   return (
     <li
+      {...restProps}
       className={`
     ${vertical ? "flex flex-col" : ""}
     ${horizontal ? "flex" : ""}
     ${className || ""}`}
-      {...restProps}
     >
       {children}
     </li>

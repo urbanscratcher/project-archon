@@ -23,22 +23,25 @@ async function TopTopicContent() {
   };
 
   return (
-    <List
-      className={`grid grid-cols-1 gap-y-4 sm:gap-y-8 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4`}
-    >
-      {data?.list &&
-        data.list.map((topic: Topic) => (
-          <ListItem horizontal key={topic.idx} id={topic.idx}>
-            <Link
-              href={topic.href}
-              className="hover:shadow-[inset_0_-30px_0_#ddea6c]"
-            >
-              <TopTopicText text={topic.name} />
-            </Link>
-            <TopTopicTotalLabel label={topic.totalInsights} />
-          </ListItem>
-        ))}
-    </List>
+    <>
+      {data?.list && data.list.length > 0 && (
+        <List
+          className={`grid grid-cols-1 gap-y-4 sm:gap-y-8 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4`}
+        >
+          {data.list.map((topic: Topic) => (
+            <ListItem key={`topic_${topic.idx}`} horizontal>
+              <Link
+                href={topic.href}
+                className="hover:shadow-[inset_0_-30px_0_#ddea6c]"
+              >
+                <TopTopicText text={topic.name} />
+              </Link>
+              <TopTopicTotalLabel label={topic.totalInsights} />
+            </ListItem>
+          ))}
+        </List>
+      )}
+    </>
   );
 }
 

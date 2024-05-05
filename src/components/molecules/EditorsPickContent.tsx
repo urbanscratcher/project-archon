@@ -54,7 +54,7 @@ async function EditorsPickContent() {
             };
             return (
               <ListItem
-                key={data.idx}
+                key={`editorsPick_${data.idx}`}
                 className="marker:h4 pl-1 marker:content-['✦']"
               >
                 <LinkText

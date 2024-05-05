@@ -15,5 +15,5 @@ export const TopicsSchema = z.object({
   data: z.array(TopicSchema),
 });
 
-export type Topic = z.infer<typeof TopicSchema>;
-export type Topics = z.infer<typeof TopicsSchema>;
+export type Topic = z.output<typeof TopicSchema>;
+export type Topics = z.output<typeof TopicsSchema>;

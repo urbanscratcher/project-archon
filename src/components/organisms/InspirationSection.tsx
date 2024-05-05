@@ -9,7 +9,7 @@ async function InspirationSection({ className }: { className?: string }) {
   const inspirations = await getRandomInsights({ limit: 6 });
 
   return (
-    <SectionContainer border whitespace="sub" className={className}>
+    <SectionContainer border whitespace="sub" className={"h-fit"}>
       <SectionHead className="flex justify-between">
         inspirations
         <GetInspirationsBtn />
