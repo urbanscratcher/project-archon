@@ -2,7 +2,7 @@ import Box from "../atoms/Box";
 import SectionContainer from "../templates/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
 import ViewAll from "../atoms/ViewAll";
-import EditorsPickContent from "./EditorsPickContent";
+import EditorsPickContent from "../molecules/EditorsPickContent";
 
 function EditorsPickSection() {
   return (

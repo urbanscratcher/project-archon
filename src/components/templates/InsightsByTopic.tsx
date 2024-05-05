@@ -1,5 +1,5 @@
 import { getTopics } from "@/services/topics.api";
-import InsightsList from "../organisms/InsightsList";
+import InsightsList from "../molecules/InsightsList";
 import TopicsNavbar from "../organisms/TopicsNavbar";
 
 async function InsightsByTopic() {

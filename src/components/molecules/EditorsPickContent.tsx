@@ -5,7 +5,7 @@ import Box from "../atoms/Box";
 import List from "../atoms/List";
 import ListItem from "../atoms/ListItem";
 import Tag from "../atoms/Tag";
-import LinkText from "../molecules/LinkText";
+import LinkText from "./LinkText";
 
 async function EditorsPickContent() {
   const covers = await getCovers();

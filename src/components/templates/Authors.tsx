@@ -1,6 +1,6 @@
 import { getAuthors } from "@/services/authors.api";
 import { type Authors } from "@/types/Author";
-import AuthorList from "../organisms/AuthorList";
+import AuthorList from "../molecules/AuthorList";
 
 async function Authors() {
   const initialAuthors = await getAuthors({ offset: 0, limit: 5 });

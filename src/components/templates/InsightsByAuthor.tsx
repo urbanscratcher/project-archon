@@ -2,7 +2,7 @@ import { getInsightsByAuthor } from "@/services/insights.api";
 import { type Insight } from "@/types/Insight";
 import SectionContainer from "./SectionContainer";
 import SectionHead from "../atoms/SectionHead";
-import InsightsItem from "../organisms/InsightsItem";
+import InsightsItem from "../molecules/InsightsItem";
 
 async function InsightsByAuthor({ idx }: { idx: number }) {
   const insights = await getInsightsByAuthor({

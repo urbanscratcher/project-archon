@@ -7,7 +7,7 @@ import ImageOverlayed from "../atoms/ImageOverlayed";
 import ListItem, { ListItemProps } from "../atoms/ListItem";
 import Loader from "../atoms/Loader";
 import Tag from "../atoms/Tag";
-import LinkText from "../molecules/LinkText";
+import LinkText from "./LinkText";
 import AuthorRow from "./AuthorRow";
 
 function SavedForLaterItem({

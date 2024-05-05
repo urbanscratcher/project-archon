@@ -2,7 +2,7 @@ import { Insight } from "@/types/Insight";
 import Tag from "../atoms/Tag";
 import Thumbnail from "../atoms/Thumbnail";
 import AuthorRow from "./AuthorRow";
-import DateTTRRow from "../molecules/DateTTRRow";
+import DateTTRRow from "./DateTTRRow";
 import InsightTitle from "./InsightTitle";
 
 function InsightsItem({

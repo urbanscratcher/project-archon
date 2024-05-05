@@ -1,7 +1,7 @@
 "use client";
 
 import useBookmarkStore from "@/stores/useBookmarkStore";
-import BookmarkList from "../organisms/BookmarkList";
+import BookmarkList from "../molecules/BookmarkList";
 
 function Bookmarks() {
   const initialBookmarks = useBookmarkStore((state) => state.bookmarks);

@@ -11,7 +11,7 @@ function InsightPost({ insight }: { insight: Insight }) {
         {insight?.topic && <Tag tagName={insight.topic.name} />}
         <h1 className="text-center text-sky-700">{insight.title}</h1>
         <p className="my-6 text-sky-700">{insight.summary}</p>
-        <DateTTRRow createdAt={insight.createdAt} primary={false} />
+        <DateTTRRow createdAt={insight.createdAt} />
       </div>
       <div className="relative aspect-video max-w-full overflow-hidden">
         <ImageWrap

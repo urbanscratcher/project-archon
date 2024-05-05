@@ -3,7 +3,7 @@ import { type TrendingInsights } from "@/types/Trending";
 import ImageWrap from "../atoms/ImageWrap";
 import SectionHead from "../atoms/SectionHead";
 import ViewAll from "../atoms/ViewAll";
-import InsightsItem from "./InsightsItem";
+import InsightsItem from "../molecules/InsightsItem";
 import FeaturedAuthors from "../templates/FeaturedAuthors";
 import InspirationSection from "./InspirationSection";
 import SectionContainer from "../templates/SectionContainer";

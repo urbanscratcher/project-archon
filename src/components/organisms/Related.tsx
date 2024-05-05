@@ -1,6 +1,6 @@
 import SectionHead from "@/components/atoms/SectionHead";
 import ViewAll from "@/components/atoms/ViewAll";
-import RelatedList from "@/components/organisms/RelatedList";
+import RelatedList from "@/components/molecules/RelatedList";
 import { Topic } from "@/types/Topic";
 import SectionContainer from "../templates/SectionContainer";
 
