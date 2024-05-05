@@ -1,36 +1,28 @@
 import { getRandomInsights } from "@/services/insights.api";
+import List from "../atoms/List";
+import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
-import SubSectionContainer from "../atoms/SubSectionContainer";
 import GetInspirationsBtn from "../organisms/GetInspirationsBtn";
-import InspirationList from "../organisms/InspirationList";
+import InspirationItems from "../organisms/InspirationItems";
 
-async function Inspirations({
-  applyContainer = true,
-  className,
-}: {
-  applyContainer?: boolean;
-  className?: string;
-}) {
+async function InspirationSection({ className }: { className?: string }) {
   const inspirations = await getRandomInsights({ limit: 6 });
 
   return (
-    <SubSectionContainer
-      applyContainer={applyContainer}
-      className={`${className || ""}`}
-    >
+    <SectionContainer border whitespace="sub" className={className}>
       <SectionHead className="flex justify-between">
         inspirations
         <GetInspirationsBtn />
       </SectionHead>
-      <ul className="grid grid-cols-2 grid-rows-3 gap-2">
+      <List className="grid grid-cols-2 grid-rows-3 gap-2">
         {/* TODO fix the key */}
-        <InspirationList
+        <InspirationItems
           key={new Date().toISOString()}
           initialInspirations={inspirations}
         />
-      </ul>
-    </SubSectionContainer>
+      </List>
+    </SectionContainer>
   );
 }
 
-export default Inspirations;
+export default InspirationSection;

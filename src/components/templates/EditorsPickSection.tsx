@@ -1,7 +1,6 @@
 import Box from "../atoms/Box";
 import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
-import VerticalBox from "../atoms/VerticalBox";
 import ViewAll from "../atoms/ViewAll";
 import EditorsPickContent from "../organisms/EditorsPickContent";
 

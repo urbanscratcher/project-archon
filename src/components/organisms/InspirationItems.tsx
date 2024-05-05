@@ -4,9 +4,10 @@ import useInspClickedStore from "@/stores/useInspClickedStore";
 import { InsightRandom, InsightRandomList } from "@/types/Insight";
 import { useEffect, useState } from "react";
 import Thumbnail from "../Thumbnail";
+import ListItem from "../atoms/ListItem";
 import Loader from "../atoms/Loader";
 
-function InspirationList({
+function InspirationItems({
   initialInspirations,
 }: {
   initialInspirations: InsightRandomList;
@@ -31,6 +32,7 @@ function InspirationList({
     );
   }
 
+  // TODO error modal
   if (isError) {
     return <div>error</div>;
   }
@@ -38,7 +40,7 @@ function InspirationList({
   return (
     <>
       {inspirations.map((inspiration: InsightRandom) => (
-        <li key={`inspirations_${inspiration.idx}`}>
+        <ListItem key={`inspirations_${inspiration.idx}`}>
           <Thumbnail
             insightIdx={inspiration.idx}
             href={`/insights/${inspiration.idx}`}
@@ -47,10 +49,10 @@ function InspirationList({
             aspect={"photo"}
             rounded={"xl"}
           />
-        </li>
+        </ListItem>
       ))}
     </>
   );
 }
 
-export default InspirationList;
+export default InspirationItems;

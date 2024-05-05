@@ -1,41 +1,29 @@
 "use client";
 
 import { getInsight } from "@/services/insights.api";
-import useBookmarkStore from "@/stores/useBookmarkStore";
 import { useQuery } from "@tanstack/react-query";
-import Link from "next/link";
 import Box from "../atoms/Box";
 import ImageOverlayed from "../atoms/ImageOverlayed";
-import List from "../atoms/List";
-import ListItem from "../atoms/ListItem";
+import ListItem, { ListItemProps } from "../atoms/ListItem";
 import Loader from "../atoms/Loader";
 import Tag from "../atoms/Tag";
-import AuthorRow from "./AuthorRow";
 import LinkText from "../molecules/LinkText";
+import AuthorRow from "./AuthorRow";
 
-function SavedForLaterContent() {
-  const storedInsights = useBookmarkStore((state) => state.bookmarks);
-
-  return (
-    <List className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {storedInsights.slice(0, 4).map((s) => (
-        <SavedForLaterItem key={s.idx} idx={s.idx} />
-      ))}
-    </List>
-  );
-}
-
-function SavedForLaterItem({ idx }: { idx: number }) {
+function SavedForLaterItem({
+  idx,
+  ...restProps
+}: ListItemProps & { idx: number }) {
   const {
     data: insight,
-    isLoading,
+    isPending,
     isError,
   } = useQuery({
     queryKey: ["insight", idx],
     queryFn: () => getInsight(idx),
   });
 
-  if (isLoading) {
+  if (isPending) {
     return <Loader />;
   }
 
@@ -46,6 +34,7 @@ function SavedForLaterItem({ idx }: { idx: number }) {
 
   return (
     <ListItem
+      {...restProps}
       className={`relative h-[550px] w-full overflow-hidden rounded-2xl`}
     >
       <ImageOverlayed
@@ -72,4 +61,4 @@ function SavedForLaterItem({ idx }: { idx: number }) {
   );
 }
 
-export default SavedForLaterContent;
+export default SavedForLaterItem;

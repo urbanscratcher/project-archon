@@ -7,7 +7,7 @@
  */
 
 import Bookmarks from "@/components/templates/Bookmarks";
-import Inspirations from "@/components/templates/Inspirations";
+import InspirationSection from "@/components/templates/InspirationSection";
 import WhatsTrendingAside from "@/components/templates/WhatsTrendingAside";
 
 function BookmarkPage() {
@@ -15,10 +15,9 @@ function BookmarkPage() {
     <main className="flex flex-col py-[96px] lg:flex-row">
       <Bookmarks />
       <aside className="my-4 flex w-full flex-col gap-8 px-4 lg:w-1/3 lg:px-8">
-        {/* @ts-expect-error Async Server Component */}
         <WhatsTrendingAside />
         {/* @ts-expect-error Async Server Component */}
-        <Inspirations applyContainer={false} />
+        <InspirationSection applyContainer={false} />
       </aside>
     </main>
   );

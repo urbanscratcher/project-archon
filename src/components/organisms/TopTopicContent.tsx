@@ -28,7 +28,7 @@ async function TopTopicContent() {
     >
       {data?.list &&
         data.list.map((topic: Topic) => (
-          <ListItem horizontal key={topic.idx}>
+          <ListItem horizontal key={topic.idx} id={topic.idx}>
             <Link
               href={topic.href}
               className="hover:shadow-[inset_0_-30px_0_#ddea6c]"

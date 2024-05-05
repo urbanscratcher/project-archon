@@ -1,5 +1,5 @@
 import InsightsByTopic from "@/components/templates/InsightsByTopic";
-import Inspirations from "@/components/templates/Inspirations";
+import InspirationSection from "@/components/templates/InspirationSection";
 import WhatsTrendingAside from "@/components/templates/WhatsTrendingAside";
 
 function InsightsPage() {
@@ -11,7 +11,7 @@ function InsightsPage() {
         {/* @ts-expect-error Async Server Component */}
         <WhatsTrendingAside />
         {/* @ts-expect-error Async Server Component */}
-        <Inspirations applyContainer={false} />
+        <InspirationSection applyContainer={false} />
       </aside>
     </main>
   );

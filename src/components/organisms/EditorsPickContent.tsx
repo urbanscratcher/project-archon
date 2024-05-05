@@ -59,7 +59,7 @@ async function EditorsPickContent() {
           className="marker:h4 gap-2 pl-5 marker:content-['✦'] [&>*]:pl-1"
         >
           {data.restList.map((item: any) => (
-            <ListItem horizontal key={item.idx}>
+            <ListItem horizontal key={item.idx} id={item.idx}>
               <LinkText
                 href={item.href}
                 text={item.title}

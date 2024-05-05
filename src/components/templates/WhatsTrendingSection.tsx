@@ -1,8 +1,7 @@
 import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
 import ViewAll from "../atoms/ViewAll";
-import WhatsTrendingContentGrid from "../atoms/WhatsTrendingContentGrid";
-import WhatsTrendingWithCover from "../organisms/WhatsTrendingWithCover";
+import WhatsTrendingContent from "../organisms/WhatsTrendingContent";
 
 function WhatsTrendingSection() {
   return (
@@ -11,9 +10,7 @@ function WhatsTrendingSection() {
         what&apos;s trending
         <ViewAll to={"/insights"} />
       </SectionHead>
-      <WhatsTrendingContentGrid>
-        <WhatsTrendingWithCover />
-      </WhatsTrendingContentGrid>
+      <WhatsTrendingContent />
     </SectionContainer>
   );
 }

@@ -1,23 +1,19 @@
 import { getTrendingInsights } from "@/services/trending.api";
 import { type TrendingInsights } from "@/types/Trending";
 import ImageWrap from "../ImageWrap";
-import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
 import SubSectionContainer from "../atoms/SubSectionContainer";
 import ViewAll from "../atoms/ViewAll";
 import InsightsItem from "../organisms/InsightsItem";
 import FeaturedAuthors from "./FeaturedAuthors";
-import Inspirations from "./Inspirations";
+import InspirationSection from "./InspirationSection";
 
-async function TheLatest() {
+async function TheLatestSection() {
   const trendingInsights: TrendingInsights = await getTrendingInsights();
 
   return (
-    <SectionContainer
-      className={`grid grid-cols-1 gap-4 bg-mint-100 lg:grid-cols-[1fr_2fr_1fr]`}
-    >
-      {/* @ts-expect-error Async Server Component */}
-      <Inspirations className={"h-fit lg:col-start-1"} />
+    <>
+      <InspirationSection className={"h-fit lg:col-start-1"} />
       <SubSectionContainer className="h-fit lg:col-start-2">
         <SectionHead className="flex justify-between">
           The latest
@@ -31,7 +27,6 @@ async function TheLatest() {
       </SubSectionContainer>
       <div className="flex h-fit flex-col gap-4">
         <SubSectionContainer>
-          {/* @ts-expect-error Async Server Component */}
           <FeaturedAuthors />
         </SubSectionContainer>
 
@@ -47,8 +42,8 @@ async function TheLatest() {
           </div>
         </SubSectionContainer>
       </div>
-    </SectionContainer>
+    </>
   );
 }
 
-export default TheLatest;
+export default TheLatestSection;

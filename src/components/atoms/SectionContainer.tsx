@@ -1,18 +1,18 @@
-import { ReactNode } from "react";
+import { WrapperProps } from "@/types/CommonTypes";
 
 type WhitespaceType = "default" | "sub" | "no";
+
+type SectionContainerProps = {
+  border?: boolean;
+  whitespace?: WhitespaceType;
+} & WrapperProps;
 
 function SectionContainer({
   children,
   className,
   border = false,
   whitespace = "default",
-}: {
-  children: ReactNode;
-  className?: string;
-  whitespace?: WhitespaceType;
-  border?: boolean;
-}) {
+}: SectionContainerProps) {
   return (
     <section
       className={`

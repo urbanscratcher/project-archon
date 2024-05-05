@@ -21,7 +21,8 @@ const useBookmarkStore = create<BookmarksState>(
       bookmarks: [],
       addBookmark: (idx) => {
         const currentBookmarks = get().bookmarks;
-        set({ bookmarks: [...currentBookmarks, { idx }] });
+        currentBookmarks.push({ idx });
+        set({ bookmarks: currentBookmarks });
       },
       deleteBookmark: (idx) => {
         const currentBookmarks = get().bookmarks;
