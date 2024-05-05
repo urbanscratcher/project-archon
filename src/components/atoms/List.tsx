@@ -1,9 +1,7 @@
-import { type WrapperProps } from "@/types/CommonTypes";
+import { type DirectionProp, type WrapperProps } from "@/types/CommonTypes";
 import { type ComponentPropsWithoutRef } from "react";
 
-type DirectionProp = {
-  direction: "vertical" | "horizontal" | "none";
-};
+// abstracted ul, li compound component considering direction, stateless
 
 type ListProp = WrapperProps & DirectionProp & ComponentPropsWithoutRef<"ul">;
 
@@ -12,11 +10,18 @@ type ItemProp = WrapperProps & DirectionProp & ComponentPropsWithoutRef<"li">;
 function List({
   className,
   children,
-  direction = "none",
+  vertical,
+  horizontal,
   ...restProps
 }: ListProp) {
   return (
-    <ul className={`${className || ""}`} {...restProps}>
+    <ul
+      className={`
+    ${vertical ? "flex flex-col" : ""}
+    ${horizontal ? "flex" : ""}
+    ${className || ""}`}
+      {...restProps}
+    >
       {children}
     </ul>
   );
@@ -25,11 +30,18 @@ function List({
 function Item({
   className,
   children,
-  direction = "none",
+  vertical,
+  horizontal,
   ...restProps
 }: ItemProp) {
   return (
-    <li className={`${className || ""}`} {...restProps}>
+    <li
+      className={`
+    ${vertical ? "flex flex-col" : ""}
+    ${horizontal ? "flex" : ""}
+    ${className || ""}`}
+      {...restProps}
+    >
       {children}
     </li>
   );
