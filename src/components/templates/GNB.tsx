@@ -28,8 +28,8 @@ function GNB() {
 
   return (
     <nav
-      className={`fixed z-50 w-screen transition-all  ${isScrolled && "border-b border-b-sky-700 bg-white sm:h-fit"}
-    ${!isScrolled && "sm:py-4"}
+      className={`fixed z-50 w-full transition-all
+      ${isScrolled ? "border-b border-b-sky-700 bg-white sm:h-fit" : "sm:py-4"}
     ${pathname === "/" && !isScrolled && "border-b border-b-sky-700/0"}
     ${pathname !== "/" && !isScrolled && "border-b border-b-sky-700 sm:border-none"}
     ${openMenu ? "h-[130px] bg-white sm:h-auto" : "h-[28px] sm:h-auto"}
@@ -39,7 +39,7 @@ function GNB() {
     >
       <Box
         horizontal
-        className={`mx-auto w-full max-w-[1920px] justify-between sm:items-baseline sm:justify-center sm:gap-1 sm:px-2 
+        className={`mx-auto w-screen justify-between sm:items-baseline sm:justify-center sm:gap-1 sm:px-2 xl:w-full xl:max-w-[1920px] 
      `}
       >
         <Logo
