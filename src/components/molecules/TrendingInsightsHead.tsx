@@ -1,9 +1,10 @@
 import { type Insight } from "@/types/Insight";
-import Link from "next/link";
 import Thumbnail from "../Thumbnail";
+import Box from "../atoms/Box";
 import Tag from "../atoms/Tag";
 import AuthorRow from "../organisms/AuthorRow";
 import DateTTRRow from "./DateTTRRow";
+import LinkText from "./LinkText";
 
 function TrendingInsightsHead({
   insight,
@@ -24,7 +25,7 @@ function TrendingInsightsHead({
   };
 
   return (
-    <div className={`flex flex-col gap-4  ${className || ""}`}>
+    <Box vertical className={`gap-4  ${className || ""}`}>
       <Thumbnail
         insightIdx={data.idx}
         href={data.href}
@@ -33,13 +34,17 @@ function TrendingInsightsHead({
         aspect={"video"}
       />
       <Tag tagName={data.tagName} />
-      <Link href={data.href} className="hover-underline">
-        <p className="h3 lg:h2 line-clamp-4">{data.title}</p>
-      </Link>
+      <LinkText
+        text={data.title}
+        href={data.href}
+        level={3}
+        lineClamp={4}
+        className="lg:h2"
+      />
       <p className="line-clamp-5">{data.summary}</p>
       <DateTTRRow createdAt={data.createdAt} />
       <AuthorRow creator={data.creator} />
-    </div>
+    </Box>
   );
 }
 

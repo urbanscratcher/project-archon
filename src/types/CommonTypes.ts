@@ -5,7 +5,14 @@ export type WrapperProps = {
   className?: string;
 };
 
-export type DirectionProp = {
-  vertical?: boolean;
-  horizontal?: boolean;
+type VerticalProp = {
+  vertical: boolean;
+  horizontal?: never;
 };
+
+type HorizontalProp = {
+  horizontal: boolean;
+  vertical?: never;
+};
+
+export type DirectionProps = VerticalProp | HorizontalProp;

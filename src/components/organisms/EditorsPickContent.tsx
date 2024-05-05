@@ -1,11 +1,10 @@
 import { getCovers } from "@/services/covers.api";
 import { type Cover } from "@/types/Cover";
 import Thumbnail from "../Thumbnail";
-import Divider from "../atoms/EditorsPickDivider";
-import ItemBox from "../atoms/ItemBox";
-import ListVerticalBox from "../atoms/VListBox";
+import Box from "../atoms/Box";
+import List from "../atoms/List";
+import ListItem from "../atoms/ListItem";
 import Tag from "../atoms/Tag";
-import VerticalBox from "../atoms/VerticalBox";
 import LinkText from "../molecules/LinkText";
 
 async function EditorsPickContent() {
@@ -35,7 +34,7 @@ async function EditorsPickContent() {
   return (
     <>
       {data?.head && (
-        <VerticalBox className="gap-2">
+        <Box vertical className="gap-2">
           <Thumbnail
             insightIdx={data.head.idx}
             href={data.head.href}
@@ -51,22 +50,25 @@ async function EditorsPickContent() {
             level={3}
             lineClamp={3}
           />
-        </VerticalBox>
+        </Box>
       )}
-      {data?.restList && <Divider />}
+      {data?.restList && <hr className="border-sky-700" />}
       {data?.restList && (
-        <ListVerticalBox className="marker:h4 gap-2 pl-5 marker:content-['✦'] [&>*]:pl-1">
+        <List
+          vertical
+          className="marker:h4 gap-2 pl-5 marker:content-['✦'] [&>*]:pl-1"
+        >
           {data.restList.map((item: any) => (
-            <ItemBox key={item.idx}>
+            <ListItem horizontal key={item.idx}>
               <LinkText
                 href={item.href}
                 text={item.title}
                 level={4}
                 lineClamp={3}
               />
-            </ItemBox>
+            </ListItem>
           ))}
-        </ListVerticalBox>
+        </List>
       )}
     </>
   );

@@ -19,7 +19,6 @@
   - \_List: ul el.
   - \_Item: li el.
 - Solo components
-  - Divider: hr el.
   - \_Text: styled text component. required 'text' prop
   - \_Label: styled label component. required 'label' prop
 - Note

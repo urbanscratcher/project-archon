@@ -1,12 +1,14 @@
+import { type ReactElement } from "react";
 import { BsTwitterX } from "react-icons/bs";
 import {
   IoLogoFacebook,
   IoLogoInstagram,
   IoLogoPinterest,
 } from "react-icons/io5";
+import List from "../atoms/List";
+import ListItem from "../atoms/ListItem";
 import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
-import { type ReactElement } from "react";
 
 type SnsType = {
   name: string;
@@ -25,13 +27,13 @@ const sns: SnsType[] = [
   { name: "instagram", icon: <IoLogoInstagram />, followers: "1.5m" },
 ];
 
-function StayConnectedSection({ className }: { className?: string }) {
+function StayConnectedSection() {
   return (
-    <SectionContainer border whitespace="sub" className={`${className || ""}`}>
+    <SectionContainer border whitespace="sub">
       <SectionHead>Stay Connected</SectionHead>
-      <ul className="flex flex-col gap-1">
+      <List vertical className="gap-1">
         {sns.map((sns: SnsType) => (
-          <li
+          <ListItem
             key={sns.name}
             className="grid grid-cols-[min-content_min-content_auto_min-content] items-center gap-2"
           >
@@ -39,9 +41,9 @@ function StayConnectedSection({ className }: { className?: string }) {
             <p className="capitalize">{sns.name}</p>
             <p className="text-end uppercase">{sns.followers}</p>
             <p>Followers</p>
-          </li>
+          </ListItem>
         ))}
-      </ul>
+      </List>
     </SectionContainer>
   );
 }

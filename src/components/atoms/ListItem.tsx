@@ -1,19 +1,19 @@
 import { type DirectionProps, type WrapperProps } from "@/types/CommonTypes";
 import { type ComponentPropsWithoutRef } from "react";
 
-type ListProps = WrapperProps &
+type ListItemProps = WrapperProps &
   Partial<DirectionProps> &
-  ComponentPropsWithoutRef<"ul">;
+  ComponentPropsWithoutRef<"li">;
 
-function List({
+function ListItem({
   className,
   children,
   vertical,
   horizontal,
   ...restProps
-}: ListProps) {
+}: ListItemProps) {
   return (
-    <ul
+    <li
       className={`
     ${vertical ? "flex flex-col" : ""}
     ${horizontal ? "flex" : ""}
@@ -21,8 +21,8 @@ function List({
       {...restProps}
     >
       {children}
-    </ul>
+    </li>
   );
 }
 
-export default List;
+export default ListItem;

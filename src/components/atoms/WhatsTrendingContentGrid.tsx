@@ -1,6 +1,6 @@
 import { WrapperProps } from "@/types/CommonTypes";
 
-function WhatsTrendingGrid({ children }: WrapperProps) {
+function WhatsTrendingContentGrid({ children }: WrapperProps) {
   return (
     <div
       className={`grid grid-cols-1 gap-6
@@ -13,4 +13,4 @@ function WhatsTrendingGrid({ children }: WrapperProps) {
   );
 }
 
-export default WhatsTrendingGrid;
+export default WhatsTrendingContentGrid;

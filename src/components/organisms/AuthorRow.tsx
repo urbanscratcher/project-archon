@@ -2,7 +2,7 @@ import { Creator } from "@/types/Insight";
 import Link from "next/link";
 import ImageWrap from "../ImageWrap";
 
-function AuthorRow({ creator, white }: Creator & { isWhite: boolean }) {
+function AuthorRow({ creator, white }: Creator & { white: boolean }) {
   const data = {
     href: `/authors/${creator.idx}`,
     avatar: creator?.avatar || "",

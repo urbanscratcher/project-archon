@@ -1,3 +1,4 @@
+import Box from "../atoms/Box";
 import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
 import VerticalBox from "../atoms/VerticalBox";
@@ -15,10 +16,10 @@ function EditorsPickSection() {
       `}
     >
       <SectionHead>editor&apos;s pick</SectionHead>
-      <VerticalBox className="gap-6">
+      <Box vertical className="gap-6">
         <EditorsPickContent />
         <ViewAll to="/insights" />
-      </VerticalBox>
+      </Box>
     </SectionContainer>
   );
 }

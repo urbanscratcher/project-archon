@@ -1,9 +1,14 @@
-import { DirectionProp, type WrapperProps } from "@/types/CommonTypes";
+/**
+ * stateless
+ * abstracted box component considering direction
+ */
+
+import { DirectionProps, type WrapperProps } from "@/types/CommonTypes";
 import { type ComponentPropsWithoutRef } from "react";
 
-// abstracted box component considering direction, stateless
-
-type BoxProp = WrapperProps & DirectionProp & ComponentPropsWithoutRef<"div">;
+type BoxProp = WrapperProps &
+  Partial<DirectionProps> &
+  ComponentPropsWithoutRef<"div">;
 
 function Box({
   className,
