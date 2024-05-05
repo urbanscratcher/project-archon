@@ -45,10 +45,7 @@ async function EditorsPickContent() {
       )}
       {data?.restList && <hr className="border-sky-700" />}
       {data?.restList && (
-        <List
-          vertical
-          className="marker:h4 gap-2 pl-5 marker:content-['✦'] [&>*]:pl-1"
-        >
+        <List vertical className="marker:h4 gap-2 pl-5 marker:content-['✦']">
           {data.restList.map((item: Cover) => {
             const data = {
               idx: item.insight.idx,
@@ -56,7 +53,10 @@ async function EditorsPickContent() {
               href: `/insights/${item.insight.idx}`,
             };
             return (
-              <ListItem horizontal key={data.idx}>
+              <ListItem
+                key={data.idx}
+                className="marker:h4 pl-1 marker:content-['✦']"
+              >
                 <LinkText
                   href={data.href}
                   text={data.title}
