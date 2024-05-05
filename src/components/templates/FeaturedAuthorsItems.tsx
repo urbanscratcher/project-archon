@@ -15,7 +15,6 @@ async function FeaturedAuthorsItems() {
           className="items-center gap-4 border-b border-b-g-300 px-1 py-3 text-sky-700 last:border-b-0 last:pb-1 lg:gap-2"
           key={author.idx}
         >
-          {/* large avatar */}
           <Link
             href={`/authors/${author.idx}`}
             className={`relative h-16 w-16 overflow-hidden rounded-full border border-sky-700`}
@@ -27,8 +26,8 @@ async function FeaturedAuthorsItems() {
               fill
             />
           </Link>
-          <Box vertical className="gap-1">
-            <Link href={`/authors/${author.idx}`}>
+          <Box vertical className="gap-[2px]">
+            <Link href={`/authors/${author.idx}`} className="hover-darker">
               <p className="font-semibold capitalize">
                 {author.firstName} {author.lastName}
               </p>

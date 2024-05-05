@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { IoCloseOutline, IoMenuSharp } from "react-icons/io5";
 import Logo from "../organisms/Logo";
+import Box from "../atoms/Box";
 
 function GNB() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,36 +28,40 @@ function GNB() {
 
   return (
     <nav
-      className={`fixed z-50 flex w-screen justify-between transition-all sm:items-baseline sm:justify-center sm:gap-1
-      sm:px-2 
-      ${isScrolled && "border-b border-b-sky-700 bg-white sm:h-fit"}
-      ${!isScrolled && "sm:py-4"}
-      ${pathname === "/" && !isScrolled && "border-b border-b-sky-700/0"}
-      ${pathname !== "/" && !isScrolled && "border-b border-b-sky-700 sm:border-none"}
-      ${openMenu ? "h-[130px] bg-white sm:h-auto" : "h-[28px] sm:h-auto"}
-      ${openMenu && isScrolled ? "" : "sm:bg-transparent"} 
-      ${!openMenu && isScrolled ? "sm:bg-white" : ""}`}
+      className={`fixed z-50 w-screen transition-all  ${isScrolled && "border-b border-b-sky-700 bg-white sm:h-fit"}
+    ${!isScrolled && "sm:py-4"}
+    ${pathname === "/" && !isScrolled && "border-b border-b-sky-700/0"}
+    ${pathname !== "/" && !isScrolled && "border-b border-b-sky-700 sm:border-none"}
+    ${openMenu ? "h-[130px] bg-white sm:h-auto" : "h-[28px] sm:h-auto"}
+    ${openMenu && isScrolled ? "" : "sm:bg-transparent"} 
+    ${!openMenu && isScrolled ? "sm:bg-white" : ""}
+    `}
     >
-      <Logo
-        className={`z-50 h-fit w-[110px] px-1 sm:h-auto ${isScrolled ? "sm:w-[145px]" : "sm:w-[160px]"} `}
-        isWhite={!isScrolled && pathname === "/" && !openMenu}
-      />
-      <button
-        onClick={(e) => {
-          setOpenMenu(!openMenu);
-          setIsScrolled(true);
-        }}
-        className={`z-50 flex h-fit px-1 text-3xl sm:hidden
+      <Box
+        horizontal
+        className={`mx-auto w-full max-w-[1920px] justify-between sm:items-baseline sm:justify-center sm:gap-1 sm:px-2 
+     `}
+      >
+        <Logo
+          className={`z-50 h-fit w-[110px] px-1 sm:h-auto ${isScrolled ? "sm:w-[145px]" : "sm:w-[160px]"} `}
+          isWhite={!isScrolled && pathname === "/" && !openMenu}
+        />
+        <button
+          onClick={(e) => {
+            setOpenMenu(!openMenu);
+            setIsScrolled(true);
+          }}
+          className={`z-50 flex h-fit px-1 text-3xl sm:hidden
        ${!isScrolled && pathname === "/" && "text-white"}
        ${!isScrolled && pathname !== "/" && "text-sky-700"}
         ${isScrolled && pathname !== "/" && "text-sky-700"}
         ${isScrolled && pathname === "/" && "text-sky-700"}
         `}
-      >
-        {openMenu ? <IoCloseOutline /> : <IoMenuSharp />}
-      </button>
-      <ul
-        className={`lg:grid-cols-24 absolute z-10 flex h-fit w-screen flex-col items-end pr-2 pt-[28px] transition-transform sm:static
+        >
+          {openMenu ? <IoCloseOutline /> : <IoMenuSharp />}
+        </button>
+        <ul
+          className={`lg:grid-cols-24 absolute z-10 flex h-fit w-screen flex-col items-end pr-2 pt-[28px] transition-transform sm:static
         sm:grid
         sm:w-full
         sm:grid-cols-4
@@ -73,60 +78,61 @@ function GNB() {
             : "font-semibold text-sky-700 sm:font-medium sm:text-white"
         }
          `}
-      >
-        <li
-          className={`text-md uppercase tracking-wide ${pathname !== "/" && "font-semibold text-sky-700"}`}
         >
-          <Link
-            className={`menu__hover sm:px-1`}
-            href="/insights"
-            onClick={() => setOpenMenu(false)}
+          <li
+            className={`text-md uppercase tracking-wide ${pathname !== "/" && "font-semibold text-sky-700"}`}
           >
-            Insights
-          </Link>
-        </li>
-        <li
-          className={`text-md uppercase tracking-wide ${pathname !== "/" && "font-semibold text-sky-700"}`}
-        >
-          <Link
-            className={`menu__hover sm:px-1`}
-            href="/authors"
-            onClick={() => setOpenMenu(false)}
+            <Link
+              className={`menu__hover sm:px-1`}
+              href="/insights"
+              onClick={() => setOpenMenu(false)}
+            >
+              Insights
+            </Link>
+          </li>
+          <li
+            className={`text-md uppercase tracking-wide ${pathname !== "/" && "font-semibold text-sky-700"}`}
           >
-            Authors
-          </Link>
-        </li>
-        <li
-          className={`text-md font-semibold uppercase tracking-wide
+            <Link
+              className={`menu__hover sm:px-1`}
+              href="/authors"
+              onClick={() => setOpenMenu(false)}
+            >
+              Authors
+            </Link>
+          </li>
+          <li
+            className={`text-md font-semibold uppercase tracking-wide
           lg:col-start-[-3]
           ${pathname === "/" && isScrolled && "text-sky-700"}
           ${pathname === "/" && !isScrolled ? "text-white lg:text-sky-700" : ""}
           ${pathname !== "/" && "font-semibold text-sky-700"}`}
-        >
-          <Link
-            className="menu__hover sm:px-1"
-            href="/bookmarks"
-            onClick={() => setOpenMenu(false)}
           >
-            Bookmarks
-          </Link>
-        </li>
-        <li
-          className={`text-md font-semibold uppercase tracking-wide
+            <Link
+              className="menu__hover sm:px-1"
+              href="/bookmarks"
+              onClick={() => setOpenMenu(false)}
+            >
+              Bookmarks
+            </Link>
+          </li>
+          <li
+            className={`text-md font-semibold uppercase tracking-wide
           lg:col-start-[-2]
           ${pathname === "/" && isScrolled ? "text-sky-700" : ""}
           ${pathname === "/" && !isScrolled ? "text-white lg:text-sky-700" : ""}
           ${pathname !== "/" && "font-semibold text-sky-700"}`}
-        >
-          <Link
-            className="menu__hover sm:px-1"
-            href="/setting"
-            onClick={() => setOpenMenu(false)}
           >
-            Setting
-          </Link>
-        </li>
-      </ul>
+            <Link
+              className="menu__hover sm:px-1"
+              href="/setting"
+              onClick={() => setOpenMenu(false)}
+            >
+              Setting
+            </Link>
+          </li>
+        </ul>
+      </Box>
     </nav>
   );
 }
