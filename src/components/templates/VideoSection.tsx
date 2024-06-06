@@ -2,7 +2,7 @@ import Box from "../atoms/Box";
 import ImageWrap from "../atoms/ImageWrap";
 import List from "../atoms/List";
 import ListItem from "../atoms/ListItem";
-import PlayBtn from "../atoms/PlayBtn";
+import PlayButton from "../atoms/PlayButton";
 import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
 import VideoHeadTag from "../atoms/VideoHeadTag";
@@ -80,12 +80,12 @@ function VideoSection() {
     <SectionContainer>
       <SectionHead>video</SectionHead>
       <Box vertical className="gap-10">
-        <Box className="relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-2xl px-10 py-16 ">
+        <Box className="relative flex aspect-video min-h-[340px] w-full items-center justify-center overflow-hidden rounded-2xl px-10 py-16">
           <Box vertical className="max-w-[750px] items-center gap-4 text-white">
             <VideoHeadTag tagName={coverVideo.tag.name} />
             <h2 className="font-serif capitalize">{coverVideo.title}</h2>
             <p>{coverVideo.summary}</p>
-            <PlayBtn src={coverVideo.video} />
+            <PlayButton src={coverVideo.video} />
           </Box>
           <Box className="bg-gradient absolute inset-0 -z-10"></Box>
           <ImageWrap
@@ -119,7 +119,7 @@ function VideoSection() {
                   className={`absolute inset-0 -z-20 object-cover`}
                   alt={video.title}
                 />
-                <PlayBtn src={video.video} />
+                <PlayButton src={video.video} />
               </Box>
             </ListItem>
           ))}
