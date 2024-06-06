@@ -1,6 +1,6 @@
 import { WrapperProps } from "@/types/CommonTypes";
 
-type WhitespaceType = "default" | "sub" | "no";
+type WhitespaceType = "default" | "sub" | "none";
 
 type SectionContainerProps = {
   border?: boolean;
@@ -16,8 +16,8 @@ function SectionContainer({
   return (
     <section
       className={`
-      ${whitespace === "default" ? "px-4 py-8 sm:px-6 sm:py-16" : ""}
-      ${whitespace === "sub" ? "px-4 py-8" : ""}
+    ${whitespace === "default" ? "px-4 py-8 sm:px-6 sm:py-16" : ""}
+    ${whitespace === "sub" ? "px-4 py-8" : ""}
     ${border ? "rounded-xl border border-sky-700" : ""}
     ${className || ""}`}
     >

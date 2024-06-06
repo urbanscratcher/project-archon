@@ -1,16 +1,16 @@
 import { WrapperProps } from "@/types/CommonTypes";
 
-function HighlightSectionGrid({ children }: WrapperProps) {
+function HighlightGrid({ children }: WrapperProps) {
   return (
-    <section
+    <div
       className="
-        lg:grid
-        lg:grid-cols-[2fr_1fr]
+      lg:grid
+      lg:grid-cols-[2fr_1fr]
     "
     >
       {children}
-    </section>
+    </div>
   );
 }
 
-export default HighlightSectionGrid;
+export default HighlightGrid;

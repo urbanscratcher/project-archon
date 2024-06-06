@@ -18,10 +18,7 @@ function SavedForLaterContent() {
   return (
     <List className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {StoredInsightsSlice.map((bookmark) => (
-        <SavedForLaterItem
-          key={`savedForLater_${bookmark.idx}`}
-          idx={bookmark.idx}
-        />
+        <SavedForLaterItem key={bookmark.idx} idx={bookmark.idx} />
       ))}
     </List>
   );

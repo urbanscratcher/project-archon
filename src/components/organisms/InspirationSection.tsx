@@ -1,9 +1,8 @@
 import { getRandomInsights } from "@/services/insights.api";
-import List from "../atoms/List";
+import GetInspirationsBtn from "../atoms/GetInspirationsBtn";
 import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
-import GetInspirationsBtn from "../atoms/GetInspirationsBtn";
-import InspirationItems from "../molecules/InspirationItems";
+import InspirationList from "../molecules/InspirationList";
 
 async function InspirationSection() {
   const inspirations = await getRandomInsights({ limit: 6 });
@@ -11,12 +10,10 @@ async function InspirationSection() {
   return (
     <SectionContainer border whitespace="sub" className={"h-fit"}>
       <SectionHead className="flex justify-between">
-        inspirations
+        INSPIRATIONS
         <GetInspirationsBtn />
       </SectionHead>
-      <List className="grid grid-cols-2 grid-rows-3 gap-2">
-        <InspirationItems initialInspirations={inspirations} />
-      </List>
+      <InspirationList initialInspirations={inspirations} />
     </SectionContainer>
   );
 }

@@ -25,7 +25,7 @@ export async function getTrendingInsights(): Promise<TrendingInsights> {
 
 export async function getFeaturedAuthors(limit: number) {
   const res = await getList(
-    `http://localhost:5001/archon-api/v1/trending/authors?limit=${limit}`,
+    `http://localhost:5001/archon-api/v1/trending/authors?offset=0&limit=${limit}`,
   );
   if (!res) {
     throw new Error("Failed to fetch headline");

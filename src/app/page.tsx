@@ -1,42 +1,42 @@
-import HighlightSectionGrid from "@/components/templates/HighlightSectionGrid";
+import Box from "@/components/atoms/Box";
+import AdSection from "@/components/organisms/AdSection";
 import EditorsPickSection from "@/components/organisms/EditorsPickSection";
+import FeaturedAuthorSection from "@/components/organisms/FeaturedAuthorSection";
 import HeadlineSection from "@/components/organisms/HeadlineSection";
+import InspirationSection from "@/components/organisms/InspirationSection";
 import NewsletterSection from "@/components/organisms/NewsletterSection";
 import SavedForLaterSection from "@/components/organisms/SavedForLaterSection";
 import StayConnectedSection from "@/components/organisms/StayConnectedSection";
 import TheLatestSection from "@/components/organisms/TheLatestSection";
 import TopTopicSection from "@/components/organisms/TopTopicSection";
-import VideoSection from "@/components/templates/VideoSection";
 import WhatsTrendingSection from "@/components/organisms/WhatsTrendingSection";
-import WhatsTrendingSectionGrid from "@/components/templates/WhatsTrendingSectionGrid";
-import TheLatestSectionGrid from "@/components/templates/TheLatestSectionGrid";
-import InspirationSection from "@/components/organisms/InspirationSection";
-import FeaturedAuthorSection from "@/components/organisms/FeaturedAuthorSection";
-import Box from "@/components/atoms/Box";
-import AdSection from "@/components/organisms/AdSection";
+import HighlightGrid from "@/components/templates/HighlightSectionGrid";
+import TheLatestGrid from "@/components/templates/TheLatestGrid";
+import VideoSection from "@/components/templates/VideoSection";
+import WhatsTrendingGrid from "@/components/templates/WhatsTrendingGrid";
 
 export default function Home() {
   return (
     <main>
-      <HighlightSectionGrid>
+      <HighlightGrid>
         <HeadlineSection />
         <EditorsPickSection />
-      </HighlightSectionGrid>
+      </HighlightGrid>
       <TopTopicSection />
-      <WhatsTrendingSectionGrid>
+      <WhatsTrendingGrid>
         <WhatsTrendingSection />
         <StayConnectedSection />
         <NewsletterSection />
-      </WhatsTrendingSectionGrid>
+      </WhatsTrendingGrid>
       <SavedForLaterSection />
-      <TheLatestSectionGrid>
+      <TheLatestGrid>
         <InspirationSection />
         <TheLatestSection />
         <Box vertical className="h-fit gap-4">
           <FeaturedAuthorSection />
           <AdSection />
         </Box>
-      </TheLatestSectionGrid>
+      </TheLatestGrid>
       <VideoSection />
     </main>
   );

@@ -19,21 +19,28 @@ export async function getHeadline() {
 
 export async function getCovers() {
   const res = await getOne("http://localhost:5001/archon-api/v1/covers");
+
   if (!res) {
-    throw new Error("Failed to fetch headline");
+    throw new Error("Failed to fetch covers");
   }
 
   const covers = CoversSchema.safeParse(res);
-  if (!covers?.success) {
-    throw new Error("Failed to parse headline");
+  if (!covers.success) {
+    throw new Error("Failed to parse covers");
   }
 
-  const coversWithoutHeadline = covers?.data.data.filter(
-    (c) => c.isMain === false,
-  );
-
-  return {
-    total: coversWithoutHeadline ? coversWithoutHeadline.length : 0,
-    data: coversWithoutHeadline,
-  };
+  try {
+    const coversWithoutHeadline = covers?.data.data.filter(
+      (c) => c.isMain === false,
+    );
+    return {
+      total: coversWithoutHeadline ? coversWithoutHeadline.length : 0,
+      data: coversWithoutHeadline,
+    };
+  } catch (e) {
+    return {
+      total: 0,
+      data: [],
+    };
+  }
 }

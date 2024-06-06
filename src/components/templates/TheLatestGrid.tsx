@@ -1,7 +1,7 @@
 import { type PropsWithChildren } from "react";
 import SectionContainer from "../atoms/SectionContainer";
 
-function TheLatestSectionGrid({ children }: PropsWithChildren) {
+function TheLatestGrid({ children }: PropsWithChildren) {
   return (
     <SectionContainer
       className={`grid grid-cols-1 gap-4
@@ -23,4 +23,4 @@ function TheLatestSectionGrid({ children }: PropsWithChildren) {
   );
 }
 
-export default TheLatestSectionGrid;
+export default TheLatestGrid;

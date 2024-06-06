@@ -1,7 +1,7 @@
 import { WrapperProps } from "@/types/CommonTypes";
 import SectionContainer from "../atoms/SectionContainer";
 
-function WhatsTrendingSectionGrid({ children }: WrapperProps) {
+function WhatsTrendingGrid({ children }: WrapperProps) {
   return (
     <SectionContainer
       className="
@@ -23,4 +23,4 @@ function WhatsTrendingSectionGrid({ children }: WrapperProps) {
   );
 }
 
-export default WhatsTrendingSectionGrid;
+export default WhatsTrendingGrid;

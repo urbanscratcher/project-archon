@@ -1,6 +1,6 @@
 import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
-import ViewAll from "../atoms/ViewAll";
+import ViewAllButton from "../atoms/ViewAllButton";
 import SavedForLaterContent from "../molecules/SavedForLaterContent";
 
 function SavedForLaterSection() {
@@ -8,7 +8,7 @@ function SavedForLaterSection() {
     <SectionContainer>
       <SectionHead className="flex justify-between">
         saved for later
-        <ViewAll to="/bookmarks" />
+        <ViewAllButton to="/bookmarks" />
       </SectionHead>
       <SavedForLaterContent />
     </SectionContainer>

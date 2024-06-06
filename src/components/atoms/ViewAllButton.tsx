@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { IoChevronForwardOutline } from "react-icons/io5";
 
-function ViewAll({ to, className }: { to: string; className?: string }) {
+function ViewAllButton({ to, className }: { to: string; className?: string }) {
   return (
     <Link
       href={to}
@@ -12,4 +12,4 @@ function ViewAll({ to, className }: { to: string; className?: string }) {
   );
 }
 
-export default ViewAll;
+export default ViewAllButton;

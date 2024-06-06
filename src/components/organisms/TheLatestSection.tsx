@@ -1,10 +1,10 @@
 import { getTrendingInsights } from "@/services/trending.api";
 import { type TrendingInsights } from "@/types/Trending";
-import SectionHead from "../atoms/SectionHead";
-import ViewAll from "../atoms/ViewAll";
-import InsightsItem from "../molecules/InsightsItem";
-import SectionContainer from "../atoms/SectionContainer";
 import List from "../atoms/List";
+import SectionContainer from "../atoms/SectionContainer";
+import SectionHead from "../atoms/SectionHead";
+import ViewAllButton from "../atoms/ViewAllButton";
+import InsightsItem from "../molecules/InsightsItem";
 
 async function TheLatestSection() {
   const trendingInsights: TrendingInsights = await getTrendingInsights();
@@ -13,11 +13,11 @@ async function TheLatestSection() {
     <SectionContainer border whitespace="sub" className="h-fit lg:col-start-2">
       <SectionHead className="flex justify-between">
         The latest
-        <ViewAll to="/insights" />
+        <ViewAllButton to="/insights" />
       </SectionHead>
-      <List>
+      <List vertical>
         {trendingInsights.map((insight) => (
-          <InsightsItem key={`latest_${insight.idx}`} insight={insight} />
+          <InsightsItem key={insight.idx} insight={insight} />
         ))}
       </List>
     </SectionContainer>
