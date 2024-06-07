@@ -1,19 +1,21 @@
 import { getAuthor } from "@/services/authors.api";
-import { Topic } from "@/types/Topic";
+import type { Topic } from "@/types/Topic";
 import { IoMailOutline } from "react-icons/io5";
+import Box from "../atoms/Box";
 import ImageWrap from "../atoms/ImageWrap";
 import SectionContainer from "../atoms/SectionContainer";
 
-async function AuthorDetail({ idx }: { idx: number }) {
+async function AuthorDetailSection({ idx }: { idx: number }) {
   const author = await getAuthor(idx);
 
   return (
     <SectionContainer>
-      <div className={`flex flex-col gap-8`}>
-        <div
-          className={`flex flex-col items-center justify-center gap-8 sm:flex-row`}
+      <Box vertical className={`gap-8`}>
+        <Box
+          horizontal
+          className={`items-center justify-center gap-8 sm:flex-row`}
         >
-          <div
+          <Box
             className={`relative aspect-square w-40 overflow-hidden rounded-full outline outline-2 outline-sky-700`}
           >
             <ImageWrap
@@ -22,26 +24,26 @@ async function AuthorDetail({ idx }: { idx: number }) {
               className={`object-cover`}
               fill
             />
-          </div>
-          <div>
+          </Box>
+          <Box vertical className="gap-2">
             <h2
-              className={`flex items-center gap-2 font-serif capitalize text-sky-700`}
+              className={`flex items-center gap-4 font-serif capitalize text-sky-700`}
             >
               {author.firstName} {author.lastName}
               <IoMailOutline />
             </h2>
             {author?.topics && author.topics.length > 0 && (
-              <p className="text-[26px] capitalize text-sky-700">
+              <h5 className="font-sans capitalize text-sky-700">
                 {author.topics.map((topic: Topic) => topic.name).join(" · ")}
-              </p>
+              </h5>
             )}
             {author?.jobTitle && (
-              <p className="text-[26px] capitalize text-sky-700">
+              <h5 className="font-sans capitalize text-sky-700">
                 {author.jobTitle}
-              </p>
+              </h5>
             )}
-          </div>
-        </div>
+          </Box>
+        </Box>
         {author?.biography && (
           <p className="text-[17px] leading-[1.263] tracking-[0.5px] text-sky-700">
             {author.biography}
@@ -57,9 +59,9 @@ async function AuthorDetail({ idx }: { idx: number }) {
             ))}
           </ul>
         )}
-      </div>
+      </Box>
     </SectionContainer>
   );
 }
 
-export default AuthorDetail;
+export default AuthorDetailSection;

@@ -2,7 +2,7 @@ import { getAuthors } from "@/services/authors.api";
 import SectionContainer from "../atoms/SectionContainer";
 import AuthorList from "../molecules/AuthorList";
 
-async function Authors() {
+async function AuthorsSection() {
   const initialAuthors = await getAuthors({ offset: 0, limit: 5 });
   return (
     <SectionContainer>
@@ -13,4 +13,4 @@ async function Authors() {
     </SectionContainer>
   );
 }
-export default Authors;
+export default AuthorsSection;

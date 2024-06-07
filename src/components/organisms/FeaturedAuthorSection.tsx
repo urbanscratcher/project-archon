@@ -5,7 +5,7 @@ import ListItem from "../atoms/ListItem";
 import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
 import ViewAllButton from "../atoms/ViewAllButton";
-import AuthorSummaryRow from "../molecules/AuthorSummaryRow";
+import AuthorWithTopicsRow from "../molecules/AuthorWithTopicsRow";
 
 async function FeaturedAuthorSection({ border = false }: { border?: boolean }) {
   const authors = await getFeaturedAuthors(4);
@@ -21,7 +21,7 @@ async function FeaturedAuthorSection({ border = false }: { border?: boolean }) {
               className={`items-center gap-4 border-b border-b-g-300 px-1 py-3 text-sky-700 last:border-b-0 last:pb-1`}
               key={author.idx}
             >
-              <AuthorSummaryRow author={author} />
+              <AuthorWithTopicsRow author={author} />
             </ListItem>
           ))}
         </List>

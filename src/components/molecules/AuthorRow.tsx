@@ -1,7 +1,7 @@
 import { Creator } from "@/types/Insight";
 import Link from "next/link";
-import ImageWrap from "../atoms/ImageWrap";
 import Box from "../atoms/Box";
+import ImageWrap from "../atoms/ImageWrap";
 
 function AuthorRow({ creator, white }: Creator & { white: boolean }) {
   const data = {
@@ -14,9 +14,14 @@ function AuthorRow({ creator, white }: Creator & { white: boolean }) {
     <Box horizontal className={`items-center gap-2 text-sky-700`}>
       <Link
         href={data.href}
-        className="relative h-8 w-8 overflow-hidden rounded-full border border-sky-700 object-cover"
+        className="relative h-8 w-8 overflow-hidden rounded-full border border-sky-700"
       >
-        <ImageWrap src={data.avatar} fill alt="avatar" />
+        <ImageWrap
+          src={data.avatar}
+          fill
+          alt="avatar"
+          className="rounded-full object-cover"
+        />
       </Link>
       <Link href={data.href} className="hover-darker">
         <p

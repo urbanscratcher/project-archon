@@ -41,16 +41,17 @@ function AuthorList({ initialAuthors }: { initialAuthors: Authors }) {
               key={`${author.firstName}_${author.lastName}_${author.idx}`}
               className={`flex items-center gap-4 sm:gap-8`}
             >
-              <div
-                className={`relative aspect-square w-16 overflow-hidden rounded-full outline outline-2 outline-sky-700 sm:w-32`}
+              <Link
+                href={`/authors/${author.idx}`}
+                className={`relative h-16 w-16 overflow-hidden rounded-full outline outline-2 outline-sky-700 sm:h-32 sm:w-32`}
               >
                 <ImageWrap
                   src={author.avatar}
                   alt={`Avatar of ${author.firstName} ${author.lastName}`}
-                  className={`object-cover`}
+                  className={`rounded-full object-cover`}
                   fill
                 />
-              </div>
+              </Link>
               <div className="flex flex-col gap-2">
                 <Link href={`/authors/${author.idx}`}>
                   <h3 className="cursor-pointer font-serif capitalize tracking-[0.25px] text-sky-700 hover:underline hover:decoration-2">
