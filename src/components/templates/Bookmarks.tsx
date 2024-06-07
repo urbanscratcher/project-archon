@@ -2,7 +2,7 @@
 
 import useBookmarkStore from "@/stores/useBookmarkStore";
 import SectionContainer from "../atoms/SectionContainer";
-import BookmarkList from "../molecules/BookmarkList";
+import BookmarkItem from "../molecules/BookmarkItem";
 
 function Bookmarks() {
   const initialBookmarks = useBookmarkStore((state) => state.bookmarks);
@@ -13,7 +13,11 @@ function Bookmarks() {
         You saved {initialBookmarks?.length > 0 ? initialBookmarks?.length : 0}{" "}
         insights
       </h1>
-      {<BookmarkList initialBookmarks={initialBookmarks} />}
+      <ul>
+        {initialBookmarks.map((b) => (
+          <BookmarkItem key={b.idx} idx={b.idx} />
+        ))}
+      </ul>
     </SectionContainer>
   );
 }

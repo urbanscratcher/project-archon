@@ -43,7 +43,7 @@ function GNB() {
      `}
       >
         <Logo
-          className={`z-50 h-fit w-[110px] px-1 sm:h-auto ${isScrolled ? "sm:w-[145px]" : "sm:w-[160px]"} `}
+          className={`z-50 h-fit w-[110px] px-1 sm:h-auto sm:w-[160px] `}
           isWhite={!isScrolled && pathname === "/" && !openMenu}
         />
         <button
