@@ -1,10 +1,12 @@
 "use client";
 
 import { Topic } from "@/types/Topic";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   IoArrowDown,
+  IoArrowUp,
   IoChevronBackOutline,
   IoChevronForwardOutline,
 } from "react-icons/io5";
@@ -13,8 +15,20 @@ import TopicsList from "./TopicsList";
 
 function TopicsNavbar({ topics }: { topics: Topic[] }) {
   const ulRef = useRef<HTMLUListElement>(null);
-  const search = useSearchParams();
-  const searchTopic = search.get("topics")?.toLowerCase() || "all";
+  const searchParams = useSearchParams();
+  const searchTopic = searchParams.get("topics")?.toLowerCase() || "all";
+
+  const sortQuery = searchParams.get("sort") || "";
+  const orderQuery = searchParams.get("order") || "";
+  const [isAsc, setIsAsc] = useState(false);
+
+  useEffect(() => {
+    if (sortQuery === "date" && orderQuery === "asc") {
+      setIsAsc(true);
+    } else {
+      setIsAsc(false);
+    }
+  }, [sortQuery, orderQuery]);
 
   useEffect(() => {
     // get the width of ul element
@@ -50,6 +64,7 @@ function TopicsNavbar({ topics }: { topics: Topic[] }) {
       behavior: "smooth",
     });
   };
+
   const nextClickHanlder = () => {
     ulRef.current?.scrollBy({
       left: 200,
@@ -84,10 +99,17 @@ function TopicsNavbar({ topics }: { topics: Topic[] }) {
         </button>
       </Box>
       {/* date button */}
-      <button className="hover-darker flex w-fit flex-nowrap items-center gap-1 rounded-full border-b-2 border-b-gray-50/0 px-4">
+      <Link
+        className="hover-darker flex w-fit flex-nowrap items-center gap-1 rounded-full border-b-2 border-b-gray-50/0 px-4"
+        href={
+          isAsc
+            ? `insights?topics=${searchTopic}`
+            : `insights?topics=${searchTopic}&sort=date&order=asc`
+        }
+      >
         <p className="text-button font-semibold">date</p>
-        <IoArrowDown />
-      </button>
+        {isAsc ? <IoArrowUp /> : <IoArrowDown />}
+      </Link>
     </Box>
   );
 }

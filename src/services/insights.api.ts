@@ -26,15 +26,17 @@ export async function getInsight(idx: number): Promise<Insight> {
 
 export async function getInsightsByTopic({
   topicIdx,
+  isAsc = false,
   limit = 10,
 }: {
   topicIdx: number;
+  isAsc?: boolean;
   limit: number;
 }): Promise<Insights> {
   const queryString =
     topicIdx === 0
-      ? `http://localhost:5001/archon-api/v1/insights?limit=${limit}`
-      : `http://localhost:5001/archon-api/v1/insights?limit=${limit}&filter={"and":[{"topic_idx":"${topicIdx}"}]}`;
+      ? `http://localhost:5001/archon-api/v1/insights?limit=${limit}&sorts=["${isAsc ? "" : "-"}idx"]`
+      : `http://localhost:5001/archon-api/v1/insights?limit=${limit}&filter={"and":[{"topic_idx":"${topicIdx}"}]}&sorts=["${isAsc ? "" : "-"}idx"]`;
   const res = await getList(queryString);
 
   const insights = InsightsSchema.safeParse(res);
