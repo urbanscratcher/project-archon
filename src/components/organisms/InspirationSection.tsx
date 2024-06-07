@@ -1,5 +1,5 @@
 import { getRandomInsights } from "@/services/insights.api";
-import GetInspirationsBtn from "../atoms/GetInspirationsBtn";
+import GetInspirationsButton from "../atoms/GetInspirationsButton";
 import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
 import InspirationList from "../molecules/InspirationList";
@@ -11,7 +11,7 @@ async function InspirationSection({ border = false }: { border?: boolean }) {
     <SectionContainer border={border} whitespace="sub" className={"h-fit"}>
       <SectionHead className="flex justify-between">
         INSPIRATIONS
-        <GetInspirationsBtn />
+        <GetInspirationsButton />
       </SectionHead>
       <InspirationList initialInspirations={inspirations} />
     </SectionContainer>

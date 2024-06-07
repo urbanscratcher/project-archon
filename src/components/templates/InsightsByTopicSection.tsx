@@ -3,7 +3,7 @@ import SectionContainer from "../atoms/SectionContainer";
 import InsightsList from "../molecules/InsightsList";
 import TopicsNavbar from "../organisms/TopicsNavbar";
 
-async function InsightsByTopic() {
+async function InsightsByTopicSection() {
   const topics = await getTopics();
 
   return (
@@ -14,4 +14,4 @@ async function InsightsByTopic() {
   );
 }
 
-export default InsightsByTopic;
+export default InsightsByTopicSection;

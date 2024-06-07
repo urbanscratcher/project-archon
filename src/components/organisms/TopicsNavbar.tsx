@@ -8,6 +8,7 @@ import {
   IoChevronBackOutline,
   IoChevronForwardOutline,
 } from "react-icons/io5";
+import Box from "../atoms/Box";
 import TopicsList from "./TopicsList";
 
 function TopicsNavbar({ topics }: { topics: Topic[] }) {
@@ -57,9 +58,12 @@ function TopicsNavbar({ topics }: { topics: Topic[] }) {
   };
 
   return (
-    <div className="flex w-full">
+    <Box horizontal className="w-full">
       {/* navigation */}
-      <div className="flex w-11/12 flex-nowrap items-center justify-between border-b border-b-g-100 uppercase text-sky-700">
+      <Box
+        horizontal
+        className="w-11/12 flex-nowrap items-center justify-between border-b border-b-g-100 uppercase text-sky-700"
+      >
         <button
           className="h-full w-fit px-4 text-xl transition-opacity hover:opacity-80"
           onClick={prevClickHandler}
@@ -79,13 +83,13 @@ function TopicsNavbar({ topics }: { topics: Topic[] }) {
         >
           <IoChevronForwardOutline />
         </button>
-      </div>
+      </Box>
       {/* date button */}
-      <div className="flex w-1/12 items-center gap-1 text-[15px] font-semibold tracking-[1.25px] text-sky-700">
-        <p>DATE</p>
+      <button className="flex w-1/12 items-center gap-1 border border-sky-700  px-2 text-sky-700">
+        <p className="text-button font-semibold">date</p>
         <IoArrowDown />
-      </div>
-    </div>
+      </button>
+    </Box>
   );
 }
 
