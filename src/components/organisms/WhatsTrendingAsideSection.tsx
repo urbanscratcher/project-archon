@@ -1,12 +1,16 @@
 import { getTrendingInsights } from "@/services/trending.api";
 import { TrendingInsights } from "@/types/Trending";
-import Link from "next/link";
 import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
 import Thumbnail from "../atoms/Thumbnail";
+import AuthorRowSimple from "../molecules/AuthorRowSimple";
 import InsightTitle from "../molecules/InsightTitle";
 
-async function WhatsTrendingAside({ border = false }: { border?: boolean }) {
+async function WhatsTrendingAsideSection({
+  border = false,
+}: {
+  border?: boolean;
+}) {
   const trendingInsights: TrendingInsights = await getTrendingInsights();
 
   // TODO: error handling
@@ -28,12 +32,12 @@ async function WhatsTrendingAside({ border = false }: { border?: boolean }) {
                 <InsightTitle idx={insight.idx}>{insight.title}</InsightTitle>
               </p>
 
-              <p className="capitalize tracking-wide text-g-700">
-                By{" "}
-                <Link href={`/authors/${insight.creator.idx}`}>
-                  {insight.creator.firstName} {insight.creator.lastName}
-                </Link>
-              </p>
+              <AuthorRowSimple
+                href={`/authors/${insight.creator.idx}`}
+                fullName={
+                  insight.creator.firstName + " " + insight.creator.lastName
+                }
+              />
             </div>
             <Thumbnail
               insightIdx={insight.idx}
@@ -51,4 +55,4 @@ async function WhatsTrendingAside({ border = false }: { border?: boolean }) {
   );
 }
 
-export default WhatsTrendingAside;
+export default WhatsTrendingAsideSection;

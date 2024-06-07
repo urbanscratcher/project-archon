@@ -121,7 +121,7 @@ select:-webkit-autofill:focus {
 @layer utilities {
   /* typography */
   .text-button {
-    @apply text-[0.9375rem]/[1.263] font-semibold uppercase tracking-widest;
+    @apply text-[0.9375rem]/[1.263] font-semibold uppercase tracking-[1.25px];
   }
 
   .h2 {

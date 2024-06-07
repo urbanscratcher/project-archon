@@ -1,6 +1,6 @@
 import InspirationSection from "@/components/organisms/InspirationSection";
 import PageDivider from "@/components/organisms/PageDivider";
-import WhatsTrendingAside from "@/components/organisms/WhatsTrendingAside";
+import WhatsTrendingAsideSection from "@/components/organisms/WhatsTrendingAsideSection";
 import InsightsByTopicSection from "@/components/templates/InsightsByTopicSection";
 import MainSideContainer from "@/components/templates/MainSideContainer";
 import PageContainer from "@/components/templates/PageContainer";
@@ -14,7 +14,7 @@ function InsightsPage() {
       </MainSideContainer>
       <PageDivider />
       <RightSideContainer>
-        <WhatsTrendingAside />
+        <WhatsTrendingAsideSection />
         <InspirationSection />
       </RightSideContainer>
     </PageContainer>

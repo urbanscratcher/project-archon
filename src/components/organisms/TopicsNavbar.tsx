@@ -62,7 +62,7 @@ function TopicsNavbar({ topics }: { topics: Topic[] }) {
       {/* navigation */}
       <Box
         horizontal
-        className="w-11/12 flex-nowrap items-center justify-between border-b border-b-g-100 uppercase text-sky-700"
+        className="w-[calc(100%-100px)] flex-nowrap items-center justify-between border-b border-b-g-100 uppercase text-sky-700"
       >
         <button
           className="h-full w-fit px-4 text-xl transition-opacity hover:opacity-80"
@@ -71,11 +71,10 @@ function TopicsNavbar({ topics }: { topics: Topic[] }) {
           <IoChevronBackOutline />
         </button>
         <ul
-          className="flex w-full flex-nowrap gap-6 overflow-hidden whitespace-nowrap text-[15px] font-semibold tracking-[1.25px] outline-offset-2"
+          className="text-button flex w-full flex-nowrap gap-6 overflow-hidden whitespace-nowrap font-semibold"
           ref={ulRef}
         >
-          {/* TODO fix the key */}
-          <TopicsList key={new Date().toISOString()} topics={topics} />
+          <TopicsList topics={topics} />
         </ul>
         <button
           className="h-full w-fit px-4 text-xl transition-opacity hover:opacity-80"
@@ -85,7 +84,7 @@ function TopicsNavbar({ topics }: { topics: Topic[] }) {
         </button>
       </Box>
       {/* date button */}
-      <button className="flex w-1/12 items-center gap-1 border border-sky-700  px-2 text-sky-700">
+      <button className="hover-darker flex w-fit flex-nowrap items-center gap-1 rounded-full border-b-2 border-b-gray-50/0 px-4">
         <p className="text-button font-semibold">date</p>
         <IoArrowDown />
       </button>
