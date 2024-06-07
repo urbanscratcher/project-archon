@@ -124,10 +124,6 @@ select:-webkit-autofill:focus {
     @apply text-[0.9375rem]/[1.263] font-semibold uppercase tracking-[0.078rem];
   }
 
-  .text-tag {
-    @apply font-sans text-[0.9375rem]/[1.333] tracking-[0.078125rem];
-  }
-
   .h2 {
     @apply font-serif text-[3.052rem]/[1.25];
   }
