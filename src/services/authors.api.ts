@@ -1,4 +1,4 @@
-import { AuthorSchema, AuthorsSchema } from "@/types/Author";
+import { AuthorSchema, AuthorsSchema, type Author } from "@/types/Author";
 import { getList, getOne } from "./general.api";
 
 export async function getAuthors({
@@ -23,7 +23,7 @@ export async function getAuthors({
   return authors.data;
 }
 
-export async function getAuthor(idx: number) {
+export async function getAuthor(idx: number): Promise<Author> {
   const res = await getOne(`http://localhost:5001/archon-api/v1/users/${idx}`);
 
   if (!res) {

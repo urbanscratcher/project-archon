@@ -1,7 +1,7 @@
-import { z } from "zod";
-import { TopicObject } from "./Topic";
 import { toCamelCase } from "@/libs/helpers";
+import { z } from "zod";
 import { getListSchema } from "./QueryParam";
+import { TopicObject } from "./Topic";
 
 export const AuthorSchema = z
   .object({
@@ -32,5 +32,5 @@ export const AuthorSchema = z
 
 export const AuthorsSchema = getListSchema(AuthorSchema);
 
-export type Author = z.infer<typeof AuthorSchema>;
-export type Authors = z.infer<typeof AuthorsSchema>;
+export type Author = z.output<typeof AuthorSchema>;
+export type Authors = z.output<typeof AuthorsSchema>;

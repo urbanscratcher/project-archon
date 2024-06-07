@@ -3,6 +3,7 @@ import Tag from "@/components/atoms/Tag";
 import DateTTRRow from "@/components/molecules/DateTTRRow";
 import { type Insight } from "@/types/Insight";
 import { IoLink } from "react-icons/io5";
+import AuthorSummary from "./AuthorSummary";
 
 function InsightPostSection({ insight }: { insight: Insight }) {
   return (
@@ -32,35 +33,8 @@ function InsightPostSection({ insight }: { insight: Insight }) {
         <button className="my-12 w-fit self-center rounded-full border border-g-700 p-2">
           <IoLink className="text-lg text-g-700" />
         </button>
-        <div className="grid grid-cols-[min-content_auto] grid-rows-[min-content_auto] items-center gap-4 border-t border-t-g-300 py-10">
-          <div className="relative h-16 w-16 overflow-hidden rounded-full border border-sky-700">
-            <ImageWrap
-              src={insight.creator?.avatar || ""}
-              alt="avatar"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="flex flex-col gap-1">
-            <p className="font-semibold capitalize text-sky-700">
-              {insight.creator.firstName} {insight.creator.lastName}
-            </p>
-            <p className="capitalize text-sky-700">Urban</p>
-          </div>
-          <p className="col-span-full text-g-700">
-            Olivia Bennett, a talented young architecture intern, draws
-            inspiration from her role as an assistant to the lead architect at
-            UrbanScape Designs. With a passion for sustainable architecture and
-            urban planning, her writing navigates the exciting realm of
-            environmentally-conscious design and the shaping of urban
-            landscapes. Olivias narratives offer fresh perspectives on
-            sustainable building practices and innovative approaches to creating
-            livable, vibrant cities. Join her in exploring the intersection of
-            architecture and sustainability, as she uncovers the impactful ways
-            design choices can influence our environment and communities for the
-            better.
-          </p>
-        </div>
+        {/* author */}
+        <AuthorSummary insight={insight} />
       </div>
     </section>
   );
