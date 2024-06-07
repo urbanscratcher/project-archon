@@ -1,12 +1,12 @@
 import { getTrendingInsights } from "@/services/trending.api";
 import { TrendingInsights } from "@/types/Trending";
 import Link from "next/link";
+import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
 import Thumbnail from "../atoms/Thumbnail";
 import InsightTitle from "../molecules/InsightTitle";
-import SectionContainer from "../atoms/SectionContainer";
 
-async function WhatsTrendingAside() {
+async function WhatsTrendingAside({ border = false }: { border?: boolean }) {
   const trendingInsights: TrendingInsights = await getTrendingInsights();
 
   // TODO: error handling
@@ -15,15 +15,15 @@ async function WhatsTrendingAside() {
   }
 
   return (
-    <SectionContainer border whitespace="sub">
+    <SectionContainer border={border} whitespace="sub">
       <SectionHead>What&apos;s Trending</SectionHead>
       <ul className="flex flex-col">
         {trendingInsights.map((insight) => (
           <li
-            key={`trending_aside_${insight.idx}`}
-            className={` flex flex-col-reverse gap-2 border-b border-b-g-200 py-4 sm:flex-row sm:gap-1 sm:last:border-b-0`}
+            key={insight.idx}
+            className={`flex flex-col-reverse gap-2 border-b border-b-g-200 py-4 sm:flex-row sm:gap-1 sm:last:border-b-0`}
           >
-            <div className="flex w-full flex-col gap-1 px-1 sm:w-2/3 sm:px-0">
+            <div className="flex flex-col gap-1 px-1 sm:w-2/3 sm:px-0">
               <p className="line-clamp-3 text-[17px] font-semibold capitalize leading-[1.263] tracking-[0.5px] text-g-700">
                 <InsightTitle idx={insight.idx}>{insight.title}</InsightTitle>
               </p>
@@ -38,10 +38,10 @@ async function WhatsTrendingAside() {
             <Thumbnail
               insightIdx={insight.idx}
               href={`/insights/${insight.idx}`}
-              src={insight.thumbnail || ""}
+              src={insight?.thumbnail || ""}
               alt={insight.title}
               aspect={"photo"}
-              className={"w-full sm:h-[180px] lg:h-[100px]"}
+              className={"flex-grow-1 sm:h-[180px] lg:h-[100px] 2xl:h-[120px]"}
               rounded={"xl"}
             />
           </li>

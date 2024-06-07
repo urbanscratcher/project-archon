@@ -33,7 +33,7 @@ export default function Home() {
         <InspirationSection />
         <TheLatestSection />
         <Box vertical className="h-fit gap-4">
-          <FeaturedAuthorSection />
+          <FeaturedAuthorSection border />
           <AdSection />
         </Box>
       </TheLatestGrid>

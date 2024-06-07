@@ -6,20 +6,26 @@
  * [ ] UI - 리스트 뿌릴 떄 좌우 여백?
  */
 
-import Bookmarks from "@/components/templates/Bookmarks";
 import InspirationSection from "@/components/organisms/InspirationSection";
+import PageDivider from "@/components/organisms/PageDivider";
 import WhatsTrendingAside from "@/components/organisms/WhatsTrendingAside";
+import Bookmarks from "@/components/templates/Bookmarks";
+import MainSideContainer from "@/components/templates/MainSideContainer";
+import PageContainer from "@/components/templates/PageContainer";
+import RightSideContainer from "@/components/templates/RightSideContainer";
 
 function BookmarkPage() {
   return (
-    <main className="flex flex-col py-[96px] lg:flex-row">
-      <Bookmarks />
-      <aside className="my-4 flex w-full flex-col gap-8 px-4 lg:w-1/3 lg:px-8">
+    <PageContainer>
+      <MainSideContainer>
+        <Bookmarks />
+      </MainSideContainer>
+      <PageDivider />
+      <RightSideContainer>
         <WhatsTrendingAside />
-        {/* @ts-expect-error Async Server Component */}
-        <InspirationSection applyContainer={false} />
-      </aside>
-    </main>
+        <InspirationSection />
+      </RightSideContainer>
+    </PageContainer>
   );
 }
 

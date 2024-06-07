@@ -65,8 +65,7 @@ function Thumbnail({
           setHover(false);
         }}
         href={href}
-        className=" relative
-          h-fit hover:cursor-pointer"
+        className="relative h-fit hover:cursor-pointer"
       >
         {/* bookmark button */}
         <button
@@ -108,7 +107,7 @@ function Thumbnail({
             `}
         >
           <ImageWrap
-            src={src}
+            src={src ?? ""}
             className={`absolute object-cover`}
             fill
             {...props}

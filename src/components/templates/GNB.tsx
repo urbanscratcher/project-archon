@@ -4,8 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { IoCloseOutline, IoMenuSharp } from "react-icons/io5";
-import Logo from "../organisms/Logo";
 import Box from "../atoms/Box";
+import Logo from "../organisms/Logo";
 
 function GNB() {
   const [isScrolled, setIsScrolled] = useState(false);

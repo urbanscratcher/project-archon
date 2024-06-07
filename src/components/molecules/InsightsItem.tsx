@@ -1,10 +1,10 @@
 import { type Insight } from "@/types/Insight";
+import Box from "../atoms/Box";
+import ListItem from "../atoms/ListItem";
 import Tag from "../atoms/Tag";
 import Thumbnail from "../atoms/Thumbnail";
 import AuthorRow from "./AuthorRow";
 import DateTTRRow from "./DateTTRRow";
-import ListItem from "../atoms/ListItem";
-import Box from "../atoms/Box";
 import LinkText from "./LinkText";
 
 function InsightsItem({
@@ -34,8 +34,7 @@ function InsightsItem({
         href={`/insights/${insight.idx}`}
         src={insight?.thumbnail || ""}
         alt={insight.title}
-        aspect={`${squared ? "" : "photo"}`}
-        className={`${squared ? "min-h-[250px]" : ""}`}
+        aspect={`${squared ? "video" : "photo"}`}
       />
       <Box vertical className={`gap-2`}>
         <Tag tagName={insight.topic.name} />

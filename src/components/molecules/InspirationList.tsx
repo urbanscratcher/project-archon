@@ -41,7 +41,7 @@ function InspirationList({
   return (
     <List className="grid grid-cols-2 grid-rows-3 gap-2">
       {inspirations.map((inspiration: InsightRandom, idx: number) => (
-        <ListItem key={`inspiration_` + idx}>
+        <ListItem key={inspiration.idx}>
           <Thumbnail
             insightIdx={inspiration.idx}
             href={`/insights/${inspiration.idx}`}

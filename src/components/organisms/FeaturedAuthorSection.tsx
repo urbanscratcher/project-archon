@@ -8,18 +8,18 @@ import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
 import ViewAllButton from "../atoms/ViewAllButton";
 
-async function FeaturedAuthorSection() {
+async function FeaturedAuthorSection({ border = false }: { border?: boolean }) {
   const authors = await getFeaturedAuthors(4);
 
   return (
-    <SectionContainer border whitespace="sub">
+    <SectionContainer border={border} whitespace="sub">
       <SectionHead>Featured Authors</SectionHead>
       <Box vertical className="gap-2">
         <List className="pb-1">
           {authors.map((author) => (
             <ListItem
               horizontal
-              className="items-center gap-4 border-b border-b-g-300 px-1 py-3 text-sky-700 last:border-b-0 last:pb-1"
+              className={`items-center gap-4 border-b border-b-g-300 px-1 py-3 text-sky-700 last:border-b-0 last:pb-1`}
               key={author.idx}
             >
               <Link

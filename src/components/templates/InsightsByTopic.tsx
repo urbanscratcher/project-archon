@@ -1,4 +1,5 @@
 import { getTopics } from "@/services/topics.api";
+import SectionContainer from "../atoms/SectionContainer";
 import InsightsList from "../molecules/InsightsList";
 import TopicsNavbar from "../organisms/TopicsNavbar";
 
@@ -6,10 +7,10 @@ async function InsightsByTopic() {
   const topics = await getTopics();
 
   return (
-    <section className="w-full px-8 lg:w-2/3 lg:border-r lg:border-r-sky-700">
+    <SectionContainer>
       {topics?.data && <TopicsNavbar topics={topics.data} />}
       {topics?.data && <InsightsList topics={topics.data} />}
-    </section>
+    </SectionContainer>
   );
 }
 

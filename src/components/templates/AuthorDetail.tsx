@@ -2,12 +2,13 @@ import { getAuthor } from "@/services/authors.api";
 import { Topic } from "@/types/Topic";
 import { IoMailOutline } from "react-icons/io5";
 import ImageWrap from "../atoms/ImageWrap";
+import SectionContainer from "../atoms/SectionContainer";
 
 async function AuthorDetail({ idx }: { idx: number }) {
   const author = await getAuthor(idx);
 
   return (
-    <section className="px-2 sm:px-8">
+    <SectionContainer>
       <div className={`flex flex-col gap-8`}>
         <div
           className={`flex flex-col items-center justify-center gap-8 sm:flex-row`}
@@ -57,7 +58,7 @@ async function AuthorDetail({ idx }: { idx: number }) {
           </ul>
         )}
       </div>
-    </section>
+    </SectionContainer>
   );
 }
 

@@ -1,20 +1,25 @@
+import FeaturedAuthorSection from "@/components/organisms/FeaturedAuthorSection";
+import PageDivider from "@/components/organisms/PageDivider";
 import AuthorDetail from "@/components/templates/AuthorDetail";
+import MainSideContainer from "@/components/templates/MainSideContainer";
+import PageContainer from "@/components/templates/PageContainer";
+import RightSideContainer from "@/components/templates/RightSideContainer";
 import InsightsByAuthor from "../../../components/templates/InsightsByAuthor";
-import FeaturedAuthorsItems from "@/components/templates/FeaturedAuthorsItems";
 
 function AuthorPage({ params }: { params: { idx: number } }) {
   const { idx } = params;
 
   return (
-    <main className="grid grid-cols-1 py-[96px] lg:grid-cols-[2fr_1fr]">
-      <div className="lg:border-r lg:border-r-sky-700">
+    <PageContainer>
+      <MainSideContainer>
         <AuthorDetail idx={idx} />
         <InsightsByAuthor idx={idx} />
-      </div>
-      <aside className="my-4 px-8">
-        <FeaturedAuthorsItems />
-      </aside>
-    </main>
+      </MainSideContainer>
+      <PageDivider />
+      <RightSideContainer>
+        <FeaturedAuthorSection />
+      </RightSideContainer>
+    </PageContainer>
   );
 }
 export default AuthorPage;
