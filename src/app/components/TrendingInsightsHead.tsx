@@ -1,10 +1,10 @@
 import type { TrendingInsight } from "@/types/Trending";
-import Box from "../atoms/Box";
-import Tag from "../atoms/Tag";
-import Thumbnail from "../atoms/Thumbnail";
-import AuthorRow from "./AuthorRow";
-import DateTTRRow from "./DateTTRRow";
-import LinkText from "./LinkText";
+import Box from "../../components/atoms/Box";
+import Tag from "../../components/atoms/Tag";
+import Thumbnail from "../../components/atoms/Thumbnail";
+import AuthorRow from "../../components/molecules/AuthorRow";
+import DateTTRRow from "../../components/molecules/DateTTRRow";
+import LinkText from "../../components/molecules/LinkText";
 
 function TrendingInsightsHead({
   insight,

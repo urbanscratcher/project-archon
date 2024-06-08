@@ -1,8 +1,8 @@
-import List from "../atoms/List";
-import SectionContainer from "../atoms/SectionContainer";
-import SectionHead from "../atoms/SectionHead";
-import ViewAllButton from "../atoms/ViewAllButton";
-import TheLatest from "./TheLatest";
+import List from "../../components/atoms/List";
+import SectionContainer from "../../components/atoms/SectionContainer";
+import SectionHead from "../../components/atoms/SectionHead";
+import ViewAllButton from "../../components/atoms/ViewAllButton";
+import TheLatestContent from "./TheLatestContent";
 
 function TheLatestSection() {
   return (
@@ -12,7 +12,7 @@ function TheLatestSection() {
         <ViewAllButton to="/insights" />
       </SectionHead>
       <List vertical>
-        <TheLatest />
+        <TheLatestContent />
       </List>
     </SectionContainer>
   );

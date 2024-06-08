@@ -4,13 +4,13 @@ import type { Insight } from "@/types/Insight";
 import AuthorWithTopicsRow from "../molecules/AuthorWithTopicsRow";
 
 async function AuthorSummary({ insight }: { insight: Insight }) {
-  const author: Author = await getAuthor(insight.creator.idx);
+  const author: Author = await getAuthor(insight.createdBy.idx);
 
   const data = {
-    idx: insight.creator.idx,
-    avatar: insight.creator?.avatar || "",
-    firstName: insight.creator.firstName,
-    lastName: insight.creator.lastName,
+    idx: insight.createdBy.idx,
+    avatar: insight.createdBy?.avatar || "",
+    firstName: insight.createdBy.firstName,
+    lastName: insight.createdBy.lastName,
     topics: author?.topics || [],
   };
 

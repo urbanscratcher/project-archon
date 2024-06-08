@@ -2,7 +2,7 @@ import GetInspirationsButton from "../atoms/GetInspirationsButton";
 import List from "../atoms/List";
 import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
-import Inspirations from "../molecules/Inspirations";
+import InspirationsContent from "../molecules/InspirationsContent";
 
 function InspirationSection({ border = false }: { border?: boolean }) {
   return (
@@ -12,7 +12,7 @@ function InspirationSection({ border = false }: { border?: boolean }) {
         <GetInspirationsButton />
       </SectionHead>
       <List className="grid grid-cols-2 grid-rows-3 gap-2">
-        <Inspirations />
+        <InspirationsContent />
       </List>
     </SectionContainer>
   );

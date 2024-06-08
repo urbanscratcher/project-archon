@@ -1,5 +1,5 @@
 import { type PropsWithChildren } from "react";
-import SectionContainer from "../atoms/SectionContainer";
+import SectionContainer from "../../components/atoms/SectionContainer";
 
 function TheLatestGrid({ children }: PropsWithChildren) {
   return (

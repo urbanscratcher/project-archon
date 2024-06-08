@@ -1,7 +1,7 @@
-import Box from "../atoms/Box";
-import ImageWrap from "../atoms/ImageWrap";
-import SectionContainer from "../atoms/SectionContainer";
-import SectionHead from "../atoms/SectionHead";
+import Box from "../../components/atoms/Box";
+import ImageWrap from "../../components/atoms/ImageWrap";
+import SectionContainer from "../../components/atoms/SectionContainer";
+import SectionHead from "../../components/atoms/SectionHead";
 
 function AdSection() {
   return (

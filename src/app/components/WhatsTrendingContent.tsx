@@ -1,8 +1,8 @@
 import { getTrendingInsights } from "@/services/trending.api";
 import { type TrendingInsight } from "@/types/Trending";
 import List from "../../components/atoms/List";
-import TrendingInsightsHead from "../../components/molecules/TrendingInsightsHead";
-import TrendingInsightsListItem from "../../components/molecules/TrendingInsightsListItem";
+import TrendingInsightsHead from "./TrendingInsightsHead";
+import TrendingInsightsListItem from "./TrendingInsightsListItem";
 
 async function WhatsTrendingContent() {
   const trendingInsights = await getTrendingInsights();

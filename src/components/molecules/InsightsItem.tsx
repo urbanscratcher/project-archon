@@ -1,4 +1,3 @@
-import { type Insight } from "@/types/Insight";
 import Box from "../atoms/Box";
 import ListItem from "../atoms/ListItem";
 import Tag from "../atoms/Tag";
@@ -7,20 +6,40 @@ import AuthorRow from "./AuthorRow";
 import DateTTRRow from "./DateTTRRow";
 import LinkText from "./LinkText";
 
+type InsightsItemProps = {
+  insight: {
+    idx: number;
+    title: string;
+    topic: { name: string };
+    thumbnail?: string | undefined;
+    summary?: string | undefined;
+    createdAt: any;
+    createdBy: any;
+  };
+  key: string;
+  squared?: boolean;
+  oneThirdImage?: boolean;
+  summary?: boolean;
+  className?: string;
+};
+
 function InsightsItem({
   insight,
   squared = false,
   oneThirdImage = false,
   summary = false,
   className,
-}: {
-  insight: Insight;
-  key: string;
-  squared?: boolean;
-  oneThirdImage?: boolean;
-  summary?: boolean;
-  className?: string;
-}) {
+}: InsightsItemProps) {
+  const insightData = {
+    idx: insight.idx,
+    thumbnail: insight?.thumbnail || "/fallback.webp",
+    title: insight.title,
+    topicName: insight.topic.name,
+    summary: insight?.summary || "",
+    createdAt: insight.createdAt,
+    createdBy: insight.createdBy,
+  };
+
   return (
     <ListItem
       className={`grid
@@ -30,27 +49,27 @@ function InsightsItem({
       ${className || ""}`}
     >
       <Thumbnail
-        insightIdx={insight.idx}
-        href={`/insights/${insight.idx}`}
-        src={insight?.thumbnail || ""}
-        alt={insight.title}
+        insightIdx={insightData.idx}
+        href={`/insights/${insightData.idx}`}
+        src={insightData.thumbnail}
+        alt={insightData.title}
         aspect={`${squared ? "video" : "photo"}`}
       />
       <Box vertical className={`gap-2`}>
-        <Tag tagName={insight.topic.name} />
+        <Tag tagName={insightData.topicName} />
         <LinkText
-          href={`/insights/${insight.idx}`}
-          text={insight.title}
+          href={`/insights/${insightData.idx}`}
+          text={insightData.title}
           lineClamp={3}
           level={squared ? 3 : 4}
         />
         {summary && (
           <p className="line-clamp-3 text-ellipsis text-sky-700">
-            {insight.summary}
+            {insightData.summary}
           </p>
         )}
-        <DateTTRRow createdAt={insight.createdAt} className="p-sm" />
-        <AuthorRow creator={insight.createdBy} />
+        <DateTTRRow createdAt={insightData.createdAt} className="p-sm" />
+        <AuthorRow creator={insightData.createdBy} />
       </Box>
     </ListItem>
   );

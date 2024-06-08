@@ -1,7 +1,7 @@
 import { toCamelCase } from "@/libs/helpers";
 import { z } from "zod";
 import { getListSchema } from "./QueryParam";
-import { TopicObject } from "./Topic";
+import { TopicSchema } from "./Topic";
 
 export const AuthorSchema = z
   .object({
@@ -26,7 +26,7 @@ export const AuthorSchema = z
       }),
     created_at: z.coerce.date(),
     updated_at: z.coerce.date().optional(),
-    topics: z.array(TopicObject).optional(),
+    topics: z.array(TopicSchema).optional(),
   })
   .transform((data) => toCamelCase(data));
 

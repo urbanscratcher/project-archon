@@ -1,8 +1,8 @@
 "use client";
 
 import useBookmarkStore from "@/stores/useBookmarkStore";
-import SectionContainer from "../atoms/SectionContainer";
-import BookmarkItem from "../molecules/BookmarkItem";
+import SectionContainer from "../../components/atoms/SectionContainer";
+import BookmarkItem from "./BookmarkItem";
 
 function BookmarksSection() {
   const initialBookmarks = useBookmarkStore((state) => state.bookmarks);

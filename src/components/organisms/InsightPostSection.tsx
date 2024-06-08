@@ -18,7 +18,7 @@ function InsightPostSection({ insight }: { insight: Insight }) {
       {/* thumbnail */}
       <div className="relative aspect-video max-w-full overflow-hidden">
         <ImageWrap
-          src={insight.thumbnail}
+          src={insight?.thumbnail || ""}
           alt={"thumbnail"}
           fill
           className="object-cover"
@@ -28,7 +28,7 @@ function InsightPostSection({ insight }: { insight: Insight }) {
       <div className="mx-auto my-12 flex max-w-5xl flex-col">
         <div
           className="text-sky-700"
-          dangerouslySetInnerHTML={{ __html: insight.content }}
+          dangerouslySetInnerHTML={{ __html: insight?.content || "" }}
         />
         <button className="my-12 w-fit self-center rounded-full border border-g-700 p-2">
           <IoLink className="text-lg text-g-700" />

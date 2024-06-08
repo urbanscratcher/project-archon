@@ -1,11 +1,11 @@
-import Box from "../atoms/Box";
-import ImageWrap from "../atoms/ImageWrap";
-import List from "../atoms/List";
-import ListItem from "../atoms/ListItem";
-import PlayButton from "../atoms/PlayButton";
-import SectionContainer from "../atoms/SectionContainer";
-import SectionHead from "../atoms/SectionHead";
-import VideoHeadTag from "../atoms/VideoHeadTag";
+import Box from "../../components/atoms/Box";
+import ImageWrap from "../../components/atoms/ImageWrap";
+import List from "../../components/atoms/List";
+import ListItem from "../../components/atoms/ListItem";
+import PlayButton from "../../components/atoms/PlayButton";
+import SectionContainer from "../../components/atoms/SectionContainer";
+import SectionHead from "../../components/atoms/SectionHead";
+import VideoHeadTag from "../../components/atoms/VideoHeadTag";
 
 const coverVideo = {
   idx: 14,

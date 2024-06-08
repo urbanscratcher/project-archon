@@ -24,7 +24,7 @@ function SavedForLaterItem({ idx }: { idx: number }) {
   }
 
   if (isError) {
-    return <p>Error occurred while fetching insight</p>;
+    return <p className="h-full">Error occurred while fetching insight</p>;
   }
 
   const data = {
