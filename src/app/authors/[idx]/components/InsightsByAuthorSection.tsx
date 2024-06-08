@@ -1,10 +1,10 @@
 import SectionContainer from "../../../../components/atoms/SectionContainer";
-import InsightsByAuthor from "../../../../components/molecules/InsightsByAuthor";
+import InsightsByAuthorContent from "./InsightsByAuthorContent";
 
 function InsightsByAuthorSection({ idx }: { idx: number }) {
   return (
     <SectionContainer>
-      <InsightsByAuthor idx={idx} />
+      <InsightsByAuthorContent idx={idx} />
     </SectionContainer>
   );
 }
