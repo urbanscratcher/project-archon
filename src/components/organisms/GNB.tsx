@@ -1,11 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { IoCloseOutline, IoMenuSharp } from "react-icons/io5";
 import Box from "../atoms/Box";
+import List from "../atoms/List";
 import Logo from "./Logo";
+import MenuItem from "./MenuItem";
 
 function GNB() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -60,7 +61,7 @@ function GNB() {
         >
           {openMenu ? <IoCloseOutline /> : <IoMenuSharp />}
         </button>
-        <ul
+        <List
           className={`lg:grid-cols-24 absolute z-10 flex h-fit w-screen flex-col items-end pr-2 pt-[28px] transition-transform sm:static
         sm:grid
         sm:w-full
@@ -79,59 +80,47 @@ function GNB() {
         }
          `}
         >
-          <li
-            className={`text-md uppercase tracking-wide ${pathname !== "/" && "font-semibold text-sky-700"}`}
+          <MenuItem
+            className={`${pathname !== "/" && "font-semibold text-sky-700"}`}
+            pathName={pathname}
+            href={"/insights"}
+            onClick={() => setOpenMenu(false)}
           >
-            <Link
-              className={`menu__hover sm:px-1`}
-              href="/insights"
-              onClick={() => setOpenMenu(false)}
-            >
-              Insights
-            </Link>
-          </li>
-          <li
-            className={`text-md uppercase tracking-wide ${pathname !== "/" && "font-semibold text-sky-700"}`}
+            Insights
+          </MenuItem>
+          <MenuItem
+            className={`${pathname !== "/" && "font-semibold text-sky-700"}`}
+            pathName={pathname}
+            href={"/authors"}
+            onClick={() => setOpenMenu(false)}
           >
-            <Link
-              className={`menu__hover sm:px-1`}
-              href="/authors"
-              onClick={() => setOpenMenu(false)}
-            >
-              Authors
-            </Link>
-          </li>
-          <li
-            className={`text-md font-semibold uppercase tracking-wide
-          lg:col-start-[-3]
-          ${pathname === "/" && isScrolled && "text-sky-700"}
-          ${pathname === "/" && !isScrolled ? "text-white lg:text-sky-700" : ""}
-          ${pathname !== "/" && "font-semibold text-sky-700"}`}
+            Authors
+          </MenuItem>
+          <MenuItem
+            className={`
+            lg:col-start-[-3]
+            ${pathname === "/" && isScrolled && "text-sky-700"}
+            ${pathname === "/" && !isScrolled ? "text-white lg:text-sky-700" : ""}
+            ${pathname !== "/" && "font-semibold text-sky-700"}`}
+            pathName={pathname}
+            href={"/bookmarks"}
+            onClick={() => setOpenMenu(false)}
           >
-            <Link
-              className="menu__hover sm:px-1"
-              href="/bookmarks"
-              onClick={() => setOpenMenu(false)}
-            >
-              Bookmarks
-            </Link>
-          </li>
-          <li
-            className={`text-md font-semibold uppercase tracking-wide
-          lg:col-start-[-2]
-          ${pathname === "/" && isScrolled ? "text-sky-700" : ""}
-          ${pathname === "/" && !isScrolled ? "text-white lg:text-sky-700" : ""}
-          ${pathname !== "/" && "font-semibold text-sky-700"}`}
+            Bookmarks
+          </MenuItem>
+          <MenuItem
+            className={`
+            lg:col-start-[-2]
+            ${pathname === "/" && isScrolled ? "text-sky-700" : ""}
+            ${pathname === "/" && !isScrolled ? "text-white lg:text-sky-700" : ""}
+            ${pathname !== "/" && "font-semibold text-sky-700"}`}
+            pathName={pathname}
+            href={"/setting"}
+            onClick={() => setOpenMenu(false)}
           >
-            <Link
-              className="menu__hover sm:px-1"
-              href="/setting"
-              onClick={() => setOpenMenu(false)}
-            >
-              Setting
-            </Link>
-          </li>
-        </ul>
+            Setting
+          </MenuItem>
+        </List>
       </Box>
     </nav>
   );

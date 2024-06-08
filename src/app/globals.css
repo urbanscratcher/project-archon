@@ -150,7 +150,7 @@ select:-webkit-autofill:focus {
 
   /* hover */
   .hover {
-    @apply hover:cursor-pointer;
+    @apply hover:cursor-pointer active:brightness-75;
   }
 
   .hover-underline {
@@ -167,7 +167,11 @@ select:-webkit-autofill:focus {
 
   /* menu selection - hover */
   .menu__hover {
-    @apply hover:underline hover:underline-offset-4;
+    @apply hover decoration-solid transition-all hover:cursor-pointer hover:underline hover:underline-offset-4;
+  }
+
+  .menu__active {
+    @apply text-g-950;
   }
 
   .img__filter::before {
