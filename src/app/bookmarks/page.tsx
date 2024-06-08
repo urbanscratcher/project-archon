@@ -6,10 +6,10 @@
  * [ ] UI - 리스트 뿌릴 떄 좌우 여백?
  */
 
+import BookmarksSection from "@/components/organisms/BookmarksSection";
 import InspirationSection from "@/components/organisms/InspirationSection";
 import PageDivider from "@/components/organisms/PageDivider";
 import WhatsTrendingAsideSection from "@/components/organisms/WhatsTrendingAsideSection";
-import Bookmarks from "@/components/templates/Bookmarks";
 import MainSideContainer from "@/components/templates/MainSideContainer";
 import PageContainer from "@/components/templates/PageContainer";
 import RightSideContainer from "@/components/templates/RightSideContainer";
@@ -18,7 +18,7 @@ function BookmarkPage() {
   return (
     <PageContainer>
       <MainSideContainer>
-        <Bookmarks />
+        <BookmarksSection />
       </MainSideContainer>
       <PageDivider />
       <RightSideContainer>

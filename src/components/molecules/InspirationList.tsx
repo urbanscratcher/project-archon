@@ -3,7 +3,6 @@
 import useInspClickedStore from "@/stores/useInspClickedStore";
 import { InsightRandom, InsightRandomList } from "@/types/Insight";
 import { useEffect, useState } from "react";
-import List from "../atoms/List";
 import ListItem from "../atoms/ListItem";
 import Loader from "../atoms/Loader";
 import Thumbnail from "../atoms/Thumbnail";
@@ -39,7 +38,7 @@ function InspirationList({
   }
 
   return (
-    <List className="grid grid-cols-2 grid-rows-3 gap-2">
+    <>
       {inspirations.map((inspiration: InsightRandom, idx: number) => (
         <ListItem key={inspiration.idx}>
           <Thumbnail
@@ -52,7 +51,7 @@ function InspirationList({
           />
         </ListItem>
       ))}
-    </List>
+    </>
   );
 }
 

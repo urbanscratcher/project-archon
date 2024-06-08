@@ -6,12 +6,11 @@ import {
   Insights,
   InsightsSchema,
 } from "@/types/Insight";
+import API_ENDPOINTS from "../libs/configApiUrl";
 import { getList, getOne } from "./general.api";
 
 export async function getInsight(idx: number): Promise<Insight> {
-  const res = await getOne(
-    `http://localhost:5001/archon-api/v1/insights/${idx}`,
-  );
+  const res = await getOne(`${API_ENDPOINTS.INSIGHTS}/${idx}`);
 
   const insight = InsightSchema.safeParse(res);
 
@@ -35,8 +34,8 @@ export async function getInsightsByTopic({
 }): Promise<Insights> {
   const queryString =
     topicIdx === 0
-      ? `http://localhost:5001/archon-api/v1/insights?limit=${limit}&sorts=["${isAsc ? "" : "-"}idx"]`
-      : `http://localhost:5001/archon-api/v1/insights?limit=${limit}&filter={"and":[{"topic_idx":"${topicIdx}"}]}&sorts=["${isAsc ? "" : "-"}idx"]`;
+      ? `${API_ENDPOINTS.INSIGHTS}?limit=${limit}&sorts=["${isAsc ? "" : "-"}idx"]`
+      : `${API_ENDPOINTS.INSIGHTS}?limit=${limit}&filter={"and":[{"topic_idx":"${topicIdx}"}]}&sorts=["${isAsc ? "" : "-"}idx"]`;
   const res = await getList(queryString);
 
   const insights = InsightsSchema.safeParse(res);
@@ -59,7 +58,7 @@ export async function getInsightsByAuthor({
   limit: number;
 }) {
   const res = await getList(
-    `http://localhost:5001/archon-api/v1/insights?offset=${offset}&limit=${limit}&filter={"and":[{"created_by":"${authorIdx}"}]}`,
+    `${API_ENDPOINTS.INSIGHTS}?offset=${offset}&limit=${limit}&filter={"and":[{"created_by":"${authorIdx}"}]}`,
   );
 
   if (!res) {
@@ -80,9 +79,7 @@ export async function getRandomInsights({
 }: {
   limit: number;
 }): Promise<InsightRandomList> {
-  const res = await getList(
-    `http://localhost:5001/archon-api/v1/random/insights?limit=${limit}`,
-  );
+  const res = await getList(`${API_ENDPOINTS.RANDOM_INSIGHTS}?limit=${limit}`);
 
   const insights = InsightRandomListSchema.safeParse(res);
 

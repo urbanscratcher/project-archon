@@ -1,10 +1,9 @@
 import { CoverSchema, CoversSchema } from "@/types/Cover";
+import API_ENDPOINTS from "../libs/configApiUrl";
 import { getOne } from "./general.api";
 
 export async function getHeadline() {
-  const res = await getOne(
-    "http://localhost:5001/archon-api/v1/covers/headline",
-  );
+  const res = await getOne(API_ENDPOINTS.COVERS_HEADLINE);
   if (!res) {
     throw new Error("Failed to fetch headline");
   }
@@ -18,7 +17,7 @@ export async function getHeadline() {
 }
 
 export async function getCovers() {
-  const res = await getOne("http://localhost:5001/archon-api/v1/covers");
+  const res = await getOne(API_ENDPOINTS.COVERS);
 
   if (!res) {
     throw new Error("Failed to fetch covers");

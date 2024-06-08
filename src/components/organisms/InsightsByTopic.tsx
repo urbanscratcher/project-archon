@@ -1,17 +1,16 @@
 import { getTopics } from "@/services/topics.api";
-import SectionContainer from "../atoms/SectionContainer";
 import InsightsList from "../molecules/InsightsList";
-import TopicsNavbar from "../organisms/TopicsNavbar";
+import TopicsNavbar from "./TopicsNavbar";
 
-async function InsightsByTopicSection() {
+async function InsightsByTopic() {
   const topics = await getTopics();
 
   return (
-    <SectionContainer>
+    <>
       {topics?.data && <TopicsNavbar topics={topics.data} />}
       {topics?.data && <InsightsList topics={topics.data} />}
-    </SectionContainer>
+    </>
   );
 }
 
-export default InsightsByTopicSection;
+export default InsightsByTopic;

@@ -4,7 +4,7 @@ import useBookmarkStore from "@/stores/useBookmarkStore";
 import SectionContainer from "../atoms/SectionContainer";
 import BookmarkItem from "../molecules/BookmarkItem";
 
-function Bookmarks() {
+function BookmarksSection() {
   const initialBookmarks = useBookmarkStore((state) => state.bookmarks);
 
   return (
@@ -22,4 +22,4 @@ function Bookmarks() {
   );
 }
 
-export default Bookmarks;
+export default BookmarksSection;
