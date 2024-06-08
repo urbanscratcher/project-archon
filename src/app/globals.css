@@ -167,11 +167,11 @@ select:-webkit-autofill:focus {
 
   /* menu selection - hover */
   .menu__hover {
-    @apply hover decoration-solid transition-all hover:cursor-pointer hover:underline hover:underline-offset-4;
+    @apply hover transition-all hover:line-through;
   }
 
   .menu__active {
-    @apply text-g-950;
+    @apply line-through;
   }
 
   .img__filter::before {
