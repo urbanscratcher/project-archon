@@ -1,12 +1,12 @@
 "use client";
 
 import List from "@/components/atoms/List";
+import Loader from "@/components/atoms/Loader";
+import InsightsItem from "@/components/molecules/InsightsItem";
 import useInsights from "@/hooks/useInsights";
 import { Topic } from "@/types/Topic";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import Loader from "../../../components/atoms/Loader";
-import InsightsItem from "../../../components/molecules/InsightsItem";
 
 function InsightsList({ topics }: { topics: Topic[] }) {
   const searchParams = useSearchParams();

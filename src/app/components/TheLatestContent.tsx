@@ -1,6 +1,6 @@
+import InsightsItem from "@/components/molecules/InsightsItem";
 import { getTrendingInsights } from "@/services/trending.api";
 import { type TrendingInsights } from "@/types/Trending";
-import InsightsItem from "../../components/molecules/InsightsItem";
 
 async function TheLatestContent() {
   const trendingInsights: TrendingInsights = await getTrendingInsights();

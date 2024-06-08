@@ -38,7 +38,11 @@ export async function getList(url: string) {
 }
 
 export async function create(url: string) {
-  const options = { method: "POST", headers: { accept: "appllication/json" } };
+  const options = {
+    method: "POST",
+    headers: { accept: "application/json" },
+    body: JSON.stringify({}),
+  };
 
   try {
     const response = await fetch(url, options);
@@ -54,12 +58,14 @@ export async function create(url: string) {
 
     const data = await response.json();
 
-    try {
-      const camelCasedData = toCamelCase(data);
-      return camelCasedData;
-    } catch (error) {
-      console.error("Failed to turn to camel case: ", error);
-      throw error;
+    if (data) {
+      try {
+        const camelCasedData = toCamelCase(data);
+        return camelCasedData;
+      } catch (error) {
+        console.error("Failed to turn to camel case: ", error);
+        throw error;
+      }
     }
   } catch (error) {
     console.error("Error creating data: ", error);

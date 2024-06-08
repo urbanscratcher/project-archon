@@ -15,7 +15,7 @@ async function EditorsPickContent() {
     head: covers?.data &&
       covers.total > 0 && {
         idx: covers.data[0].insight.idx,
-        thumbnail: covers.data[0].insight?.thumbnail || "/fallback.webp",
+        thumbnail: covers.data[0].insight?.thumbnail || "",
         title: covers.data[0].insight.title,
         href: `/insights/${covers.data[0].insight.idx}`,
         topic: covers.data[0].topic.name,

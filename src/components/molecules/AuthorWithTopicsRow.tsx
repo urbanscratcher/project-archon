@@ -16,7 +16,7 @@ type AuthorWithTopicsRowProps = {
 function AuthorWithTopicsRow({ author }: AuthorWithTopicsRowProps) {
   const data = {
     href: `/authors/${author.idx}`,
-    avatar: author?.avatar || "/fallback.webp",
+    avatar: author?.avatar || "",
     avatarAlt: `avatar of ${author.firstName} ${author.lastName}`,
     firstName: author.firstName,
     lastName: author.lastName,

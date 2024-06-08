@@ -9,7 +9,7 @@ async function HeadlineContent() {
 
   const data = {
     idx: headline.insight.idx,
-    thumbnail: headline.insight?.thumbnail || "/fallback.webp",
+    thumbnail: headline.insight?.thumbnail || "",
     tagName: headline.topic.name,
     title: headline.insight.title,
     href: `/insights/${headline.insight.idx}`,

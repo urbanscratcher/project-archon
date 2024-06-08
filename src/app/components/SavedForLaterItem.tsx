@@ -28,7 +28,7 @@ function SavedForLaterItem({ idx }: { idx: number }) {
   }
 
   const data = {
-    thumbnail: insight?.thumbnail || "/fallback.webp",
+    thumbnail: insight?.thumbnail || "",
     title: insight.title,
     topicName: insight.topic.name,
     href: `/insights/${idx}`,

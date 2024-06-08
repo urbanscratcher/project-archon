@@ -1,8 +1,8 @@
+import List from "@/components/atoms/List";
+import SectionHead from "@/components/atoms/SectionHead";
+import InsightsItem from "@/components/molecules/InsightsItem";
 import { getInsightsByAuthor } from "@/services/insights.api";
 import { type Insight } from "@/types/Insight";
-import List from "../../../../components/atoms/List";
-import SectionHead from "../../../../components/atoms/SectionHead";
-import InsightsItem from "../../../../components/molecules/InsightsItem";
 
 async function InsightsByAuthorContent({ idx }: { idx: number }) {
   const insights = await getInsightsByAuthor({

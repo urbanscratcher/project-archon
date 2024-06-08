@@ -7,7 +7,7 @@ import {
   type Insight,
 } from "@/types/Insight";
 import API_ENDPOINTS from "../libs/configApiUrl";
-import { getList, getOne } from "./general.api";
+import { create, getList, getOne } from "./general.api";
 
 export async function getInsight(idx: number): Promise<Insight> {
   try {

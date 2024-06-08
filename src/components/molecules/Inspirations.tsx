@@ -47,7 +47,7 @@ function Inspirations({
           <Thumbnail
             insightIdx={i.idx}
             href={`/insights/${i.idx}`}
-            src={i.thumbnail || "/fallback.webp"}
+            src={i.thumbnail || ""}
             alt="inspiration"
             aspect={"photo"}
             rounded={"xl"}

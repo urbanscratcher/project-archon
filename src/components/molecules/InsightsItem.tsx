@@ -38,6 +38,7 @@ function InsightsItem({
     summary: insight?.summary || "",
     createdAt: insight.createdAt,
     createdBy: insight.createdBy,
+    href: `/insights/${insight.idx}`,
   };
 
   return (
@@ -50,7 +51,7 @@ function InsightsItem({
     >
       <Thumbnail
         insightIdx={insightData.idx}
-        href={`/insights/${insightData.idx}`}
+        href={insightData.href}
         src={insightData.thumbnail}
         alt={insightData.title}
         aspect={`${squared ? "video" : "photo"}`}

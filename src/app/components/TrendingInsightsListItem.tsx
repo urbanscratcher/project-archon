@@ -16,10 +16,11 @@ function TrendingInsightsListItem({ insight }: { insight: TrendingInsight }) {
     title: insight.title,
     authorLink: `/authors/${insight.creator.idx}`,
   };
+
   return (
     <ListItem
-      id={insight.idx + ""}
-      key={insight.idx}
+      id={data.idx + ""}
+      key={data.idx}
       className={`grid grid-rows-[1fr_auto] items-center gap-4 border-b border-b-g-300 py-4 last:border-b-0 sm:grid-cols-2 sm:grid-rows-1 sm:gap-2`}
     >
       <Box vertical className="row-start-2 gap-2 sm:row-start-auto">

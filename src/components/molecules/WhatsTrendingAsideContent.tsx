@@ -14,7 +14,6 @@ async function WhatsTrendingAsideContent() {
 
   return (
     <>
-      {" "}
       {trendingInsights.map((insight) => (
         <li
           key={insight.idx}

@@ -11,7 +11,7 @@ async function AuthorDetailContent({ idx }: { idx: number }) {
   const author = await getAuthor(idx);
 
   const data = {
-    avatar: author?.avatar || "/fallback.webp",
+    avatar: author?.avatar || "",
     avatarAlt: `Avatar of ${author.firstName} ${author.lastName}`,
     firstName: author.firstName,
     lastName: author.lastName,
