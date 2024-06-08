@@ -1,8 +1,8 @@
 import { getTrendingInsights } from "@/services/trending.api";
 import { TrendingInsights } from "@/types/Trending";
+import Link from "next/link";
 import Thumbnail from "../atoms/Thumbnail";
 import AuthorRowSimple from "./AuthorRowSimple";
-import InsightTitle from "./InsightTitle";
 
 async function WhatsTrendingAsideContent() {
   const trendingInsights: TrendingInsights = await getTrendingInsights();
@@ -22,7 +22,11 @@ async function WhatsTrendingAsideContent() {
         >
           <div className="flex flex-col gap-1 px-1 sm:w-2/3 sm:px-0">
             <p className="line-clamp-3 text-[17px] font-semibold capitalize leading-[1.263] tracking-[0.5px] text-g-700">
-              <InsightTitle idx={insight.idx}>{insight.title}</InsightTitle>
+              <Link href={`/insights/${insight.idx}`}>
+                <span className="line-clamp-4 hover:cursor-pointer hover:underline hover:decoration-2">
+                  {insight.title}
+                </span>
+              </Link>
             </p>
 
             <AuthorRowSimple

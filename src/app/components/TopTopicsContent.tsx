@@ -2,8 +2,6 @@ import { getTopics } from "@/services/topics.api";
 import Link from "next/link";
 import List from "../../components/atoms/List";
 import ListItem from "../../components/atoms/ListItem";
-import TopTopicText from "../../components/atoms/TopTopicText";
-import TopTopicTotalLabel from "../../components/atoms/TopTopicTotalLabel";
 
 async function TopTopicsContent() {
   const topics = await getTopics();
@@ -32,9 +30,16 @@ async function TopTopicsContent() {
               href={topic.href}
               className="hover:shadow-[inset_0_-30px_0_#ddea6c]"
             >
-              <TopTopicText text={topic.name} />
+              <h1 className="font-sans font-normal capitalize tracking-[.04rem]">
+                {topic.name}{" "}
+              </h1>
             </Link>
-            <TopTopicTotalLabel label={topic.totalInsights} />
+
+            <label
+              className={`p flex h-7 w-7 items-center justify-center rounded-full bg-sky-700 text-white sm:h-8 sm:w-8`}
+            >
+              {topic.totalInsights}
+            </label>
           </ListItem>
         ))}
       </List>

@@ -6,7 +6,7 @@
  * [ ] UI - 리스트 뿌릴 떄 좌우 여백?
  */
 
-import BookmarksSection from "@/app/components/BookmarksSection";
+import BookmarksSection from "@/app/bookmarks/components/BookmarksSection";
 import InspirationSection from "@/components/organisms/InspirationSection";
 import PageDivider from "@/components/organisms/PageDivider";
 import WhatsTrendingAsideSection from "@/components/organisms/WhatsTrendingAsideSection";

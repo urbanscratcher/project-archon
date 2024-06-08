@@ -3,7 +3,7 @@
 import { Topic } from "@/types/Topic";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import ListItem from "../atoms/ListItem";
+import ListItem from "../../../components/atoms/ListItem";
 
 function TopicsList({ topics }: { topics: Topic[] }) {
   const search = useSearchParams();

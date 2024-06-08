@@ -1,9 +1,9 @@
 import { getInsight } from "@/services/insights.api";
 import { useQuery } from "@tanstack/react-query";
-import Loader from "../../components/atoms/Loader";
-import InsightsItem from "../../components/molecules/InsightsItem";
+import Loader from "../../../components/atoms/Loader";
+import InsightsItem from "../../../components/molecules/InsightsItem";
 
-function BookmarkItem({ idx }: { idx: number }) {
+function BookmarksContent({ idx }: { idx: number }) {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["insight", idx],
     queryFn: () => getInsight(idx),
@@ -24,4 +24,4 @@ function BookmarkItem({ idx }: { idx: number }) {
   return <InsightsItem key={data.idx + ""} insight={data} summary />;
 }
 
-export default BookmarkItem;
+export default BookmarksContent;

@@ -1,4 +1,4 @@
-import InsightPostContent from "../components/InsightPostContent";
+import InsightPostContent from "./components/InsightPostContent";
 
 function InsightPage({ params }: { params: { idx: number } }) {
   const { idx } = params;

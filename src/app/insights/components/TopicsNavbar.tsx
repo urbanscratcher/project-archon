@@ -11,7 +11,7 @@ import {
   IoChevronForwardOutline,
 } from "react-icons/io5";
 import Box from "../../../components/atoms/Box";
-import TopicsList from "../../../components/molecules/TopicsList";
+import TopicsList from "./TopicsList";
 
 function TopicsNavbar({ topics }: { topics: Topic[] }) {
   const ulRef = useRef<HTMLUListElement>(null);

@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { IoFlashSharp } from "react-icons/io5";
 
-function GetInspirationsButton() {
+function InsipreButton() {
   const { clicked, setClicked, setIsLoading, setIsError, setData } =
     useInspClickedStore((state: any) => ({
       clicked: state.clicked,
@@ -51,4 +51,4 @@ function GetInspirationsButton() {
   );
 }
 
-export default GetInspirationsButton;
+export default InsipreButton;
