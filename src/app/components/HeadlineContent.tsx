@@ -7,6 +7,8 @@ import LinkText from "../../components/molecules/LinkText";
 async function HeadlineContent() {
   const headline = await getHeadline();
 
+  console.log(headline);
+
   const data = {
     idx: headline.insight.idx,
     thumbnail: headline.insight?.thumbnail || "",
@@ -14,6 +16,8 @@ async function HeadlineContent() {
     title: headline.insight.title,
     href: `/insights/${headline.insight.idx}`,
   };
+
+  console.log(data);
 
   return (
     <>

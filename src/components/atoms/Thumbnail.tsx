@@ -6,7 +6,7 @@
 import useBookmarkStore from "@/stores/useBookmarkStore";
 import { ImageProps } from "next/image";
 import Link from "next/link";
-import { MouseEvent, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 import { IoBookmark, IoBookmarkOutline } from "react-icons/io5";
 import ImageWrap from "./ImageWrap";
 
@@ -19,14 +19,6 @@ type ThumbnailProps = ImageProps & {
   aspect: AspectProps;
   rounded?: RoundedProps;
 };
-
-export function getStoredBookmarksOrInitialize() {
-  const bookmarks = localStorage.getItem("bookmarks");
-  const bookmarksArr: { idx: number }[] = bookmarks
-    ? JSON.parse(bookmarks)
-    : [];
-  return bookmarksArr;
-}
 
 function Thumbnail({
   insightIdx = 0,
@@ -43,10 +35,15 @@ function Thumbnail({
     addBookmark,
     deleteBookmark,
     isAlreadyBookmarked: isBookmarked,
-  } = useBookmarkStore();
+  } = useBookmarkStore((state) => ({
+    addBookmark: state.addBookmark,
+    deleteBookmark: state.deleteBookmark,
+    isAlreadyBookmarked: state.isAlreadyBookmarked,
+  }));
 
   const bookmarkClickHandler = (e: MouseEvent) => {
     e.preventDefault();
+    e.stopPropagation();
 
     if (isBookmarked(insightIdx)) {
       deleteBookmark(insightIdx);
@@ -55,66 +52,58 @@ function Thumbnail({
     }
   };
 
+  // useEffect로 북마크 상태를 설정
+  useEffect(() => {
+    setHover(isBookmarked(insightIdx));
+  }, [isBookmarked, insightIdx]);
+
   return (
-    <>
-      <Link
-        onMouseEnter={(e) => {
-          setHover(true);
-        }}
-        onMouseLeave={(e) => {
-          setHover(false);
-        }}
-        href={href}
-        className="relative h-fit hover:cursor-pointer"
+    <Link
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      href={href}
+      className="relative h-fit hover:cursor-pointer"
+    >
+      {/* bookmark button */}
+      <button
+        className={`absolute right-0 top-0 z-20 -translate-x-[4px] -translate-y-[4px] ${hover || isBookmarked(insightIdx) ? "opacity-100" : "opacity-0"} rounded-full text-3xl text-sky-700 active:text-sky-800`}
+        onClick={bookmarkClickHandler}
+        onMouseEnter={() => setHoverBookmark(true)}
+        onMouseLeave={() => setHoverBookmark(false)}
       >
-        {/* bookmark button */}
-        <button
-          className={`absolute right-0 top-0 z-20 -translate-x-[4px] -translate-y-[4px] ${hover || isBookmarked(insightIdx) ? "opacity-100" : "opacity-0"} rounded-full text-3xl text-sky-700 active:text-sky-800`}
-          onClick={(e: MouseEvent) => {
-            isBookmarked(insightIdx) && setHover(false);
-            bookmarkClickHandler(e);
-          }}
-          onMouseEnter={(e) => {
-            setHoverBookmark(true);
-          }}
-          onMouseLeave={(e) => {
-            setHoverBookmark(false);
-          }}
-        >
-          {hoverBookmark || isBookmarked(insightIdx) ? (
-            <IoBookmark />
-          ) : (
-            <IoBookmarkOutline />
-          )}
-        </button>
-        {/* image */}
-        <div
-          className={`
-            relative
-            ${className || ""}
-            ${rounded === "xl" ? "rounded-xl" : "rounded-2xl"} 
-            ${
-              aspect === "video"
-                ? "aspect-video"
-                : aspect === "square"
-                  ? "aspect-square"
-                  : aspect === "photo"
-                    ? "aspect-[3/2]"
-                    : "h-full w-full"
-            }
-            img__filter
-            overflow-hidden
-            `}
-        >
-          <ImageWrap
-            src={src ?? ""}
-            className={`absolute object-cover`}
-            fill
-            {...props}
-          />
-        </div>
-      </Link>
-    </>
+        {hoverBookmark || isBookmarked(insightIdx) ? (
+          <IoBookmark />
+        ) : (
+          <IoBookmarkOutline />
+        )}
+      </button>
+      {/* image */}
+      <div
+        className={`
+          relative
+          ${className || ""}
+          ${rounded === "xl" ? "rounded-xl" : "rounded-2xl"} 
+          ${
+            aspect === "video"
+              ? "aspect-video"
+              : aspect === "square"
+                ? "aspect-square"
+                : aspect === "photo"
+                  ? "aspect-[3/2]"
+                  : "h-full w-full"
+          }
+          img__filter
+          overflow-hidden
+        `}
+      >
+        <ImageWrap
+          src={src ?? ""}
+          className={`absolute object-cover`}
+          fill
+          {...props}
+        />
+      </div>
+    </Link>
   );
 }
 
