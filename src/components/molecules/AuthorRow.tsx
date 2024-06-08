@@ -3,7 +3,13 @@ import Link from "next/link";
 import Box from "../atoms/Box";
 import ImageWrap from "../atoms/ImageWrap";
 
-function AuthorRow({ creator, white }: Creator & { white: boolean }) {
+function AuthorRow({
+  creator,
+  white = false,
+}: {
+  creator: Creator;
+  white?: boolean;
+}) {
   const data = {
     href: `/authors/${creator.idx}`,
     avatar: creator?.avatar || "",

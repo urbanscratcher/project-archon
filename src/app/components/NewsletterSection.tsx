@@ -1,6 +1,6 @@
-import SectionContainer from "../atoms/SectionContainer";
-import SectionHead from "../atoms/SectionHead";
-import NewsletterForm from "./NewsletterForm";
+import SectionContainer from "../../components/atoms/SectionContainer";
+import SectionHead from "../../components/atoms/SectionHead";
+import NewsletterForm from "../../components/organisms/NewsletterForm";
 
 function NewsletterSection({ className }: { className?: string }) {
   return (

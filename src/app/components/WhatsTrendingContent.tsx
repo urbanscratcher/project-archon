@@ -1,27 +1,29 @@
 import { getTrendingInsights } from "@/services/trending.api";
 import { type TrendingInsight } from "@/types/Trending";
-import List from "../atoms/List";
-import TrendingInsightsHead from "../molecules/TrendingInsightsHead";
-import TrendingInsightsListItem from "../molecules/TrendingInsightsListItem";
+import List from "../../components/atoms/List";
+import TrendingInsightsHead from "../../components/molecules/TrendingInsightsHead";
+import TrendingInsightsListItem from "../../components/molecules/TrendingInsightsListItem";
 
-async function WhatsTrending() {
+async function WhatsTrendingContent() {
   const trendingInsights = await getTrendingInsights();
 
   const data = {
-    head:
-      trendingInsights && trendingInsights.length > 0 && trendingInsights[0],
+    head: trendingInsights.length > 0 ? trendingInsights[0] : undefined,
     restList:
-      trendingInsights &&
-      trendingInsights.length > 1 &&
-      trendingInsights.slice(1),
+      trendingInsights && trendingInsights.length > 1
+        ? trendingInsights.slice(1)
+        : [],
   };
+
+  if (!data?.head) {
+    return;
+  }
 
   return (
     <>
-      {" "}
-      {data?.head && <TrendingInsightsHead insight={data.head} />}
+      <TrendingInsightsHead insight={data.head} />
       <hr className="h-[1px] w-full border-0 bg-sky-700 sm:h-full sm:w-[1px]" />
-      {data?.restList && (
+      {data.restList.length > 0 && (
         <List vertical className="lg:block">
           {data.restList.map((insight: TrendingInsight) => (
             <TrendingInsightsListItem
@@ -36,4 +38,4 @@ async function WhatsTrending() {
   );
 }
 
-export default WhatsTrending;
+export default WhatsTrendingContent;

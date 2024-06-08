@@ -28,7 +28,8 @@ export async function getList(url: string) {
       const camelCasedData = toCamelCase(data);
       return camelCasedData;
     } catch (error) {
-      throw new Error("Failed to turn to camel case");
+      console.error("Failed to turn to camel case: ", error);
+      throw error;
     }
   } catch (error) {
     console.error("Error fetching data: ", error);
@@ -57,7 +58,8 @@ export async function create(url: string) {
       const camelCasedData = toCamelCase(data);
       return camelCasedData;
     } catch (error) {
-      throw new Error("Failed to turn to camel case");
+      console.error("Failed to turn to camel case: ", error);
+      throw error;
     }
   } catch (error) {
     console.error("Error creating data: ", error);
@@ -93,7 +95,8 @@ export async function getOne(url: string) {
       const camelCasedData = toCamelCase(data);
       return camelCasedData;
     } catch (error) {
-      throw new Error("Failed to turn to camel case");
+      console.error("Failed to turn to camel case: ", error);
+      throw error;
     }
   } catch (error) {
     throw error;

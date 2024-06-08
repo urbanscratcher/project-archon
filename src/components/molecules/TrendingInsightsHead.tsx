@@ -1,7 +1,7 @@
-import { type Insight } from "@/types/Insight";
-import Thumbnail from "../atoms/Thumbnail";
+import type { TrendingInsight } from "@/types/Trending";
 import Box from "../atoms/Box";
 import Tag from "../atoms/Tag";
+import Thumbnail from "../atoms/Thumbnail";
 import AuthorRow from "./AuthorRow";
 import DateTTRRow from "./DateTTRRow";
 import LinkText from "./LinkText";
@@ -10,7 +10,7 @@ function TrendingInsightsHead({
   insight,
   className,
 }: {
-  insight: Insight;
+  insight: TrendingInsight;
   className?: string;
 }) {
   const data = {

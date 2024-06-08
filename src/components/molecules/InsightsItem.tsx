@@ -50,7 +50,7 @@ function InsightsItem({
           </p>
         )}
         <DateTTRRow createdAt={insight.createdAt} className="p-sm" />
-        <AuthorRow creator={insight.creator} />
+        <AuthorRow creator={insight.createdBy} />
       </Box>
     </ListItem>
   );

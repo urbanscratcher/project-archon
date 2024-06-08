@@ -1,7 +1,7 @@
-import SectionContainer from "../atoms/SectionContainer";
-import SectionHead from "../atoms/SectionHead";
-import ViewAllButton from "../atoms/ViewAllButton";
-import SavedForLaterContent from "../molecules/SavedForLaterContent";
+import SectionContainer from "../../components/atoms/SectionContainer";
+import SectionHead from "../../components/atoms/SectionHead";
+import ViewAllButton from "../../components/atoms/ViewAllButton";
+import SavedForLaterContent from "./SavedForLaterContent";
 
 function SavedForLaterSection() {
   return (

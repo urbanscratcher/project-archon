@@ -1,4 +1,3 @@
-import { toCamelCase } from "@/libs/helpers";
 import { z } from "zod";
 import { getListSchema } from "./QueryParam";
 import { TopicSchema } from "./Topic";
@@ -12,37 +11,28 @@ export const InsightsFilterSchema = z.object({
   created_by: z.string().optional(),
 });
 
-export const CreatorSchema = z
-  .object({
-    idx: z.number(),
-    first_name: z.string(),
-    last_name: z.string(),
-    avatar: z.string().nullable().optional(),
-  })
-  .transform((data) => toCamelCase(data));
+export const CreatorSchema = z.object({
+  idx: z.number(),
+  firstName: z.string(),
+  lastName: z.string(),
+  avatar: z.string().nullable().optional(),
+});
 
-const InsightObject = z.object({
+export const InsightSchema = z.object({
   idx: z.number(),
   title: z.string(),
   thumbnail: z.string().optional(),
   summary: z.string().optional(),
   content: z.string().optional(),
   topic: TopicSchema,
-  created_by: CreatorSchema,
-  created_at: z.coerce.date(),
-  edited_at: z.coerce.date().optional(),
+  createdBy: CreatorSchema,
+  createdAt: z.coerce.date(),
+  editedAt: z.coerce.date().optional(),
 });
-
-export const InsightSchema = InsightObject.transform(
-  ({ created_by, ...rest }) => {
-    const newData = { ...rest, creator: { ...created_by } };
-    return toCamelCase(newData);
-  },
-);
 
 export const InsightsSchema = getListSchema(InsightSchema);
 
-export const InsightRandomSchema = InsightObject.pick({
+export const InsightRandomSchema = InsightSchema.pick({
   idx: true,
   title: true,
   thumbnail: true,

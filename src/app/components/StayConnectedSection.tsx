@@ -5,10 +5,10 @@ import {
   IoLogoInstagram,
   IoLogoPinterest,
 } from "react-icons/io5";
-import List from "../atoms/List";
-import ListItem from "../atoms/ListItem";
-import SectionContainer from "../atoms/SectionContainer";
-import SectionHead from "../atoms/SectionHead";
+import List from "../../components/atoms/List";
+import ListItem from "../../components/atoms/ListItem";
+import SectionContainer from "../../components/atoms/SectionContainer";
+import SectionHead from "../../components/atoms/SectionHead";
 
 type SnsType = {
   name: string;

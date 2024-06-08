@@ -7,19 +7,20 @@ import API_ENDPOINTS from "../libs/configApiUrl";
 import { getList } from "./general.api";
 
 export async function getTrendingInsights(): Promise<TrendingInsights> {
-  const res = await getList(API_ENDPOINTS.TRENDING_INSIGHTS);
+  try {
+    const res = await getList(API_ENDPOINTS.TRENDING_INSIGHTS);
 
-  const trendingInsights = TrendingInsightsSchema.safeParse(res);
+    const trendingInsights = TrendingInsightsSchema.safeParse(res);
 
-  if (!trendingInsights || !trendingInsights.success) {
-    console.error(trendingInsights.error);
-  }
+    if (!trendingInsights.success) {
+      throw new Error("Failed to parse trendingInsights");
+    }
 
-  if (trendingInsights.success && trendingInsights?.data) {
     return trendingInsights.data;
+  } catch (error) {
+    console.error("Error in getTrendingInsights: ", error);
+    throw error;
   }
-
-  return [];
 }
 
 export async function getFeaturedAuthors(limit: number) {

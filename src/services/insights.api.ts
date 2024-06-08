@@ -1,25 +1,29 @@
 import {
-  Insight,
   InsightRandomList,
   InsightRandomListSchema,
   InsightSchema,
   Insights,
   InsightsSchema,
+  type Insight,
 } from "@/types/Insight";
 import API_ENDPOINTS from "../libs/configApiUrl";
 import { getList, getOne } from "./general.api";
 
 export async function getInsight(idx: number): Promise<Insight> {
-  const res = await getOne(`${API_ENDPOINTS.INSIGHTS}/${idx}`);
+  try {
+    const res = await getOne(`${API_ENDPOINTS.INSIGHTS}/${idx}`);
 
-  const insight = InsightSchema.safeParse(res);
+    console.log(res);
 
-  if (!insight || !insight.success) {
-    console.error(insight.error);
-  }
+    const insight = InsightSchema.safeParse(res);
+    if (!insight.success) {
+      throw new Error("Failed to parse insight");
+    }
 
-  if (insight.success) {
     return insight.data;
+  } catch (error) {
+    console.error("Errors in getInsight: ", error);
+    throw error;
   }
 }
 

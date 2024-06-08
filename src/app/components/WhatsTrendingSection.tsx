@@ -1,7 +1,8 @@
-import SectionContainer from "../atoms/SectionContainer";
-import SectionHead from "../atoms/SectionHead";
-import ViewAllButton from "../atoms/ViewAllButton";
-import WhatsTrending from "./WhatsTrending";
+import Box from "@/components/atoms/Box";
+import SectionContainer from "../../components/atoms/SectionContainer";
+import SectionHead from "../../components/atoms/SectionHead";
+import ViewAllButton from "../../components/atoms/ViewAllButton";
+import WhatsTrendingContent from "./WhatsTrendingContent";
 
 function WhatsTrendingSection() {
   return (
@@ -10,14 +11,14 @@ function WhatsTrendingSection() {
         what&apos;s trending
         <ViewAllButton to={"/insights"} />
       </SectionHead>
-      <div
+      <Box
         className={`grid grid-cols-1 gap-6
             sm:grid-cols-[1fr_auto_1fr]
             lg:grid-cols-[3fr_auto_2fr] lg:gap-4
             xl:lg:grid-cols-[3fr_auto_2fr_auto]`}
       >
-        <WhatsTrending />
-      </div>
+        <WhatsTrendingContent />
+      </Box>
     </SectionContainer>
   );
 }

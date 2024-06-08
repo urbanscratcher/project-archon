@@ -4,7 +4,7 @@ export const TopicSchema = z.object({
   idx: z.number(),
   name: z.string(),
   seq: z.number().optional(),
-  totalInsights: z.number(),
+  totalInsights: z.number().optional(),
 });
 
 export const TopicsSchema = z.object({

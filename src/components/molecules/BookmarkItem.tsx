@@ -4,11 +4,7 @@ import Loader from "../atoms/Loader";
 import InsightsItem from "./InsightsItem";
 
 function BookmarkItem({ idx }: { idx: number }) {
-  const {
-    data: insight,
-    isLoading,
-    isError,
-  } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["insight", idx],
     queryFn: () => getInsight(idx),
   });
@@ -17,12 +13,15 @@ function BookmarkItem({ idx }: { idx: number }) {
     return <Loader />;
   }
 
-  // TODO mark err
   if (isError) {
     return <div>Error occurred while fetching insight.</div>;
   }
 
-  return <InsightsItem key={insight.idx} insight={insight} summary />;
+  if (!data) {
+    return;
+  }
+
+  return <InsightsItem key={data.idx + ""} insight={data} summary />;
 }
 
 export default BookmarkItem;

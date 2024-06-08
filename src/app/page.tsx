@@ -1,23 +1,20 @@
-import EditorsPickSection from "@/app/components/EditorsPickSection";
-import HeadlineSection from "@/app/components/HeadlineSection";
-import TopTopicSection from "@/app/components/TopTopicSection";
-import HighlightGrid from "@/components/templates/HighlightSectionGrid";
+import SavedForLaterSection from "@/app/components/SavedForLaterSection";
 
 export default function Home() {
   return (
     <main>
-      <HighlightGrid>
+      {/* <HighlightGrid>
         <HeadlineSection />
         <EditorsPickSection />
       </HighlightGrid>
       <TopTopicSection />
-      {/* <WhatsTrendingGrid>
+      <WhatsTrendingGrid>
         <WhatsTrendingSection />
         <StayConnectedSection />
         <NewsletterSection />
-      </WhatsTrendingGrid>
+      </WhatsTrendingGrid> */}
       <SavedForLaterSection />
-      <TheLatestGrid>
+      {/* <TheLatestGrid>
         <InspirationSection />
         <TheLatestSection />
         <Box vertical className="h-fit gap-4">
