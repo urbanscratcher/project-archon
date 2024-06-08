@@ -1,3 +1,4 @@
+import Loader from "@/components/atoms/Loader";
 import InsightsByTopicSection from "@/components/organisms/InsightsByTopicSection";
 import InspirationSection from "@/components/organisms/InspirationSection";
 import PageDivider from "@/components/organisms/PageDivider";
@@ -11,7 +12,7 @@ function InsightsPage() {
   return (
     <PageContainer>
       <MainSideContainer>
-        <Suspense>
+        <Suspense fallback={<Loader />}>
           <InsightsByTopicSection />
         </Suspense>
       </MainSideContainer>
