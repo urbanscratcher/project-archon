@@ -1,6 +1,6 @@
-import SectionContainer from "../atoms/SectionContainer";
-import SectionHead from "../atoms/SectionHead";
-import EditorsPick from "./EditorsPick";
+import SectionContainer from "../../components/atoms/SectionContainer";
+import SectionHead from "../../components/atoms/SectionHead";
+import EditorsPickContent from "./EditorsPickContent";
 
 function EditorsPickSection() {
   return (
@@ -13,7 +13,7 @@ function EditorsPickSection() {
       `}
     >
       <SectionHead>editor&apos;s pick</SectionHead>
-      <EditorsPick />
+      <EditorsPickContent />
     </SectionContainer>
   );
 }

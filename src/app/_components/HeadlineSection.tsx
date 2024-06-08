@@ -1,5 +1,5 @@
-import SectionContainer from "../atoms/SectionContainer";
-import Headline from "./Headline";
+import SectionContainer from "../../components/atoms/SectionContainer";
+import HeadlineContent from "./HeadlineContent";
 
 function HeadlineSection() {
   return (
@@ -15,7 +15,7 @@ function HeadlineSection() {
         3xl:max-h-[1440px]
       "
     >
-      <Headline />
+      <HeadlineContent />
     </SectionContainer>
   );
 }

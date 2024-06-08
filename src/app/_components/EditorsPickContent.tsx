@@ -1,14 +1,14 @@
 import { getCovers } from "@/services/covers.api";
 import { type Cover } from "@/types/Cover";
-import Box from "../atoms/Box";
-import List from "../atoms/List";
-import ListItem from "../atoms/ListItem";
-import Tag from "../atoms/Tag";
-import Thumbnail from "../atoms/Thumbnail";
-import ViewAllButton from "../atoms/ViewAllButton";
-import LinkText from "../molecules/LinkText";
+import Box from "../../components/atoms/Box";
+import List from "../../components/atoms/List";
+import ListItem from "../../components/atoms/ListItem";
+import Tag from "../../components/atoms/Tag";
+import Thumbnail from "../../components/atoms/Thumbnail";
+import ViewAllButton from "../../components/atoms/ViewAllButton";
+import LinkText from "../../components/molecules/LinkText";
 
-async function EditorsPick() {
+async function EditorsPickContent() {
   const covers = await getCovers();
 
   const data = {
@@ -67,4 +67,4 @@ async function EditorsPick() {
   );
 }
 
-export default EditorsPick;
+export default EditorsPickContent;

@@ -1,11 +1,11 @@
 import { getHeadline } from "@/services/covers.api";
 import { type Cover } from "@/types/Cover";
-import Box from "../atoms/Box";
-import ImageOverlayed from "../atoms/ImageOverlayed";
-import Tag from "../atoms/Tag";
-import LinkText from "../molecules/LinkText";
+import Box from "../../components/atoms/Box";
+import ImageOverlayed from "../../components/atoms/ImageOverlayed";
+import Tag from "../../components/atoms/Tag";
+import LinkText from "../../components/molecules/LinkText";
 
-async function Headline() {
+async function HeadlineContent() {
   const headline: Cover = await getHeadline();
 
   const data = {
@@ -34,4 +34,4 @@ async function Headline() {
   );
 }
 
-export default Headline;
+export default HeadlineContent;

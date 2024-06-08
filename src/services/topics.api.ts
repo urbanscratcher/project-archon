@@ -1,15 +1,13 @@
-import { TopicsSchema } from "@/types/Topic";
+import { TopicsSchema, type Topics } from "@/types/Topic";
 import API_ENDPOINTS from "../libs/configApiUrl";
 import { getList } from "./general.api";
 
-export async function getTopics() {
+export async function getTopics(): Promise<Topics> {
   try {
     const res = await getList(API_ENDPOINTS.TOPICS);
 
     const topics = TopicsSchema.safeParse(res);
-
     if (!topics?.success) {
-      console.error("Schema parsing failed: ", topics.error);
       throw new Error("Failed to parse topics");
     }
 

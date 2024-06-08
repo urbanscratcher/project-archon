@@ -8,6 +8,7 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import Button from "../atoms/Button";
 
 type NewsletterFormProp = {
   primary?: boolean;
@@ -104,15 +105,9 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
         &nbsp; By signing up, you agree to our terms and privacy policy
         {errors?.agreed?.message || ""}
       </label>
-      <button
-        type="submit"
-        className={
-          "cursor-pointer rounded-full bg-sky-700 py-3 text-[15px] font-medium uppercase tracking-[1.25px] text-white hover:bg-sky-800 active:bg-sky-900 disabled:cursor-not-allowed disabled:bg-g-700"
-        }
-        disabled={isPending || !isValid}
-      >
+      <Button type="submit" disabled={isPending || !isValid}>
         {isPending ? "sending..." : "subscribe"}
-      </button>
+      </Button>
     </form>
   );
 }
