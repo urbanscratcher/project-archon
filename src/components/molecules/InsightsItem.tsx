@@ -62,6 +62,7 @@ function InsightsItem({
           text={insightData.title}
           lineClamp={3}
           level={squared ? 3 : 4}
+          className="capitalize"
         />
         {summary && (
           <p className="line-clamp-3 text-ellipsis text-sky-700">
