@@ -54,7 +54,7 @@ function AuthorsList({ initialAuthors }: { initialAuthors: Authors }) {
                 className={`relative h-16 w-16 overflow-hidden rounded-full outline outline-2 outline-sky-700 sm:h-32 sm:w-32`}
               >
                 <ImageWrap
-                  src={author.avatar}
+                  src={author?.avatar || "/fallback.webp"}
                   alt={`Avatar of ${author.firstName} ${author.lastName}`}
                   className={`rounded-full object-cover`}
                   fill

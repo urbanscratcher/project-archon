@@ -1,4 +1,4 @@
-import AuthorDetailSection from "@/components/organisms/AuthorDetailSection";
+import AuthorDetailSection from "@/app/authors/[idx]/components/AuthorDetailSection";
 import FeaturedAuthorSection from "@/components/organisms/FeaturedAuthorSection";
 import PageDivider from "@/components/organisms/PageDivider";
 import MainSideContainer from "@/components/templates/MainSideContainer";
