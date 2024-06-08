@@ -10,18 +10,17 @@ import { getOne } from "./general.api";
 export async function getHeadline(): Promise<Cover> {
   try {
     const res = await getOne(API_ENDPOINTS.COVERS_HEADLINE);
-    if (!res) {
+    if (res) {
       throw new Error("Failed to fetch headline");
     }
 
     const headline = CoverSchema.safeParse(res);
     if (!headline?.success) {
       throw new Error("Failed to parse headline");
+    } else {
+      return headline.data;
     }
-
-    return headline.data;
   } catch (error) {
-    console.error("Error in getHeadline: ", error);
     throw error;
   }
 }
