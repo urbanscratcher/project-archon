@@ -1,4 +1,4 @@
-import AuthorsSection from "@/components/organisms/AuthorsSection";
+import AuthorsSection from "@/app/authors/components/AuthorsSection";
 import InspirationSection from "@/components/organisms/InspirationSection";
 import PageDivider from "@/components/organisms/PageDivider";
 import WhatsTrendingAsideSection from "@/components/organisms/WhatsTrendingAsideSection";

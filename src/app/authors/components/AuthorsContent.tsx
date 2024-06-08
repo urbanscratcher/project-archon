@@ -1,7 +1,7 @@
 import { getAuthors } from "@/services/authors.api";
-import AuthorList from "./AuthorList";
+import AuthorsList from "./AuthorsList";
 
-async function Authors() {
+async function AuthorsContent() {
   const initialAuthors = await getAuthors({ offset: 0, limit: 5 });
 
   return (
@@ -9,9 +9,9 @@ async function Authors() {
       <h1 className="mb-4 font-serif text-sky-700">
         Meet Our {initialAuthors?.total || 0} Awesome Authors
       </h1>
-      {<AuthorList initialAuthors={initialAuthors} />}
+      {<AuthorsList initialAuthors={initialAuthors} />}
     </>
   );
 }
 
-export default Authors;
+export default AuthorsContent;

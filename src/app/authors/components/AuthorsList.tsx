@@ -1,12 +1,15 @@
 "use client";
+import Box from "@/components/atoms/Box";
+import Button from "@/components/atoms/Button";
+import List from "@/components/atoms/List";
 import useAuthors from "@/hooks/useAuthors";
 import { type Author, type Authors } from "@/types/Author";
 import { type Topic } from "@/types/Topic";
 import Link from "next/link";
-import ImageWrap from "../atoms/ImageWrap";
-import Loader from "../atoms/Loader";
+import ImageWrap from "../../../components/atoms/ImageWrap";
+import Loader from "../../../components/atoms/Loader";
 
-function AuthorList({ initialAuthors }: { initialAuthors: Authors }) {
+function AuthorsList({ initialAuthors }: { initialAuthors: Authors }) {
   const { data, isLoading, isError, fetchNextPage, hasNextPage } = useAuthors({
     offset: 0,
     limit: 5,
@@ -15,14 +18,18 @@ function AuthorList({ initialAuthors }: { initialAuthors: Authors }) {
 
   if (isLoading) {
     return (
-      <div className="h-[66vh]">
+      <Box vertical className={`gap-8 py-4 sm:gap-12 sm:py-8`}>
         <Loader />
-      </div>
+      </Box>
     );
   }
 
   if (isError) {
-    return <div>error</div>;
+    return (
+      <Box vertical className={`gap-8 py-4 sm:gap-12 sm:py-8`}>
+        <p>Error</p>
+      </Box>
+    );
   }
 
   const clickHandler = () => {
@@ -32,9 +39,10 @@ function AuthorList({ initialAuthors }: { initialAuthors: Authors }) {
   return (
     <>
       {data?.pages.map((page, pageIdx) => (
-        <ul
-          key={`authorList_${pageIdx}`}
-          className={`flex flex-col gap-8 py-4 sm:gap-12 sm:py-8`}
+        <List
+          vertical
+          key={pageIdx + ""}
+          className={`gap-8 py-4 sm:gap-12 sm:py-8`}
         >
           {page.data.map((author: Author) => (
             <li
@@ -52,7 +60,7 @@ function AuthorList({ initialAuthors }: { initialAuthors: Authors }) {
                   fill
                 />
               </Link>
-              <div className="flex flex-col gap-2">
+              <Box vertical className="gap-2">
                 <Link href={`/authors/${author.idx}`}>
                   <h3 className="cursor-pointer font-serif capitalize tracking-[0.25px] text-sky-700 hover:underline hover:decoration-2">
                     {author.firstName} {author.lastName}
@@ -70,21 +78,14 @@ function AuthorList({ initialAuthors }: { initialAuthors: Authors }) {
                     {author.jobTitle}
                   </p>
                 )}
-              </div>
+              </Box>
             </li>
           ))}
-        </ul>
+        </List>
       ))}
-      {hasNextPage && (
-        <button
-          onClick={clickHandler}
-          className={`w-full rounded-full bg-sky-700 py-3 text-[15px] font-semibold uppercase tracking-[1.25px] text-white transition-colors hover:bg-sky-900`}
-        >
-          see more authors
-        </button>
-      )}
+      {hasNextPage && <Button onClick={clickHandler}>see more authors</Button>}
     </>
   );
 }
 
-export default AuthorList;
+export default AuthorsList;
