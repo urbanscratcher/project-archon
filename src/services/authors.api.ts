@@ -9,32 +9,41 @@ export async function getAuthors({
   offset: number;
   limit: number;
 }) {
-  const res = await getList(
-    `${API_ENDPOINTS.USERS}?offset=${offset}&limit=${limit}&filter={"and":[{"role":"writer"}]}`,
-  );
-  if (!res) {
-    throw new Error("Failed to fetch authors");
-  }
+  try {
+    const queryString = `${API_ENDPOINTS.USERS}?offset=${offset}&limit=${limit}&filter={"and":[{"role":"writer"}]}`;
+    const res = await getList(queryString);
 
-  const authors = AuthorsSchema.safeParse(res);
-  if (!authors?.success) {
-    throw new Error("Failed to parse authors");
-  }
+    if (!res) {
+      throw new Error("Failed to fetch authors");
+    }
 
-  return authors.data;
+    const authors = AuthorsSchema.safeParse(res);
+    if (!authors?.success) {
+      throw new Error("Failed to parse authors");
+    }
+
+    return authors.data;
+  } catch (error) {
+    console.error("Errors in getList: ", error);
+    throw error;
+  }
 }
 
 export async function getAuthor(idx: number): Promise<Author> {
-  const res = await getOne(`${API_ENDPOINTS.USERS}/${idx}`);
+  try {
+    const res = await getOne(`${API_ENDPOINTS.USERS}/${idx}`);
+    if (!res) {
+      throw new Error("Failed to fetch author");
+    }
 
-  if (!res) {
-    throw new Error("Failed to fetch author");
+    const author = AuthorSchema.safeParse(res);
+    if (!author?.success) {
+      throw new Error("Failed to parse author");
+    }
+
+    return author.data;
+  } catch (error) {
+    console.error("Errors in getAuthor: ", error);
+    throw error;
   }
-
-  const author = AuthorSchema.safeParse(res);
-  if (!author?.success) {
-    throw new Error("Failed to parse author");
-  }
-
-  return author.data;
 }

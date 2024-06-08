@@ -1,5 +1,5 @@
 import SectionContainer from "../atoms/SectionContainer";
-import Authors from "./Authors";
+import Authors from "../molecules/Authors";
 
 function AuthorsSection() {
   return (

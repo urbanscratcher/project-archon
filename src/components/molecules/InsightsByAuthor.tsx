@@ -1,7 +1,8 @@
 import { getInsightsByAuthor } from "@/services/insights.api";
 import { type Insight } from "@/types/Insight";
+import List from "../atoms/List";
 import SectionHead from "../atoms/SectionHead";
-import InsightsItem from "../molecules/InsightsItem";
+import InsightsItem from "./InsightsItem";
 
 async function InsightsByAuthor({ idx }: { idx: number }) {
   const insights = await getInsightsByAuthor({
@@ -16,10 +17,10 @@ async function InsightsByAuthor({ idx }: { idx: number }) {
   return (
     <>
       <SectionHead>
-        Written By {insights.data[0].creator.firstName}{" "}
-        {insights.data[0].creator.lastName}
+        Written By {insights.data[0].createdBy.firstName}{" "}
+        {insights.data[0].createdBy.lastName}
       </SectionHead>
-      <ul>
+      <List>
         {insights.data.map((insight: Insight) => (
           <InsightsItem
             key={insight.idx + ""}
@@ -28,7 +29,7 @@ async function InsightsByAuthor({ idx }: { idx: number }) {
             oneThirdImage
           />
         ))}
-      </ul>
+      </List>
     </>
   );
 }

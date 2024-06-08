@@ -1,10 +1,10 @@
 import { getTrendingInsights } from "@/services/trending.api";
 import { TrendingInsights } from "@/types/Trending";
 import Thumbnail from "../atoms/Thumbnail";
-import AuthorRowSimple from "../molecules/AuthorRowSimple";
-import InsightTitle from "../molecules/InsightTitle";
+import AuthorRowSimple from "./AuthorRowSimple";
+import InsightTitle from "./InsightTitle";
 
-async function WhatsTrendingAside() {
+async function WhatsTrendingAsideContent() {
   const trendingInsights: TrendingInsights = await getTrendingInsights();
 
   // TODO: error handling
@@ -47,4 +47,4 @@ async function WhatsTrendingAside() {
   );
 }
 
-export default WhatsTrendingAside;
+export default WhatsTrendingAsideContent;

@@ -7,10 +7,10 @@ export const AuthorSchema = z
   .object({
     idx: z.number(),
     email: z.string(),
-    first_name: z.string(),
-    last_name: z.string(),
+    firstName: z.string(),
+    lastName: z.string(),
     role: z.string(),
-    job_title: z.string().optional(),
+    jobTitle: z.string().optional(),
     biography: z.string().optional(),
     careers: z
       .string()
@@ -24,8 +24,8 @@ export const AuthorSchema = z
           return undefined;
         }
       }),
-    created_at: z.coerce.date(),
-    updated_at: z.coerce.date().optional(),
+    createdAt: z.coerce.date(),
+    updatedAt: z.coerce.date().optional(),
     topics: z.array(TopicSchema).optional(),
   })
   .transform((data) => toCamelCase(data));

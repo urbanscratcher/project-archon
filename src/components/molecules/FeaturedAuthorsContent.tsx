@@ -1,8 +1,8 @@
 import { getFeaturedAuthors } from "@/services/trending.api";
 import ListItem from "../atoms/ListItem";
-import AuthorWithTopicsRow from "../molecules/AuthorWithTopicsRow";
+import AuthorWithTopicsRow from "./AuthorWithTopicsRow";
 
-async function FeaturedAuthors() {
+async function FeaturedAuthorsContent() {
   const authors = await getFeaturedAuthors(4);
   return (
     <>
@@ -19,4 +19,4 @@ async function FeaturedAuthors() {
   );
 }
 
-export default FeaturedAuthors;
+export default FeaturedAuthorsContent;

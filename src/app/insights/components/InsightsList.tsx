@@ -1,11 +1,12 @@
 "use client";
 
+import List from "@/components/atoms/List";
 import useInsights from "@/hooks/useInsights";
 import { Topic } from "@/types/Topic";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import Loader from "../atoms/Loader";
-import InsightsItem from "./InsightsItem";
+import Loader from "../../../components/atoms/Loader";
+import InsightsItem from "../../../components/molecules/InsightsItem";
 
 function InsightsList({ topics }: { topics: Topic[] }) {
   const searchParams = useSearchParams();
@@ -45,13 +46,13 @@ function InsightsList({ topics }: { topics: Topic[] }) {
   }
 
   if (isError) {
-    return <div>error</div>;
+    return <p>Error in fetching insights</p>;
   }
 
   return (
     <>
       {insights && insights.total > 0 && (
-        <ul className="flex flex-col py-4">
+        <List vertical className="py-4">
           {insights.data.map((insight) => (
             <InsightsItem
               key={insight.idx}
@@ -60,7 +61,7 @@ function InsightsList({ topics }: { topics: Topic[] }) {
               summary
             />
           ))}
-        </ul>
+        </List>
       )}
     </>
   );

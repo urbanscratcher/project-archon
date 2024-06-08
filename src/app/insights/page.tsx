@@ -1,5 +1,5 @@
+import InsightsByTopicSection from "@/app/insights/components/InsightsByTopicSection";
 import Loader from "@/components/atoms/Loader";
-import InsightsByTopicSection from "@/components/organisms/InsightsByTopicSection";
 import InspirationSection from "@/components/organisms/InspirationSection";
 import PageDivider from "@/components/organisms/PageDivider";
 import WhatsTrendingAsideSection from "@/components/organisms/WhatsTrendingAsideSection";

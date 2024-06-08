@@ -1,5 +1,5 @@
 import { getAuthors } from "@/services/authors.api";
-import AuthorList from "../molecules/AuthorList";
+import AuthorList from "./AuthorList";
 
 async function Authors() {
   const initialAuthors = await getAuthors({ offset: 0, limit: 5 });

@@ -1,8 +1,8 @@
 import { getTopics } from "@/services/topics.api";
-import InsightsList from "../molecules/InsightsList";
+import InsightsList from "./InsightsList";
 import TopicsNavbar from "./TopicsNavbar";
 
-async function InsightsByTopic() {
+async function InsightsByTopicContent() {
   const topics = await getTopics();
 
   return (
@@ -13,4 +13,4 @@ async function InsightsByTopic() {
   );
 }
 
-export default InsightsByTopic;
+export default InsightsByTopicContent;

@@ -10,8 +10,8 @@ import {
   IoChevronBackOutline,
   IoChevronForwardOutline,
 } from "react-icons/io5";
-import Box from "../atoms/Box";
-import TopicsList from "./TopicsList";
+import Box from "../../../components/atoms/Box";
+import TopicsList from "../../../components/molecules/TopicsList";
 
 function TopicsNavbar({ topics }: { topics: Topic[] }) {
   const ulRef = useRef<HTMLUListElement>(null);
@@ -100,7 +100,7 @@ function TopicsNavbar({ topics }: { topics: Topic[] }) {
       </Box>
       {/* date button */}
       <Link
-        className="hover-darker flex w-fit flex-nowrap items-center gap-1 rounded-full border-b-2 border-b-gray-50/0 px-4"
+        className="hover hover-darker flex w-fit flex-nowrap items-center gap-1 rounded-full border-b-2 border-b-gray-50/0 px-4"
         href={
           isAsc
             ? `insights?topics=${searchTopic}`

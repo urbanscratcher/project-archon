@@ -21,6 +21,7 @@ export async function getHeadline(): Promise<Cover> {
 
     return parsedHeadline.data;
   } catch (error) {
+    console.error("Errors in getHeadline: ", error);
     throw error;
   }
 }
@@ -45,6 +46,7 @@ export async function getCovers(): Promise<Covers> {
       data: covers.data.filter((c) => c.isMain === false),
     };
   } catch (error) {
+    console.error("Errors in getCovers: ", error);
     throw error;
   }
 }

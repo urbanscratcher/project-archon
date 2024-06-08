@@ -1,21 +1,22 @@
 import SectionHead from "@/components/atoms/SectionHead";
 import ViewAllButton from "@/components/atoms/ViewAllButton";
-import RelatedList from "@/components/molecules/RelatedList";
+import RelatedContent from "@/components/molecules/RelatedContent";
 import { Topic } from "@/types/Topic";
+import List from "../atoms/List";
 import SectionContainer from "../atoms/SectionContainer";
 
-function Related({ topic }: { topic: Topic }) {
+function RelatedSection({ topic }: { topic: Topic }) {
   return (
     <SectionContainer>
       <SectionHead className="flex justify-between">
         related
         <ViewAllButton to={`/insights?topics=${topic.name.toLowerCase()}`} />
       </SectionHead>
-      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <RelatedList key={topic.idx} topicIdx={topic.idx} />
-      </ul>
+      <List className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <RelatedContent key={topic.idx} topicIdx={topic.idx} />
+      </List>
     </SectionContainer>
   );
 }
 
-export default Related;
+export default RelatedSection;

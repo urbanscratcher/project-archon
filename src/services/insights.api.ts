@@ -13,8 +13,6 @@ export async function getInsight(idx: number): Promise<Insight> {
   try {
     const res = await getOne(`${API_ENDPOINTS.INSIGHTS}/${idx}`);
 
-    console.log(res);
-
     const insight = InsightSchema.safeParse(res);
     if (!insight.success) {
       throw new Error("Failed to parse insight");
@@ -36,20 +34,23 @@ export async function getInsightsByTopic({
   isAsc?: boolean;
   limit: number;
 }): Promise<Insights> {
-  const queryString =
-    topicIdx === 0
-      ? `${API_ENDPOINTS.INSIGHTS}?limit=${limit}&sorts=["${isAsc ? "" : "-"}idx"]`
-      : `${API_ENDPOINTS.INSIGHTS}?limit=${limit}&filter={"and":[{"topic_idx":"${topicIdx}"}]}&sorts=["${isAsc ? "" : "-"}idx"]`;
-  const res = await getList(queryString);
+  try {
+    const queryString =
+      topicIdx === 0
+        ? `${API_ENDPOINTS.INSIGHTS}?limit=${limit}&sorts=["${isAsc ? "" : "-"}idx"]`
+        : `${API_ENDPOINTS.INSIGHTS}?limit=${limit}&filter={"and":[{"topic_idx":"${topicIdx}"}]}&sorts=["${isAsc ? "" : "-"}idx"]`;
+    const res = await getList(queryString);
 
-  const insights = InsightsSchema.safeParse(res);
+    const insights = InsightsSchema.safeParse(res);
+    if (!insights.success) {
+      throw new Error("Failed to parse insights by topic");
+    }
 
-  if (!insights || !insights.success) {
-    console.error(insights.error);
-    throw new Error("parse error");
+    return insights.data;
+  } catch (error) {
+    console.error("Errors in getInsightsByTopic: ", error);
+    throw error;
   }
-
-  return insights.data;
 }
 
 export async function getInsightsByAuthor({
@@ -61,21 +62,24 @@ export async function getInsightsByAuthor({
   offset: number;
   limit: number;
 }) {
-  const res = await getList(
-    `${API_ENDPOINTS.INSIGHTS}?offset=${offset}&limit=${limit}&filter={"and":[{"created_by":"${authorIdx}"}]}`,
-  );
+  try {
+    const queryString = `${API_ENDPOINTS.INSIGHTS}?offset=${offset}&limit=${limit}&filter={"and":[{"created_by":"${authorIdx}"}]}`;
+    const res = await getList(queryString);
 
-  if (!res) {
-    throw new Error("Failed to fetch");
+    if (!res) {
+      throw new Error("Failed to fetch insights by author");
+    }
+
+    const insights = InsightsSchema.safeParse(res);
+    if (!insights.success) {
+      throw new Error("Failed to parse insights by author");
+    }
+
+    return insights.data;
+  } catch (error) {
+    console.error("Errors in getInsightsByAuthor: ", error);
+    throw error;
   }
-
-  const insights = InsightsSchema.safeParse(res);
-
-  if (!insights.success) {
-    throw new Error("Failed to parse");
-  }
-
-  return insights.data;
 }
 
 export async function getRandomInsights({
@@ -83,18 +87,18 @@ export async function getRandomInsights({
 }: {
   limit: number;
 }): Promise<InsightRandomList> {
-  const res = await getList(`${API_ENDPOINTS.RANDOM_INSIGHTS}?limit=${limit}`);
+  try {
+    const queryString = `${API_ENDPOINTS.RANDOM_INSIGHTS}?limit=${limit}`;
+    const res = await getList(queryString);
 
-  const insights = InsightRandomListSchema.safeParse(res);
+    const insights = InsightRandomListSchema.safeParse(res);
+    if (!insights?.success) {
+      throw new Error("Failed to parse getRandomInsights");
+    }
 
-  if (!insights || !insights?.success) {
-    console.error(insights.error);
-    throw new Error("parsing error");
+    return insights.data;
+  } catch (error) {
+    console.error("Errors in getRandomInsights: ", error);
+    throw error;
   }
-
-  return insights.data;
-}
-
-export async function getInsights() {
-  return;
 }

@@ -1,7 +1,7 @@
 import { getInsightsByTopic } from "@/services/insights.api";
 import InsightsItem from "./InsightsItem";
 
-async function RelatedList({ topicIdx }: { topicIdx: number }) {
+async function RelatedContent({ topicIdx }: { topicIdx: number }) {
   const insights = await getInsightsByTopic({ topicIdx: topicIdx, limit: 4 });
   return (
     <>
@@ -17,4 +17,4 @@ async function RelatedList({ topicIdx }: { topicIdx: number }) {
   );
 }
 
-export default RelatedList;
+export default RelatedContent;
