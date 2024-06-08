@@ -32,7 +32,7 @@ function InsightsList({ topics }: { topics: Topic[] }) {
     const filteredTopic = filteredTopics?.length > 0 ? filteredTopics[0] : 0;
 
     setTopicIdx(filteredTopic);
-  }, [topicsQuery]);
+  }, [topicsQuery, topics]);
 
   const { data: insights, isLoading, isError } = useInsights(topicIdx, isAsc);
 

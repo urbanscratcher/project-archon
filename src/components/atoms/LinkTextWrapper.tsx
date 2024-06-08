@@ -1,10 +1,6 @@
-import { WrapperProps } from "@/types/CommonTypes";
-import Link, { LinkProps } from "next/link";
-import { HTMLProps } from "react";
+import Link from "next/link";
 
-type LinkTextWrapperProps = LinkProps &
-  HTMLProps<HTMLAnchorElement> &
-  WrapperProps;
+type LinkTextWrapperProps = any;
 
 function LinkTextWrapper({
   href,

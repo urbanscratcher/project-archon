@@ -5,12 +5,15 @@ import WhatsTrendingAsideSection from "@/components/organisms/WhatsTrendingAside
 import MainSideContainer from "@/components/templates/MainSideContainer";
 import PageContainer from "@/components/templates/PageContainer";
 import RightSideContainer from "@/components/templates/RightSideContainer";
+import { Suspense } from "react";
 
 function InsightsPage() {
   return (
     <PageContainer>
       <MainSideContainer>
-        <InsightsByTopicSection />
+        <Suspense>
+          <InsightsByTopicSection />
+        </Suspense>
       </MainSideContainer>
       <PageDivider />
       <RightSideContainer>
