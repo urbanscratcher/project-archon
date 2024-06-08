@@ -1,5 +1,6 @@
 import EditorsPickSection from "@/app/components/EditorsPickSection";
 import HeadlineSection from "@/app/components/HeadlineSection";
+import TopTopicSection from "@/app/components/TopTopicSection";
 import HighlightGrid from "@/components/templates/HighlightSectionGrid";
 
 export default function Home() {
@@ -9,8 +10,8 @@ export default function Home() {
         <HeadlineSection />
         <EditorsPickSection />
       </HighlightGrid>
-      {/* <TopTopicSection />
-      <WhatsTrendingGrid>
+      <TopTopicSection />
+      {/* <WhatsTrendingGrid>
         <WhatsTrendingSection />
         <StayConnectedSection />
         <NewsletterSection />

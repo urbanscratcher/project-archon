@@ -1,16 +1,15 @@
 import { getHeadline } from "@/services/covers.api";
-import { type Cover } from "@/types/Cover";
 import Box from "../../components/atoms/Box";
 import ImageOverlayed from "../../components/atoms/ImageOverlayed";
 import Tag from "../../components/atoms/Tag";
 import LinkText from "../../components/molecules/LinkText";
 
 async function HeadlineContent() {
-  const headline: Cover = await getHeadline();
+  const headline = await getHeadline();
 
   const data = {
     idx: headline.insight.idx,
-    thumbnail: headline.insight.thumbnail,
+    thumbnail: headline.insight?.thumbnail || "/fallback.webp",
     tagName: headline.topic.name,
     title: headline.insight.title,
     href: `/insights/${headline.insight.idx}`,

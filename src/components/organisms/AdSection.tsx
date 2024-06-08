@@ -9,7 +9,7 @@ function AdSection() {
       <SectionHead>ad</SectionHead>
       <Box className="relative aspect-[3/2] overflow-hidden rounded-xl hover:cursor-pointer">
         <ImageWrap
-          src={"/test.webp"}
+          src={"/fallback.webp"}
           alt="ad"
           className={`absolute object-cover`}
           fill

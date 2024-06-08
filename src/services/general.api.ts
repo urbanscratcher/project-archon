@@ -1,3 +1,5 @@
+import { toCamelCase } from "@/libs/helpers";
+
 export async function getList(url: string) {
   const options = {
     method: "GET",
@@ -19,8 +21,15 @@ export async function getList(url: string) {
           throw new Error("Internal Error");
       }
     }
+
     const data = await response.json();
-    return data;
+
+    try {
+      const camelCasedData = toCamelCase(data);
+      return camelCasedData;
+    } catch (error) {
+      throw new Error("Failed to turn to camel case");
+    }
   } catch (error) {
     console.error("Error fetching data: ", error);
     throw error;
@@ -44,7 +53,12 @@ export async function create(url: string) {
 
     const data = await response.json();
 
-    return data;
+    try {
+      const camelCasedData = toCamelCase(data);
+      return camelCasedData;
+    } catch (error) {
+      throw new Error("Failed to turn to camel case");
+    }
   } catch (error) {
     console.error("Error creating data: ", error);
     throw error;
@@ -74,9 +88,14 @@ export async function getOne(url: string) {
     }
 
     const data = await response.json();
-    return data;
+
+    try {
+      const camelCasedData = toCamelCase(data);
+      return camelCasedData;
+    } catch (error) {
+      throw new Error("Failed to turn to camel case");
+    }
   } catch (error) {
-    console.error("Error fetching data: ", error);
     throw error;
   }
 }

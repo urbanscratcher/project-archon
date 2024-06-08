@@ -10,16 +10,16 @@ import { getOne } from "./general.api";
 export async function getHeadline(): Promise<Cover> {
   try {
     const res = await getOne(API_ENDPOINTS.COVERS_HEADLINE);
-    if (res) {
+    if (!res) {
       throw new Error("Failed to fetch headline");
     }
 
-    const headline = CoverSchema.safeParse(res);
-    if (!headline?.success) {
+    const parsedHeadline = CoverSchema.safeParse(res);
+    if (!parsedHeadline.success) {
       throw new Error("Failed to parse headline");
-    } else {
-      return headline.data;
     }
+
+    return parsedHeadline.data;
   } catch (error) {
     throw error;
   }
@@ -33,22 +33,18 @@ export async function getCovers(): Promise<Covers> {
       throw new Error("Failed to fetch covers");
     }
 
-    const covers = CoversSchema.safeParse(res);
-    if (!covers.success) {
+    const parsedCovers = CoversSchema.safeParse(res);
+    if (!parsedCovers.success) {
       throw new Error("Failed to parse covers");
     }
 
-    const coversWithoutHeadline = covers?.data.data.filter(
-      (c) => c.isMain === false,
-    );
+    const covers = parsedCovers.data;
+
     return {
-      total: coversWithoutHeadline ? coversWithoutHeadline.length : 0,
-      data: coversWithoutHeadline,
+      total: covers.total,
+      data: covers.data.filter((c) => c.isMain === false),
     };
-  } catch (e) {
-    return {
-      total: 0,
-      data: [],
-    };
+  } catch (error) {
+    throw error;
   }
 }

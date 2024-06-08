@@ -1,19 +1,16 @@
-import { toCamelCase } from "@/libs/helpers";
 import { z } from "zod";
 
-export const TopicObject = z.object({
+export const TopicSchema = z.object({
   idx: z.number(),
   name: z.string(),
   seq: z.number().optional(),
-  total_insights: z.number().optional(),
+  totalInsights: z.number(),
 });
-
-export const TopicSchema = TopicObject.transform((data) => toCamelCase(data));
 
 export const TopicsSchema = z.object({
   total: z.number(),
   data: z.array(TopicSchema),
 });
 
-export type Topic = z.output<typeof TopicSchema>;
-export type Topics = z.output<typeof TopicsSchema>;
+export type Topic = z.infer<typeof TopicSchema>;
+export type Topics = z.infer<typeof TopicsSchema>;
