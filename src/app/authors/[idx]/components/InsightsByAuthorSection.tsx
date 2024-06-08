@@ -1,5 +1,5 @@
-import SectionContainer from "../atoms/SectionContainer";
-import InsightsByAuthor from "../molecules/InsightsByAuthor";
+import SectionContainer from "../../../../components/atoms/SectionContainer";
+import InsightsByAuthor from "../../../../components/molecules/InsightsByAuthor";
 
 function InsightsByAuthorSection({ idx }: { idx: number }) {
   return (

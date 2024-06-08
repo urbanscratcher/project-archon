@@ -2,6 +2,7 @@ import {
   FeaturedAuthorsSchema,
   TrendingInsights,
   TrendingInsightsSchema,
+  type FeaturedAuthors,
 } from "@/types/Trending";
 import API_ENDPOINTS from "../libs/configApiUrl";
 import { getList } from "./general.api";
@@ -23,7 +24,9 @@ export async function getTrendingInsights(): Promise<TrendingInsights> {
   }
 }
 
-export async function getFeaturedAuthors(limit: number) {
+export async function getFeaturedAuthors(
+  limit: number,
+): Promise<FeaturedAuthors> {
   try {
     const res = await getList(
       `${API_ENDPOINTS.TRENDING_AUTHORS}?offset=0&limit=${limit}`,

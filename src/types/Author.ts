@@ -1,6 +1,14 @@
 import { z } from "zod";
 import { getListSchema } from "./QueryParam";
-import { TopicSchema } from "./Topic";
+
+export const AuthorTopicsSchema = z
+  .array(
+    z.object({
+      name: z.string(),
+      idx: z.number(),
+    }),
+  )
+  .optional();
 
 export const AuthorSchema = z.object({
   idx: z.number(),
@@ -25,10 +33,11 @@ export const AuthorSchema = z.object({
     }),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date().optional(),
-  topics: z.array(TopicSchema).optional(),
+  topics: AuthorTopicsSchema,
 });
 
 export const AuthorsSchema = getListSchema(AuthorSchema);
 
 export type Author = z.output<typeof AuthorSchema>;
 export type Authors = z.output<typeof AuthorsSchema>;
+export type AuthorTopics = z.infer<typeof AuthorTopicsSchema>;

@@ -4,7 +4,7 @@ import PageDivider from "@/components/organisms/PageDivider";
 import MainSideContainer from "@/components/templates/MainSideContainer";
 import PageContainer from "@/components/templates/PageContainer";
 import RightSideContainer from "@/components/templates/RightSideContainer";
-import InsightsByAuthorSection from "../../../components/organisms/InsightsByAuthorSection";
+import InsightsByAuthorSection from "./components/InsightsByAuthorSection";
 
 function AuthorPage({ params }: { params: { idx: number } }) {
   const { idx } = params;
