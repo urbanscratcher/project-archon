@@ -1,4 +1,5 @@
 import { AuthorSchema, AuthorsSchema, type Author } from "@/types/Author";
+import { notFound } from "next/navigation";
 import API_ENDPOINTS from "../libs/configApiUrl";
 import { getList, getOne } from "./general.api";
 
@@ -14,7 +15,7 @@ export async function getAuthors({
     const res = await getList(queryString);
 
     if (!res) {
-      throw new Error("Failed to fetch authors");
+      notFound();
     }
 
     const authors = AuthorsSchema.safeParse(res);
@@ -33,7 +34,7 @@ export async function getAuthor(idx: number): Promise<Author> {
   try {
     const res = await getOne(`${API_ENDPOINTS.USERS}/${idx}`);
     if (!res) {
-      throw new Error("Failed to fetch author");
+      notFound();
     }
 
     const author = AuthorSchema.safeParse(res);

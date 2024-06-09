@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BsTwitterX } from "react-icons/bs";
 import {
   IoLogoFacebook,
@@ -5,9 +6,8 @@ import {
   IoLogoPinterest,
 } from "react-icons/io5";
 import SectionHead from "../atoms/SectionHead";
-import Logo from "../organisms/Logo";
-import NewsletterForm from "../organisms/NewsletterForm";
-import Link from "next/link";
+import Logo from "./Logo";
+import NewsletterForm from "./NewsletterForm";
 
 function Footer() {
   const menu = [

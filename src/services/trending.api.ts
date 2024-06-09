@@ -4,6 +4,7 @@ import {
   TrendingInsightsSchema,
   type FeaturedAuthors,
 } from "@/types/Trending";
+import { notFound } from "next/navigation";
 import API_ENDPOINTS from "../libs/configApiUrl";
 import { getList } from "./general.api";
 
@@ -32,7 +33,7 @@ export async function getFeaturedAuthors(
       `${API_ENDPOINTS.TRENDING_AUTHORS}?offset=0&limit=${limit}`,
     );
     if (!res) {
-      throw new Error("Failed to fetch headline");
+      notFound();
     }
 
     const featuredAuthors = FeaturedAuthorsSchema.safeParse(res);

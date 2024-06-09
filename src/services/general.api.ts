@@ -14,7 +14,7 @@ export async function getList(url: string) {
     if (!response.ok) {
       switch (response.status) {
         case 404:
-          throw new Error("Not Found");
+          return undefined;
         case 429:
           throw new Error("Too many request");
         default:
@@ -87,7 +87,7 @@ export async function getOne(url: string) {
     if (!response.ok) {
       switch (response.status) {
         case 404:
-          throw new Error("Not Found");
+          return undefined;
         case 429:
           throw new Error("Too many request");
         default:

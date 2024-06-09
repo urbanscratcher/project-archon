@@ -8,6 +8,7 @@ import {
 } from "@/types/Insight";
 import API_ENDPOINTS from "../libs/configApiUrl";
 import { create, getList, getOne } from "./general.api";
+import { notFound } from "next/navigation";
 
 export async function getInsight(idx: number): Promise<Insight> {
   try {
@@ -65,9 +66,8 @@ export async function getInsightsByAuthor({
   try {
     const queryString = `${API_ENDPOINTS.INSIGHTS}?offset=${offset}&limit=${limit}&filter={"and":[{"created_by":"${authorIdx}"}]}`;
     const res = await getList(queryString);
-
     if (!res) {
-      throw new Error("Failed to fetch insights by author");
+      notFound();
     }
 
     const insights = InsightsSchema.safeParse(res);

@@ -1,9 +1,9 @@
 import AuthorDetailSection from "@/app/authors/[idx]/components/AuthorDetailSection";
 import FeaturedAuthorSection from "@/components/organisms/FeaturedAuthorSection";
+import MainSideContainer from "@/components/organisms/MainSideContainer";
+import PageContainer from "@/components/organisms/PageContainer";
 import PageDivider from "@/components/organisms/PageDivider";
-import MainSideContainer from "@/components/templates/MainSideContainer";
-import PageContainer from "@/components/templates/PageContainer";
-import RightSideContainer from "@/components/templates/RightSideContainer";
+import RightSideContainer from "@/components/organisms/RightSideContainer";
 import InsightsByAuthorSection from "./components/InsightsByAuthorSection";
 
 function AuthorPage({ params }: { params: { idx: number } }) {

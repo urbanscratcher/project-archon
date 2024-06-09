@@ -6,12 +6,13 @@ import {
 } from "@/types/Cover";
 import API_ENDPOINTS from "../libs/configApiUrl";
 import { getOne } from "./general.api";
+import { notFound } from "next/navigation";
 
 export async function getHeadline(): Promise<Cover> {
   try {
     const res = await getOne(API_ENDPOINTS.COVERS_HEADLINE);
     if (!res) {
-      throw new Error("Failed to fetch headline");
+      notFound();
     }
 
     const parsedHeadline = CoverSchema.safeParse(res);
@@ -31,7 +32,7 @@ export async function getCovers(): Promise<Covers> {
     const res = await getOne(API_ENDPOINTS.COVERS);
 
     if (!res) {
-      throw new Error("Failed to fetch covers");
+      notFound();
     }
 
     const parsedCovers = CoversSchema.safeParse(res);
