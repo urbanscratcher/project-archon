@@ -3,7 +3,7 @@ import Box from "../../components/atoms/Box";
 import ListItem from "../../components/atoms/ListItem";
 import Tag from "../../components/atoms/Tag";
 import Thumbnail from "../../components/atoms/Thumbnail";
-import AuthorRowSimple from "../../components/molecules/AuthorRowSimple";
+import AuthorRowOnlyName from "../../components/molecules/AuthorRowOnlyName";
 import LinkText from "../../components/molecules/LinkText";
 
 function TrendingInsightsListItem({ insight }: { insight: TrendingInsight }) {
@@ -32,7 +32,7 @@ function TrendingInsightsListItem({ insight }: { insight: TrendingInsight }) {
           lineClamp={3}
           className="capitalize"
         />
-        <AuthorRowSimple href={data.authorLink} fullName={data.fullName} />
+        <AuthorRowOnlyName href={data.authorLink} fullName={data.fullName} />
       </Box>
       <Thumbnail
         insightIdx={data.idx}

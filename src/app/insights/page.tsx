@@ -1,10 +1,10 @@
 import InsightsByTopicSection from "@/app/insights/components/InsightsByTopicSection";
-import InspirationSection from "@/components/organisms/InspirationSection";
-import MainSideContainer from "@/components/organisms/MainSideContainer";
-import PageContainer from "@/components/organisms/PageContainer";
+import MainSideContainer from "@/components/atoms/MainSideContainer";
+import PageContainer from "@/components/atoms/PageContainer";
+import RightSideContainer from "@/components/atoms/RightSideContainer";
+import InspirationAside from "@/components/organisms/InspirationAside";
 import PageDivider from "@/components/organisms/PageDivider";
-import RightSideContainer from "@/components/organisms/RightSideContainer";
-import WhatsTrendingAsideSection from "@/components/organisms/WhatsTrendingAsideSection";
+import WhatsTrendingAside from "@/components/organisms/WhatsTrendingAside";
 
 function InsightsPage() {
   return (
@@ -14,8 +14,8 @@ function InsightsPage() {
       </MainSideContainer>
       <PageDivider />
       <RightSideContainer>
-        <WhatsTrendingAsideSection />
-        <InspirationSection />
+        <WhatsTrendingAside />
+        <InspirationAside />
       </RightSideContainer>
     </PageContainer>
   );

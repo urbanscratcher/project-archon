@@ -1,6 +1,6 @@
 import { getFeaturedAuthors } from "@/services/trending.api";
 import ListItem from "../atoms/ListItem";
-import AuthorWithTopicsRow from "./AuthorWithTopicsRow";
+import AuthorWithTopicsRow from "./AuthorRowWithTopics";
 
 async function FeaturedAuthorsContent() {
   const authors = await getFeaturedAuthors(4);

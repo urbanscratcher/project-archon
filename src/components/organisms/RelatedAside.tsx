@@ -5,7 +5,7 @@ import { Topic } from "@/types/Topic";
 import List from "../atoms/List";
 import SectionContainer from "../atoms/SectionContainer";
 
-function RelatedSection({ topic }: { topic: Topic }) {
+function RelatedAside({ topic }: { topic: Topic }) {
   return (
     <SectionContainer>
       <SectionHead className="flex justify-between">
@@ -19,4 +19,4 @@ function RelatedSection({ topic }: { topic: Topic }) {
   );
 }
 
-export default RelatedSection;
+export default RelatedAside;

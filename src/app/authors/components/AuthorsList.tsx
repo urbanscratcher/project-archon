@@ -62,21 +62,21 @@ function AuthorsList({ initialAuthors }: { initialAuthors: Authors }) {
               </Link>
               <Box vertical className="gap-2">
                 <Link href={`/authors/${author.idx}`}>
-                  <h3 className="cursor-pointer font-serif capitalize tracking-[0.25px] text-sky-700 hover:underline hover:decoration-2">
+                  <h3 className="hover-underline cursor-pointer font-serif capitalize text-sky-700">
                     {author.firstName} {author.lastName}
                   </h3>
                 </Link>
                 {author?.topics && author.topics.length > 0 && (
-                  <p className="text-[26px] capitalize text-sky-700">
+                  <h5 className="font-sans capitalize text-sky-700">
                     {author.topics
                       .map((topic: Topic) => topic.name)
                       .join(" · ")}
-                  </p>
+                  </h5>
                 )}
                 {author?.jobTitle && (
-                  <p className="text-[26px] capitalize text-sky-700">
+                  <h5 className="font-sans capitalize text-sky-700">
                     {author.jobTitle}
-                  </p>
+                  </h5>
                 )}
               </Box>
             </li>

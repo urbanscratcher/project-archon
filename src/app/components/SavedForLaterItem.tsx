@@ -6,7 +6,7 @@ import Box from "../../components/atoms/Box";
 import ImageOverlayed from "../../components/atoms/ImageOverlayed";
 import Loader from "../../components/atoms/Loader";
 import Tag from "../../components/atoms/Tag";
-import AuthorRow from "../../components/molecules/AuthorRow";
+import AuthorRowWithAvatar from "../../components/molecules/AuthorRowWithAvatar";
 import LinkText from "../../components/molecules/LinkText";
 
 function SavedForLaterItem({ idx }: { idx: number }) {
@@ -54,7 +54,7 @@ function SavedForLaterItem({ idx }: { idx: number }) {
           level={3}
           className="text-white"
         />
-        <AuthorRow creator={data.creator} white />
+        <AuthorRowWithAvatar creator={data.creator} white />
       </Box>
     </>
   );

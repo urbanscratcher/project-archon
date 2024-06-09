@@ -1,9 +1,9 @@
 import AuthorDetailSection from "@/app/authors/[idx]/components/AuthorDetailSection";
-import FeaturedAuthorSection from "@/components/organisms/FeaturedAuthorSection";
-import MainSideContainer from "@/components/organisms/MainSideContainer";
-import PageContainer from "@/components/organisms/PageContainer";
+import MainSideContainer from "@/components/atoms/MainSideContainer";
+import PageContainer from "@/components/atoms/PageContainer";
+import RightSideContainer from "@/components/atoms/RightSideContainer";
+import FeaturedAuthorAside from "@/components/organisms/FeaturedAuthorAside";
 import PageDivider from "@/components/organisms/PageDivider";
-import RightSideContainer from "@/components/organisms/RightSideContainer";
 import InsightsByAuthorSection from "./components/InsightsByAuthorSection";
 
 function AuthorPage({ params }: { params: { idx: number } }) {
@@ -17,7 +17,7 @@ function AuthorPage({ params }: { params: { idx: number } }) {
       </MainSideContainer>
       <PageDivider />
       <RightSideContainer>
-        <FeaturedAuthorSection />
+        <FeaturedAuthorAside />
       </RightSideContainer>
     </PageContainer>
   );

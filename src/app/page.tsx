@@ -6,8 +6,8 @@ import TheLatestSection from "@/app/components/TheLatestSection";
 import VideoSection from "@/app/components/VideoSection";
 import WhatsTrendingGrid from "@/app/components/WhatsTrendingGrid";
 import Box from "@/components/atoms/Box";
-import FeaturedAuthorSection from "@/components/organisms/FeaturedAuthorSection";
-import InspirationSection from "@/components/organisms/InspirationSection";
+import FeaturedAuthorAside from "@/components/organisms/FeaturedAuthorAside";
+import InspirationAside from "@/components/organisms/InspirationAside";
 import EditorsPickSection from "./components/EditorsPickSection";
 import HeadlineSection from "./components/HeadlineSection";
 import NewsletterSection from "./components/NewsletterSection";
@@ -30,10 +30,10 @@ export default function Home() {
       </WhatsTrendingGrid>
       <SavedForLaterSection />
       <TheLatestGrid>
-        <InspirationSection />
+        <InspirationAside />
         <TheLatestSection />
         <Box vertical className="h-fit gap-4">
-          <FeaturedAuthorSection border />
+          <FeaturedAuthorAside border />
           <AdSection />
         </Box>
       </TheLatestGrid>

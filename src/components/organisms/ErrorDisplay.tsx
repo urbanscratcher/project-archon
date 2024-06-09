@@ -5,7 +5,7 @@ import Button from "@/components/atoms/Button";
 import { useRouter } from "next/navigation";
 import { IoArrowBack } from "react-icons/io5";
 
-function ErrorMessage({
+function ErrorDisplay({
   mainMessage,
   subMessage,
   actionMessage,
@@ -32,4 +32,4 @@ function ErrorMessage({
   );
 }
 
-export default ErrorMessage;
+export default ErrorDisplay;

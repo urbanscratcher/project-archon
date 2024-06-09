@@ -3,7 +3,7 @@ import Link from "next/link";
 import Box from "../atoms/Box";
 import ImageWrap from "../atoms/ImageWrap";
 
-function AuthorRow({
+function AuthorRowWithAvatar({
   creator,
   white = false,
 }: {
@@ -41,4 +41,4 @@ function AuthorRow({
   );
 }
 
-export default AuthorRow;
+export default AuthorRowWithAvatar;

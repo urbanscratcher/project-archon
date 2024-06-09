@@ -1,11 +1,11 @@
 "use client";
 
-import ErrorMessage from "../../components/organisms/ErrorMessage";
+import ErrorDisplay from "../../components/organisms/ErrorDisplay";
 
 function ErrorPage() {
   return (
     <main className="flex h-screen w-screen min-w-[1440px] items-center justify-center">
-      <ErrorMessage
+      <ErrorDisplay
         mainMessage="Something went wrong"
         subMessage="Sorry, we couldn't process this page."
         actionMessage="Please return to the previous page or try again."

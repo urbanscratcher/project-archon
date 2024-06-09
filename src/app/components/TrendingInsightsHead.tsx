@@ -2,7 +2,7 @@ import type { TrendingInsight } from "@/types/Trending";
 import Box from "../../components/atoms/Box";
 import Tag from "../../components/atoms/Tag";
 import Thumbnail from "../../components/atoms/Thumbnail";
-import AuthorRow from "../../components/molecules/AuthorRow";
+import AuthorRowWithAvatar from "../../components/molecules/AuthorRowWithAvatar";
 import DateTTRRow from "../../components/molecules/DateTTRRow";
 import LinkText from "../../components/molecules/LinkText";
 
@@ -43,7 +43,7 @@ function TrendingInsightsHead({
       />
       <p className="line-clamp-5">{data.summary}</p>
       <DateTTRRow createdAt={data.createdAt} />
-      <AuthorRow creator={data.creator} />
+      <AuthorRowWithAvatar creator={data.creator} />
     </Box>
   );
 }

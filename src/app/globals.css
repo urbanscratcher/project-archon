@@ -136,12 +136,13 @@ select:-webkit-autofill:focus {
   .h5 {
     @apply font-serif text-[1.53rem]/[1.29];
   }
-  .p {
-    @apply font-sans text-[1rem]/[1.333] tracking-[0.015625rem];
-  }
 
   .p-lg {
     @apply font-sans text-[1.0625rem]/[1.333] tracking-[0.03125rem];
+  }
+
+  .p {
+    @apply font-sans text-[1rem]/[1.333] tracking-[0.015625rem];
   }
 
   .p-sm {

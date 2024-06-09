@@ -5,7 +5,7 @@ import SectionHead from "../atoms/SectionHead";
 import ViewAllButton from "../atoms/ViewAllButton";
 import FeaturedAuthorsContent from "../molecules/FeaturedAuthorsContent";
 
-function FeaturedAuthorSection({ border = false }: { border?: boolean }) {
+function FeaturedAuthorAside({ border = false }: { border?: boolean }) {
   return (
     <SectionContainer border={border} whitespace="sub">
       <SectionHead>Featured Authors</SectionHead>
@@ -19,4 +19,4 @@ function FeaturedAuthorSection({ border = false }: { border?: boolean }) {
   );
 }
 
-export default FeaturedAuthorSection;
+export default FeaturedAuthorAside;

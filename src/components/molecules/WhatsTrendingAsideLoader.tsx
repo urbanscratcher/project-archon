@@ -2,9 +2,9 @@ import { getTrendingInsights } from "@/services/trending.api";
 import { TrendingInsights } from "@/types/Trending";
 import Link from "next/link";
 import Thumbnail from "../atoms/Thumbnail";
-import AuthorRowSimple from "./AuthorRowSimple";
+import AuthorRowOnlyName from "./AuthorRowOnlyName";
 
-async function WhatsTrendingAsideContent() {
+async function WhatsTrendingAsideLoader() {
   const trendingInsights: TrendingInsights = await getTrendingInsights();
 
   // TODO: error handling
@@ -28,7 +28,7 @@ async function WhatsTrendingAsideContent() {
               </Link>
             </p>
 
-            <AuthorRowSimple
+            <AuthorRowOnlyName
               href={`/authors/${insight.creator.idx}`}
               fullName={
                 insight.creator.firstName + " " + insight.creator.lastName
@@ -50,4 +50,4 @@ async function WhatsTrendingAsideContent() {
   );
 }
 
-export default WhatsTrendingAsideContent;
+export default WhatsTrendingAsideLoader;

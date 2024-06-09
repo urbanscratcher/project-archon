@@ -6,7 +6,7 @@ import { IoCloseOutline, IoMenuSharp } from "react-icons/io5";
 import Box from "../atoms/Box";
 import List from "../atoms/List";
 import Logo from "./Logo";
-import MenuItem from "./MenuItem";
+import MenuItem from "../molecules/MenuItem";
 
 function GNB() {
   const [isScrolled, setIsScrolled] = useState(false);

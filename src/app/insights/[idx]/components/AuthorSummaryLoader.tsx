@@ -1,5 +1,5 @@
 import Box from "@/components/atoms/Box";
-import AuthorWithTopicsRow from "@/components/molecules/AuthorWithTopicsRow";
+import AuthorWithTopicsRow from "@/components/molecules/AuthorRowWithTopics";
 import { getAuthor } from "@/services/authors.api";
 import { type Author } from "@/types/Author";
 import type { Insight } from "@/types/Insight";

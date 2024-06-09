@@ -5,7 +5,7 @@ type AuthorRowSimpleProps = {
   fullName: string;
 };
 
-function AuthorRowSimple({ href, fullName }: AuthorRowSimpleProps) {
+function AuthorRowOnlyName({ href, fullName }: AuthorRowSimpleProps) {
   return (
     <p className="capitalize text-g-700">
       By{" "}
@@ -16,4 +16,4 @@ function AuthorRowSimple({ href, fullName }: AuthorRowSimpleProps) {
   );
 }
 
-export default AuthorRowSimple;
+export default AuthorRowOnlyName;

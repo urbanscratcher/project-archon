@@ -2,7 +2,7 @@ import Box from "../atoms/Box";
 import ListItem from "../atoms/ListItem";
 import Tag from "../atoms/Tag";
 import Thumbnail from "../atoms/Thumbnail";
-import AuthorRow from "./AuthorRow";
+import AuthorRowWithAvatar from "./AuthorRowWithAvatar";
 import DateTTRRow from "./DateTTRRow";
 import LinkText from "./LinkText";
 
@@ -71,7 +71,7 @@ function InsightsItem({
           </p>
         )}
         <DateTTRRow createdAt={insightData.createdAt} className="p-sm" />
-        <AuthorRow creator={insightData.createdBy} />
+        <AuthorRowWithAvatar creator={insightData.createdBy} />
       </Box>
     </ListItem>
   );

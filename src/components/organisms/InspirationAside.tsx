@@ -4,7 +4,7 @@ import SectionContainer from "../atoms/SectionContainer";
 import SectionHead from "../atoms/SectionHead";
 import InspirationsContent from "../molecules/InspirationsContent";
 
-function InspirationSection({ border = false }: { border?: boolean }) {
+function InspirationAside({ border = false }: { border?: boolean }) {
   return (
     <SectionContainer border={border} whitespace="sub" className={"h-fit"}>
       <SectionHead className="flex justify-between">
@@ -18,4 +18,4 @@ function InspirationSection({ border = false }: { border?: boolean }) {
   );
 }
 
-export default InspirationSection;
+export default InspirationAside;

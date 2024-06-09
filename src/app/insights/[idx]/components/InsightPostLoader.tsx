@@ -1,4 +1,4 @@
-import RelatedSection from "@/components/organisms/RelatedSection";
+import RelatedAside from "@/components/organisms/RelatedAside";
 import { getInsight } from "@/services/insights.api";
 import InsightPostSection from "./InsightPostSection";
 
@@ -7,7 +7,7 @@ async function InsightPostLoader({ idx }: { idx: number }) {
   return (
     <>
       <InsightPostSection insight={insight} />
-      <RelatedSection topic={insight.topic} />
+      <RelatedAside topic={insight.topic} />
     </>
   );
 }
