@@ -9,7 +9,7 @@ import Box from "@/components/atoms/Box";
 import FeaturedAuthorAside from "@/components/organisms/FeaturedAuthorAside";
 import InspirationAside from "@/components/organisms/InspirationAside";
 import EditorsPickSection from "./components/EditorsPickSection";
-import HeadlineSection from "./components/HeadlineSection";
+import HeadlineSection from "./components/HeadlineLoader";
 import NewsletterSection from "./components/NewsletterSection";
 import StayConnectedSection from "./components/StayConnectedSection";
 import TopTopicSection from "./components/TopTopicSection";

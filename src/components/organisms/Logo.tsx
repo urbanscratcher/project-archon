@@ -10,10 +10,13 @@ function Logo({
   isWhite?: boolean;
 }) {
   return (
-    <Link href="/" className={`${className || ""}`}>
+    <Link
+      href="/"
+      className={`${className || ""} translate-y-[1px] py-1 sm:translate-y-[2px]`}
+    >
       <Image
         src={logoImg}
-        className={`${isWhite && "whiten"} translate-y-[4px]`}
+        className={`${isWhite && "whiten"} h-full`}
         width={180}
         height={37}
         alt="ArchOn logo"
