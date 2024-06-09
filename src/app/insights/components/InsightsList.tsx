@@ -73,8 +73,9 @@ function InsightsList({ topics }: { topics: Topic[] }) {
           <InsightsItem
             key={insight.idx}
             insight={insight}
-            className="border-b border-b-g-100 py-4 last:border-b-0"
+            className="border-b border-b-g-200 py-4 last:border-b-0"
             summary
+            oneThirdImage
           />
         ))}
       </List>

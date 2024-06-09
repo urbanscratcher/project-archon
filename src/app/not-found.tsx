@@ -9,12 +9,7 @@ function NotFoundPage({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  if (error) {
-    console.error(error.message);
-    redirect("/not-found");
-  }
-
-  return <></>;
+  redirect("/not-found");
 }
 
 export default NotFoundPage;

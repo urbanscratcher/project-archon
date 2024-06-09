@@ -2,7 +2,7 @@ import ErrorDisplay from "@/components/organisms/ErrorDisplay";
 
 function NotFoundErrorPage() {
   return (
-    <main className="flex h-screen w-screen items-center justify-center xl:min-w-[1440px]">
+    <main className="flex h-screen w-screen items-center justify-center">
       <ErrorDisplay
         mainMessage="Page Not Found"
         subMessage="Sorry, we couldn't find this page."

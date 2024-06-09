@@ -43,7 +43,7 @@ select:-webkit-autofill:focus {
   }
 
   h1 {
-    @apply font-serif text-[3.052rem]/[1.2] sm:text-[3.815rem]/[1.2] sm:-tracking-[0.5px];
+    @apply h1;
   }
 
   h2 {
@@ -121,32 +121,36 @@ select:-webkit-autofill:focus {
 @layer utilities {
   /* typography */
   .text-button {
-    @apply text-[0.9375rem]/[1.263] font-semibold uppercase tracking-[1.25px];
+    @apply text-[0.9375rem]/[1.263] font-semibold uppercase tracking-[1.25px] sm:text-[1rem]/[1.333];
+  }
+
+  .h1 {
+    @apply font-serif text-[2.986rem]/[1.2] sm:text-[3.815rem]/[1.2] sm:-tracking-[0.5px];
   }
 
   .h2 {
-    @apply font-serif text-[3.052rem]/[1.25];
+    @apply font-serif text-[2.488rem]/[1.25] sm:text-[3.052rem]/[1.25];
   }
   .h3 {
-    @apply font-serif text-[2.441rem]/[1.25] tracking-[0.0156rem];
+    @apply font-serif text-[2.074rem]/[1.25] tracking-[0.0156rem] sm:text-[2.441rem]/[1.25];
   }
   .h4 {
-    @apply font-serif text-[1.953rem]/[1.27];
+    @apply font-serif text-[1.728rem]/[1.27] sm:text-[1.953rem]/[1.27];
   }
   .h5 {
-    @apply font-serif text-[1.53rem]/[1.29];
+    @apply font-serif text-[1.44rem]/[1.29] sm:text-[1.53rem]/[1.29];
   }
 
   .p-lg {
-    @apply font-sans text-[1.0625rem]/[1.333] tracking-[0.03125rem];
+    @apply font-sans text-[1.12rem]/[1.6] tracking-[0.03125rem] sm:text-[1.0625rem]/[1.333];
   }
 
   .p {
-    @apply font-sans text-[1rem]/[1.333] tracking-[0.015625rem];
+    @apply font-sans text-[1rem]/[1.333] tracking-[0.015625rem] sm:text-[1rem]/[1.333];
   }
 
   .p-sm {
-    @apply font-sans text-[0.9375rem]/[1.333] tracking-[0.015625rem];
+    @apply font-sans text-[0.833rem]/[1.333] tracking-[0.015625rem] sm:text-[0.9375rem]/[1.333];
   }
 
   /* hover */

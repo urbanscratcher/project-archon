@@ -2,7 +2,7 @@ import List from "../../components/atoms/List";
 import SectionContainer from "../../components/atoms/SectionContainer";
 import SectionHead from "../../components/atoms/SectionHead";
 import ViewAllButton from "../../components/atoms/ViewAllButton";
-import TheLatestLoader from "./TheLatestContent";
+import TheLatestLoader from "./TheLatestLoader";
 
 function TheLatestSection() {
   return (

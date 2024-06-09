@@ -26,10 +26,7 @@ async function WhatsTrendingLoader() {
       {data.restList.length > 0 && (
         <List vertical className="lg:block">
           {data.restList.map((insight: TrendingInsight) => (
-            <WhatsTrendingItem
-              key={`trendingInsights_${insight.idx}`}
-              insight={insight}
-            />
+            <WhatsTrendingItem key={insight.idx} insight={insight} />
           ))}
         </List>
       )}

@@ -17,7 +17,7 @@ async function WhatsTrendingAsideLoader() {
       {trendingInsights.map((insight) => (
         <li
           key={insight.idx}
-          className={`flex flex-col-reverse gap-2 border-b border-b-g-100 py-4 sm:flex-row sm:gap-1 sm:last:border-b-0`}
+          className={`flex flex-col-reverse gap-2 border-b border-b-g-200 py-4 sm:flex-row sm:gap-1 sm:last:border-b-0`}
         >
           <div className="flex flex-col gap-1 px-1 sm:w-2/3 sm:px-0">
             <p className="line-clamp-3 text-[17px] font-semibold capitalize leading-[1.263] tracking-[0.5px] text-g-700">

@@ -9,7 +9,9 @@ async function TheLatestLoader() {
     <>
       {trendingInsights.map((insight) => {
         const data = { ...insight, createdBy: insight.creator };
-        return <InsightsItem key={`${insight.idx}`} insight={data} />;
+        return (
+          <InsightsItem key={`${insight.idx}`} insight={data} oneThirdImage />
+        );
       })}
     </>
   );

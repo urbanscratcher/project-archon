@@ -52,14 +52,14 @@ function Thumbnail({
       deleteBookmark(insightIdx);
 
       addToaster({
-        mainMessage: "Your bookmark is deleted",
+        mainMessage: "The bookmark was removed.",
         toasterType: "warn",
       });
     } else {
       addBookmark(insightIdx);
 
       addToaster({
-        mainMessage: "Your bookmark is added",
+        mainMessage: "The bookmark was successfully added.",
         toasterType: "confirm",
       });
     }

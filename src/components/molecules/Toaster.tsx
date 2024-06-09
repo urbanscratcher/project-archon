@@ -98,7 +98,7 @@ function Toaster({
           <Box className="h4">{icon.icon}</Box>
           <Box vertical className="">
             {/* Main Message */}
-            <p className={`p-lg font-sans font-semibold capitalize `}>
+            <p className={`p-lg font-sans font-medium capitalize `}>
               {mainMessage}
             </p>
             {/* Sub Message */}

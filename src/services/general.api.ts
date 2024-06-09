@@ -1,4 +1,5 @@
 import { toCamelCase } from "@/libs/helpers";
+import { notFound } from "next/navigation";
 
 export async function getList(url: string) {
   const options = {
@@ -87,7 +88,7 @@ export async function getOne(url: string) {
     if (!response.ok) {
       switch (response.status) {
         case 404:
-          return undefined;
+          notFound();
         case 429:
           throw new Error("Too many request");
         default:

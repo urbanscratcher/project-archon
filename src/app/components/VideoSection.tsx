@@ -80,7 +80,7 @@ function VideoSection() {
     <SectionContainer>
       <SectionHead>video</SectionHead>
       <Box vertical className="gap-10">
-        <Box className="relative flex aspect-video min-h-[340px] w-full items-center justify-center overflow-hidden rounded-2xl px-10 py-16">
+        <Box className="relative flex aspect-video min-h-[380px] w-full items-center justify-center overflow-hidden rounded-2xl px-10 py-16">
           <Box vertical className="max-w-[750px] items-center gap-4 text-white">
             <VideoHeadTag tagName={coverVideo.tag.name} />
             <h2 className="font-serif capitalize">{coverVideo.title}</h2>

@@ -1,7 +1,7 @@
 import { getInsightsByTopic } from "@/services/insights.api";
 import InsightsItem from "./InsightsItem";
 
-async function RelatedContent({ topicIdx }: { topicIdx: number }) {
+async function RelatedLoader({ topicIdx }: { topicIdx: number }) {
   const insights = await getInsightsByTopic({ topicIdx: topicIdx, limit: 4 });
   return (
     <>
@@ -9,7 +9,7 @@ async function RelatedContent({ topicIdx }: { topicIdx: number }) {
         <InsightsItem
           squared
           insight={insight}
-          key={`related_${insight.idx}`}
+          key={insight.idx}
           className="basis-1/4"
         />
       ))}
@@ -17,4 +17,4 @@ async function RelatedContent({ topicIdx }: { topicIdx: number }) {
   );
 }
 
-export default RelatedContent;
+export default RelatedLoader;
