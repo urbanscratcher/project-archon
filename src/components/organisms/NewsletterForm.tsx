@@ -33,15 +33,7 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
   });
 
   const [showToaster, setShowToaster] = useState(false);
-  const [closingToaster, setClosingToaster] = useState(false);
   const [resultMessage, setResultMessage] = useState("");
-
-  useEffect(() => {
-    if (showToaster && closingToaster) {
-      setShowToaster(!showToaster);
-      console.log("토스터를 닫습니다.", showToaster);
-    }
-  }, [closingToaster, showToaster]);
 
   const { mutateAsync, isPending, isError } = useSubscribe();
 
@@ -66,9 +58,7 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
       <Portal>
         <Toaster
           show={showToaster}
-          onClose={() => {
-            setClosingToaster(true);
-          }}
+          onClose={() => setShowToaster(false)}
           messageType={"confirm"}
           mainMessage={resultMessage}
         />

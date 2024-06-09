@@ -66,6 +66,12 @@ function Toaster({
 
   const icon = getIcon(messageType);
 
+  const closeHandler = () => {
+    onClose && onClose();
+    setClosing(true);
+    setVisible(false);
+  };
+
   return (
     <Box
       className={`fixed z-[90] flex w-full items-center justify-center transition-all duration-300
@@ -88,7 +94,7 @@ function Toaster({
             {subMessage && <p className={`p-sm text-g-700`}>{subMessage}</p>}
           </Box>
         </Box>
-        <button className="p-lg" onClick={onClose}>
+        <button className="p-lg" onClick={closeHandler}>
           <IoClose />
         </button>
       </Box>
