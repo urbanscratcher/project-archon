@@ -1,6 +1,6 @@
-import Toasters from "@/components/Toasters";
 import Footer from "@/components/organisms/Footer";
 import GNB from "@/components/organisms/GNB";
+import Toasters from "@/components/organisms/Toasters";
 import ReactQueryProvider from "@/libs/ReactQueryProvider";
 import { type Metadata } from "next";
 import { Figtree } from "next/font/google";

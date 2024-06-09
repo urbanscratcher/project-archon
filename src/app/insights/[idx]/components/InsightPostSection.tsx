@@ -1,11 +1,11 @@
 import Box from "@/components/atoms/Box";
 import ImageWrap from "@/components/atoms/ImageWrap";
+import SectionContainer from "@/components/atoms/SectionContainer";
 import Tag from "@/components/atoms/Tag";
 import DateTTRRow from "@/components/molecules/DateTTRRow";
 import type { Insight } from "@/types/Insight";
-import { IoLink } from "react-icons/io5";
-import SectionContainer from "../../../../components/atoms/SectionContainer";
 import AuthorSummaryLoader from "./AuthorSummaryLoader";
+import ShareButton from "./ShareButton";
 
 function InsightPostSection({ insight }: { insight: Insight }) {
   return (
@@ -16,7 +16,7 @@ function InsightPostSection({ insight }: { insight: Insight }) {
         className="mx-auto max-w-5xl items-center gap-2 pb-28 pt-12"
       >
         {insight?.topic && <Tag tagName={insight.topic.name} />}
-        <h1 className="text-center text-sky-700">{insight.title}</h1>
+        <h1 className="text-center capitalize text-sky-700">{insight.title}</h1>
         <p className="my-6 text-sky-700">{insight.summary}</p>
         <DateTTRRow createdAt={insight.createdAt} />
       </Box>
@@ -35,9 +35,7 @@ function InsightPostSection({ insight }: { insight: Insight }) {
           className="text-sky-700"
           dangerouslySetInnerHTML={{ __html: insight?.content || "" }}
         />
-        <button className="my-12 w-fit self-center rounded-full border border-g-700 p-2">
-          <IoLink className="text-lg text-g-700" />
-        </button>
+        <ShareButton link={`http://localhost:3000/insight/${insight.idx}`} />
         {/* author info */}
         <AuthorSummaryLoader insight={insight} />
       </Box>

@@ -2,7 +2,7 @@
 
 import useToastersStore from "@/stores/useToastStore";
 import { useEffect } from "react";
-import Toaster from "./Toaster";
+import Toaster from "../molecules/Toaster";
 
 function Toasters() {
   const toasters = useToastersStore((state) => state.toasters);

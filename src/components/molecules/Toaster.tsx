@@ -7,7 +7,7 @@ import {
   IoInformationCircle,
   IoWarning,
 } from "react-icons/io5";
-import Box from "./atoms/Box";
+import Box from "../atoms/Box";
 
 function getIcon(messageType: ToasterType) {
   switch (messageType) {
@@ -60,7 +60,7 @@ function Toaster({
       timer = setTimeout(() => {
         setClosing(true);
         onClose && onClose();
-      }, 1500);
+      }, 2000);
     }
     return () => clearTimeout(timer);
   }, [visible, onClose]);
@@ -70,7 +70,7 @@ function Toaster({
     if (visible && closing) {
       timer = setTimeout(() => {
         onClose && onClose();
-      }, 1500);
+      }, 2000);
     }
     return () => clearTimeout(timer);
   }, [visible, closing, onClose]);
