@@ -29,7 +29,8 @@ export default function RootLayout({
       lg:text-[0.9375rem]/[1.5]
       xl:text-[1.0625rem]/[1.75]"
     >
-      <body className={`${figtree.className}`}>
+      <body className={`${figtree.className} relative`}>
+        <div id="portal-root"></div>
         <ReactQueryProvider>
           <GNB />
           {children}

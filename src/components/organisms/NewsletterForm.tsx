@@ -6,9 +6,11 @@ import {
   type NewsletterForm,
 } from "@/types/NewsletterForm";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import Toaster from "../Toaster";
 import Button from "../atoms/Button";
+import Portal from "../atoms/Portal";
 
 type NewsletterFormProp = {
   primary?: boolean;
@@ -30,11 +32,23 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
     defaultValues: initialData,
   });
 
+  const [showToaster, setShowToaster] = useState(false);
+  const [closingToaster, setClosingToaster] = useState(false);
+  const [resultMessage, setResultMessage] = useState("");
+
+  useEffect(() => {
+    if (showToaster && closingToaster) {
+      setShowToaster(!showToaster);
+      console.log("토스터를 닫습니다.", showToaster);
+    }
+  }, [closingToaster, showToaster]);
+
   const { mutateAsync, isPending, isError } = useSubscribe();
+
   async function submitHandler(data: Pick<NewsletterForm, "fullName" | "to">) {
     const result = await mutateAsync(data);
-    // [ ] modal window
-    alert(result?.message);
+    setShowToaster(true);
+    setResultMessage(result?.message || "");
     reset();
   }
 
@@ -48,67 +62,79 @@ function NewsletterForm({ primary = true }: NewsletterFormProp) {
   }, [watch, trigger]);
 
   return (
-    <form
-      className={`flex flex-col gap-3  ${primary ? "text-sky-700" : "text-g-700"}`}
-      onSubmit={handleSubmit(submitHandler)}
-    >
-      <p className="mb-1">
-        Subscribe our newsletter to get the latest updates all about
-        architecture
-      </p>
-      <div
-        className={`rounded-md border ${primary ? "border-sky-700" : " border-g-700"} relative bg-transparent`}
+    <>
+      <Portal>
+        <Toaster
+          show={showToaster}
+          onClose={() => {
+            setClosingToaster(true);
+          }}
+          messageType={"confirm"}
+          mainMessage={resultMessage}
+        />
+      </Portal>
+      <form
+        className={`flex flex-col gap-3  ${primary ? "text-sky-700" : "text-g-700"}`}
+        onSubmit={handleSubmit(submitHandler)}
       >
-        <label
-          className={`pointer-events-none absolute left-1 -translate-y-1/2 px-1 text-sm transition-all ${errors.fullName ? `z-10  ${primary ? "bg-y-100 text-sky-700" : "bg-white text-g-500"}` : ""}`}
+        <p className="mb-1">
+          Subscribe our newsletter to get the latest updates all about
+          architecture
+        </p>
+        <div
+          className={`rounded-md border ${primary ? "border-sky-700" : " border-g-700"} relative bg-transparent`}
         >
-          {errors.fullName && errors.fullName.message}
-        </label>
-        <input
-          {...register("fullName")}
-          name="fullName"
-          placeholder="Enter your full name"
-          type="text"
-          className={
-            "placeholder-shown:p h-full w-full rounded-md border-0 bg-transparent px-2 py-2"
-          }
-          disabled={isPending}
-        />
-      </div>
-      <div
-        className={`rounded-md border ${primary ? "border-sky-700" : " border-g-700"} relative bg-transparent`}
-      >
-        <label
-          className={`pointer-events-none absolute left-1 -translate-y-1/2 px-1 text-sm transition-all  ${errors.to ? `z-10  ${primary ? "bg-y-100 text-sky-700" : "bg-white text-g-500"}` : ""}`}
+          <label
+            className={`pointer-events-none absolute left-1 -translate-y-1/2 px-1 text-sm transition-all ${errors.fullName ? `z-10  ${primary ? "bg-y-100 text-sky-700" : "bg-white text-g-500"}` : ""}`}
+          >
+            {errors.fullName && errors.fullName.message}
+          </label>
+          <input
+            {...register("fullName")}
+            name="fullName"
+            placeholder="Enter your full name"
+            type="text"
+            className={
+              "placeholder-shown:p h-full w-full rounded-md border-0 bg-transparent px-2 py-2"
+            }
+            disabled={isPending}
+          />
+        </div>
+        <div
+          className={`rounded-md border ${primary ? "border-sky-700" : " border-g-700"} relative bg-transparent`}
         >
-          {errors.to && errors.to.message}
+          <label
+            className={`pointer-events-none absolute left-1 -translate-y-1/2 px-1 text-sm transition-all  ${errors.to ? `z-10  ${primary ? "bg-y-100 text-sky-700" : "bg-white text-g-500"}` : ""}`}
+          >
+            {errors.to && errors.to.message}
+          </label>
+          <input
+            {...register("to")}
+            placeholder="Enter your email"
+            type="email"
+            name="to"
+            className={
+              "placeholder-shown:p h-full w-full rounded-md border-0 bg-transparent px-2 py-2"
+            }
+            disabled={isPending}
+          />
+        </div>
+        <label className={`my-2 text-sm`}>
+          <input
+            {...register("agreed")}
+            type="checkbox"
+            name={"agreed"}
+            defaultChecked
+            disabled={isPending}
+          />
+          &nbsp; By signing up, you agree to our terms and privacy policy
+          {errors?.agreed?.message || ""}
         </label>
-        <input
-          {...register("to")}
-          placeholder="Enter your email"
-          type="email"
-          name="to"
-          className={
-            "placeholder-shown:p h-full w-full rounded-md border-0 bg-transparent px-2 py-2"
-          }
-          disabled={isPending}
-        />
-      </div>
-      <label className={`my-2 text-sm`}>
-        <input
-          {...register("agreed")}
-          type="checkbox"
-          name={"agreed"}
-          defaultChecked
-          disabled={isPending}
-        />
-        &nbsp; By signing up, you agree to our terms and privacy policy
-        {errors?.agreed?.message || ""}
-      </label>
-      <Button type="submit" disabled={isPending || !isValid}>
-        {isPending ? "sending..." : "subscribe"}
-      </Button>
-    </form>
+        <Button type="submit" disabled={isPending || !isValid}>
+          {isPending ? "sending..." : "subscribe"}
+        </Button>
+      </form>
+    </>
   );
 }
 
