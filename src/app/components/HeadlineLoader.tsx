@@ -11,7 +11,7 @@ function HeadlineSection() {
         max-h-[700px]
         min-h-[496px]
         sm:max-h-[682px]
-        lg:min-h-[1080px]
+        lg:min-h-[980px]
         3xl:max-h-[1440px]
       "
     >
