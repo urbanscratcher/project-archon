@@ -2,7 +2,7 @@ import type { PropsWithChildren } from "react";
 
 function PageContainer({ children }: PropsWithChildren) {
   return (
-    <main className="mx-auto flex max-w-[1440px] flex-col py-[24px] sm:py-[32px] lg:flex-row">
+    <main className="mx-auto flex flex-col py-[28px] sm:py-[32px] lg:flex-row xl:max-w-[1440px]">
       {children}
     </main>
   );

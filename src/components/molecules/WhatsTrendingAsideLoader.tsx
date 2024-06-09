@@ -1,6 +1,7 @@
 import { getTrendingInsights } from "@/services/trending.api";
 import { TrendingInsights } from "@/types/Trending";
 import Link from "next/link";
+import ListItem from "../atoms/ListItem";
 import Thumbnail from "../atoms/Thumbnail";
 import AuthorRowOnlyName from "./AuthorRowOnlyName";
 
@@ -15,9 +16,9 @@ async function WhatsTrendingAsideLoader() {
   return (
     <>
       {trendingInsights.map((insight) => (
-        <li
+        <ListItem
           key={insight.idx}
-          className={`flex flex-col-reverse gap-2 border-b border-b-g-200 py-4 sm:flex-row sm:gap-1 sm:last:border-b-0`}
+          className={`flex flex-col-reverse gap-2 border-b border-b-g-200 py-8 first:pt-4 last:border-b-0 sm:flex-row sm:gap-1 sm:py-4`}
         >
           <div className="flex flex-col gap-1 px-1 sm:w-2/3 sm:px-0">
             <p className="line-clamp-3 text-[17px] font-semibold capitalize leading-[1.263] tracking-[0.5px] text-g-700">
@@ -44,7 +45,7 @@ async function WhatsTrendingAsideLoader() {
             className={"flex-grow-1 sm:h-[180px] lg:h-[100px] 2xl:h-[120px]"}
             rounded={"xl"}
           />
-        </li>
+        </ListItem>
       ))}
     </>
   );

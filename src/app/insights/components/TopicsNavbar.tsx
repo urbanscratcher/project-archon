@@ -73,14 +73,14 @@ function TopicsNavbar({ topics }: { topics: Topic[] }) {
   };
 
   return (
-    <Box horizontal className="w-full">
+    <Box vertical className="w-full sm:flex-row">
       {/* navigation */}
       <Box
         horizontal
-        className="w-[calc(100%-100px)] flex-nowrap items-center justify-between border-b border-b-g-100 uppercase text-sky-700"
+        className="w-full flex-nowrap items-center justify-between border-b border-b-g-100 uppercase text-sky-700 sm:w-[calc(100%-100px)]"
       >
         <button
-          className="h-full w-fit px-4 text-xl transition-opacity hover:opacity-80"
+          className="p-lg h-full w-fit p-0 pr-2 transition-opacity hover:opacity-80 sm:px-4"
           onClick={prevClickHandler}
         >
           <IoChevronBackOutline />
@@ -92,15 +92,15 @@ function TopicsNavbar({ topics }: { topics: Topic[] }) {
           <TopicsList topics={topics} />
         </ul>
         <button
-          className="h-full w-fit px-4 text-xl transition-opacity hover:opacity-80"
+          className="p-lg h-full w-fit p-0 pl-2 transition-opacity hover:opacity-80 sm:px-4"
           onClick={nextClickHanlder}
         >
           <IoChevronForwardOutline />
         </button>
       </Box>
-      {/* date button */}
+      {/* order button */}
       <Link
-        className="hover hover-darker flex w-fit flex-nowrap items-center gap-1 rounded-full border-b-2 border-b-gray-50/0 px-4"
+        className="hover hover-darker ml-auto flex w-fit flex-nowrap items-center justify-center gap-1 rounded-full border-b-2 border-b-gray-50/0 px-4 py-4"
         href={
           isAsc
             ? `insights?topics=${searchTopic}`
