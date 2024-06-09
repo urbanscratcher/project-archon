@@ -7,7 +7,7 @@ import { IoMailOutline } from "react-icons/io5";
 import Box from "../../../../components/atoms/Box";
 import ImageWrap from "../../../../components/atoms/ImageWrap";
 
-async function AuthorDetailContent({ idx }: { idx: number }) {
+async function AuthorDetailLoader({ idx }: { idx: number }) {
   const author = await getAuthor(idx);
 
   const data = {
@@ -69,4 +69,4 @@ async function AuthorDetailContent({ idx }: { idx: number }) {
   );
 }
 
-export default AuthorDetailContent;
+export default AuthorDetailLoader;

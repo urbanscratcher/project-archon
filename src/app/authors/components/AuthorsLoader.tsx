@@ -1,7 +1,7 @@
 import { getAuthors } from "@/services/authors.api";
 import AuthorsList from "./AuthorsList";
 
-async function AuthorsContent() {
+async function AuthorsLoader() {
   const initialAuthors = await getAuthors({ offset: 0, limit: 5 });
 
   return (
@@ -14,4 +14,4 @@ async function AuthorsContent() {
   );
 }
 
-export default AuthorsContent;
+export default AuthorsLoader;

@@ -4,7 +4,7 @@ import InsightsItem from "@/components/molecules/InsightsItem";
 import { getInsightsByAuthor } from "@/services/insights.api";
 import { type Insight } from "@/types/Insight";
 
-async function InsightsByAuthorContent({ idx }: { idx: number }) {
+async function InsightsByAuthorLoader({ idx }: { idx: number }) {
   const insights = await getInsightsByAuthor({
     authorIdx: idx,
     offset: 0,
@@ -42,4 +42,4 @@ async function InsightsByAuthorContent({ idx }: { idx: number }) {
   );
 }
 
-export default InsightsByAuthorContent;
+export default InsightsByAuthorLoader;

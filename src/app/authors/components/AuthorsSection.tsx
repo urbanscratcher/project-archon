@@ -1,10 +1,10 @@
 import SectionContainer from "../../../components/atoms/SectionContainer";
-import AuthorsContent from "./AuthorsContent";
+import AuthorsLoader from "./AuthorsLoader";
 
 function AuthorsSection() {
   return (
     <SectionContainer>
-      <AuthorsContent />
+      <AuthorsLoader />
     </SectionContainer>
   );
 }
