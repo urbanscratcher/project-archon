@@ -1,61 +1,25 @@
-import {
-  IoCheckmarkCircle,
-  IoClose,
-  IoInformationCircle,
-  IoWarning,
-} from "react-icons/io5";
-import Box from "./atoms/Box";
+"use client";
 
-type ToasterMessageType = "warn" | "info" | "confirm";
-type ToasterProps = {
-  messageType: ToasterMessageType;
-  mainMessage: string;
-  subMessage?: string;
-};
+import { useState } from "react";
+import ToastMessage from "./ToastMessage";
 
-function getIcon(messageType: ToasterMessageType) {
-  switch (messageType) {
-    case "warn":
-      return { style: "border-red-700 text-red-700", icon: <IoWarning /> };
-    case "info":
-      return {
-        style: "border-mint-600 text-mint-600",
-        icon: <IoInformationCircle />,
-      };
-    default:
-      return {
-        style: "border-sky-700 text-sky-700",
-        icon: <IoCheckmarkCircle />,
-      };
-  }
-}
+function Toaster() {
+  const [visible, setVisible] = useState(false);
 
-function Toaster({ messageType, mainMessage, subMessage }: ToasterProps) {
-  const icon = getIcon(messageType);
+  const showToast = () => {
+    setVisible(true);
+    setTimeout(() => {
+      setVisible(false);
+    }, 3000); // 3초 후에 숨김
+  };
 
   return (
-    <Box className="absolute top-8 z-[60] flex w-full  items-center justify-center">
-      <Box
-        horizontal
-        className={`relative mx-10 h-fit w-full max-w-[1440px] content-center items-center justify-between rounded-lg border bg-white p-3 ${icon.style}`}
-      >
-        <Box horizontal className="items-center gap-4">
-          {/* Icon */}
-          <Box className="h4">{icon.icon}</Box>
-          <Box vertical className="">
-            {/* Main Message */}
-            <p className={`p-lg font-sans font-semibold capitalize `}>
-              {mainMessage}
-            </p>
-            {/* Sub Message */}
-            {subMessage && <p className={`p-sm text-g-700`}>{subMessage}</p>}
-          </Box>
-        </Box>
-        <button className="p-lg">
-          <IoClose />
-        </button>
-      </Box>
-    </Box>
+    <ToastMessage
+      visible
+      messageType="warn"
+      mainMessage="This is a test message"
+      subMessage="submessa"
+    />
   );
 }
 

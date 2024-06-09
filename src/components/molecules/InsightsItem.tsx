@@ -44,7 +44,7 @@ function InsightsItem({
   return (
     <ListItem
       className={`grid
-      ${squared ? "grid-rows-[auto_auto] content-start" : `${oneThirdImage ? "grid-cols-1 sm:grid-cols-[1fr_2fr]" : "grid-cols-2"} border-b border-b-g-300 last:border-b-0`}
+      ${squared ? "grid-rows-[auto_auto] content-start" : `${oneThirdImage ? "grid-cols-1 sm:grid-cols-[1fr_2fr]" : "grid-cols-2"} border-b border-b-g-100 last:border-b-0`}
       items-center gap-4
       ${squared ? "" : "py-6"}
       ${className || ""}`}

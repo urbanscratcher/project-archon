@@ -5,7 +5,7 @@ import AuthorDetailLoader from "./AuthorDetailLoader";
 function AuthorDetailSection({ idx }: { idx: number }) {
   return (
     <SectionContainer>
-      <Box vertical className={`gap-10`}>
+      <Box vertical className={`gap-10 py-10 sm:py-0`}>
         <AuthorDetailLoader idx={idx} />
       </Box>
     </SectionContainer>

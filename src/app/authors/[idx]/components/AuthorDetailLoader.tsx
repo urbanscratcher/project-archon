@@ -25,8 +25,7 @@ async function AuthorDetailLoader({ idx }: { idx: number }) {
   return (
     <>
       <Box
-        horizontal
-        className={`items-center justify-center gap-8 sm:flex-row`}
+        className={`flex items-center justify-center gap-8 sm:mt-0 sm:flex-row`}
       >
         <Box
           className={`relative aspect-square w-40 overflow-hidden rounded-full outline outline-2 outline-sky-700`}

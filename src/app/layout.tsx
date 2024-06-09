@@ -1,4 +1,3 @@
-import Toaster from "@/components/Toaster";
 import Footer from "@/components/organisms/Footer";
 import GNB from "@/components/organisms/GNB";
 import ReactQueryProvider from "@/libs/ReactQueryProvider";
@@ -32,11 +31,6 @@ export default function RootLayout({
     >
       <body className={`${figtree.className}`}>
         <ReactQueryProvider>
-          <Toaster
-            messageType="warn"
-            mainMessage="This is a test message"
-            subMessage="submessa"
-          />
           <GNB />
           {children}
           <Footer />

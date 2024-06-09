@@ -30,7 +30,7 @@ export default function Home() {
       </WhatsTrendingGrid>
       <SavedForLaterSection />
       <TheLatestGrid>
-        <InspirationAside />
+        <InspirationAside border />
         <TheLatestSection />
         <Box vertical className="h-fit gap-4">
           <FeaturedAuthorAside border />
