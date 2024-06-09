@@ -2,7 +2,7 @@ import InsightsItem from "@/components/molecules/InsightsItem";
 import { getTrendingInsights } from "@/services/trending.api";
 import { type TrendingInsights } from "@/types/Trending";
 
-async function TheLatestContent() {
+async function TheLatestLoader() {
   const trendingInsights: TrendingInsights = await getTrendingInsights();
 
   return (
@@ -15,4 +15,4 @@ async function TheLatestContent() {
   );
 }
 
-export default TheLatestContent;
+export default TheLatestLoader;

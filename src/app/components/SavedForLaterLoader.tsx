@@ -5,11 +5,15 @@ import useBookmarkStore from "@/stores/useBookmarkStore";
 import List from "../../components/atoms/List";
 import SavedForLaterItem from "./SavedForLaterItem";
 
-function SavedForLaterContent() {
+function SavedForLaterLoader() {
   const storedInsights = useBookmarkStore((state) => state.bookmarks);
 
   if (!storedInsights || storedInsights.length <= 0) {
-    return <h4 className="font-sans capitalize">Explore some insights :)</h4>;
+    return (
+      <h4 className="flex items-center justify-center font-sans capitalize">
+        Explore New Insights :)
+      </h4>
+    );
   }
 
   const data =
@@ -29,4 +33,4 @@ function SavedForLaterContent() {
   );
 }
 
-export default SavedForLaterContent;
+export default SavedForLaterLoader;

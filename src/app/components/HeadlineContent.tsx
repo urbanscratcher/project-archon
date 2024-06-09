@@ -4,10 +4,8 @@ import ImageOverlayed from "../../components/atoms/ImageOverlayed";
 import Tag from "../../components/atoms/Tag";
 import LinkText from "../../components/molecules/LinkText";
 
-async function HeadlineContent() {
+async function HeadlineLoader() {
   const headline = await getHeadline();
-
-  console.log(headline);
 
   const data = {
     idx: headline.insight.idx,
@@ -16,8 +14,6 @@ async function HeadlineContent() {
     title: headline.insight.title,
     href: `/insights/${headline.insight.idx}`,
   };
-
-  console.log(data);
 
   return (
     <>
@@ -37,4 +33,4 @@ async function HeadlineContent() {
   );
 }
 
-export default HeadlineContent;
+export default HeadlineLoader;

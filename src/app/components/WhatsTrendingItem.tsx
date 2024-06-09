@@ -6,7 +6,7 @@ import Thumbnail from "../../components/atoms/Thumbnail";
 import AuthorRowOnlyName from "../../components/molecules/AuthorRowOnlyName";
 import LinkText from "../../components/molecules/LinkText";
 
-function TrendingInsightsListItem({ insight }: { insight: TrendingInsight }) {
+function WhatsTrendingItem({ insight }: { insight: TrendingInsight }) {
   const data = {
     idx: insight.idx,
     tagName: insight.topic.name,
@@ -47,4 +47,4 @@ function TrendingInsightsListItem({ insight }: { insight: TrendingInsight }) {
   );
 }
 
-export default TrendingInsightsListItem;
+export default WhatsTrendingItem;

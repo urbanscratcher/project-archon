@@ -8,7 +8,7 @@ import Thumbnail from "../../components/atoms/Thumbnail";
 import ViewAllButton from "../../components/atoms/ViewAllButton";
 import LinkText from "../../components/molecules/LinkText";
 
-async function EditorsPickContent() {
+async function EditorsPickLoader() {
   const covers = await getCovers();
 
   const data = {
@@ -67,4 +67,4 @@ async function EditorsPickContent() {
   );
 }
 
-export default EditorsPickContent;
+export default EditorsPickLoader;

@@ -3,7 +3,7 @@ import Link from "next/link";
 import List from "../../components/atoms/List";
 import ListItem from "../../components/atoms/ListItem";
 
-async function TopTopicsContent() {
+async function TopTopicsLoader() {
   const topics = await getTopics();
 
   const data = topics.data.map((topic) => {
@@ -47,4 +47,4 @@ async function TopTopicsContent() {
   );
 }
 
-export default TopTopicsContent;
+export default TopTopicsLoader;

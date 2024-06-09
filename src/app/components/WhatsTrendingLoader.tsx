@@ -1,10 +1,10 @@
 import { getTrendingInsights } from "@/services/trending.api";
 import { type TrendingInsight } from "@/types/Trending";
 import List from "../../components/atoms/List";
-import TrendingInsightsHead from "./TrendingInsightsHead";
-import TrendingInsightsListItem from "./TrendingInsightsListItem";
+import WhatsTrendingHead from "./WhatsTrendingHead";
+import WhatsTrendingItem from "./WhatsTrendingItem";
 
-async function WhatsTrendingContent() {
+async function WhatsTrendingLoader() {
   const trendingInsights = await getTrendingInsights();
 
   const data = {
@@ -21,12 +21,12 @@ async function WhatsTrendingContent() {
 
   return (
     <>
-      <TrendingInsightsHead insight={data.head} />
+      <WhatsTrendingHead insight={data.head} />
       <hr className="h-[1px] w-full border-0 bg-sky-700 sm:h-full sm:w-[1px]" />
       {data.restList.length > 0 && (
         <List vertical className="lg:block">
           {data.restList.map((insight: TrendingInsight) => (
-            <TrendingInsightsListItem
+            <WhatsTrendingItem
               key={`trendingInsights_${insight.idx}`}
               insight={insight}
             />
@@ -38,4 +38,4 @@ async function WhatsTrendingContent() {
   );
 }
 
-export default WhatsTrendingContent;
+export default WhatsTrendingLoader;

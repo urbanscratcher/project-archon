@@ -6,7 +6,7 @@ import AuthorRowWithAvatar from "../../components/molecules/AuthorRowWithAvatar"
 import DateTTRRow from "../../components/molecules/DateTTRRow";
 import LinkText from "../../components/molecules/LinkText";
 
-function TrendingInsightsHead({
+function WhatsTrendingHead({
   insight,
   className,
 }: {
@@ -48,4 +48,4 @@ function TrendingInsightsHead({
   );
 }
 
-export default TrendingInsightsHead;
+export default WhatsTrendingHead;

@@ -1,7 +1,7 @@
 import SectionContainer from "../../components/atoms/SectionContainer";
 import SectionHead from "../../components/atoms/SectionHead";
 import ViewAllButton from "../../components/atoms/ViewAllButton";
-import SavedForLaterContent from "./SavedForLaterContent";
+import SavedForLaterLoader from "./SavedForLaterLoader";
 
 function SavedForLaterSection() {
   return (
@@ -10,7 +10,7 @@ function SavedForLaterSection() {
         saved for later
         <ViewAllButton to="/bookmarks" />
       </SectionHead>
-      <SavedForLaterContent />
+      <SavedForLaterLoader />
     </SectionContainer>
   );
 }

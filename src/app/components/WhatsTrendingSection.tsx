@@ -2,7 +2,7 @@ import Box from "@/components/atoms/Box";
 import SectionContainer from "../../components/atoms/SectionContainer";
 import SectionHead from "../../components/atoms/SectionHead";
 import ViewAllButton from "../../components/atoms/ViewAllButton";
-import WhatsTrendingContent from "./WhatsTrendingContent";
+import WhatsTrendingLoader from "./WhatsTrendingLoader";
 
 function WhatsTrendingSection() {
   return (
@@ -17,7 +17,7 @@ function WhatsTrendingSection() {
             lg:grid-cols-[3fr_auto_2fr] lg:gap-4
             xl:lg:grid-cols-[3fr_auto_2fr_auto]`}
       >
-        <WhatsTrendingContent />
+        <WhatsTrendingLoader />
       </Box>
     </SectionContainer>
   );
