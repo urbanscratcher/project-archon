@@ -24,7 +24,7 @@ function SavedForLaterLoader() {
       {data.map((bookmark) => (
         <ListItem
           key={bookmark.idx}
-          className={`relative flex h-[550px] w-full content-center items-center justify-center overflow-hidden rounded-2xl`}
+          className={`relative hidden h-[480px] w-full content-center items-center justify-center overflow-hidden rounded-2xl first:flex sm:flex`}
         >
           <SavedForLaterItem idx={bookmark.idx} />
         </ListItem>

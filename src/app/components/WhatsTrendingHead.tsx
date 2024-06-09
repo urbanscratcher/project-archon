@@ -39,7 +39,7 @@ function WhatsTrendingHead({
         href={data.href}
         level={3}
         lineClamp={4}
-        className="lg:h2"
+        className="lg:h2 capitalize"
       />
       <p className="line-clamp-5">{data.summary}</p>
       <DateTTRRow createdAt={data.createdAt} />
