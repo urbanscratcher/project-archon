@@ -3,7 +3,7 @@
 import List from "@/components/atoms/List";
 import useBookmarkStore from "@/stores/useBookmarkStore";
 import SectionContainer from "../../../components/atoms/SectionContainer";
-import BookmarksContent from "./BookmarksContent";
+import BookmarksLoader from "./BookmarksLoader";
 
 function BookmarksSection() {
   const initialBookmarks = useBookmarkStore((state) => state.bookmarks);
@@ -16,7 +16,7 @@ function BookmarksSection() {
       </h1>
       <List>
         {initialBookmarks.map((b) => (
-          <BookmarksContent key={b.idx} idx={b.idx} />
+          <BookmarksLoader key={b.idx} idx={b.idx} />
         ))}
       </List>
     </SectionContainer>
