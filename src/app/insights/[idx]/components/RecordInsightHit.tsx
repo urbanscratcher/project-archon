@@ -4,7 +4,7 @@ import API_ENDPOINTS from "@/libs/configApiUrl";
 import { create } from "@/services/general.api";
 import { useEffect } from "react";
 
-function HitInsightPost({ idx }: { idx: number }) {
+function RecordInsightHit({ idx }: { idx: number }) {
   useEffect(() => {
     if (idx) {
       const url = `${API_ENDPOINTS.INSIGHTS}/${idx}/hits`;
@@ -15,4 +15,4 @@ function HitInsightPost({ idx }: { idx: number }) {
   return <></>;
 }
 
-export default HitInsightPost;
+export default RecordInsightHit;

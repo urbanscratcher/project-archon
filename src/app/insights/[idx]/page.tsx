@@ -1,13 +1,13 @@
-import HitInsightPost from "./components/HitInsightPost";
-import InsightPostContent from "./components/InsightPostContent";
+import InsightPostLoader from "./components/InsightPostLoader";
+import RecordInsightHit from "./components/RecordInsightHit";
 
 function InsightPage({ params }: { params: { idx: number } }) {
   const { idx } = params;
 
   return (
     <main className="py-[96px]">
-      <HitInsightPost idx={idx} />
-      <InsightPostContent idx={idx} />
+      <RecordInsightHit idx={idx} />
+      <InsightPostLoader idx={idx} />
     </main>
   );
 }

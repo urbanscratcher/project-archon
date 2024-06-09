@@ -1,10 +1,10 @@
+import Box from "@/components/atoms/Box";
+import AuthorWithTopicsRow from "@/components/molecules/AuthorWithTopicsRow";
 import { getAuthor } from "@/services/authors.api";
 import { type Author } from "@/types/Author";
 import type { Insight } from "@/types/Insight";
-import Box from "../../../../components/atoms/Box";
-import AuthorWithTopicsRow from "../../../../components/molecules/AuthorWithTopicsRow";
 
-async function AuthorSummaryContent({ insight }: { insight: Insight }) {
+async function AuthorSummaryLoader({ insight }: { insight: Insight }) {
   const author: Author = await getAuthor(insight.createdBy.idx);
 
   return (
@@ -15,4 +15,4 @@ async function AuthorSummaryContent({ insight }: { insight: Insight }) {
   );
 }
 
-export default AuthorSummaryContent;
+export default AuthorSummaryLoader;

@@ -1,5 +1,5 @@
 import SectionContainer from "../../../../components/atoms/SectionContainer";
-import InsightsByAuthorLoader from "./InsightsByAuthorContent";
+import InsightsByAuthorLoader from "./InsightsByAuthorLoader";
 
 function InsightsByAuthorSection({ idx }: { idx: number }) {
   return (

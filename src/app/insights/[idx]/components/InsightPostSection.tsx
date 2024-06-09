@@ -5,7 +5,7 @@ import DateTTRRow from "@/components/molecules/DateTTRRow";
 import type { Insight } from "@/types/Insight";
 import { IoLink } from "react-icons/io5";
 import SectionContainer from "../../../../components/atoms/SectionContainer";
-import AuthorSummaryContent from "./AuthorSummaryContent";
+import AuthorSummaryLoader from "./AuthorSummaryLoader";
 
 function InsightPostSection({ insight }: { insight: Insight }) {
   return (
@@ -39,7 +39,7 @@ function InsightPostSection({ insight }: { insight: Insight }) {
           <IoLink className="text-lg text-g-700" />
         </button>
         {/* author info */}
-        <AuthorSummaryContent insight={insight} />
+        <AuthorSummaryLoader insight={insight} />
       </Box>
     </SectionContainer>
   );

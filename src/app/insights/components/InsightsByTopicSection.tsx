@@ -1,10 +1,10 @@
 import SectionContainer from "../../../components/atoms/SectionContainer";
-import InsightsByTopicContent from "./InsightsByTopicContent";
+import InsightsByTopicLoader from "./InsightsByTopicLoader";
 
 function InsightsByTopicSection() {
   return (
     <SectionContainer>
-      <InsightsByTopicContent />
+      <InsightsByTopicLoader />
     </SectionContainer>
   );
 }

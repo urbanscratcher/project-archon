@@ -2,7 +2,7 @@ import { getTopics } from "@/services/topics.api";
 import InsightsList from "./InsightsList";
 import TopicsNavbar from "./TopicsNavbar";
 
-async function InsightsByTopicContent() {
+async function InsightsByTopicLoader() {
   const topics = await getTopics();
 
   return (
@@ -13,4 +13,4 @@ async function InsightsByTopicContent() {
   );
 }
 
-export default InsightsByTopicContent;
+export default InsightsByTopicLoader;

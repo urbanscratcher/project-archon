@@ -2,7 +2,7 @@ import RelatedSection from "@/components/organisms/RelatedSection";
 import { getInsight } from "@/services/insights.api";
 import InsightPostSection from "./InsightPostSection";
 
-async function InsightPostContent({ idx }: { idx: number }) {
+async function InsightPostLoader({ idx }: { idx: number }) {
   const insight = await getInsight(idx);
   return (
     <>
@@ -12,4 +12,4 @@ async function InsightPostContent({ idx }: { idx: number }) {
   );
 }
 
-export default InsightPostContent;
+export default InsightPostLoader;
