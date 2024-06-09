@@ -1,4 +1,5 @@
 import AuthorDetailSection from "@/app/authors/[idx]/components/AuthorDetailSection";
+import Toaster from "@/components/Toaster";
 import MainSideContainer from "@/components/atoms/MainSideContainer";
 import PageContainer from "@/components/atoms/PageContainer";
 import RightSideContainer from "@/components/atoms/RightSideContainer";
