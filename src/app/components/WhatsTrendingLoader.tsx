@@ -16,7 +16,7 @@ async function WhatsTrendingLoader() {
   };
 
   if (!data?.head) {
-    return;
+    return null;
   }
 
   return (

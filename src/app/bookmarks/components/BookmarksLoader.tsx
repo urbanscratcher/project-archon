@@ -18,7 +18,7 @@ function BookmarksLoader({ idx }: { idx: number }) {
   }
 
   if (!data) {
-    return;
+    return null;
   }
 
   return <InsightsItem key={data.idx + ""} insight={data} summary />;

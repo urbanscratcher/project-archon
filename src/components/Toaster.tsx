@@ -9,15 +9,6 @@ import {
 } from "react-icons/io5";
 import Box from "./atoms/Box";
 
-export type ToasterType = "warn" | "info" | "confirm";
-
-export type ToasterProps = {
-  onClose?: () => void;
-  show: boolean;
-  messageType: ToasterType;
-  mainMessage: string;
-  subMessage?: string;
-};
 function getIcon(messageType: ToasterType) {
   switch (messageType) {
     case "warn":
@@ -35,9 +26,17 @@ function getIcon(messageType: ToasterType) {
   }
 }
 
+export type ToasterType = "warn" | "info" | "confirm";
+
+export type ToasterProps = {
+  onClose?: () => void;
+  messageType: ToasterType;
+  mainMessage: string;
+  subMessage?: string;
+};
+
 function Toaster({
   onClose,
-  show,
   messageType,
   mainMessage,
   subMessage,
@@ -47,29 +46,41 @@ function Toaster({
 
   // caller controls visibility
   useEffect(() => {
-    if (show) {
-      setClosing(false);
+    let timer: NodeJS.Timeout;
+    timer = setTimeout(() => {
       setVisible(true);
-    }
-  }, [show]);
+      setClosing(false);
+    }, 150);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
-    onClose && onClose();
     if (visible) {
       timer = setTimeout(() => {
         setClosing(true);
+        onClose && onClose();
       }, 1500);
     }
     return () => clearTimeout(timer);
   }, [visible, onClose]);
 
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (visible && closing) {
+      timer = setTimeout(() => {
+        onClose && onClose();
+      }, 1500);
+    }
+    return () => clearTimeout(timer);
+  }, [visible, closing, onClose]);
+
   const icon = getIcon(messageType);
 
   const closeHandler = () => {
-    onClose && onClose();
     setClosing(true);
     setVisible(false);
+    onClose && onClose();
   };
 
   return (

@@ -12,7 +12,7 @@ async function InsightsByAuthorLoader({ idx }: { idx: number }) {
   });
 
   if (insights?.total <= 0) {
-    return;
+    return null;
   }
 
   const data = {

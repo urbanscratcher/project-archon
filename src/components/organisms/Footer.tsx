@@ -6,8 +6,8 @@ import {
   IoLogoPinterest,
 } from "react-icons/io5";
 import SectionHead from "../atoms/SectionHead";
+import NewsletterForm from "../molecules/NewsletterForm";
 import Logo from "./Logo";
-import NewsletterForm from "./NewsletterForm";
 
 function Footer() {
   const menu = [

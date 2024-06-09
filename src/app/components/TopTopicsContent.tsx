@@ -16,7 +16,7 @@ async function TopTopicsLoader() {
   });
 
   if (topics.total <= 0) {
-    return;
+    return null;
   }
 
   return (

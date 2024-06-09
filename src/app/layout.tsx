@@ -1,3 +1,4 @@
+import Toasters from "@/components/Toasters";
 import Footer from "@/components/organisms/Footer";
 import GNB from "@/components/organisms/GNB";
 import ReactQueryProvider from "@/libs/ReactQueryProvider";
@@ -31,6 +32,7 @@ export default function RootLayout({
     >
       <body className={`${figtree.className} relative`}>
         <ReactQueryProvider>
+          <Toasters />
           <GNB />
           {children}
           <Footer />

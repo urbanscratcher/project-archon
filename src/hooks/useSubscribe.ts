@@ -1,5 +1,5 @@
 import { sendEmail } from "@/actions/sendEmail";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 
 type SubmitSuccess = {
   status: "success";
@@ -15,8 +15,6 @@ type SubmitError = {
 export type SubmitState = SubmitSuccess | SubmitError | null;
 
 export default function useSubscribe() {
-  const queryClient = useQueryClient();
-
   const { isPending, mutate, mutateAsync, isError } = useMutation({
     mutationFn: sendEmail,
     onSuccess: (data) => {
