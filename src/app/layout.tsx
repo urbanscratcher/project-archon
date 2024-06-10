@@ -9,8 +9,15 @@ import "./globals.css";
 const figtree = Figtree({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--figtree",
 });
-const dmSerif = DM_Serif_Display({ weight: "400", subsets: ["latin"] });
+
+const dmSerif = DM_Serif_Display({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--dmSerif",
+  fallback: ["Geogia"],
+});
 
 export const metadata: Metadata = {
   title: "ArchOn",
@@ -34,7 +41,9 @@ export default function RootLayout({
       lg:text-[0.9375rem]/[1.5]
       xl:text-[1.0625rem]/[1.75]"
     >
-      <body className={`${figtree.className} relative`}>
+      <body
+        className={`${figtree.className} ${figtree.variable} ${dmSerif.variable} relative`}
+      >
         <ReactQueryProvider>
           <Toasters />
           <GNB />

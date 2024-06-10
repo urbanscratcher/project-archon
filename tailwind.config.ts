@@ -92,8 +92,12 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["Figtree", ...defaultTheme.fontFamily.sans],
-        serif: ["DM Serif Display", ...defaultTheme.fontFamily.serif],
+        sans: ["Figtree", "var(--figtree)", ...defaultTheme.fontFamily.sans],
+        serif: [
+          "DM Serif Display",
+          "var(--dmSerif)",
+          ...defaultTheme.fontFamily.serif,
+        ],
       },
     },
   },
