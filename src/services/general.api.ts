@@ -7,6 +7,7 @@ export async function getList(url: string) {
     headers: {
       accept: "application/json",
     },
+    next: { revalidate: 300 },
   };
 
   try {
@@ -80,6 +81,7 @@ export async function getOne(url: string) {
     headers: {
       accept: "application/json",
     },
+    next: { revalidate: 300 },
   };
 
   try {
