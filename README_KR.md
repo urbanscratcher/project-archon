@@ -22,31 +22,30 @@ Next.js 연습을 위해 진행한 개인 프로젝트입니다. 순수 JavaScri
 - Next.js 방식으로 에러, 로딩 처리를 해 보았습니다.
 
 ## 시연
-1. 메인 화면
-[archon-main2.webm](https://github.com/urbanscratcher/project-archon/assets/17016494/b82b667a-41f4-4071-9a46-c546f73006b7)
 
+1. 메인 화면
+<video src="https://github.com/urbanscratcher/project-archon/assets/17016494/b82b667a-41f4-4071-9a46-c546f73006b7" controls></video>
 
 2. 반응형 디자인 (태블릿, 모바일)
-[archon-responsive.webm](https://github.com/urbanscratcher/project-archon/assets/17016494/495df001-0003-4d1f-a04c-82b8bcb2e3ba)
-
+<video src="https://github.com/urbanscratcher/project-archon/assets/17016494/495df001-0003-4d1f-a04c-82b8bcb2e3ba" controls></video>
 
 3. 뉴스레터 구독
-[archon-newsletter.webm](https://github.com/urbanscratcher/project-archon/assets/17016494/b55813c8-8f2d-405a-9b8c-07d75f20a411)
+<video src="https://github.com/urbanscratcher/project-archon/assets/17016494/b55813c8-8f2d-405a-9b8c-07d75f20a411" controls></video>
 
 4. 토픽 별 아티클 목록
-[Uploading archon-insights.webm…]()
+<video src="https://github.com/urbanscratcher/project-archon/assets/17016494/c51f0242-a75a-49a2-bba4-24f0e9ee157f" controls></video>
 
 5. 북마크
-[archon-bookmark.webm](https://github.com/urbanscratcher/project-archon/assets/17016494/ce7f8009-6132-4599-b7f6-167f37c63b60)
+<video src="https://github.com/urbanscratcher/project-archon/assets/17016494/ce7f8009-6132-4599-b7f6-167f37c63b60" controls></video>
 
 6. 랜덤 기사 추천
-[archon-inspirations.webm](https://github.com/urbanscratcher/project-archon/assets/17016494/7644b436-7463-47fd-9f6e-1f32bdd594eb)
+<video src="https://github.com/urbanscratcher/project-archon/assets/17016494/7644b436-7463-47fd-9f6e-1f32bdd594eb" controls></video>
 
 7. 저자 목록 페이지네이션
-[archon-arthors.webm](https://github.com/urbanscratcher/project-archon/assets/17016494/937ce45b-cc3e-4caa-99ab-3e512b97a4ae)
+<video src="https://github.com/urbanscratcher/project-archon/assets/17016494/937ce45b-cc3e-4caa-99ab-3e512b97a4ae" controls></video>
 
 8. 링크 공유
-[archon-link.webm](https://github.com/urbanscratcher/project-archon/assets/17016494/a8c16ea3-224d-4f03-92ca-83ba323e7678)
+<video src="https://github.com/urbanscratcher/project-archon/assets/17016494/a8c16ea3-224d-4f03-92ca-83ba323e7678" controls></video>
 
 
 
