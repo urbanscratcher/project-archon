@@ -35,7 +35,9 @@ function InsightPostSection({ insight }: { insight: Insight }) {
           className="content text-g-800"
           dangerouslySetInnerHTML={{ __html: insight?.content || "" }}
         />
-        <ShareButton link={`http://localhost:3000/insight/${insight.idx}`} />
+        <ShareButton
+          link={`https://project-archon.vercel.app/insights/${insight.idx}`}
+        />
         {/* author info */}
         <AuthorSummaryLoader insight={insight} />
       </Box>

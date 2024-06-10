@@ -8,6 +8,7 @@ function ImageWrap({ src, ...props }: ImageProps) {
 
   return (
     <Image
+      className="bg-g-200"
       src={source}
       {...props}
       alt={props.alt}
