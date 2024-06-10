@@ -80,19 +80,19 @@ select:-webkit-autofill:focus {
   }
 
   .content h2 {
-    @apply content-accent pb-4 font-sans font-medium;
+    @apply content-accent pb-4 font-sans font-semibold;
   }
 
   .content h3 {
-    @apply content-accent pb-2 pt-6 font-sans font-medium;
+    @apply content-accent pb-2 pt-6 font-sans font-semibold;
   }
 
   .content h4 {
-    @apply content-accent pb-1 pt-4 font-sans font-normal;
+    @apply content-accent pb-1 pt-4 font-sans font-medium;
   }
 
   .content h5 {
-    @apply content-accent pb-1 pt-2 font-sans;
+    @apply content-accent pb-1 pt-2 font-sans font-normal;
   }
 
   .content p {
