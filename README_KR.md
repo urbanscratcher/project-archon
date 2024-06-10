@@ -54,6 +54,7 @@ Next.js 연습을 위해 진행한 개인 프로젝트입니다. 순수 JavaScri
 ### 프론트엔드
 
 - **프레임워크**: Next.js
+- **언어**: TypeScript
 - **스타일링**: TailwindCSS
 - **타입 체크**: zod
 - **전역 상태 관리**: zustand
