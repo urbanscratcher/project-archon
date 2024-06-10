@@ -30,9 +30,9 @@ function InsightPostSection({ insight }: { insight: Insight }) {
         />
       </Box>
       {/* content + author info */}
-      <Box vertical className="mx-auto my-12 max-w-5xl">
+      <Box vertical className="mx-auto my-12 max-w-3xl 2xl:max-w-4xl">
         <div
-          className="text-sky-700"
+          className="content text-g-800"
           dangerouslySetInnerHTML={{ __html: insight?.content || "" }}
         />
         <ShareButton link={`http://localhost:3000/insight/${insight.idx}`} />
