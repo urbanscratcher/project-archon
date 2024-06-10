@@ -34,7 +34,7 @@ export default function RootLayout({
       lg:text-[0.9375rem]/[1.5]
       xl:text-[1.0625rem]/[1.75]"
     >
-      <body className={`${figtree.className} ${dmSerif.className} relative`}>
+      <body className={`${figtree.className} relative`}>
         <ReactQueryProvider>
           <Toasters />
           <GNB />
