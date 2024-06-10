@@ -73,7 +73,6 @@ Next.js 연습을 위해 진행한 개인 프로젝트입니다. 순수 JavaScri
 
 ### 개발 환경
 - **소스 코드**: GitHub
-- **빌드 도구**: Vite
 - **패키지 관리**: pnpm
 - **기타**: VSCode, Eslint, Prettier
 
