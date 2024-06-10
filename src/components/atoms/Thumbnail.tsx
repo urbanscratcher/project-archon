@@ -1,8 +1,5 @@
 "use client";
 
-/**
- * [ ] UI - 북마크 버튼과 이미지 컴포넌트 분리
- */
 import useBookmarkStore from "@/stores/useBookmarkStore";
 import useToasterStore from "@/stores/useToastStore";
 import { ImageProps } from "next/image";
@@ -94,6 +91,7 @@ function Thumbnail({
         <div
           className={`
           relative
+          bg-g-100
           ${className || ""}
           ${rounded === "xl" ? "rounded-xl" : "rounded-2xl"} 
           ${
