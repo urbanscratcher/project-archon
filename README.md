@@ -124,7 +124,7 @@ This is a personal project I undertook to practice Next.js. It is a renewal of t
 - Ultimately, I concluded that Next.js is better suited for projects with high complexity due to the need for SEO. It also highlighted the need for a solid understanding of React.
 - Encountered issues with APIs not working as expected, requiring further adjustments. Creating dummy content and debugging the admin site felt like an endless task, leading me to wrap up the project as is.
 - Without a separate mobile plan in Figma for the Archon project, it lacked a sense of scale. As a result, the text and margin sizes were inconsistent. The iterative process of building, checking on mobile, redesigning, and debugging was highly inefficient, reaffirming that design and planning must come first.
-- Generated dummy content using ChatGPT 4.0 and Gemini, which was extremely useful.
+- Generated dummy content using ChatGPT 4o and Gemini, which was extremely useful.
 
 ## Next
 
