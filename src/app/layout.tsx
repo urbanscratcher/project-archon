@@ -3,10 +3,14 @@ import GNB from "@/components/organisms/GNB";
 import Toasters from "@/components/organisms/Toasters";
 import ReactQueryProvider from "@/libs/ReactQueryProvider";
 import { type Metadata } from "next";
-import { Figtree } from "next/font/google";
+import { DM_Serif_Display, Figtree } from "next/font/google";
 import "./globals.css";
 
-const figtree = Figtree({ subsets: ["latin"] });
+const figtree = Figtree({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+});
+const dmSerif = DM_Serif_Display({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "ArchOn",
@@ -30,7 +34,7 @@ export default function RootLayout({
       lg:text-[0.9375rem]/[1.5]
       xl:text-[1.0625rem]/[1.75]"
     >
-      <body className={`${figtree.className} relative`}>
+      <body className={`${figtree.className} ${dmSerif.className} relative`}>
         <ReactQueryProvider>
           <Toasters />
           <GNB />
