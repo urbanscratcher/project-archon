@@ -16,6 +16,7 @@ const nextConfig = {
       process.env.NEXT_PUBLIC_TRENDING_INSIGHTS_ENDPOINT,
     NEXT_PUBLIC_TRENDING_AUTHORS_ENDPOINT:
       process.env.NEXT_PUBLIC_TRENDING_AUTHORS_ENDPOINT,
+    NEXT_PUBLIC_HOST: process.env.NEXT_PUBLIC_HOST,
   },
   images: {
     formats: ["image/webp"],

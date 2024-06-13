@@ -1,4 +1,6 @@
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+export const HOST = process.env.NEXT_PUBLIC_HOST;
+
 const TOPICS_ENDPOINT = process.env.NEXT_PUBLIC_TOPICS_ENDPOINT;
 const USERS_ENDPOINT = process.env.NEXT_PUBLIC_USERS_ENDPOINT;
 const COVERS_ENDPOINT = process.env.NEXT_PUBLIC_COVERS_ENDPOINT;
@@ -12,6 +14,9 @@ const TRENDING_INSIGHTS_ENDPOINT =
 const TRENDING_AUTHORS_ENDPOINT =
   process.env.NEXT_PUBLIC_TRENDING_AUTHORS_ENDPOINT;
 
+if (!HOST) {
+  throw new Error("NEXT_PUBLIC_HOST is not defined");
+}
 if (!API_BASE_URL) {
   throw new Error("NEXT_PUBLIC_API_BASE_URL is not defined");
 }

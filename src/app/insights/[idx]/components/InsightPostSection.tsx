@@ -3,6 +3,7 @@ import ImageWrap from "@/components/atoms/ImageWrap";
 import SectionContainer from "@/components/atoms/SectionContainer";
 import Tag from "@/components/atoms/Tag";
 import DateTTRRow from "@/components/molecules/DateTTRRow";
+import { HOST } from "@/libs/configApiUrl";
 import type { Insight } from "@/types/Insight";
 import AuthorSummaryLoader from "./AuthorSummaryLoader";
 import ShareButton from "./ShareButton";
@@ -35,9 +36,7 @@ function InsightPostSection({ insight }: { insight: Insight }) {
           className="content text-g-800"
           dangerouslySetInnerHTML={{ __html: insight?.content || "" }}
         />
-        <ShareButton
-          link={`https://project-archon.vercel.app/insights/${insight.idx}`}
-        />
+        <ShareButton link={`${HOST}/insights/${insight.idx}`} />
         {/* author info */}
         <AuthorSummaryLoader insight={insight} />
       </Box>
