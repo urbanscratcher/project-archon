@@ -1,112 +1,133 @@
-# Magazine Website Project
+# Archon v2
 
-- This is a personal project on a magazine website to practice Next.js
+March 2024 ~ June 2024 (3.5 months)
 
-## Naming convention
+This is a personal project I undertook to practice Next.js. It is a renewal of the Archon V1 project, which was originally written purely in JavaScript.
 
-- Components rendering children
-  - \_Wrapper: have 1-2 unique styles
-  - \_Box: have simple styles related to position. no whitespacing
-  - \_Container: have complex/complete styles like whitespace, border, position, etc
-  - \_Head: head of something
-  - \_Grid: grid layout
-  - Section\_: section el.
-  - List\_: ul el.
-  - Item\_: li el.
-- Components composing elements
-  - \_Section: section el. complex/complete composition happens
-  - \_Content: async component including **data**. complex/complete composition. reduce the level of abstraction. avoid deepening component layers
-  - \_List: ul el.
-  - \_Item: li el.
-- Solo components
-  - \_Text: styled text component. required 'text' prop
-  - \_Label: styled label component. required 'label' prop
-- Note
-  - I divided components following atomic design as small as possible as practice, even not reusable one
+## Features
 
-## Structure of Components
+- Redesigned and reimplemented the entire application, including the design, content hierarchy, category-based articles, bookmarks, and article recommendations, with several improvements.
+- **Navigation Improvement**: Enhanced the operation of the main menu and topic menu.
+- **Top Messages**: Display top messages based on user events, such as adding or removing bookmarks, or clicking the link copy button.
+- **Newsletter Subscription Confirmation**: Upon entering information in the newsletter form, a confirmation email is sent to the user.
+- **Improved Article Recommendation Logic**: The list of trending articles is based on the actual number of clicks by users, recommending the most clicked articles in the past three months.
+- **Enhanced Responsive Design**: Improved the design to be more mobile-friendly.
 
-- Piece of UI that has its own data, logic, appearance (how it works and looks)
-- Components can be reused, nested inside each other, and pass data between them
-- 4 Principles of making a component: checklist
-  1. Logical Separation of Content/layout
-  - Does the component contain pieces of content or layout that don’t belong together?
-  2. Reusability
-  - Is it possible to reuse part of the component?
-  - Do you want or need to reuse it?
-  3. Responsibilities/Complexity
-  - Is the component doing too many different things?
-  - Does the component rely on too many props?
-  - Does the component have too many pieces of state and/or effects?
-  - Is the code, including JSX, too complex/confusing?
-  4. Coding Style
-  - Do you prefer smaller functions/components?
-- Atomic Design
-  1. Subatomic particles - design system
-  2. Atoms - unit
-  3. Molecules - row, item, 1 function(SRP)
-  4. Organisms - list, card, more feature-oriented, multiple functions
-  5. Templates - standardized layouts for organizing
-  6. Pages
+## Technical Focus
 
-/\*
-:root {
-Font Sizes
---h0-xs: 2.8rem;
---h1-xs: 2.1rem;
---h2-xs: 1.6rem;
---h3-xs: 1.4rem;
---body-m-xs: 1.3rem;
---body-s-xs: 1.2rem;
---body-xs-xs: 1.1rem;
+- Utilized SSR (Server-Side Rendering) with Next.js and focused on the distinction between CSR (Client-Side Rendering) components. Set the `revalidate` option to 5 minutes for data fetching to provide the latest data to new users requesting the page within that timeframe.
+- Considered how to separate and structure UI components during refactoring. Created feature-based components within the app folder and shared components outside of it. In the shared components folder, components were categorized into atoms, molecules, and organisms.
+- While borrowing the theme from Archon V1, I made slight changes to styling, such as the navigation bar, and focused on responsive design.
+- Implemented a toast feature to display top messages. Managed adding and removing multiple messages with `zustand`, allowing one component to manage them. Although not 100% stable, it provided a deeper understanding of data structures and React component operations.
+- Used Next.js server actions and `react-hook-form` together for the newsletter subscription form and implemented email sending.
+- Handled error and loading processing in the Next.js way.
 
---h1-xl: 6.6rem;
---h1-m: 4.4rem;
---h1-s: 3rem;
---h1-spacing-xl: -0.05rem;
---h2-xl: 5.3rem;
---h2-m: 3.533rem;
---h2-s: 2.35rem;
---h2-spacing-xl: 0px;
---h3-xl: 3.8rem;
---h3-m: 2.8rem;
---h3-s: 1.8666rem;
---h3-spacing-xl: 0.025rem;
---h4-xl: 2.6rem;
---h4-m: 2.1rem;
---h4-s: 1.5rem;
---h4-spacing-xl: 0px;
+## Demo
 
---body1-xl: 1.7rem;
---body1-m: 1.5rem;
---body1-s: 1.3rem;
---body1-spacing-xl: 0.05rem;
---body2-xl: 1.5rem;
---body2-m: 1.3rem;
---body2-s: 1.2rem;
---body2-spacing-xl: 0.025rem;
---body2-spacing-m: 0.01rem;
+1. Main Screen
+<video src="https://github.com/urbanscratcher/project-archon/assets/17016494/b82b667a-41f4-4071-9a46-c546f73006b7" controls></video>
 
---button-xl: 1.5rem;
---button-m: 1.3rem;
---button-s: 1.1rem;
---button-spacing-xl: 0.125rem;
---button-spacing-s: 0.08rem;
+2. Responsive Design (Tablet, Mobile)
+<video src="https://github.com/urbanscratcher/project-archon/assets/17016494/495df001-0003-4d1f-a04c-82b8bcb2e3ba" controls></video>
 
---caption-xl: 1.3rem;
---caption-m: 1.2rem;
---caption-s: 1.1rem;
---caption-spacing-xl: 0.04rem;
+3. Newsletter Subscription
+<video src="https://github.com/urbanscratcher/project-archon/assets/17016494/b55813c8-8f2d-405a-9b8c-07d75f20a411" controls></video>
 
-Sizes
---size-xs: 0.4rem;
---size-s: 0.8rem;
---size-m: 1.6rem;
---size-l: 3.2rem;
---size-xl: 4.8rem;
---size-2xl: 6.4rem;
+4. Topic-Based Article List
+<video src="https://github.com/urbanscratcher/project-archon/assets/17016494/c51f0242-a75a-49a2-bba4-24f0e9ee157f" controls></video>
 
-Radius
---rad-img: 1.6rem;
-}
-\*/
+5. Bookmark
+<video src="https://github.com/urbanscratcher/project-archon/assets/17016494/ce7f8009-6132-4599-b7f6-167f37c63b60" controls></video>
+
+6. Random Article Recommendation
+<video src="https://github.com/urbanscratcher/project-archon/assets/17016494/7644b436-7463-47fd-9f6e-1f32bdd594eb" controls></video>
+
+7. Author List Pagination
+<video src="https://github.com/urbanscratcher/project-archon/assets/17016494/937ce45b-cc3e-4caa-99ab-3e512b97a4ae" controls></video>
+
+8. Link Sharing
+<video src="https://github.com/urbanscratcher/project-archon/assets/17016494/a8c16ea3-224d-4f03-92ca-83ba323e7678" controls></video>
+
+## Tech Stack
+
+### Frontend
+
+- **Framework**: Next.js
+- **Styling**: TailwindCSS
+- **Type Checking**: zod
+- **Global State Management**: zustand
+- **Remote State Management**: tanstack/react-query
+- **Miscellaneous**: react-hook-form, nodemailer
+
+### Backend
+
+#### Archon API
+- Same as Archon-cms. [GitHub Repository](https://github.com/urbanscratcher/project-archon-api)
+- **Library**: Express, Node.js
+- **Database**: MariaDB
+- **Logging**: Pino, Pino-http
+- **Security**: Express-rate-limit, Xss, Helmet, Hpp, Bcrypt, etc.
+- **API Testing**: Postman
+- **Image Service**: Cloudinary
+
+### Development Environment
+
+- **Source Code**: GitHub
+- **Build Tool**: Vite
+- **Package Management**: pnpm
+- **Miscellaneous**: VSCode, Eslint, Prettier
+
+### Cloud Services & Deployment
+
+- **Image Hosting**: Cloudinary
+- **Backend Hosting & Deployment**: Oracle Cloud, Docker, Nginx (connected to a personal domain)
+- **Frontend Hosting & Deployment**: Vercel
+
+## Componentization
+
+### Naming Conventions
+
+- Server components are suffixed with `Loader` to indicate that the component loads data asynchronously.
+- Created basic components such as List and Box (div) for readability.
+
+### Component Separation Principles
+
+- A component is a UI piece that includes its own data, logic, and appearance. Components are reusable, can be nested, and can exchange data.
+- Considered the following four principles for creating components:
+  1. Logical separation of content/layout:
+     - Does the component include unrelated content or layout?
+  2. Reusability:
+     - Can any part of the component be reused?
+     - Do you want or need to reuse it?
+  3. Responsibility/Complexity:
+     - Is the component doing too much?
+     - Does the component depend on too many props?
+     - Does the component have too much state or effects?
+     - Is the code, especially JSX, too complex or confusing?
+  4. Coding Style:
+     - Do you prefer smaller functions/components?
+
+### Atomic Design
+
+- Attempted to define and categorize components according to atomic design. Focused on components at the levels of Atoms, Molecules, and Organisms.
+  1. Subatomic particles - Tokens of the design system (defined through TailwindCSS)
+  2. Atoms - Smallest indivisible units
+  3. Molecules - Components with a single function (SRP) such as rows or items
+  4. Organisms - Components with multiple functions such as lists or cards
+  5. Templates, Pages - Next.js's page.tsx and layout.tsx (thus omitted in this project)
+
+---
+
+## Reflection
+
+- This project was a tough one due to the separation between server components and client components in Next.js. Despite breaking down components, separating them between server and client made naming difficult and made the overall structure feel less intuitive due to a deep tree structure. Questions like "What happens when a server component contains a client component and vice versa?" were constant.
+- Ultimately, I concluded that Next.js is better suited for projects with high complexity due to the need for SEO. It also highlighted the need for a solid understanding of React.
+- Encountered issues with APIs not working as expected, requiring further adjustments. Creating dummy content and debugging the admin site felt like an endless task, leading me to wrap up the project as is.
+- Without a separate mobile plan in Figma for the Archon project, it lacked a sense of scale. As a result, the text and margin sizes were inconsistent. The iterative process of building, checking on mobile, redesigning, and debugging was highly inefficient, reaffirming that design and planning must come first.
+- Generated dummy content using ChatGPT 4o and Gemini, which was extremely useful.
+
+## Next
+
+- Want to explore Next.js's image optimization features further.
+- Plan to implement skeleton UI for smoother loading.
+- Aim to incorporate more mobile or tablet-specific motions for interactions.
