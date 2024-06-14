@@ -1,11 +1,11 @@
 services:
   web-archon:
+    platform: linux/amd64
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        - ENV_MODE=production
+    image: urbanscratcher/web-archon:latest
     ports:
       - "3001:3000"
-    env_file:
-      - .env
+    volumes:
+      - ./.env:/usr/src/app/.env
