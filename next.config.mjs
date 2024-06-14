@@ -2,6 +2,7 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
+  output: "standalone",
   env: {
     NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
     NEXT_PUBLIC_TOPICS_ENDPOINT: process.env.NEXT_PUBLIC_TOPICS_ENDPOINT,
