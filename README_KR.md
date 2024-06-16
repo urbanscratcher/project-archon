@@ -1,4 +1,5 @@
 # Archon v2
+[사이트 바로가기](https://archon.placidgull.com)
 
 2024년 3월 ~ 6월 (3.5개월)
 
@@ -78,8 +79,8 @@ Next.js 연습을 위해 진행한 개인 프로젝트입니다. 순수 JavaScri
 
 ### 클라우드 서비스 및 배포
 - **이미지 호스팅**: Cloudinary
-- **백엔드 호스팅 및 배포**: Oracle Cloud, Docker, Nginx (개인 도메인으로 연결)
-- **프론트엔드 호스팅 및 배포**: Vercel
+- **백엔드 호스팅 및 배포**: Oracle Cloud, Docker, Nginx (개인 서브도메인으로 연결)
+- **프론트엔드 호스팅 및 배포**: Oracle Cloud, Docker, Docker Hub, Nginx (개인 서브도메인으로 연결)
 
 ## 컴포넌트화
 
