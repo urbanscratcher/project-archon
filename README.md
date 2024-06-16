@@ -1,26 +1,27 @@
 # Archon v2
+[Visit](https://archon.placidgull.com)
 
 March 2024 ~ June 2024 (3.5 months)
 
-This is a personal project I undertook to practice Next.js. It is a renewal of the Archon V1 project, which was originally written purely in JavaScript.
+This is a personal project I undertook to practice Next.js. It is a renewal of the Archon V1 project, which was originally written in vanilla JavaScript.
 
 ## Features
 
-- Redesigned and reimplemented the entire application, including the design, content hierarchy, category-based articles, bookmarks, and article recommendations, with several improvements.
-- **Navigation Improvement**: Enhanced the operation of the main menu and topic menu.
-- **Top Messages**: Display top messages based on user events, such as adding or removing bookmarks, or clicking the link copy button.
+- Reimplemented the entire application, including the design, content hierarchy, category-based articles, bookmarks, and article recommendations, with several other improvements.
+- **Navigation Improvement**: Improved the behavior of the main menu and topic menu.
+- **Top Messages**: Displayed top messages based on user events, such as adding or removing bookmarks, or clicking the link copy button.
 - **Newsletter Subscription Confirmation**: Upon entering information in the newsletter form, a confirmation email is sent to the user.
-- **Improved Article Recommendation Logic**: The list of trending articles is based on the actual number of clicks by users, recommending the most clicked articles in the past three months.
-- **Enhanced Responsive Design**: Improved the design to be more mobile-friendly.
+- **Improved Article Recommendation Logic**: The trending article list is shown based on the actual number of clicks by users, which reflects the most clicked articles in the past 3 months.
+- **Responsive Design**: Improved the design to be more mobile-friendly.
 
 ## Technical Focus
 
-- Utilized SSR (Server-Side Rendering) with Next.js and focused on the distinction between CSR (Client-Side Rendering) components. Set the `revalidate` option to 5 minutes for data fetching to provide the latest data to new users requesting the page within that timeframe.
+- Utilized SSR (Server-Side Rendering) with Next.js and focused on distinguishing CSR (Client-Side Rendering) components. Set the `revalidate` option to 5 minutes for data fetching to provide the latest data to new users requesting the page within that timeframe.
 - Considered how to separate and structure UI components during refactoring. Created feature-based components within the app folder and shared components outside of it. In the shared components folder, components were categorized into atoms, molecules, and organisms.
-- While borrowing the theme from Archon V1, I made slight changes to styling, such as the navigation bar, and focused on responsive design.
-- Implemented a toast feature to display top messages. Managed adding and removing multiple messages with `zustand`, allowing one component to manage them. Although not 100% stable, it provided a deeper understanding of data structures and React component operations.
-- Used Next.js server actions and `react-hook-form` together for the newsletter subscription form and implemented email sending.
-- Handled error and loading processing in the Next.js way.
+- While borrowing the design theme from Archon V1, I made slight changes to styling, such as the navigation bar, and focused on responsive design.
+- Implemented a toaster feature to display messages on the top. Managed adding and removing multiple messages with `zustand`, allowing one component to manage them. Although it may not be 100% stable, I was able to learn more data structures and React component operations.
+- Used Next.js server actions and `react-hook-form` together for the subscription form and implemented email sending with `nodemailer`.
+- Handled error and loading in the Next.js way.
 
 ## Demo
 
@@ -57,7 +58,7 @@ This is a personal project I undertook to practice Next.js. It is a renewal of t
 - **Type Checking**: zod
 - **Global State Management**: zustand
 - **Remote State Management**: tanstack/react-query
-- **Miscellaneous**: react-hook-form, nodemailer
+- **Etc**: react-hook-form, nodemailer
 
 ### Backend
 
@@ -75,13 +76,13 @@ This is a personal project I undertook to practice Next.js. It is a renewal of t
 - **Source Code**: GitHub
 - **Build Tool**: Vite
 - **Package Management**: pnpm
-- **Miscellaneous**: VSCode, Eslint, Prettier
+- **Etc**: VSCode, Eslint, Prettier
 
 ### Cloud Services & Deployment
 
 - **Image Hosting**: Cloudinary
-- **Backend Hosting & Deployment**: Oracle Cloud, Docker, Nginx (connected to a personal domain)
-- **Frontend Hosting & Deployment**: Vercel
+- **Backend Hosting & Deployment**: Oracle Cloud, Docker, Nginx (connected to a personal sub domain)
+- **Frontend Hosting & Deployment**: Oracle Cloud, Docker, Docker Hub, Nginx (connected to a personal sub domain)
 
 ## Componentization
 
@@ -120,14 +121,14 @@ This is a personal project I undertook to practice Next.js. It is a renewal of t
 
 ## Reflection
 
-- This project was a tough one due to the separation between server components and client components in Next.js. Despite breaking down components, separating them between server and client made naming difficult and made the overall structure feel less intuitive due to a deep tree structure. Questions like "What happens when a server component contains a client component and vice versa?" were constant.
-- Ultimately, I concluded that Next.js is better suited for projects with high complexity due to the need for SEO. It also highlighted the need for a solid understanding of React.
-- Encountered issues with APIs not working as expected, requiring further adjustments. Creating dummy content and debugging the admin site felt like an endless task, leading me to wrap up the project as is.
-- Without a separate mobile plan in Figma for the Archon project, it lacked a sense of scale. As a result, the text and margin sizes were inconsistent. The iterative process of building, checking on mobile, redesigning, and debugging was highly inefficient, reaffirming that design and planning must come first.
-- Generated dummy content using ChatGPT 4o and Gemini, which was extremely useful.
+- This project was tough due to the separation between server components and client components in Next.js. Even though I broke down the components, separating them between server and client made the overall structure feel less intuitive because of the deep tree structure. I kept constantly asking "What happens when a server component contains a client component and vice versa?"
+- Ultimately, I concluded that Next.js is better suited for projects that requires SEO due to its high complexity. It also made me realize that a solid understanding of React is essential.
+- I encountered issues with APIs not working as expected, which required further adjustments. Creating dummy content and debugging the admin site felt like an endless task, so I decided to wrap up the project as it was.
+- Without a separate mobile plan in Figma for the Archon project, I think I missed a sense of scale when implementing mobile design. As a result, the hierarchy of text and margin sizes might feel a bit misaligned. After the iterative process of building, checking on mobile, redesigning, and debugging, which was highly inefficient, my belief that design and planning must come first solidified.
+- Generated dummy content using ChatGPT 4o and Gemini was extremely useful.
 
 ## Next
 
-- Want to explore Next.js's image optimization features further.
-- Plan to implement skeleton UI for smoother loading.
-- Aim to incorporate more mobile or tablet-specific motions for interactions.
+- I want to explore Next.js's image optimization features further.
+- I plan to implement skeleton UI for smoother loading.
+- I aim to incorporate more mobile or tablet-specific motions for interactions.
