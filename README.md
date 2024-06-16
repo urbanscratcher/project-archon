@@ -1,5 +1,5 @@
 # Archon v2
-[Visit](https://archon.placidgull.com)
+[Visit the site](https://archon.placidgull.com)
 
 March 2024 ~ June 2024 (3.5 months)
 
